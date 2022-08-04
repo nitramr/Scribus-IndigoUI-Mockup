@@ -23,3 +23,6 @@ Next you have to compile a Qt designer plugin with custom IndigoUI Widgets.
 3. Set folder to: `Scribus-IndigoUI/build-debug/../bin`
 4. Click on Run button (Ctrl + R) and compile the project.
 
+### Preview
+
+![Bildschirmfoto vom 2022-08-04 19-59-02](https://user-images.githubusercontent.com/15112256/182931586-db6be82c-30d7-4a81-9f44-2fa1cba91d8b.png)

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.1-dev (1fceb22, 2019-12-30)"
+   sodipodi:docname="zoom-in-symbolic.svg"
+   viewBox="0 0 16 16"
+   height="16"
+   width="16"
+   id="svg1"
+   version="1.1"
+   >
+  <style
+     id="s2">     
+@import '../highlights.css';
+
+</style>
+  <g  	  
+      id="zoom-in"
+     inkscape:label="00168"
+     transform="translate(-349,-589.36218)"
+     >
+    <path
+       style="opacity:0;fill:none"
+       d="m 349,589.36218 h 16 v 16 h -16 z"
+       id="rect19710"
+       inkscape:connector-curvature="0" />
+    <path
+       style="opacity:1"
+       d="m 356.5,589.3622 c -4.1421,0 -7.5,3.3371 -7.5,7.4375 0,4.1004 3.3579,7.4063 7.5,7.4063 1.4733,0 2.8409,-0.4298 4,-1.1563 l 1.9687,1.9375 c 0.518,0.5116 1.3334,0.488 1.8438,-0.031 l 0.25,-0.25 c 0.5104,-0.5192 0.518,-1.3634 0,-1.875 l -1.9063,-1.8438 c 0.8393,-1.199 1.3438,-2.6183 1.3438,-4.1875 0,-4.1004 -3.3579,-7.4375 -7.5,-7.4375 z m 0,2 c 3.0376,0 5.5,2.4624 5.5,5.5 0,3.0376 -2.4624,5.5 -5.5,5.5 -3.0376,0 -5.5,-2.4624 -5.5,-5.5 0,-3.0376 2.4624,-5.5 5.5,-5.5 z"
+       id="path19714"
+       inkscape:connector-curvature="0" />
+    <path
+       class="warning"
+       style="opacity:1"
+       d="m 355,592.36218 h 3 v 9 h -3 z"
+       id="rect19716"
+       inkscape:connector-curvature="0" />
+    <path
+       class="warning"
+       style="opacity:1"
+       d="m 352,595.36218 h 9 v 3.00001 h -9 z"
+       id="rect19718"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
+

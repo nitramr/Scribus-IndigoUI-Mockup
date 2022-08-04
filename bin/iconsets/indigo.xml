@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf8"?>
+<!-- Color Palette
+
+// Lime Green
+On Light: #91a043; rgb(145, 160, 67); hsl(70, 41, 45)
+On Dark:  #bac680; rgb(186, 198, 128); hsl(70, 38, 64)
+
+// Green
+On Light: #43a047; rgb(67, 160, 71); hsl(123, 41, 45)
+On Dark:  #81c784; rgb(129, 199, 132); hsl(123, 38, 64)
+
+// Blue
+On Light: #1e88e5; rgb(30, 136, 229); hsl(208, 79, 51)
+On Dark:  #65b2f6; rgb(100, 181, 246); hsl(207, 89, 68)
+
+// Orange
+On Light: #fb8c00; rgb(251, 140, 0); hsl(33, 100, 49)
+On Dark:  #ffb74d; rgb(255, 183, 77); hsl(36, 100, 65)
+
+// Red
+On Light: #e53935; rgb(229, 57, 53); hsl(1, 77, 55)
+On Dark:  #ff5252; rgb(255, 82, 82); hsl(1, 100, 66)
+
+// Violet
+On Light: #9834e5; rgb(152, 52, 229); hsl(274, 77, 55)
+On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
+
+-->
+<iconset>
+	<author>Martin</author>
+	<license>Apache 2.0</license>
+	<path default="yes">indigo</path>
+	<activeversion>2.0.0</activeversion>
+	<nametext lang="en_US">Scribus 2.0.0</nametext>
+	<nametext lang="fr">Scribus 2.0.0</nametext>
+	<nametext lang="de_DE">Scribus 2.0.0</nametext>
+	<icons>		
+		<icon id="add" file="24/plus.svg" />
+		<icon id="align-bottom" file="24/align-vertical-bottom.svg" />
+		<icon id="align-bottom-anchor" file="24/close.svg" />
+		<icon id="align-center" file="24/align-horizontal-center.svg" />
+		<icon id="align-left" file="24/align-horizontal-left.svg" />
+		<icon id="align-left-anchor" file="24/close.svg" />
+		<icon id="align-middle" file="24/align-vertical-center.svg" />	
+		<icon id="align-right" file="24/align-horizontal-right.svg" />
+		<icon id="align-right-anchor" file="24/close.svg" />
+		<icon id="align-top" file="24/align-vertical-top.svg" />
+		<icon id="align-top-anchor" file="24/close.svg" />		
+		<icon id="character-offset-baseline" file="24/character-offset-baseline.svg" />		
+		<icon id="character-scale-height" file="24/character-scale-height.svg" />
+		<icon id="character-scale-width" file="24/character-scale-width.svg" />
+		<icon id="character-scale-space" file="24/character-scale-space.svg" />
+		<icon id="character-tracking" file="24/character-letter-spacing.svg" />	
+		<icon id="chevron-down" file="24/chevron-down.svg" />
+		<icon id="chevron-up" file="24/chevron-up.svg" />
+		<icon id="chevron-left" file="24/chevron-left.svg" />
+		<icon id="chevron-right" file="24/chevron-right.svg" />
+		<icon id="close" file="24/close.svg" />		
+		<icon id="color-map-mode" file="24/palette.svg" />
+		<icon onLight="#D6922B" onDark="#FFC266" id="color-alert" file="24/alert.svg" />
+		<icon id="color-cmyk" file="16/color-cmyk.svg" />
+		<icon id="color-lab" file="16/color-lab.svg" />
+		<icon id="color-register" file="16/color-registration.svg" />
+		<icon id="color-rgb" file="16/color-rgb.svg" />
+		<icon id="color-spot" file="16/color-spot.svg" />
+		<icon id="colorblind-blue" file="24/eye-blue.svg" />
+		<icon id="colorblind-full" file="24/eye-off.svg" />
+		<icon id="colorblind-green" file="24/eye-green.svg" />
+		<icon id="colorblind-red" file="24/eye-red.svg" />
+		<icon id="colorblind-normal" file="24/eye.svg" />
+		<icon id="colorpicker-solid" file="24/solid-square.svg" />
+		<icon id="colorpicker-gradient" file="24/gradient-horizontal.svg" />
+		<icon id="copy" file="24/content-copy.svg" />
+		<icon id="delete" file="24/delete.svg" />
+		<icon id="distribute-bottom" file="24/distribute-vertical-bottom.svg" />
+		<icon id="distribute-center" file="24/distribute-horizontal-center.svg" />		
+		<icon id="distribute-item-horizontal" file="24/align-horizontal-distribute.svg" />
+		<icon id="distribute-item-horizontal-custom" file="24/close.svg" />
+		<icon id="distribute-item-vertical" file="24/align-vertical-distribute.svg" />
+		<icon id="distribute-item-vertical-custom" file="24/close.svg" />
+		<icon id="distribute-left" file="24/distribute-horizontal-left.svg" />
+		<icon id="distribute-margin-horizontal" file="24/distribute-margin-horizontal.svg" />
+		<icon id="distribute-margin-vertical" file="24/distribute-margin-vertical.svg" />
+		<icon id="distribute-middle" file="24/distribute-vertical-center.svg" />
+		<icon id="distribute-page-horizontal" file="24/distribute-page-horizontal.svg" />
+		<icon id="distribute-page-vertical" file="24/distribute-page-vertical.svg" />
+		<icon id="distribute-right" file="24/distribute-horizontal-right.svg" />		
+		<icon id="distribute-swap-left" file="24/rewind.svg" />
+		<icon id="distribute-swap-right" file="24/fast-forward.svg" />
+		<icon id="distribute-top" file="24/distribute-vertical-top.svg" />
+		<icon id="dock-float" file="24/window-restore.svg" />
+		<icon id="document-landscape" file="24/crop-landscape.svg" />
+		<icon id="document-portrait" file="24/crop-portrait.svg" />
+		<icon id="document-template-single" file="32/page-simple.svg" />
+		<icon id="document-template-facing" file="32/page-double.svg" />
+		<icon id="document-template-threefold" file="32/page-3fold.svg" />
+		<icon id="document-template-fourfold" file="32/page-4fold.svg" />				
+		<icon id="eyedropper" file="tools/eyedropper.svg" />
+		<icon id="file-document" file="24/file-outline.svg" />
+		<icon id="flip-horizontal" file="24/flip-horizontal.svg" />
+		<icon id="flip-vertical" file="24/flip-vertical.svg" />
+		<icon id="flow-bounding" file="flow-bounding.png" />
+		<icon id="flow-contour" file="flow-contour.png" />		
+		<icon id="flow-none" file="flow-none.png" />
+		<icon id="flow-path" file="flow-contour.png" />
+		<icon id="flow-shape" file="flow-frame.png" />
+		<icon id="harmony-analogous" file="24/harmony-analogous.svg" />
+		<icon id="harmony-complementary" file="24/harmony-complementary.svg" />
+		<icon id="harmony-monochromatic" file="24/harmony-monochromatic.svg" />
+		<icon id="harmony-split-complementary" file="24/harmony-split-complementary.svg" />
+		<icon id="harmony-square" file="24/harmony-square.svg" />
+		<icon id="harmony-tetradic" file="24/harmony-tetradic.svg" />
+		<icon id="harmony-triadic" file="24/harmony-triadic.svg" />
+		<icon id="import" file="24/download.svg" />
+		<icon id="layer-bottom" file="24/format-vertical-align-bottom.svg" />
+		<icon id="layer-down" file="24/arrow-down-thin.svg" />
+		<icon id="layer-lock" file="24/lock.svg" />
+		<icon id="layer-outline" file="24/shape-outline.svg" />
+		<icon id="layer-print" file="24/printer.svg" />
+		<icon id="layer-selection" file="tools/cursor-default.svg" />
+		<icon id="layer-top" file="24/format-vertical-align-top.svg" />		
+		<icon id="layer-up" file="24/arrow-up-thin.svg" />		
+		<icon id="layer-visible" file="24/eye.svg" />
+		<icon id="layer-wrap" file="24/format-wrap-tight.svg" />	
+		<icon id="load" file="24/folder-open.svg" />
+		<icon id="link" file="24/link-variant.svg" />
+		<icon id="link-off" file="24/link-variant-off.svg" />
+		<icon id="lock" file="24/lock.svg" />
+		<icon id="lock-open" file="24/lock-open.svg" />
+		<icon id="menu-down" file="24/menu-down.svg" />
+		<icon id="page-add" file="24/file-outline.svg" />
+		<icon id="page-delete-close" file="24/delete.svg" />
+		<icon id="page-delete-open" file="24/delete-empty.svg" />
+		<icon id="page-drag" file="24/file.svg" />
+		<icon id="page-duplicate" file="24/content-copy.svg" />
+		<icon id="page-import" file="24/folder-open.svg" />		
+		<icon id="page-move" file="24/file-move-outline.svg" />		
+		<icon id="page-type-single" file="24/page-type-single.svg" />	
+		<icon id="page-type-facing" file="24/page-type-facing.svg" />	
+		<icon id="page-type-threefold" file="24/page-type-threefold.svg" />	
+		<icon id="page-type-fourfold" file="24/page-type-fourfold.svg" />		
+		<icon id="paragraph-margin-both" file="24/paragraph-optical-margin-both.svg" />
+		<icon id="paragraph-margin-left" file="24/paragraph-optical-margin-left.svg" />
+		<icon id="paragraph-margin-none" file="24/paragraph-optical-margin-none.svg" />
+		<icon id="paragraph-margin-reset" file="24/restore.svg" />
+		<icon id="paragraph-margin-right" file="24/paragraph-optical-margin-right.svg" />		
+		<icon id="paragraph-offset-baseline" file="24/paragraph-offset-baseline.svg" />
+		<icon id="paragraph-offset-fontascent" file="24/paragraph-offset-font.svg" />
+		<icon id="paragraph-offset-linespace" file="24/paragraph-offset-linespace.svg" />
+		<icon id="paragraph-offset-maxascent" file="24/paragraph-offset-max.svg" />		
+		<icon id="paragraph-space-above" file="24/paragraph-space-above.svg" />
+		<icon id="paragraph-space-below" file="24/paragraph-space-below.svg" />
+		<icon id="remove" file="24/minus.svg" />
+		<icon id="remove-unused" file="24/eye-remove.svg" />
+		<icon id="save" file="24/content-save.svg" />
+		<icon id="setting" file="24/tune.svg" />
+		<icon id="setting-edit" file="24/cog.svg" />
+		<icon id="space-bottom" file="24/border-bottom-variant.svg" />
+		<icon id="space-inside" file="24/border-inline.svg" />
+		<!--<icon id="space-inside" file="24/test.svg" />-->
+		<icon id="space-left" file="24/border-left-variant.svg" />
+		<icon id="space-right" file="24/border-right-variant.svg" />
+		<icon id="space-outside" file="24/border-outline.svg" />
+		<icon id="space-top" file="24/border-top-variant.svg" />
+		<icon id="stroke-cap-flat" file="16/stroke-cap-butt.svg" />
+		<icon id="stroke-cap-round" file="16/stroke-cap-round.svg" />
+		<icon id="stroke-cap-square" file="16/stroke-cap-square.svg" />
+		<icon id="stroke-join-bevel" file="16/stroke-join-bevel.svg" />
+		<icon id="stroke-join-miter" file="16/stroke-join-miter.svg" />
+		<icon id="stroke-join-round" file="16/stroke-join-round.svg" />
+		<icon id="text-align-bottom" file="24/format-vertical-align-bottom.svg" />
+		<icon id="text-align-center" file="24/format-align-center.svg" />
+		<icon id="text-align-forcedjustified" file="24/format-align-justify-forced.svg" />
+		<icon id="text-align-justified" file="24/format-align-justify.svg" />
+		<icon id="text-align-left" file="24/format-align-left.svg" />
+		<icon id="text-align-middle" file="24/format-vertical-align-center.svg" />
+		<icon id="text-align-right" file="24/format-align-right.svg" />
+		<icon id="text-align-top" file="24/format-vertical-align-top.svg" />
+		<icon id="text-direction-ltr" file="24/format-textdirection-l-to-r.svg" />
+		<icon id="text-direction-rtl" file="24/format-textdirection-r-to-l.svg" />
+		<icon id="text-format-outline" file="24/format-text-variant-outline.svg" />
+		<icon id="text-format-subscript" file="24/format-subscript.svg" />
+		<icon id="text-format-superscript" file="24/format-superscript.svg" />
+		<icon id="text-format-strikeout" file="24/format-strikethrough.svg" />
+		<icon id="text-format-underline" file="24/format-underline.svg" />
+		
+		
+		<!-- Tools -->		
+		<icon id="tool-selection" file="tools/cursor-default.svg" />
+		<icon id="tool-edit" file="tools/cursor-default-outline.svg" />		
+		<!-- blue -->
+		<icon onLight="#3DA6CC" onDark="#5CC1E5" id="tool-text-frame" file="tools/format-textbox.svg" />
+		<icon onLight="#3DA6CC" onDark="#5CC1E5" id="tool-image" file="tools/image.svg" />
+		<icon onLight="#3DA6CC" onDark="#5CC1E5" id="tool-render-frame" file="tools/drawing-box.svg" />		
+		<icon onLight="#3DA6CC" onDark="#5CC1E5" id="tool-table" file="tools/table.svg" />
+		<!-- green -->
+		<icon onLight="#68B259" onDark="#88CC7A" id="tool-rectangle"  file="tools/rectangle.svg" />
+		<icon onLight="#68B259" onDark="#88CC7A" id="tool-star" file="tools/star.svg" />
+		<icon onLight="#68B259" onDark="#88CC7A" id="tool-bezier" file="tools/fountain-pen-tip.svg" />
+		<icon onLight="#68B259" onDark="#88CC7A" id="tool-pencil" file="tools/lead-pencil.svg" />
+		<icon onLight="#68B259" onDark="#88CC7A" id="tool-calligraphy" file="tools/brush.svg" />
+		<!-- orange -->
+		<icon onLight="#D6922B" onDark="#FFC266" id="tool-eyedropper" file="tools/eyedropper.svg" />
+		<icon onLight="#D6922B" onDark="#FFC266" id="tool-gradient" file="tools/gradient-vertical.svg" />
+		<icon onLight="#D6922B" onDark="#FFC266" id="tool-measure" file="tools/ruler.svg" />		
+		<icon onLight="#D6922B" onDark="#FFC266" id="tool-property-copy" file="tools/format-paint.svg" />
+		<icon onLight="#D6922B" onDark="#FFC266" id="tool-text-link" file="tools/link-box.svg" />
+		<icon onLight="#D6922B" onDark="#FFC266" id="tool-text-unlink" file="tools/link-box-outline.svg" />
+		<icon onLight="#D6922B" onDark="#FFC266" id="tool-zoom" file="tools/magnify.svg" />		
+		<!-- red -->
+		<icon onLight="#E54545" onDark="#FF6666" id="tool-barcode" file="tools/barcode.svg" />
+		
+		<!-- Cursors -->
+		<icon id="cursor-point-add" file="cursors/AddPoint.png" />
+		<icon id="cursor-point-delete" file="cursors/DelPoint.png" />
+		
+		<!-- Test -->
+		<icon id="test" file="test/test.svg" />
+		<icon id="testPNG" file="test/cmyk.png" />
+		<icon id="testFill" file="test/icon.svg" />
+		<icon onLight="#E54545" onDark="#FF6666" id="test1" file="tools/image.svg" /><!-- red -->
+		<icon onLight="#68B259" onDark="#88CC7A" id="test2" file="tools/image.svg" /><!-- green -->
+		<icon onLight="#3DA6CC" onDark="#5CC1E5" id="test3" file="tools/image.svg" /><!-- blue -->
+		<icon onLight="#D6922B" onDark="#FFC266" id="test4" file="tools/image.svg" /><!-- orange -->
+		<icon onLight="#6677CC" onDark="#8A99E5" id="test5" file="tools/image.svg" /><!-- indigo -->
+		<icon onLight="#CC66AA" onDark="#E58AC7" id="test6" file="tools/image.svg" /><!-- pink -->
+	</icons>
+</iconset>

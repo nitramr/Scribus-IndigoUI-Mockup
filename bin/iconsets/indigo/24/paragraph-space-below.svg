@@ -1,0 +1,5 @@
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<style>@import '../highlights.css';</style>
+<path d="M7 10H5V14H3L6 17L9 14H7V10Z" class="error"/>
+<path d="M13 15V10C11.9391 10 10.9217 9.57857 10.1716 8.82843C9.42143 8.07828 9 7.06087 9 6C9 4.93913 9.42143 3.92172 10.1716 3.17157C10.9217 2.42143 11.9391 2 13 2H21V4H19V15H17V4H15V15H13ZM21 19H3V21H21V19Z" />
+</svg>

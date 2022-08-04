@@ -1,0 +1,5 @@
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<style>@import '../highlights.css';</style>
+<path fill-rule="evenodd" d="M21 3H3V21H21V3ZM19 5H5V19H19V5Z" class="info"/>
+<path d="M9 7H7V9H9V7ZM13 7H11V9H13V7ZM15 7H17V9H15V7ZM17 11H15V13H17V11ZM15 15H17V17H15V15ZM13 15H11V17H13V15ZM7 11H9V13H7V11ZM9 15H7V17H9V15Z" />
+</svg>

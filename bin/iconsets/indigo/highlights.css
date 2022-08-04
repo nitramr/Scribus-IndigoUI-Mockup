@@ -1,0 +1,45 @@
+/*
+* Change only colors, do not add more class, order or remove 
+* also dont change selectors definition
+*/
+
+/* Green */
+.success {
+    fill: #68B259;
+}
+
+/* Orange */
+.warning {
+    fill: #D6922B;
+}
+
+/* Red */
+.error {
+    fill: #E54545;
+}
+
+/* Blue */
+.info {
+    fill: #3DA6CC;
+}
+
+/* Green */
+.onDark .success {
+    fill: #88CC7A;
+}
+
+/* Orange */
+.onDark .warning {
+    fill: #FFC266;
+}
+
+/* Red */
+.onDark .error {
+    fill: #FF6666;
+}
+
+/* Blue */
+.onDark .info {
+    fill: #5CC1E5;
+}
+

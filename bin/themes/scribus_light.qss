@@ -1,0 +1,261 @@
+/*
+Theme 
+	dark
+	light
+
+ColorGroups
+	all (for all states)
+	normal (only for normal state)
+	active (only for active state)
+	inactive (only for inactive state)
+	disabled (only for disabled state)
+
+ColorRoles
+	alternate-base 		= QPalette::AlternateBase;
+	background 		= QPalette::Window;
+	base 			= QPalette::Base;
+	bright-text 		= QPalette::BrightText;
+	button 			= QPalette::Button;
+	button-text 		= QPalette::ButtonText;
+	dark 			= QPalette::Dark;
+	foreground 		= QPalette::WindowText;
+	highlight 		= QPalette::Highlight;
+	highlighted-text 	= QPalette::HighlightedText;
+	light			= QPalette::Light;
+	link 			= QPalette::Link;
+	link-visited 		= QPalette::LinkVisited;
+	mid 			= QPalette::Mid;
+	midlight 		= QPalette::Midlight;
+	shadow 			= QPalette::Shadow;
+	text 			= QPalette::Text;
+	tooltip-base 		= QPalette::ToolTipBase;
+	tooltip-text 		= QPalette::ToolTipText;
+	window 			= QPalette::Window;
+	window-text 		= QPalette::WindowText;
+
+ColorFormat
+	rgb(255,255,255);
+	rgba(255,255,255,100);
+	hsv(360,100,100);
+	hsva(360,100,100,100);
+	hsl(360,100,100);
+	hsla(360,100,100,100);
+	#fffff;
+	#fff;
+
+*/
+
+Palette::light {
+	[all]      alternate-base:	hsl(0,0,96);
+	[all]      base:		hsl(0,0,100);
+	[disabled] base:		hsl(0,0,93);
+	[all]      bright-text:		hsl(0,0,100);
+	[all]      button-text:		hsl(0,0,0);
+	[disabled] button-text:		hsl(0,0,74);
+	[all]      highlight:		hsl(203,60,48);
+	[disabled] highlight:		hsl(0,0,56);
+	[all]      highlighted-text:	hsl(0,0,100);
+	[all]      link:		hsl(240,100,50);
+	[all]      link-visited:	hsl(300,100,50);
+	[all]      text:		hsl(0,0,0);
+	[disabled] text:		hsl(0,0,74);
+	[all]      tooltip-base:	hsl(60,100,93);
+	[all]      tooltip-text:	hsl(0,0,0);
+	[all]      window:		hsl(0,0,93);
+	[all]      window-text:		hsl(0,0,0);
+	[disabled] window-text:		hsl(0,0,74);
+	[all]      light:		hsl(0,0,100);
+	[all]      midlight:		hsl(0,0,79);
+	[all]      button:		hsl(0,0,93);
+	[all]      mid:			hsl(0,0,72);
+	[all]      dark:		hsl(0,0,62);
+	[all]      shadow:		hsl(0,0,46);
+	[disabled] shadow:		hsl(0,0,69);
+}
+
+/* Regular QSS definitions */
+
+/*
+ * Default style sheet on Linux Platforms
+ *
+ * QSS: https://doc.qt.io/qt-6/stylesheet-reference.html
+ * Color palette: https://doc.qt.io/qt-5/qpalette.html#ColorRole-enum
+ */
+ 
+ /*
+  * Dock Container
+  */
+ads--CDockContainerWidget {
+	background: palette(base);
+}
+ads--CDockContainerWidget > QSplitter{
+        padding: 1 0 1 0;
+}
+
+ads--CDockContainerWidget ads--CDockSplitter::handle {
+	background: palette(base);
+	height: 2px;
+}
+
+/*
+ * Dock Area
+ */
+
+ads--CDockAreaWidget {
+	background: palette(midlight);
+	border: none;
+	/*border: 1px solid white;*/
+}
+
+ads--CDockAreaWidget #tabsMenuButton::menu-indicator {
+	image: none;
+}
+
+/*
+ * Dock Area Title bar
+ */
+
+ads--CDockAreaTitleBar
+{
+	background: palette(base);
+	min-height: 24px;
+	border-bottom: 1px solid palette(mid);
+}
+
+ads--CDockAreaTabBar #tabsContainerWidget
+{
+	background: palette(base);
+}
+
+/*
+ * Tab
+ */
+ads--CDockWidgetTab {
+	background: palette(window);
+	/*border-color: palette(light);
+	border-style: solid;
+	border-width: 0 1px 0 0;*/
+	padding: 0px;
+	border:none;
+}
+
+ads--CDockWidgetTab[activeTab="false"]
+{
+	background: palette(base);
+	border-right: 1px solid palette(window);
+	border-bottom: 1px solid palette(mid);
+}
+
+ads--CDockWidgetTab[activeTab="true"] {
+	background: palette(window);
+}
+
+ads--CDockWidgetTab QLabel {
+	color: palette(dark);
+}
+
+ads--CDockWidgetTab[activeTab="true"] QLabel {
+	color: palette(foreground);
+}
+
+ads--CDockWidgetTab[activeTab="false"] QLabel {
+	color: palette(foreground)
+}
+
+
+/*
+ * Dock Widget
+ */
+
+ads--CDockWidget {
+	background: palette(light);
+	border: none;	
+	/*border-color: palette(light);
+	border-style: solid;
+	border-width: 1px 0 0 0;*/
+}
+
+ads--CTitleBarButton {
+	padding: 0px 0px;
+}
+
+QScrollArea#dockWidgetScrollArea {
+	padding: 0px;
+	border: none;
+}
+
+/*
+ * Buttons
+ */
+
+#tabCloseButton {
+
+	margin-top: 2px;
+	padding:0px;
+	background: none;
+	border: none;
+	border-radius: 2px;
+/*	qproperty-icon: url(:/ads/images/close-button.svg),
+		url(:/ads/images/close-button-disabled.svg) disabled;*/
+	qproperty-iconSize: 16px;
+	width: 16px;
+	height: 16px;
+}
+
+#tabCloseButton:hover {
+	border: 1px solid rgba(0, 0, 0, 32);
+	background: rgba(0, 0, 0, 16);
+}
+
+#tabCloseButton:pressed {
+	background: rgba(0, 0, 0, 32);
+}
+
+#tabsMenuButton {
+        /*qproperty-icon: url(:/ads/images/tabs-menu-button.svg);
+        qproperty-iconSize: 16px;*/
+}
+
+#dockAreaCloseButton {
+	/*qproperty-icon: url(:/ads/images/close-button.svg),
+		url(:/ads/images/close-button-disabled.svg) disabled;*/
+	qproperty-iconSize: 16px;
+}
+
+#detachGroupButton {
+	/*qproperty-icon: url(:/ads/images/detach-button.svg),
+		url(:/ads/images/detach-button-disabled.svg) disabled;*/
+	qproperty-iconSize: 16px;	
+}
+
+/*
+ * Floating Widget
+ */
+
+ads--CFloatingWidgetTitleBar {
+    background: palette(midlight);
+    /*qproperty-maximizeIcon: url(:/ads/images/maximize-button.svg);
+    qproperty-normalIcon: url(:/ads/images/restore-button.svg);*/
+}
+
+
+#floatingTitleCloseButton, #floatingTitleMaximizeButton {
+   qproperty-iconSize: 16px;
+   border: none;
+   margin: 3px;
+}
+
+
+#floatingTitleCloseButton {
+   /*qproperty-icon: url(:/ads/images/close-button.svg);*/
+   qproperty-iconSize: 16px;
+}
+
+#floatingTitleCloseButton:hover {
+    background: rgba(0, 0, 0, 24);
+    border: none;
+}
+
+#floatingTitleCloseButton:pressed {
+    background: rgba(0, 0, 0, 48);
+}

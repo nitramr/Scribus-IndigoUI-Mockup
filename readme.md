@@ -1,6 +1,9 @@
-## IndigoUI
+# IndigoUI
 ## What is IndigoUI?
-IndigoUI is an experimental UI framework for Scribus. The primary focus is to adapt the Scribus user interface and experience to the needs of modern desktop publishing software. 
+IndigoUI is an experimental UI framework for Scribus. The primary focus is to adapt the Scribus user interface and experience to the needs of modern desktop publishing software.
+
+## Project
+This project does not claim to be full software. It is a test balloon of the user interface that can be tested for both usability and technical runnability.
 
 ## Installation & Compilation
 

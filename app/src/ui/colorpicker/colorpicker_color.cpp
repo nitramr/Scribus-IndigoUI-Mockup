@@ -3,7 +3,7 @@
 #include "ui_colorpicker_color.h"
 
 #include "iconmanager.h"
-
+#include "helper.h"
 #include <QAction>
 #include <QMenu>
 #include <QMouseEvent>
@@ -540,7 +540,8 @@ void ColorPickerColor::updateColorButton(ColorButton *button, ScColor color)
     defectColor.setAlphaF(col.alphaF());
 
     // Button Dot
-    QBrush foreground(defectColor);
+    int smallSide = button->foregroundDotSize().width();
+    QBrush foreground( Helper::renderSplitColor(QSize(smallSide, smallSide), defectColor) );
     button->setForeground(foreground);
 }
 

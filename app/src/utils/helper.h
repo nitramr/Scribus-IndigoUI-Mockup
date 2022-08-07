@@ -23,6 +23,7 @@ public:
     // Graphic
     static void renderPattern(QPainter *painter, QRectF rect);
     static void renderColorHandle(QPainter * painter, QPointF center, qreal radius, QBrush background);
+    static QPixmap renderSplitColor(QSize size, QColor color);
     static void paintIcon(const QPixmap &toPaint, QPixmap &target, int x = 0, int y = 0);
 
 

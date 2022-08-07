@@ -16,8 +16,11 @@ public:
     bool hasDot();
     ScColor color();
     VGradient gradient();
+    QSize backgroundDotSize();
+    QSize foregroundDotSize();
 
     void setContextWidget(QWidget *widget);
+
 
 public slots:
     void setBackground(QBrush background);
@@ -35,6 +38,8 @@ private:
     bool m_hasDot {false};
     ScColor m_color;
     VGradient m_gradient;
+
+
 };
 
 #endif // COLORBUTTON_H

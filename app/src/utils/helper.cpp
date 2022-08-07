@@ -113,6 +113,25 @@ void Helper::renderColorHandle(QPainter *painter, QPointF center, qreal radius, 
     painter->restore();
 }
 
+QPixmap Helper::renderSplitColor(QSize size, QColor color)
+{
+    QPixmap pixmap(size.width(), size.height());
+    pixmap.fill(Qt::transparent);
+
+    QColor col = color;
+    col.setAlphaF(1);
+
+    QPainter p(&pixmap);
+    p.setBrush(QBrush(col));
+    p.setPen(Qt::NoPen);
+    p.drawRect(QRect(0,0, pixmap.width()/2, pixmap.height()));
+    p.setBrush(QBrush(color));
+    p.drawRect(QRect(pixmap.width()/2,0, pixmap.width()/2, pixmap.height()));
+
+    return pixmap;
+}
+
+
 void Helper::paintIcon(const QPixmap &toPaint, QPixmap &target, int x, int y)
 {
     QPainter p;

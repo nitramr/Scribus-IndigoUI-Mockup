@@ -153,32 +153,32 @@ void ColorButton::paintEvent(QPaintEvent *e)
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing, true);
 
-    qreal bSize = backgroundDotSize().width();
-    qreal fSize = foregroundDotSize().width();
+    QSize bSize = backgroundDotSize();
+    QSize fSize = foregroundDotSize();
     QPainterPath mask;
 
     int m_inset = 1;
 
     // Draw Background Dot
-    QRectF bDot(rect().center().x() - fSize + m_inset , rect().center().y() - fSize + m_inset, bSize - m_inset, bSize - m_inset);
+    QRectF bDot(rect().center().x() - fSize.width() + m_inset , rect().center().y() - fSize.height() + m_inset, bSize.width() - m_inset, bSize.height() - m_inset);
     mask.addEllipse(bDot.adjusted(m_inset,m_inset,-m_inset,-m_inset));
     painter.setClipPath(mask);
     Helper::renderPattern(&painter, mask.boundingRect());
     painter.setClipping(false);
 
 
-    Helper::renderColorHandle(&painter, bDot.center(), fSize - m_inset, m_background);
+    Helper::renderColorHandle(&painter, bDot.center(), fSize.width() - m_inset, m_background);
 
     // Draw Foreground Dot
     if(m_hasDot){
         mask.clear();
-        QRectF fDot(rect().center().x(), rect().center().y(), fSize, fSize);
+        QRectF fDot(rect().center().x(), rect().center().y(), fSize.width(), fSize.height());
         mask.addEllipse(fDot.adjusted(m_inset,m_inset,-m_inset,-m_inset));
         painter.setClipPath(mask);
         Helper::renderPattern(&painter, mask.boundingRect());
         painter.setClipping(false);
 
-        Helper::renderColorHandle(&painter, fDot.center() + QPointF(-0.5,-0.5), bSize / 3.5 - m_inset, m_foreground);
+        Helper::renderColorHandle(&painter, fDot.center() + QPointF(-0.5,-0.5), bSize.width() / 3.5 - m_inset, m_foreground);
     }
 
     painter.end();

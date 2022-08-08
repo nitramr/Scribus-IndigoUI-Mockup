@@ -33,3 +33,12 @@ Next you have to compile a Qt designer plugin with custom IndigoUI Widgets.
 ### Preview
 
 ![Bildschirmfoto vom 2022-08-04 19-59-02](https://user-images.githubusercontent.com/15112256/182931586-db6be82c-30d7-4a81-9f44-2fa1cba91d8b.png)
+
+## Features
+1. UI theme support for dark and light themes
+2. Dynamic icon sets (support of SVG files with inline and CSS included styles; automatic color adjustment based on ui theme)
+3. Functional color picker and gradient editor
+4. Custom layout widgets available as Qt Designer plugins
+5. Custom widgets:
+  * new base point widget support rotation of selected item
+  * new arrange pages widget support page previews and page orientation

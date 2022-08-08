@@ -481,7 +481,8 @@ void PageGrid::drawTile(QPainter &painter, QRect cellRect, PageCell *tile, bool 
     painter.setFont(font);
 
     // Draw Page Number
-    painter.setPen(QPen(palette().windowText().color()));
+    //painter.setPen(QPen(palette().windowText().color()));
+    painter.setPen(QPen( Qt::white ));
     painter.drawText(cellRect, Qt::AlignHCenter|Qt::AlignBottom | Qt::TextWordWrap, QString::number(tile->pageNumber + 1));
 
     // Draw Page Name

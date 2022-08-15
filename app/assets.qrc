@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/images">
-        <file alias="splashscreen">src/assets/scribus_splash.png</file>
+        <file alias="splashscreen_light">src/assets/scribus_splash_light.png</file>
+        <file alias="splashscreen_dark">src/assets/scribus_splash_dark.png</file>
     </qresource>
 </RCC>

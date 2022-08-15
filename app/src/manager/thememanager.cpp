@@ -13,6 +13,7 @@
 #include <QApplication>
 #include <QPalette>
 #include "configurationmanager.h"
+#include <QStyleFactory>
 
 
 ThemeManager* ThemeManager::m_instance = nullptr;
@@ -92,6 +93,7 @@ void ThemeManager::setup()
 
     qApp->setPalette(ThemeManager::instance().palette());
     qApp->setStyleSheet(ThemeManager::instance().styleSheet());
+
 }
 
 

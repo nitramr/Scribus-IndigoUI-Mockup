@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Manager Setup
     actionManager.setup(this);
-    themeManager.setup();    
+   // themeManager.setup(); // <-- setup is execute on SplashScreen, if you remove it there, enable it here!
     iconManager.setIconsForDarkMode(themeManager.isDark());
     iconManager.setup();
 

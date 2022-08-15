@@ -7,8 +7,7 @@
 
 #include "configurationmanager.h"
 #include "helper.h"
-#include "thememanager.h"
-#include <QSplashScreen>
+#include "splashscreen.h"
 #include <QTimer>
 
 int main(int argc, char *argv[])
@@ -34,16 +33,12 @@ int main(int argc, char *argv[])
     // Fusion looks better in general, but feel free to change
     //    qApp->setStyle(QStyleFactory::create(QStringLiteral("Fusion")));
 
-    ThemeManager &themeManager = ThemeManager::instance();
-    themeManager.setup();
-    QString splashImage = (themeManager.isDark()) ? ":/images/splashscreen_dark" : ":/images/splashscreen_light";
 
-
-    qDebug() << themeManager.isDark();
-
-    QSplashScreen splash(QPixmap(splashImage), Qt::WindowStaysOnTopHint);
+    SplashScreen splash;
     splash.show();
-    splash.showMessage("Loading...", Qt::AlignBottom | Qt::AlignLeft, Qt::white);
+    splash.setMessageRect( QRect(15, 97, 460-16, 320-16), Qt::AlignBottom | Qt::AlignRight );
+    splash.showStatusMessage( "Loading...", QColor(207, 215,222), QColor(53, 79, 105) );
+
     QTimer::singleShot(3000, &splash, &QWidget::close); // keep displayed for 5 seconds
 
 

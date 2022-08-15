@@ -133,6 +133,7 @@ SOURCES += \
     src/ui/panels/panel_outliner.cpp \
     src/ui/panels/panel_pages.cpp \
     src/ui/panels/panel_test.cpp \
+    src/ui/splashscreen.cpp \
     src/ui/widgets/advancedspinbox.cpp \
     src/ui/widgets/anglepicker.cpp \
     src/ui/widgets/basepointwidget.cpp \
@@ -252,6 +253,7 @@ HEADERS += \
     src/ui/panels/panel_outliner.h \
     src/ui/panels/panel_pages.h \
     src/ui/panels/panel_test.h \
+    src/ui/splashscreen.h \
     src/ui/widgets/advancedspinbox.h \
     src/ui/widgets/anglepicker.h \
     src/ui/widgets/basepointwidget.h \

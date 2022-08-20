@@ -7,7 +7,7 @@
 #include "util_color.h"
 
 
-const int RADIUS = 6;
+const int RADIUS = 7;
 
 /* ********************************************************************************* *
  *
@@ -21,8 +21,8 @@ GradientEdit::GradientEdit(QWidget *parent)
 
 
 
-    setMinimumSize(QSize(200, 40));
-    setMaximumSize(QSize(3000, 40));
+    setMinimumSize(QSize(200, 36));
+    setMaximumSize(QSize(3000, 36));
     setMouseTracking(true);
     setFocusPolicy(Qt::ClickFocus);
 
@@ -204,59 +204,69 @@ void GradientEdit::paintEvent(QPaintEvent *e)
 
     // Gradient
     QLinearGradient gradient = fill_gradient.toQLinearGradient();
-    gradient.setStart(canvasRect().left(), 0);
-    gradient.setFinalStop(canvasRect().right(), 0);
+    gradient.setStart(gradientRect().left(), 0);
+    gradient.setFinalStop(gradientRect().right(), 0);
 
     // TODO: replace with ScPainter
     QPainter painter;
     painter.begin(this);
 
     // Draw Background
-    Helper::renderPattern(&painter, canvasRect());
+    Helper::renderPattern(&painter, gradientRect());
 
     // Draw Gradient
-    painter.setPen(Qt::NoPen);
+    painter.setPen(palette().color(QPalette::Mid));
     painter.setBrush(gradient);
-    painter.drawRect(canvasRect());
+    painter.drawRect(gradientRect());
 
 
     if (isEditable())
     {
         painter.setRenderHint(QPainter::Antialiasing, true);
 
-        qreal yCenter =  canvasRect().center().y() + 0.5;
+        //qreal yCenter =  canvasRect().center().y() + 0.5;
+        qreal yCenter = 12 + 0.5;
 
         // Draw line
-        if(fill_gradient.stops() >= 2){
-            int start = qRound(cstops.first()->rampPoint * canvasRect().width() ) + RADIUS;
-            int end = qRound(cstops.last()->rampPoint * canvasRect().width() ) + RADIUS;
+//        if(fill_gradient.stops() >= 2){
+//            qreal start = cstops.first()->rampPoint * canvasRect().width()  + RADIUS;
+//            qreal end = cstops.last()->rampPoint * canvasRect().width()  + RADIUS;
 
-            QPen pen;
+//            QPen pen;
 
-            pen.setColor(Qt::white);
-            pen.setWidth(3);
-            painter.setPen(pen);
-            painter.drawLine(QPointF(start, yCenter), QPointF(end, yCenter) );
+//            pen.setColor(Qt::white);
+//            pen.setWidth(3);
+//            painter.setPen(pen);
+//            painter.drawLine(QPointF(start, yCenter), QPointF(end, yCenter) );
 
-            pen.setColor(Qt::black);
-            pen.setWidth(1);
-            painter.setPen(pen);
-            painter.drawLine(QPointF(start, yCenter), QPointF(end, yCenter) );
-        }
+//            pen.setColor(Qt::black);
+//            pen.setWidth(1);
+//            painter.setPen(pen);
+//            painter.drawLine(QPointF(start, yCenter), QPointF(end, yCenter) );
+//        }
 
 
         // Draw Stops
         for (int i = 0; i < fill_gradient.stops(); ++i)
         {
-            int hCenter = qRound(cstops.at(i)->rampPoint * canvasRect().width() ) + RADIUS;
+            int hCenter = cstops.at(i)->rampPoint * canvasRect().width() + RADIUS;
 
             // Draw Marker
             if (m_tmpStop == i){
-                Helper::renderColorHandle(&painter, QPointF(hCenter, yCenter), RADIUS, QBrush(cstops.at(i)->color.toQColor()) );
-            }
-            else{
-                Helper::renderColorHandle(&painter, QPointF(hCenter, yCenter), RADIUS -2, QBrush(cstops.at(i)->color.toQColor()) );
-            }
+
+                QPainterPath marker;
+                marker.moveTo( QPointF(hCenter - 5, -0.5) );
+                marker.lineTo( QPointF(hCenter + 5, -0.5) );
+                marker.lineTo( QPointF(hCenter, 5) );
+                marker.closeSubpath();
+
+                painter.setPen(QPen(palette().color(QPalette::Window), 1));
+                painter.setBrush(palette().color(QPalette::WindowText));
+                painter.drawPath(marker);
+
+            }            
+
+            Helper::renderPointerHandle(&painter, QPointF(hCenter, yCenter), RADIUS*2-2, cstops.at(i)->color.toQColor() );
 
             //            // Draw Mid Point
             //            qreal mid = cstops.at(i)->midPoint * canvasRect.width() + RADIUS + 0.5;
@@ -480,6 +490,11 @@ const VGradient &GradientEdit::gradient()
 QRect GradientEdit::canvasRect()
 {
     return QRect(RADIUS, 0, width() - RADIUS * 2, height());
+}
+
+QRect GradientEdit::gradientRect()
+{
+    return canvasRect().adjusted(0,0,0, -height() / 2);
 }
 
 

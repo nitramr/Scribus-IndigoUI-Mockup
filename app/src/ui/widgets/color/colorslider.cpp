@@ -564,7 +564,7 @@ void ColorSlider::paintEvent(QPaintEvent *e)
 
     // Draw Handle
     QRect handle = style()->subControlRect(QStyle::CC_Slider, &opt, QStyle::SC_SliderHandle, this);
-    Helper::renderColorHandle(&painter, handle.center() + QPointF(0.5,0.5), RADIUS, Qt::NoBrush);
+    Helper::renderCircularHandle(&painter, handle.center() + QPointF(0.5,0.5), RADIUS*2, Qt::NoBrush);
 
 
     //    opt.subControls = QStyle::SC_SliderHandle;

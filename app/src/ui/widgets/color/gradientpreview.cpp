@@ -148,10 +148,10 @@ void GradientPreview::paintEvent(QPaintEvent *e)
 
             // Draw Marker
             if (StopM[qMax(activeStop,0)] == hCenter){
-                Helper::renderColorHandle(&painter, QPointF(hCenter, yCenter), RADIUS, QBrush(cstops.at(i)->color.toQColor()) );
+                Helper::renderCircularHandle(&painter, QPointF(hCenter, yCenter), RADIUS, QBrush(cstops.at(i)->color.toQColor()) );
             }
             else{
-                Helper::renderColorHandle(&painter, QPointF(hCenter, yCenter), RADIUS -2, QBrush(cstops.at(i)->color.toQColor()) );
+                Helper::renderCircularHandle(&painter, QPointF(hCenter, yCenter), RADIUS -2, QBrush(cstops.at(i)->color.toQColor()) );
             }
 
 //            // Draw Mid Point

@@ -429,7 +429,7 @@ void ColorMap::paintEvent(QPaintEvent *e)
     // Draw Pointer
     painter.setRenderHint(QPainter::Antialiasing, true);
     QColor col(m_color.red(), m_color.green(), m_color.blue());
-    Helper::renderColorHandle(&painter, posFromCanvas(m_mark) + QPointF(.5,.5), RADIUS, QBrush(col));
+    Helper::renderCircularHandle(&painter, posFromCanvas(m_mark) + QPointF(.5,.5), RADIUS*2, QBrush(col));
 
     painter.end();
 }

@@ -33,6 +33,7 @@ public:
 private:
     VGradient fill_gradient;
     QRect canvasRect();
+    QRect gradientRect();
     bool m_isEditable;
     bool isMouseOutside(QPoint mouse);
     int m_activeStop;

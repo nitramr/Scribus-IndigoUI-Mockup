@@ -69,6 +69,18 @@ void ColorButton::setContextWidget(QWidget *widget)
 
 /* ********************************************************************************* *
  *
+ * Methods
+ *
+ * ********************************************************************************* */
+
+void ColorButton::renderFill(QPainter *painter, QPointF center, qreal radius, QBrush background)
+{
+    Helper::renderCircularHandle(painter, center, radius, background);
+}
+
+
+/* ********************************************************************************* *
+ *
  * Slots
  *
  * ********************************************************************************* */
@@ -160,14 +172,14 @@ void ColorButton::paintEvent(QPaintEvent *e)
     int m_inset = 1;
 
     // Draw Background Dot
-    QRectF bDot(rect().center().x() - fSize.width() + m_inset , rect().center().y() - fSize.height() + m_inset, bSize.width() - m_inset, bSize.height() - m_inset);
+    QRectF bDot(rect().center() - QPointF(fSize.width() - m_inset -0.5 , fSize.height() - m_inset - 0.5), QSizeF(bSize.width() - m_inset, bSize.height() - m_inset) );
     mask.addEllipse(bDot.adjusted(m_inset,m_inset,-m_inset,-m_inset));
     painter.setClipPath(mask);
     Helper::renderPattern(&painter, mask.boundingRect());
     painter.setClipping(false);
 
 
-    Helper::renderColorHandle(&painter, bDot.center(), fSize.width() - m_inset, m_background);
+    renderFill(&painter, bDot.center(), bSize.width() - m_inset, m_background);
 
     // Draw Foreground Dot
     if(m_hasDot){
@@ -178,7 +190,7 @@ void ColorButton::paintEvent(QPaintEvent *e)
         Helper::renderPattern(&painter, mask.boundingRect());
         painter.setClipping(false);
 
-        Helper::renderColorHandle(&painter, fDot.center() + QPointF(-0.5,-0.5), bSize.width() / 3.5 - m_inset, m_foreground);
+        renderFill(&painter, fDot.center(), fSize.width() - m_inset, m_foreground);
     }
 
     painter.end();

@@ -91,8 +91,10 @@ void Helper::renderPattern(QPainter *painter, QRectF rect)
 }
 
 
-void Helper::renderColorHandle(QPainter *painter, QPointF center, qreal radius, QBrush background)
+void Helper::renderCircularHandle(QPainter *painter, QPointF center, qreal width, QBrush background)
 {
+    qreal radius = width /2.;
+
     painter->save();
 
     // Draw background
@@ -113,10 +115,57 @@ void Helper::renderColorHandle(QPainter *painter, QPointF center, qreal radius, 
     painter->restore();
 }
 
-QPixmap Helper::renderSplitColor(QSize size, QColor color)
+void Helper::renderPointerHandle(QPainter *painter, QPointF pointer, qreal width, QColor background)
 {
+    qreal height = width *1.5;
+    QRect rect( pointer.x() -width/2, pointer.y() , width, height );
+
+    QPainterPath path;
+    path.moveTo(pointer);
+    path.lineTo(pointer + QPoint(width/2, height/3) );
+    path.lineTo(pointer + QPoint(width/2, height) );
+    path.lineTo(pointer + QPoint(-width/2, height) );
+    path.lineTo(pointer + QPoint(-width/2, height/3) );
+    path.closeSubpath();
+
+    painter->save();
+
+    // Draw white border
+    painter->setPen(QPen(Qt::white, 2));
+    painter->setBrush(Qt::NoBrush);
+    painter->drawPath(path);
+
+    // Draw background
+    painter->setClipPath(path);
+    painter->setPen(Qt::NoPen);
+    renderPattern(painter, rect);
+
+    // Draw color
+    painter->drawPixmap(rect, renderSplitColor(rect.size(), background, Qt::Vertical, 0.7) );
+
+    // Draw black border
+    painter->setBrush(Qt::NoBrush);
+    painter->setClipping(false);
+    painter->setPen(QPen(Qt::black, 1));
+    painter->drawPath(path);
+
+    painter->restore();
+}
+
+QPixmap Helper::renderSplitColor(QSize size, QColor color, Qt::Orientations orientation, qreal mid)
+{
+    mid = qBound(0., mid, 1.);
+
     QPixmap pixmap(size.width(), size.height());
     pixmap.fill(Qt::transparent);
+
+    QRectF solid( 0, 0, pixmap.width()*mid, pixmap.height() );
+    QRectF alpha( pixmap.width()*mid, 0, pixmap.width()*(1-mid), pixmap.height() );
+
+    if(orientation == Qt::Vertical){
+        solid = QRectF(0, 0, pixmap.width(), pixmap.height() *mid);
+        alpha = QRectF(0, pixmap.height() *mid, pixmap.width(), pixmap.height() * (1-mid) );
+    }
 
     QColor col = color;
     col.setAlphaF(1);
@@ -124,9 +173,9 @@ QPixmap Helper::renderSplitColor(QSize size, QColor color)
     QPainter p(&pixmap);
     p.setBrush(QBrush(col));
     p.setPen(Qt::NoPen);
-    p.drawRect(QRect(0,0, pixmap.width()/2, pixmap.height()));
+    p.drawRect(solid);
     p.setBrush(QBrush(color));
-    p.drawRect(QRect(pixmap.width()/2,0, pixmap.width()/2, pixmap.height()));
+    p.drawRect(alpha);
 
     return pixmap;
 }

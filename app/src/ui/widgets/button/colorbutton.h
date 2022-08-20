@@ -32,6 +32,8 @@ public slots:
 protected:
     void paintEvent(QPaintEvent *e);
 
+    void renderFill(QPainter *painter, QPointF center, qreal radius, QBrush background);
+
 private:
     QBrush m_background {Qt::NoBrush};
     QBrush m_foreground {Qt::NoBrush};

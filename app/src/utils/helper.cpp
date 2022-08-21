@@ -117,6 +117,41 @@ void Helper::renderCircularHandle(QPainter *painter, QPointF center, qreal width
 
 void Helper::renderPointerHandle(QPainter *painter, QPointF pointer, qreal width, QColor background)
 {
+//    qreal height = width *1.5;
+//    QRect rect( pointer.x() -width/2, pointer.y() , width, height );
+
+//    QPainterPath path;
+//    path.moveTo(pointer);
+//    path.lineTo(pointer + QPoint(width/2, height/3) );
+//    path.lineTo(pointer + QPoint(width/2, height) );
+//    path.lineTo(pointer + QPoint(-width/2, height) );
+//    path.lineTo(pointer + QPoint(-width/2, height/3) );
+//    path.closeSubpath();
+
+//    painter->save();
+
+//    // Draw white border
+//    painter->setPen(QPen(Qt::white, 2));
+//    painter->setBrush(Qt::NoBrush);
+//    painter->drawPath(path);
+
+//    // Draw background
+//    painter->setClipPath(path);
+//    painter->setPen(Qt::NoPen);
+//    renderPattern(painter, rect);
+
+//    // Draw color
+//    painter->drawPixmap(rect, renderSplitColor(rect.size(), background, Qt::Vertical, 0.7) );
+
+//    // Draw black border
+//    painter->setBrush(Qt::NoBrush);
+//    painter->setClipping(false);
+//    painter->setPen(QPen(Qt::black, 1));
+//    painter->drawPath(path);
+
+//    painter->restore();
+
+
     qreal height = width *1.5;
     QRect rect( pointer.x() -width/2, pointer.y() , width, height );
 
@@ -131,7 +166,7 @@ void Helper::renderPointerHandle(QPainter *painter, QPointF pointer, qreal width
     painter->save();
 
     // Draw white border
-    painter->setPen(QPen(Qt::white, 2));
+    painter->setPen(QPen(Qt::black, 3));
     painter->setBrush(Qt::NoBrush);
     painter->drawPath(path);
 
@@ -146,10 +181,11 @@ void Helper::renderPointerHandle(QPainter *painter, QPointF pointer, qreal width
     // Draw black border
     painter->setBrush(Qt::NoBrush);
     painter->setClipping(false);
-    painter->setPen(QPen(Qt::black, 1));
+    painter->setPen(QPen(Qt::white, 1.5));
     painter->drawPath(path);
 
     painter->restore();
+
 }
 
 QPixmap Helper::renderSplitColor(QSize size, QColor color, Qt::Orientations orientation, qreal mid)

@@ -6,8 +6,13 @@ for which a new license (GPL+exception) is in place.
 */
 #ifndef _UTIL_MATH_H
 #define _UTIL_MATH_H
-
+#include <QtMath>
 #include "scribusapi.h"
+
+
+#define DegToRad(x) ((x) * M_PI / 180)
+#define RadToDeg(x) ((x) / M_PI * 180)
+
 
 class FPoint;
 class FPointArray;

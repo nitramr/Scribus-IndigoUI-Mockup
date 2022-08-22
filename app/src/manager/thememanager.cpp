@@ -9,7 +9,7 @@
 #include <QMetaEnum>
 #include <QtMath>
 #include <QRegularExpression>
-#include <helper.h>
+#include <util_file.h>
 #include <QApplication>
 #include <QPalette>
 #include "configurationmanager.h"
@@ -67,7 +67,7 @@ ThemeManager& ThemeManager::instance()
 
 void ThemeManager::setup()
 {
-    QString theme = Helper::readFile(ConfigurationManager::files("app_default_theme"));
+    QString theme = UtilFile::readFile(ConfigurationManager::files("app_default_theme"));
     parseTheme(theme);
 
     debugColorPalette("alternate-base", QPalette::AlternateBase);

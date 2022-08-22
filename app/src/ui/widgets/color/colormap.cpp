@@ -3,7 +3,7 @@
 #include <QPainter>
 #include <QResizeEvent>
 #include <colorspace.h>
-#include <helper.h>
+#include <util_render.h>
 
 const int RADIUS = 6;
 
@@ -429,7 +429,7 @@ void ColorMap::paintEvent(QPaintEvent *e)
     // Draw Pointer
     painter.setRenderHint(QPainter::Antialiasing, true);
     QColor col(m_color.red(), m_color.green(), m_color.blue());
-    Helper::renderCircularHandle(&painter, posFromCanvas(m_mark) + QPointF(.5,.5), RADIUS*2, QBrush(col));
+    UtilRender::renderCircularHandle(&painter, posFromCanvas(m_mark) + QPointF(.5,.5), RADIUS*2, QBrush(col));
 
     painter.end();
 }

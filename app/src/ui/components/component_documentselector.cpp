@@ -1,7 +1,7 @@
 #include "component_documentselector.h"
 #include "ui_component_documentselector.h"
 #include "iconmanager.h"
-#include "helper.h"
+#include "util_file.h"
 #include "configurationmanager.h"
 #include "dialog_newdocument.h"
 
@@ -27,7 +27,7 @@ ComponentDocumentSelector::~ComponentDocumentSelector()
 void ComponentDocumentSelector::dummyContent()
 {
 
-    QIcon icon = Helper::mimeIconFromFile("test.sla");
+    QIcon icon = UtilFile::mimeIconFromFile("test.sla");
 
 
     QListWidgetItem *item = new QListWidgetItem();

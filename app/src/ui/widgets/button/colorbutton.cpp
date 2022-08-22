@@ -3,7 +3,7 @@
 
 #include <QPainter>
 #include <QPainterPath>
-#include <helper.h>
+#include <util_render.h>
 
 /* ********************************************************************************* *
  *
@@ -75,7 +75,7 @@ void ColorButton::setContextWidget(QWidget *widget)
 
 void ColorButton::renderFill(QPainter *painter, QPointF center, qreal radius, QBrush background)
 {
-    Helper::renderCircularHandle(painter, center, radius, background);
+    UtilRender::renderCircularHandle(painter, center, radius, background);
 }
 
 
@@ -107,7 +107,7 @@ void ColorButton::setColor(ScColor color)
     m_color = color;
 
     int smallSide = backgroundDotSize().width();
-    setBackground( Helper::renderSplitColor(QSize(smallSide, smallSide), color.toQColor()) );
+    setBackground( UtilRender::renderSplitColor(QSize(smallSide, smallSide), color.toQColor()) );
 
 }
 
@@ -175,7 +175,7 @@ void ColorButton::paintEvent(QPaintEvent *e)
     QRectF bDot(rect().center() - QPointF(fSize.width() - m_inset -0.5 , fSize.height() - m_inset - 0.5), QSizeF(bSize.width() - m_inset, bSize.height() - m_inset) );
     mask.addEllipse(bDot.adjusted(m_inset,m_inset,-m_inset,-m_inset));
     painter.setClipPath(mask);
-    Helper::renderPattern(&painter, mask.boundingRect());
+    UtilRender::renderPattern(&painter, mask.boundingRect());
     painter.setClipping(false);
 
 
@@ -187,7 +187,7 @@ void ColorButton::paintEvent(QPaintEvent *e)
         QRectF fDot(rect().center().x(), rect().center().y(), fSize.width(), fSize.height());
         mask.addEllipse(fDot.adjusted(m_inset,m_inset,-m_inset,-m_inset));
         painter.setClipPath(mask);
-        Helper::renderPattern(&painter, mask.boundingRect());
+        UtilRender::renderPattern(&painter, mask.boundingRect());
         painter.setClipping(false);
 
         renderFill(&painter, fDot.center(), fSize.width() - m_inset, m_foreground);

@@ -162,10 +162,11 @@ SOURCES += \
     src/ui/widgets/container/sectioncontainer.cpp \
     src/ui/widgets/trashbin.cpp \
     src/utils/commonstrings.cpp \
-    src/utils/helper.cpp \
     src/utils/util.cpp \
     src/utils/util_color.cpp \
-    src/utils/util_math.cpp
+    src/utils/util_file.cpp \
+    src/utils/util_math.cpp \
+    src/utils/util_render.cpp
 
 HEADERS += \
     src/api/api_application.h \
@@ -282,10 +283,11 @@ HEADERS += \
     src/ui/widgets/container/sectioncontainer.h \
     src/ui/widgets/trashbin.h \
     src/utils/commonstrings.h \
-    src/utils/helper.h \
     src/utils/util.h \
     src/utils/util_color.h \
-    src/utils/util_math.h
+    src/utils/util_file.h \
+    src/utils/util_math.h \
+    src/utils/util_render.h
 
 
 FORMS += \

@@ -2,7 +2,7 @@
 
 #include "colorpixmapvalue.h"
 #include "iconmanager.h"
-#include "helper.h"
+#include "util_render.h"
 
 /* ********************************************************************************* *
  *
@@ -33,34 +33,34 @@ void ColorFancyItemDelegate::redraw(const QVariant& data) const
         painter.drawRect(0, 0, 15, 15);
         painter.end();
 
-        Helper::paintIcon(smallPix, *pPixmap, 0, 0);
+        UtilRender::paintIcon(smallPix, *pPixmap, 0, 0);
 
         if (item.m_color.isOutOfGamut())
-            Helper::paintIcon(alertIcon.scaled(QSize(16,16), Qt::KeepAspectRatio, Qt::SmoothTransformation), *pPixmap, 18, 0);
+            UtilRender::paintIcon(alertIcon.scaled(QSize(16,16), Qt::KeepAspectRatio, Qt::SmoothTransformation), *pPixmap, 18, 0);
 
 
         switch(item.m_color.getColorModel()){
         case ColorModel::CMYK:
-            Helper::paintIcon(cmykIcon.scaled(QSize(16,16), Qt::KeepAspectRatio, Qt::SmoothTransformation), *pPixmap, 36, 0);
+            UtilRender::paintIcon(cmykIcon.scaled(QSize(16,16), Qt::KeepAspectRatio, Qt::SmoothTransformation), *pPixmap, 36, 0);
             break;
         case ColorModel::HSV:
         case ColorModel::RGB:
-            Helper::paintIcon(rgbIcon.scaled(QSize(16,16), Qt::KeepAspectRatio, Qt::SmoothTransformation), *pPixmap, 36, 0);
+            UtilRender::paintIcon(rgbIcon.scaled(QSize(16,16), Qt::KeepAspectRatio, Qt::SmoothTransformation), *pPixmap, 36, 0);
             break;
         case ColorModel::Lab:
-            Helper::paintIcon(labIcon.scaled(QSize(16,16), Qt::KeepAspectRatio, Qt::SmoothTransformation), *pPixmap, 36, 0);
+            UtilRender::paintIcon(labIcon.scaled(QSize(16,16), Qt::KeepAspectRatio, Qt::SmoothTransformation), *pPixmap, 36, 0);
             break;
 
         }
 
 
         if (item.m_color.isSpotColor()){
-            Helper::paintIcon(spotIcon.scaled(QSize(16,16), Qt::KeepAspectRatio, Qt::SmoothTransformation), *pPixmap, 54, 0);
+            UtilRender::paintIcon(spotIcon.scaled(QSize(16,16), Qt::KeepAspectRatio, Qt::SmoothTransformation), *pPixmap, 54, 0);
         }
 
 
         if (item.m_color.isRegistrationColor()){
-            Helper::paintIcon(regIcon.scaled(QSize(16,16), Qt::KeepAspectRatio, Qt::SmoothTransformation), *pPixmap, 54, 0);
+            UtilRender::paintIcon(regIcon.scaled(QSize(16,16), Qt::KeepAspectRatio, Qt::SmoothTransformation), *pPixmap, 54, 0);
         }
     }
 }

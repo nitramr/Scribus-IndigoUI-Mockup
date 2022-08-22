@@ -25,7 +25,7 @@ https://github.com/berendeanicolae/ColorSpace
 */
 
 #include "colorcomparison.h"
-#include "helper.h"
+#include "util_math.h"
 
 
 namespace ColorSpace {

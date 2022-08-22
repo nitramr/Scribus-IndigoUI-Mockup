@@ -1,70 +1,9 @@
-/*
-MIT License
+#include "util_render.h"
 
-Copyright (c) 2017 Berendea Nicolae
+#include <QPainterPath>
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+UtilRender::UtilRender(){}
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-*/
-
-#include "helper.h"
-
-#include <QDir>
-#include <QFile>
-#include <QMimeDatabase>
-#include "iconmanager.h"
-#include "qpainter.h"
-
-/* ********************************************************************************* *
- *
- * Constructor
- *
- * ********************************************************************************* */
-
-Helper::Helper(){}
-
-/* ********************************************************************************* *
- *
- * File
- *
- * ********************************************************************************* */
-
-QString Helper::readFile(QString filePath)
-{
-    QFile file( filePath );
-    file.open( QFile::ReadOnly );
-
-    return QString( file.readAll() );
-}
-
-QIcon Helper::mimeIconFromFile(QString filePath)
-{
-    QMimeDatabase mime_database;
-    const QString nativeName = QDir::toNativeSeparators(filePath);
-
-    QList<QMimeType> mime_types = mime_database.mimeTypesForFileName(nativeName);
-    QIcon icon = QIcon::fromTheme(mime_types[0].iconName());
-
-    // if meme can't find load fallback icon
-    if (icon.isNull()) icon = IconManager::instance().icon("file-outline");
-
-    return icon;
-}
 
 /* ********************************************************************************* *
  *
@@ -72,7 +11,7 @@ QIcon Helper::mimeIconFromFile(QString filePath)
  *
  * ********************************************************************************* */
 
-void Helper::renderPattern(QPainter *painter, QRectF rect)
+void UtilRender::renderPattern(QPainter *painter, QRectF rect)
 {
     QImage pattern(rect.width(), rect.height(), QImage::Format_ARGB32_Premultiplied);
 
@@ -91,7 +30,7 @@ void Helper::renderPattern(QPainter *painter, QRectF rect)
 }
 
 
-void Helper::renderCircularHandle(QPainter *painter, QPointF center, qreal width, QBrush background)
+void UtilRender::renderCircularHandle(QPainter *painter, QPointF center, qreal width, QBrush background)
 {
     qreal radius = width /2.;
 
@@ -115,7 +54,7 @@ void Helper::renderCircularHandle(QPainter *painter, QPointF center, qreal width
     painter->restore();
 }
 
-void Helper::renderPointerHandle(QPainter *painter, QPointF pointer, qreal width, QColor background)
+void UtilRender::renderPointerHandle(QPainter *painter, QPointF pointer, qreal width, QColor background)
 {
 
     qreal height = width *1.5;
@@ -154,7 +93,7 @@ void Helper::renderPointerHandle(QPainter *painter, QPointF pointer, qreal width
 
 }
 
-QPixmap Helper::renderSplitColor(QSize size, QColor color, Qt::Orientations orientation, qreal mid)
+QPixmap UtilRender::renderSplitColor(QSize size, QColor color, Qt::Orientations orientation, qreal mid)
 {
     mid = qBound(0., mid, 1.);
 
@@ -183,7 +122,8 @@ QPixmap Helper::renderSplitColor(QSize size, QColor color, Qt::Orientations orie
 }
 
 
-void Helper::paintIcon(const QPixmap &toPaint, QPixmap &target, int x, int y)
+
+void UtilRender::paintIcon(const QPixmap &toPaint, QPixmap &target, int x, int y)
 {
     QPainter p;
     p.begin(&target);

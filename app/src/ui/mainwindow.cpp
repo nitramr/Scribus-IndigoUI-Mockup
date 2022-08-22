@@ -6,7 +6,7 @@
 #include <QToolBar>
 #include <QToolButton>
 #include <dock_documentbase.h>
-#include <helper.h>
+#include <util_file.h>
 #include "DockAreaWidget.h"
 #include "DockAreaTitleBar.h"
 #include "DockAreaTabBar.h"

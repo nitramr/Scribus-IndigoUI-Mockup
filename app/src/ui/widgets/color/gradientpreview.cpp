@@ -35,7 +35,7 @@ for which a new license (GPL+exception) is in place.
 
 #include "gradientpreview.h"
 #include "iconmanager.h"
-#include "helper.h"
+#include "util_render.h"
 
 const int RADIUS = 6;
 
@@ -109,7 +109,7 @@ void GradientPreview::paintEvent(QPaintEvent *e)
 
 
     // Draw Background
-    Helper::renderPattern(&painter, canvasRect);
+    UtilRender::renderPattern(&painter, canvasRect);
 
     // Draw Gradient
     painter.setPen(Qt::NoPen);
@@ -148,10 +148,10 @@ void GradientPreview::paintEvent(QPaintEvent *e)
 
             // Draw Marker
             if (StopM[qMax(activeStop,0)] == hCenter){
-                Helper::renderCircularHandle(&painter, QPointF(hCenter, yCenter), RADIUS, QBrush(cstops.at(i)->color.toQColor()) );
+                UtilRender::renderCircularHandle(&painter, QPointF(hCenter, yCenter), RADIUS, QBrush(cstops.at(i)->color.toQColor()) );
             }
             else{
-                Helper::renderCircularHandle(&painter, QPointF(hCenter, yCenter), RADIUS -2, QBrush(cstops.at(i)->color.toQColor()) );
+                UtilRender::renderCircularHandle(&painter, QPointF(hCenter, yCenter), RADIUS -2, QBrush(cstops.at(i)->color.toQColor()) );
             }
 
 //            // Draw Mid Point

@@ -68,6 +68,8 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="colorblind-green" file="24/eye-green.svg" />
 		<icon id="colorblind-red" file="24/eye-red.svg" />
 		<icon id="colorblind-normal" file="24/eye.svg" />
+		<icon id="colorpicker-harmony" file="24/circle.svg" />
+		<icon id="colorpicker-map" file="24/rectangle.svg" />
 		<icon id="colorpicker-solid" file="24/solid-square.svg" />
 		<icon id="colorpicker-gradient" file="24/gradient-horizontal.svg" />
 		<icon id="copy" file="24/content-copy.svg" />

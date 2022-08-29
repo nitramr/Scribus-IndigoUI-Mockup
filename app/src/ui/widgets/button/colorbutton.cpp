@@ -4,6 +4,7 @@
 #include <QPainter>
 #include <QPainterPath>
 #include <util_render.h>
+#include "colorpicker.h"
 
 /* ********************************************************************************* *
  *
@@ -55,16 +56,31 @@ QSize ColorButton::foregroundDotSize()
 
 void ColorButton::setContextWidget(QWidget *widget)
 {
-    MenuPopup * menu = new MenuPopup(widget);
-    //menu->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowStaysOnTopHint);
+//    MenuPopup * menu = new MenuPopup(widget);
+//    menu->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowStaysOnTopHint);
 
-    this->setCheckable(true);
-    this->setMenu(menu);
+//    this->setCheckable(true);
+//    this->setMenu(menu);
 
-    connect(this, &ColorButton::toggled, this, [menu](bool t) {
-        menu->setVisible(t);
+//    connect(this, &ColorButton::toggled, this, [menu](bool t) {
+//        menu->setVisible(t);
+//        menu->raise();
+//        menu->activateWindow();
 
+//    });
+
+   // this->setCheckable(true);
+    connect(this, &ColorButton::clicked, this, [widget]() {
+        if(widget->isVisible()){
+             widget->setVisible(false);
+        }else{
+            widget->setVisible(true);
+            widget->raise();
+            widget->activateWindow();
+        }
     });
+
+
 }
 
 /* ********************************************************************************* *

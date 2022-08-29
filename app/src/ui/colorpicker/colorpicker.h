@@ -5,13 +5,13 @@
 #include "enums.h"
 #include "sccolor.h"
 #include "vgradient.h"
-#include <QWidget>
+#include <QDialog>
 
 namespace Ui {
 class ColorPicker;
 }
 
-class ColorPicker : public QWidget
+class ColorPicker : public QDialog
 {
     Q_OBJECT
 
@@ -40,6 +40,7 @@ private slots:
     void updateGradient(VGradient gradient);
     void updatePattern();
     void updateImage();
+    void updateSize();
 
     void updatePicker(ItemFillMode mode);
     void changedTab();

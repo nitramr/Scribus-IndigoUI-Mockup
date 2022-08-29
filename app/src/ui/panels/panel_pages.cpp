@@ -165,6 +165,21 @@ void PanelPages::connectSlots()
     connect(ui->labelDeletePage, &TrashBin::delPageRequest, this, &PanelPages::delPageRequest);
     connect(ui->labelDeleteParentPage, &TrashBin::delMasterRequest, this, &PanelPages::delParentRequest);
 
+    connect(ui->sectionDocumentPages, &SectionContainer::collapsedState, this, &PanelPages::updateLayout);
+
+}
+
+void PanelPages::updateLayout(bool isCollapsed)
+{
+
+    if(!isCollapsed){
+        ui->sectionDocumentPages->setSizePolicy(ui->sectionDocumentPages->sizePolicy().horizontalPolicy(), QSizePolicy::Expanding);
+        ui->verticalSpacer->changeSize(this->width(), 0, ui->verticalSpacer->sizePolicy().horizontalPolicy(), QSizePolicy::Maximum );
+    }else{
+        ui->sectionDocumentPages->setSizePolicy(ui->sectionDocumentPages->sizePolicy().horizontalPolicy(), QSizePolicy::Maximum);
+        ui->verticalSpacer->changeSize(this->width(), this->height(), ui->verticalSpacer->sizePolicy().horizontalPolicy(), QSizePolicy::Expanding );
+    }
+
 }
 
 /* ********************************************************************************* *

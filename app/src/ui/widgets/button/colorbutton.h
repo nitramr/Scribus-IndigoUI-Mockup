@@ -1,6 +1,7 @@
 #ifndef COLORBUTTON_H
 #define COLORBUTTON_H
 
+
 #include "vgradient.h"
 #include <QToolButton>
 #include <QWidget>

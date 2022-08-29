@@ -61,6 +61,7 @@ private:
     void connectSlots();
 
     void rebuildMasters();
+    void updateLayout(bool isCollapsed);
 
 
 };

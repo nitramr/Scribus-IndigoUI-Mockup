@@ -28,7 +28,7 @@ SOFTWARE.
 #include <QFile>
 #include <QMimeDatabase>
 #include "iconmanager.h"
-#include "qpainter.h"
+
 
 /* ********************************************************************************* *
  *

@@ -29,8 +29,16 @@ void ColorPickerGradient::setup()
 {
     IconManager & iconManager = IconManager::instance();
 
+    QIcon iconCollapsed = iconManager.icon("chevron-right");
+    QIcon iconOpen = iconManager.icon("chevron-down");
+
     m_gradient = VGradient(GradientType::Linear);
     ui->stackGradientPicker->setCurrentIndex(0);
+
+    // Sections
+    ui->sectionGradient->setCollapseIcons(iconCollapsed, iconOpen);
+    ui->sectionGradient->addHeaderWidget(ui->comboType);
+    ui->sectionSwatches->setCollapseIcons(iconCollapsed, iconOpen);
 
     // Buttons
     ui->buttonAddGradient->setIcon(iconManager.icon("add"));
@@ -86,6 +94,10 @@ void ColorPickerGradient::connectSlots()
     connect(colorPicker4CBottomLeft, &ColorPickerColor::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
     connect(colorPicker4CBottomRight, &ColorPickerColor::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
 
+    // Sections
+    connect(ui->sectionGradient,      &SectionContainer::collapsedState, this, &ColorPickerGradient::changeSize);
+    connect(ui->sectionSwatches,    &SectionContainer::collapsedState, this, &ColorPickerGradient::changeSize);
+
     // connect(ui->buttonColor, &QToolButton::pressed, this, &ColorPickerGradient::openColorPicker);
 }
 
@@ -104,6 +116,10 @@ void ColorPickerGradient::disconnectSlots()
     disconnect(colorPicker4CTopRight, &ColorPickerColor::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
     disconnect(colorPicker4CBottomLeft, &ColorPickerColor::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
     disconnect(colorPicker4CBottomRight, &ColorPickerColor::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
+
+    // Sections
+    disconnect(ui->sectionGradient,      &SectionContainer::collapsedState, this, &ColorPickerGradient::changeSize);
+    disconnect(ui->sectionSwatches,    &SectionContainer::collapsedState, this, &ColorPickerGradient::changeSize);
 
 }
 
@@ -305,4 +321,10 @@ void ColorPickerGradient::setGradient(VGradient gradient)
     m_gradient = gradient;
     m_mode = gradient.type();
     changeUI();
+}
+
+void ColorPickerGradient::changeSize()
+{
+    adjustSize();
+    emit sizeChanged();
 }

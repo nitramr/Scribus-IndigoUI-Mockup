@@ -57,9 +57,11 @@ private slots:
 
 public slots:
     void setGradient(VGradient gradient);
+    void changeSize();
 
 signals:
     void gradientChanged(VGradient);
+     void sizeChanged();
 
 };
 

@@ -21,6 +21,7 @@ ColorPickerColor::ColorPickerColor(QWidget *parent) :
     ui->setupUi(this);
 
     // setMouseTracking(true);
+    setWindowTitle(tr("Color Picker"));
     setup();
 
     // Setup default states
@@ -42,17 +43,17 @@ ColorPickerColor::~ColorPickerColor()
 
 void ColorPickerColor::setup()
 {
-    //    QIcon iconClose = IconManager::instance().icon("chevron-right");
-    //    QIcon iconOpen = IconManager::instance().icon("chevron-down");
-
     IconManager & iconManager = IconManager::instance();
+
+    QIcon iconCollapsed = iconManager.icon("chevron-right");
+    QIcon iconOpen = iconManager.icon("chevron-down");
 
     // Values
     m_colorSpace = ColorModel::HSV;
-    m_mode = SelectorMode::Slider;
     m_defectMode = VisionDefectColor::normalVision;
     m_colorMapMode = ColorMap::HSVHue;
     m_harmony = ColorHarmonyWheel::Complementary;
+    m_pickerMode = PickerMode::Map;
 
 
     // Buttons
@@ -60,13 +61,23 @@ void ColorPickerColor::setup()
     ui->buttonEyeDropper->setIcon(iconManager.icon("eyedropper"));
     ui->buttonSettings->setIcon(iconManager.icon("setting-edit"));
 
+    // Picker Button
+    buttonPickerToggle = new QToolButton();
+    buttonPickerToggle->setPopupMode(QToolButton::InstantPopup);
+
 
     // Stacks
     ui->stackSlider->setCurrentIndex(0);
+    ui->stackPicker->setCurrentIndex(0);
+
+    // Sections
+    ui->sectionPicker->setCollapseIcons(iconCollapsed, iconOpen);
+    ui->sectionPicker->addHeaderWidget(buttonPickerToggle);
+    ui->sectionSwatches->setCollapseIcons(iconCollapsed, iconOpen);
 
 
     // Color Buttons
-    ui->buttonColor1->setVisible(false);
+    ui->buttonColor1->setVisible(true);
     ui->buttonColor2->setVisible(false);
     ui->buttonColor3->setVisible(false);
     ui->buttonColor4->setVisible(false);
@@ -78,16 +89,23 @@ void ColorPickerColor::setup()
     ui->comboColorSpace->addItem("CMYK", QVariant::fromValue(ColorModel::CMYK));
     ui->comboColorSpace->addItem("Lab", QVariant::fromValue(ColorModel::Lab));
 
+    // Picker
+    actionPickerMap      = new QAction(iconManager.icon("colorpicker-map"), "Map", this);
+    actionPickerHarmony = new QAction(iconManager.icon("colorpicker-harmony"), "Harmony", this);
 
-    // Picker Type
-    ui->comboType->addItem("Slider", SelectorMode::Slider);
-    ui->comboType->addItem("Map", SelectorMode::Map);
-    ui->comboType->addItem("Harmony", SelectorMode::Harmony);
-    ui->comboType->addItem("Swatches", SelectorMode::Swatches);
+    actionPickerMap->setData(PickerMode::Map);
+    actionPickerHarmony->setData(PickerMode::Harmony);
+
+    menuPicker = new QMenu;
+    menuPicker->addAction(actionPickerMap);
+    menuPicker->addAction(actionPickerHarmony);
+
+    buttonPickerToggle->setMenu(menuPicker);
+    buttonPickerToggle->setDefaultAction(actionPickerMap);
 
 
     // Color Harmony
-    ui->colorHarmonyWheel->setHarmony(ColorHarmonyWheel::Complementary);
+    ui->colorHarmonyWheel->setHarmony(m_harmony);
     ui->sliderHarmonyValue->setMode(ColorSlider::HSVValue);
 
     actionHarmonyComplementary      = new QAction(iconManager.icon("harmony-complementary"), "Complementary", this);
@@ -254,7 +272,6 @@ void ColorPickerColor::connectSlots()
 
     // ComboBoxes
     connect(ui->comboColorSpace,    &QComboBox::currentIndexChanged, this, &ColorPickerColor::changeColorSpace);
-    connect(ui->comboType,          &QComboBox::currentIndexChanged, this, &ColorPickerColor::changeSelectorMode);
 
     // Map
     connect(ui->colorMap,           &ColorMap::colorChanged, this, &ColorPickerColor::changeColor);
@@ -356,13 +373,23 @@ void ColorPickerColor::connectSlots()
     // Color Swatches
     connect(ui->swatches,       &ColorSwatches::colorChanged, this, &ColorPickerColor::setColorFromSwatch);
 
+
+    // Sections
+    connect(ui->sectionPicker,      &SectionContainer::collapsedState, this, &ColorPickerColor::changeSize);
+    connect(ui->sectionSwatches,    &SectionContainer::collapsedState, this, &ColorPickerColor::changeSize);
+
+    // Picker Button
+    connect(buttonPickerToggle,      &QToolButton::triggered, buttonPickerToggle, &QToolButton::setDefaultAction);
+    connect(actionPickerMap,             &QAction::triggered,this, &ColorPickerColor::changePickerMode );
+    connect(actionPickerHarmony,             &QAction::triggered,this, &ColorPickerColor::changePickerMode );
+
+
 }
 
 void ColorPickerColor::disconnectSlots()
 {
     // ComboBoxes
     disconnect(ui->comboColorSpace,    &QComboBox::currentIndexChanged, this, &ColorPickerColor::changeColorSpace);
-    disconnect(ui->comboType,          &QComboBox::currentIndexChanged, this, &ColorPickerColor::changeSelectorMode);
 
     // Map
     disconnect(ui->colorMap,           &ColorMap::colorChanged, this, &ColorPickerColor::changeColor);
@@ -463,6 +490,15 @@ void ColorPickerColor::disconnectSlots()
 
     // Color Swatches
     disconnect(ui->swatches,       &ColorSwatches::colorChanged, this, &ColorPickerColor::setColorFromSwatch);
+
+    // Sections
+    disconnect(ui->sectionPicker,      &SectionContainer::collapsedState, this, &ColorPickerColor::changeSize);
+    disconnect(ui->sectionSwatches,    &SectionContainer::collapsedState, this, &ColorPickerColor::changeSize);
+
+    // Picker Button
+    disconnect(buttonPickerToggle,      &QToolButton::triggered, buttonPickerToggle, &QToolButton::setDefaultAction);
+    disconnect(actionPickerMap,             &QAction::triggered,this, &ColorPickerColor::changePickerMode );
+    disconnect(actionPickerHarmony,             &QAction::triggered,this, &ColorPickerColor::changePickerMode );
 }
 
 /* ********************************************************************************* *
@@ -578,8 +614,32 @@ void ColorPickerColor::updateColorLabel()
         break;
     }
 
-    ui->labelColorMap->setText(colorLabel);
-    ui->labelHarmony->setText(colorLabel);
+
+}
+
+void ColorPickerColor::setVisibleSwatches(bool isVisible)
+{
+    ui->sectionSwatches->setVisible(isVisible);
+}
+
+void ColorPickerColor::setVisiblePicker(bool isVisible)
+{
+
+    ui->sectionPicker->setVisible(isVisible);
+}
+
+void ColorPickerColor::setVisibleAlpha(bool isVisible)
+{
+    ui->labelAlpha->setVisible(isVisible);
+    ui->sliderAlpha->setVisible(isVisible);
+    ui->numberAlpha->setVisible(isVisible);
+}
+
+void ColorPickerColor::setVisibleShade(bool isVisible)
+{
+    ui->labelShade->setVisible(isVisible);
+    ui->sliderShade->setVisible(isVisible);
+    ui->numberShade->setVisible(isVisible);
 }
 
 
@@ -619,56 +679,36 @@ void ColorPickerColor::setConfiguration(ColorPickerConfig config)
 
     disconnectSlots();
 
-    bool cAlpha = true;
-    bool cShade = true;
-
-    // reset controls
-    ui->comboType->clear();
-
     switch(m_configuration){
 
     case ColorPickerConfig::StrokeMask:
     case ColorPickerConfig::FillMask:
-        ui->comboType->addItem("Slider", SelectorMode::Slider);
-        ui->comboType->addItem("Map", SelectorMode::Map);
-        ui->comboType->addItem("Harmony", SelectorMode::Harmony);
-        ui->comboType->addItem("Swatches", SelectorMode::Swatches);
-        cAlpha = true;
-        cShade = false;
+        setVisiblePicker(true);
+        setVisibleSwatches(true);
+        setVisibleAlpha(true);
+        setVisibleShade(false);
         break;
 
     case ColorPickerConfig::Fill:
     case ColorPickerConfig::Stroke:
     case ColorPickerConfig::Text:
     case ColorPickerConfig::Shadow:
-        ui->comboType->addItem("Slider", SelectorMode::Slider);
-        ui->comboType->addItem("Map", SelectorMode::Map);
-        ui->comboType->addItem("Harmony", SelectorMode::Harmony);
-        ui->comboType->addItem("Swatches", SelectorMode::Swatches);
-        cAlpha = true;
-        cShade = true;
+        setVisiblePicker(true);
+        setVisibleSwatches(true);
+        setVisibleAlpha(true);
+        setVisibleShade(true);
         break;
 
     default:
     case ColorPickerConfig::Default:
-        ui->comboType->addItem("Slider", SelectorMode::Slider);
-        ui->comboType->addItem("Map", SelectorMode::Map);
-        cAlpha = true;
-        cShade = false;
+        setVisiblePicker(true);
+        setVisibleSwatches(false);
+        setVisibleAlpha(true);
+        setVisibleShade(false);
         break;
     }
 
-    ui->comboType->setCurrentIndex(0);
-
-    ui->labelAlpha->setVisible(cAlpha);
-    ui->sliderAlpha->setVisible(cAlpha);
-    ui->numberAlpha->setVisible(cAlpha);
-
-    ui->labelShade->setVisible(cShade);
-    ui->sliderShade->setVisible(cShade);
-    ui->numberShade->setVisible(cShade);
-
-
+    changeUI();
 
     connectSlots();
 
@@ -926,70 +966,68 @@ void ColorPickerColor::changeMapMode()
 void ColorPickerColor::changeUI()
 {
     // Reset harmony specific UI elements
-    changeColorButtons(ColorHarmonyWheel::None);
+    //  changeColorButtons(ColorHarmonyWheel::None);
 
-    switch(m_mode){
-    case SelectorMode::Slider:{
-        switch(m_colorSpace){
-        case ColorModel::HSV:
-            ui->stackSlider->setCurrentIndex(0);
-            break;
-        case ColorModel::RGB:
-            ui->stackSlider->setCurrentIndex(1);
-            break;
-        case ColorModel::CMYK:
-            ui->stackSlider->setCurrentIndex(2);
-            break;
-        case ColorModel::Lab:
-            ui->stackSlider->setCurrentIndex(3);
-            break;
-        }
-
+    // Set slider & map based on color space
+    switch(m_colorSpace){
+    case ColorModel::HSV:
+        ui->stackSlider->setCurrentIndex(0);
+        m_colorMapMode = ColorMap::HSVHue;
+        ui->buttonMapMode->setDefaultAction(actionMapHSVHue);
         break;
-    }
-    case SelectorMode::Harmony:{
-
-        changeHarmony();
-        ui->stackSlider->setCurrentIndex(4);
+    case ColorModel::RGB:
+        ui->stackSlider->setCurrentIndex(1);
+        m_colorMapMode = ColorMap::HSVHue;
+        ui->buttonMapMode->setDefaultAction(actionMapHSVHue);
         break;
-    }
-    case SelectorMode::Map:{
-
-        switch(m_colorSpace){
-        case ColorModel::HSV:
-        case ColorModel::CMYK:
-        case ColorModel::RGB:
-            m_colorMapMode = ColorMap::HSVHue;
-            ui->buttonMapMode->setDefaultAction(actionMapHSVHue);
-            break;
-
-        case ColorModel::Lab:
-            m_colorMapMode = ColorMap::LabLightness;
-            ui->buttonMapMode->setDefaultAction(actionMapLabL);
-            break;
-        }
-
-        updateColorLabel();
-        changeMapMode();
-
-        ui->stackSlider->setCurrentIndex(5);
-
+    case ColorModel::CMYK:
+        ui->stackSlider->setCurrentIndex(2);
+        m_colorMapMode = ColorMap::HSVHue;
+        ui->buttonMapMode->setDefaultAction(actionMapHSVHue);
         break;
-    }
-    case SelectorMode::Swatches:{
-        ui->stackSlider->setCurrentIndex(6);
+    case ColorModel::Lab:
+        ui->stackSlider->setCurrentIndex(3);
+        m_colorMapMode = ColorMap::LabLightness;
+        ui->buttonMapMode->setDefaultAction(actionMapLabL);
         break;
     }
 
-    }
+
+    updateColorLabel();
+    changeMapMode();
+    changeHarmony();
+    changePickerMode();
+
 
 }
 
-void ColorPickerColor::changeSelectorMode()
+void ColorPickerColor::changeSize()
 {
-    m_mode = static_cast<SelectorMode>(ui->comboType->currentData(Qt::UserRole).toInt());
-    changeUI();
+    adjustSize();
+    emit sizeChanged();
 }
+
+void ColorPickerColor::changePickerMode()
+{
+
+    QAction *action = qobject_cast<QAction *>(sender());
+
+    if(action != nullptr) m_pickerMode = static_cast<PickerMode>(action->data().toInt());
+
+    switch(m_pickerMode){
+    default:
+    case PickerMode::Map:
+        ui->stackPicker->setCurrentIndex(0);
+        changeColorButtons(ColorHarmonyWheel::None);
+        break;
+    case PickerMode::Harmony:
+        ui->stackPicker->setCurrentIndex(1);
+        changeColorButtons(m_harmony);
+        break;
+    }
+
+}
+
 
 
 /* ********************************************************************************* *

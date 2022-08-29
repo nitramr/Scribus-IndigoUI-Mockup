@@ -9,7 +9,7 @@ const int RADIUS = 6;
 
 ColorMap::ColorMap(QWidget *parent)
     : QWidget{parent}
-{
+{  
     renderMap();
 }
 
@@ -103,6 +103,7 @@ void ColorMap::renderMap()
     m_colorMap = QImage(w,h, QImage::Format_ARGB32_Premultiplied);
 
     switch(m_drawMode){
+    default:
     case Mode::HSVHue:
         drawHSVHue(w, h);
 //        drawHSV(w, h, m_color.hueF());
@@ -133,6 +134,7 @@ void ColorMap::renderMap()
         drawRGBRed(w, h);
         break;
     }
+
 
 }
 

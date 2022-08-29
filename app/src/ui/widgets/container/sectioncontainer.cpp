@@ -165,22 +165,24 @@ void SectionContainer::setIsCollapsed(bool state)
 
     if( boolIsCollapsed ){
         // save size policy
-        tmpSizePolicy = this->sizePolicy();
+     //   tmpSizePolicy = this->sizePolicy();
 
         bodyWidget->hide();
         buttonCollapse->setIcon(iconCollapsed);
 
-        // optimize size policy for collapsed state
-        QSizePolicy sizePol = QSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Maximum );
-        setSizePolicy(sizePol);
+//        // optimize size policy for collapsed state
+//        QSizePolicy sizePol = QSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Maximum );
+//        setSizePolicy(sizePol);
 
     } else {
         // restore size policy
-        this->setSizePolicy(tmpSizePolicy);
+      //  this->setSizePolicy(tmpSizePolicy);
 
         bodyWidget->show();
         buttonCollapse->setIcon(iconExpanded);
     }
+
+    adjustSize();
 
     emit collapsedState(boolIsCollapsed);
 }

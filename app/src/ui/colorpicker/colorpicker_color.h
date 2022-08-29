@@ -28,16 +28,18 @@ public:
     ColorPickerConfig configuration();
 
 private:
-    enum SelectorMode {Slider = 0, Map = 1, Harmony = 2, Swatches = 3};
+
+    enum PickerMode {Map = 0, Harmony = 1};
 
     Ui::ColorPickerColor *ui;
     ScColor m_color;
     ColorModel m_colorSpace;
-    SelectorMode m_mode;
     VisionDefectColor::defectMode m_defectMode;
     ColorMap::Mode m_colorMapMode;
     ColorHarmonyWheel::Harmony m_harmony;
+    PickerMode m_pickerMode;
     ColorPickerConfig m_configuration;
+    QToolButton *buttonPickerToggle;
 
     QMenu *menuColorBlind;
     QAction *actionColorBlindNormal;
@@ -70,6 +72,10 @@ private:
     QAction * actionHarmonyAnalogous;
     QAction * actionHarmonyMonochromatic;
 
+    QMenu *menuPicker;
+    QAction * actionPickerMap;
+    QAction * actionPickerHarmony;
+
     void setup();
     void connectSlots();
     void disconnectSlots();
@@ -77,13 +83,19 @@ private:
     void updateColorButton(ColorButton *button, ScColor color);
     void updateColorLabel();
 
+    void setVisibleSwatches(bool isVisible);
+    void setVisiblePicker(bool isVisible);
+    void setVisibleAlpha(bool isVisible);
+    void setVisibleShade(bool isVisible);
+
+
 
 public slots:
 
     void setColor(ScColor color);
 
 private slots:
-    void changeSelectorMode();
+
     void switchColorBlind(bool enabled);
     void switchSliderScale(bool enabled);
 
@@ -97,9 +109,12 @@ private slots:
     void changeHarmonyColor();
     void changeMapMode();
     void changeUI();
+    void changeSize();
+    void changePickerMode();
 
 signals:
     void colorChanged(ScColor);
+    void sizeChanged();
 
 protected:
     void mouseMoveEvent(QMouseEvent *e);

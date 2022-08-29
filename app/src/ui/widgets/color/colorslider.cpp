@@ -25,6 +25,7 @@ ColorSlider::ColorSlider(Mode mode, QWidget *parent) : QSlider(parent)
     m_mode = mode;
     m_color = ScColor(255,0,0);
 
+    setMinimumSize(1,1);
     setOrientation(Qt::Horizontal);
     setTickPosition(QSlider::TicksAbove);
     setup();
@@ -437,6 +438,7 @@ void ColorSlider::renderMap()
         break;
 
     }
+
 }
 
 void ColorSlider::updateValues()

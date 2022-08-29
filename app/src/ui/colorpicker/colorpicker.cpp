@@ -12,12 +12,13 @@
  * ********************************************************************************* */
 
 ColorPicker::ColorPicker(ColorPickerConfig config, QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::ColorPicker)
 {
     ui->setupUi(this);
 
     setConfiguration(config);
+    setWindowTitle(tr("Color Picker"));
 
     setup();
     connectSlots();
@@ -39,8 +40,8 @@ void ColorPicker::setup()
     updatePicker(ItemFillMode::Solid);
 
     m_buttonGroup = new QButtonGroup();
-    m_buttonGroup->addButton(ui->buttonSolid, 0);
-    m_buttonGroup->addButton(ui->buttonGradient, 1);
+    m_buttonGroup->addButton(ui->buttonSolid, (int)ItemFillMode::Solid);
+    m_buttonGroup->addButton(ui->buttonGradient, (int)ItemFillMode::Gradient);
 
 
 }
@@ -48,7 +49,9 @@ void ColorPicker::setup()
 void ColorPicker::connectSlots()
 {
     connect(ui->colorEdit, &ColorPickerColor::colorChanged, this, &ColorPicker::updateColor);
+    connect(ui->colorEdit, &ColorPickerColor::sizeChanged, this, &ColorPicker::updateSize);
     connect(ui->gradientEdit, &ColorPickerGradient::gradientChanged, this, &ColorPicker::updateGradient);
+    connect(ui->gradientEdit, &ColorPickerGradient::sizeChanged, this, &ColorPicker::updateSize);
     connect(m_buttonGroup, &QButtonGroup::buttonClicked, this, &ColorPicker::changedTab);
 }
 
@@ -89,7 +92,10 @@ void ColorPicker::setConfiguration(ColorPickerConfig config)
         break;
     }
 
-    ui->stack->setCurrentIndex(0);
+    ui->colorEdit->setVisible(true);
+    ui->gradientEdit->setVisible(false);
+
+    //ui->stack->setCurrentIndex(0);
 
     /*
     =Default=
@@ -268,6 +274,11 @@ void ColorPicker::updateImage()
     emit imageChanged();
 }
 
+void ColorPicker::updateSize()
+{
+    this->adjustSize();
+}
+
 void ColorPicker::updatePicker(ItemFillMode mode)
 {
     m_fillMode = mode;
@@ -275,10 +286,14 @@ void ColorPicker::updatePicker(ItemFillMode mode)
     switch(m_fillMode){
     default:
     case ItemFillMode::Solid:
-        ui->stack->setCurrentIndex(0);
+        ui->colorEdit->setVisible(true);
+        ui->gradientEdit->setVisible(false);
+
         break;
     case ItemFillMode::Gradient:
-        ui->stack->setCurrentIndex(1);
+        ui->colorEdit->setVisible(false);
+        ui->gradientEdit->setVisible(true);
+
         break;
     case ItemFillMode::Pattern:
 
@@ -289,22 +304,24 @@ void ColorPicker::updatePicker(ItemFillMode mode)
 
     }
 
+    updateSize();
+
 }
 
 void ColorPicker::changedTab()
 {
-    int id = m_buttonGroup->checkedId();
-    ui->stack->setCurrentIndex(id);
+    ItemFillMode fillMode = static_cast<ItemFillMode>(m_buttonGroup->checkedId());
+    updatePicker(fillMode);
 
-    switch(id){
+    switch(fillMode){
     default:
-    case 0:
-        m_fillMode = ItemFillMode::Solid;
-        updateColor(m_color);
+    case ItemFillMode::Solid:
+        updateColor(m_color);       
+
         break;
-    case 1:
-        m_fillMode = ItemFillMode::Gradient;
+    case ItemFillMode::Gradient:
         updateGradient(m_gradient);
+
         break;
     }
 

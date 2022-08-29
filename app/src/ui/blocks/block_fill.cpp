@@ -39,7 +39,6 @@ void BlockFill::setup()
     colorMaskPicker->setColorButton(ui->buttonMask);
 
 
-
 //    ui->layoutFillButtons->setVisible(false);
 
 }

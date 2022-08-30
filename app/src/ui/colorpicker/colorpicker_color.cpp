@@ -22,6 +22,7 @@ ColorPickerColor::ColorPickerColor(QWidget *parent) :
 
     // setMouseTracking(true);
     setWindowTitle(tr("Color Picker"));
+    setWindowFlag(Qt::WindowMinMaxButtonsHint, false);
     setup();
 
     // Setup default states
@@ -48,6 +49,7 @@ void ColorPickerColor::setup()
     QIcon iconCollapsed = iconManager.icon("chevron-right");
     QIcon iconOpen = iconManager.icon("chevron-down");
 
+
     // Values
     m_colorSpace = ColorModel::HSV;
     m_defectMode = VisionDefectColor::normalVision;
@@ -60,11 +62,17 @@ void ColorPickerColor::setup()
     ui->buttonAddColor->setIcon(iconManager.icon("add"));
     ui->buttonEyeDropper->setIcon(iconManager.icon("eyedropper"));
     ui->buttonSettings->setIcon(iconManager.icon("setting-edit"));
+    ui->buttonSpotColor->setIcon(iconManager.icon("color-spot"));
 
     // Picker Button
     buttonPickerToggle = new QToolButton();
     buttonPickerToggle->setPopupMode(QToolButton::InstantPopup);
 
+    // Color Space Combobox
+    comboColorSpace = new QComboBox();
+
+    // Spot Button
+    ui->buttonSpotColor->setToolTip(tr("Toggle if color is spot color."));
 
     // Stacks
     ui->stackSlider->setCurrentIndex(0);
@@ -72,6 +80,7 @@ void ColorPickerColor::setup()
 
     // Sections
     ui->sectionPicker->setCollapseIcons(iconCollapsed, iconOpen);
+    ui->sectionPicker->addHeaderWidget(comboColorSpace);
     ui->sectionPicker->addHeaderWidget(buttonPickerToggle);
     ui->sectionSwatches->setCollapseIcons(iconCollapsed, iconOpen);
 
@@ -84,10 +93,10 @@ void ColorPickerColor::setup()
 
 
     // Color Space
-    ui->comboColorSpace->addItem("HSV", QVariant::fromValue(ColorModel::HSV));
-    ui->comboColorSpace->addItem("RGB", QVariant::fromValue(ColorModel::RGB));
-    ui->comboColorSpace->addItem("CMYK", QVariant::fromValue(ColorModel::CMYK));
-    ui->comboColorSpace->addItem("Lab", QVariant::fromValue(ColorModel::Lab));
+    comboColorSpace->addItem("HSV", QVariant::fromValue(ColorModel::HSV));
+    comboColorSpace->addItem("RGB", QVariant::fromValue(ColorModel::RGB));
+    comboColorSpace->addItem("CMYK", QVariant::fromValue(ColorModel::CMYK));
+    comboColorSpace->addItem("Lab", QVariant::fromValue(ColorModel::Lab));
 
     // Picker
     actionPickerMap      = new QAction(iconManager.icon("colorpicker-map"), "Map", this);
@@ -271,7 +280,7 @@ void ColorPickerColor::connectSlots()
 {
 
     // ComboBoxes
-    connect(ui->comboColorSpace,    &QComboBox::currentIndexChanged, this, &ColorPickerColor::changeColorSpace);
+    connect(comboColorSpace,    &QComboBox::currentIndexChanged, this, &ColorPickerColor::changeColorSpace);
 
     // Map
     connect(ui->colorMap,           &ColorMap::colorChanged, this, &ColorPickerColor::changeColor);
@@ -367,11 +376,11 @@ void ColorPickerColor::connectSlots()
     connect(ui->buttonColor4,       &QToolButton::pressed, this, &ColorPickerColor::changeHarmonyColor );
 
     // Settings
-    connect(actionColorBlind,   &QAction::toggled,this, &ColorPickerColor::switchColorBlind );
-    connect(actionSliderScale,  &QAction::toggled,this, &ColorPickerColor::switchSliderScale );
+    connect(actionColorBlind,       &QAction::toggled,this, &ColorPickerColor::switchColorBlind );
+    connect(actionSliderScale,      &QAction::toggled,this, &ColorPickerColor::switchSliderScale );
 
     // Color Swatches
-    connect(ui->swatches,       &ColorSwatches::colorChanged, this, &ColorPickerColor::setColorFromSwatch);
+    connect(ui->swatches,           &ColorSwatches::colorChanged, this, &ColorPickerColor::setColorFromSwatch);
 
 
     // Sections
@@ -379,9 +388,12 @@ void ColorPickerColor::connectSlots()
     connect(ui->sectionSwatches,    &SectionContainer::collapsedState, this, &ColorPickerColor::changeSize);
 
     // Picker Button
-    connect(buttonPickerToggle,      &QToolButton::triggered, buttonPickerToggle, &QToolButton::setDefaultAction);
-    connect(actionPickerMap,             &QAction::triggered,this, &ColorPickerColor::changePickerMode );
-    connect(actionPickerHarmony,             &QAction::triggered,this, &ColorPickerColor::changePickerMode );
+    connect(buttonPickerToggle,     &QToolButton::triggered, buttonPickerToggle, &QToolButton::setDefaultAction);
+    connect(actionPickerMap,        &QAction::triggered,this, &ColorPickerColor::changePickerMode );
+    connect(actionPickerHarmony,    &QAction::triggered,this, &ColorPickerColor::changePickerMode );
+
+    // Spot Button
+    connect(ui->buttonSpotColor,        &QToolButton::toggled, this, &ColorPickerColor::setSpotFlag);
 
 
 }
@@ -389,7 +401,7 @@ void ColorPickerColor::connectSlots()
 void ColorPickerColor::disconnectSlots()
 {
     // ComboBoxes
-    disconnect(ui->comboColorSpace,    &QComboBox::currentIndexChanged, this, &ColorPickerColor::changeColorSpace);
+    disconnect(comboColorSpace,    &QComboBox::currentIndexChanged, this, &ColorPickerColor::changeColorSpace);
 
     // Map
     disconnect(ui->colorMap,           &ColorMap::colorChanged, this, &ColorPickerColor::changeColor);
@@ -485,20 +497,23 @@ void ColorPickerColor::disconnectSlots()
     disconnect(ui->buttonColor4,       &QToolButton::pressed, this, &ColorPickerColor::changeHarmonyColor );
 
     // Settings
-    disconnect(actionColorBlind,   &QAction::toggled,this, &ColorPickerColor::switchColorBlind );
-    disconnect(actionSliderScale,  &QAction::toggled,this, &ColorPickerColor::switchSliderScale );
+    disconnect(actionColorBlind,       &QAction::toggled,this, &ColorPickerColor::switchColorBlind );
+    disconnect(actionSliderScale,      &QAction::toggled,this, &ColorPickerColor::switchSliderScale );
 
     // Color Swatches
-    disconnect(ui->swatches,       &ColorSwatches::colorChanged, this, &ColorPickerColor::setColorFromSwatch);
+    disconnect(ui->swatches,           &ColorSwatches::colorChanged, this, &ColorPickerColor::setColorFromSwatch);
 
     // Sections
     disconnect(ui->sectionPicker,      &SectionContainer::collapsedState, this, &ColorPickerColor::changeSize);
     disconnect(ui->sectionSwatches,    &SectionContainer::collapsedState, this, &ColorPickerColor::changeSize);
 
     // Picker Button
-    disconnect(buttonPickerToggle,      &QToolButton::triggered, buttonPickerToggle, &QToolButton::setDefaultAction);
-    disconnect(actionPickerMap,             &QAction::triggered,this, &ColorPickerColor::changePickerMode );
-    disconnect(actionPickerHarmony,             &QAction::triggered,this, &ColorPickerColor::changePickerMode );
+    disconnect(buttonPickerToggle,     &QToolButton::triggered, buttonPickerToggle, &QToolButton::setDefaultAction);
+    disconnect(actionPickerMap,        &QAction::triggered,this, &ColorPickerColor::changePickerMode );
+    disconnect(actionPickerHarmony,    &QAction::triggered,this, &ColorPickerColor::changePickerMode );
+
+    // Spot Button
+    disconnect(ui->buttonSpotColor,    &QToolButton::toggled, this, &ColorPickerColor::setSpotFlag);
 }
 
 /* ********************************************************************************* *
@@ -731,14 +746,15 @@ void ColorPickerColor::setColor(ScColor color)
     updateColor(color);
 
     ColorModel colModel = color.getColorModel();
-    int index = ui->comboColorSpace->findData(QVariant::fromValue(colModel));
+    int index = comboColorSpace->findData(QVariant::fromValue(colModel));
 
     if ( index != -1 ) {
-        ui->comboColorSpace->setCurrentIndex(index);
+        comboColorSpace->setCurrentIndex(index);
         m_colorSpace = colModel;
     }
 
-    ui->checkBox->setChecked(color.isSpotColor());
+    //ui->checkBox->setChecked(color.isSpotColor());
+    ui->buttonSpotColor->setChecked(color.isSpotColor());
 
     changeUI();
 }
@@ -804,6 +820,11 @@ void ColorPickerColor::setColorFromSwatch(ScColor color)
 {
     setColor(color);
     emit colorChanged(this->color());
+}
+
+void ColorPickerColor::setSpotFlag(bool isSpot)
+{
+    m_color.setSpotColor(isSpot);
 }
 
 
@@ -893,7 +914,7 @@ void ColorPickerColor::changeColorButtons(ColorHarmonyWheel::Harmony harmony)
 void ColorPickerColor::changeColorSpace()
 {
 
-    m_colorSpace = static_cast<ColorModel>(ui->comboColorSpace->currentData(Qt::UserRole).toInt());
+    m_colorSpace = static_cast<ColorModel>(comboColorSpace->currentData(Qt::UserRole).toInt());
     changeUI();
     emit colorChanged(this->color());
 }

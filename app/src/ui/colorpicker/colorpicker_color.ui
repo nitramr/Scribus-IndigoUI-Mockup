@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>300</width>
-    <height>617</height>
+    <height>582</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -39,7 +39,7 @@
     <number>0</number>
    </property>
    <property name="bottomMargin">
-    <number>8</number>
+    <number>0</number>
    </property>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -90,6 +90,16 @@
         </property>
         <item>
          <widget class="QLineEdit" name="textName"/>
+        </item>
+        <item>
+         <widget class="QToolButton" name="buttonSpotColor">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -362,45 +372,6 @@
         </widget>
        </item>
       </layout>
-     </item>
-    </layout>
-   </item>
-   <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_8">
-     <property name="spacing">
-      <number>4</number>
-     </property>
-     <property name="leftMargin">
-      <number>8</number>
-     </property>
-     <property name="rightMargin">
-      <number>8</number>
-     </property>
-     <property name="bottomMargin">
-      <number>8</number>
-     </property>
-     <item>
-      <widget class="QComboBox" name="comboColorSpace"/>
-     </item>
-     <item>
-      <widget class="QCheckBox" name="checkBox">
-       <property name="text">
-        <string>Spot Color</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_3">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
-       </property>
-      </spacer>
      </item>
     </layout>
    </item>
@@ -1237,7 +1208,7 @@
         <number>8</number>
        </property>
        <property name="bottomMargin">
-        <number>0</number>
+        <number>8</number>
        </property>
        <item>
         <widget class="ColorSwatches" name="swatches" native="true"/>

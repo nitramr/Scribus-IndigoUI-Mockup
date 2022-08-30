@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <colorbutton.h>
+#include <QComboBox>
 #include "sccolor.h"
 #include "colorblind.h"
 #include "colorharmonywheel.h"
@@ -40,6 +41,7 @@ private:
     PickerMode m_pickerMode;
     ColorPickerConfig m_configuration;
     QToolButton *buttonPickerToggle;
+    QComboBox * comboColorSpace;
 
     QMenu *menuColorBlind;
     QAction *actionColorBlindNormal;
@@ -100,6 +102,7 @@ private slots:
     void switchSliderScale(bool enabled);
 
     void setColorFromSwatch(ScColor color);
+    void setSpotFlag(bool isSpot);
 
     void changeColor(ScColor color);
     void changeColorBlindness();

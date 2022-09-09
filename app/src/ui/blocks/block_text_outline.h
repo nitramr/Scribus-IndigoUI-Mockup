@@ -1,6 +1,7 @@
 #ifndef BLOCK_TEXT_OUTLINE_H
 #define BLOCK_TEXT_OUTLINE_H
 
+#include "sccolor.h"
 #include <QWidget>
 
 namespace Ui {
@@ -23,6 +24,10 @@ private:
     ColorPicker * colorOutlinePicker;
 
     void setup();
+    void connectSlots();
+
+public slots:
+    void setOutlineColor(ScColor color);
 };
 
 #endif // BLOCK_TEXT_OUTLINE_H

@@ -1,17 +1,18 @@
 #ifndef COLORPICKER_H
 #define COLORPICKER_H
 
-#include "colorbutton.h"
+//#include "colorbutton.h"
 #include "enums.h"
 #include "sccolor.h"
 #include "vgradient.h"
-#include <QDialog>
+#include <QButtonGroup>
+#include <QWidget>
 
 namespace Ui {
 class ColorPicker;
 }
 
-class ColorPicker : public QDialog
+class ColorPicker : public QWidget
 {
     Q_OBJECT
 
@@ -26,7 +27,7 @@ public:
     ColorPickerConfig configuration();
 
 public slots:
-    void setColorButton(ColorButton *button);
+//    void setColorButton(ColorButton *button);
 
     void setColor(ScColor color);
     void setGradient(VGradient gradient);
@@ -34,7 +35,7 @@ public slots:
     void setImage();
 
 private slots:
-    void updateColorButton();
+//    void updateColorButton();
 
     void updateColor(ScColor color);
     void updateGradient(VGradient gradient);
@@ -49,7 +50,7 @@ private:
 
     Ui::ColorPicker *ui;
 
-    ColorButton *m_colorButton;
+ //   ColorButton *m_colorButton;
     ItemFillMode m_fillMode;
     ScColor m_color;
     VGradient m_gradient;

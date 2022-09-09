@@ -1,10 +1,14 @@
 #include "colorbutton.h"
+
 #include "menu_popup.h"
 
 #include <QPainter>
 #include <QPainterPath>
 #include <util_render.h>
 #include "colorpicker.h"
+#include "colorpicker_color.h"
+#include "colorpicker_gradient.h"
+#include "stickypopup.h"
 
 /* ********************************************************************************* *
  *
@@ -42,44 +46,64 @@ VGradient ColorButton::gradient()
 
 QSize ColorButton::backgroundDotSize()
 {
-    int smalletestSize = qMin(height(), width());
+    int smallestSize = qMin(height(), width());
 
-    return QSize(smalletestSize,smalletestSize);
+    return QSize(smallestSize,smallestSize);
 }
 
 QSize ColorButton::foregroundDotSize()
 {
-    int smalletestSize = qMin(height()/2, width()/2);
+    int smallestSize = qMin(height()/2, width()/2);
 
-    return QSize(smalletestSize,smalletestSize);
+    return QSize(smallestSize,smallestSize);
 }
 
-void ColorButton::setContextWidget(QWidget *widget)
+void ColorButton::setContextWidget(QWidget *widget, bool isFloating)
 {
-//    MenuPopup * menu = new MenuPopup(widget);
-//    menu->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowStaysOnTopHint);
 
-//    this->setCheckable(true);
-//    this->setMenu(menu);
+//    ColorPicker *colorPicker = qobject_cast<ColorPicker*>(widget);
+//    ColorPickerColor *colorPickerColor = qobject_cast<ColorPickerColor*>(widget);
+//    ColorPickerGradient *colorPickerGradient = qobject_cast<ColorPickerGradient*>(widget);
 
-//    connect(this, &ColorButton::toggled, this, [menu](bool t) {
-//        menu->setVisible(t);
-//        menu->raise();
-//        menu->activateWindow();
+//    if(colorPicker){
+//        connect(colorPicker, &ColorPicker::colorChanged, this, &ColorButton::setColor);
+//        connect(colorPicker, &ColorPicker::gradientChanged, this, &ColorButton::setGradient);
+//    }
 
-//    });
+//    if(colorPickerColor){
+//        connect(colorPickerColor, &ColorPickerColor::colorChanged, this, &ColorButton::setColor);
+//    }
 
-   // this->setCheckable(true);
-    connect(this, &ColorButton::clicked, this, [widget]() {
-        if(widget->isVisible()){
-             widget->setVisible(false);
-        }else{
-            widget->setVisible(true);
-            widget->raise();
-            widget->activateWindow();
-        }
-    });
+//    if(colorPickerGradient){
+//        connect(colorPickerGradient, &ColorPickerGradient::gradientChanged, this, &ColorButton::setGradient);
+//    }
 
+
+    if(isFloating){
+
+        StickyPopup * stickyPopup = new StickyPopup(widget, this);
+
+        connect(this, &ColorButton::clicked, this, [stickyPopup]() {
+            if(stickyPopup->isVisible()){
+                 stickyPopup->hide();
+            }else{
+                stickyPopup->show();
+            }
+        });
+
+    }else{
+        MenuPopup * menu = new MenuPopup(widget);
+
+        this->setCheckable(true);
+        this->setMenu(menu);
+
+        connect(this, &ColorButton::toggled, this, [menu](bool t) {
+            menu->setVisible(t);
+            menu->raise();
+
+        });
+
+    }
 
 }
 

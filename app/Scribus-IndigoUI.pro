@@ -137,6 +137,7 @@ SOURCES += \
     src/ui/widgets/advancedspinbox.cpp \
     src/ui/widgets/anglepicker.cpp \
     src/ui/widgets/basepointwidget.cpp \
+    src/ui/widgets/container/stickypopup.cpp \
     src/ui/widgets/menu/menu_autoforms.cpp \
     src/ui/widgets/button/button_autoforms.cpp \
     src/ui/widgets/button/colorbutton.cpp \
@@ -258,6 +259,7 @@ HEADERS += \
     src/ui/widgets/advancedspinbox.h \
     src/ui/widgets/anglepicker.h \
     src/ui/widgets/basepointwidget.h \
+    src/ui/widgets/container/stickypopup.h \
     src/ui/widgets/menu/menu_autoforms.h \
     src/ui/widgets/button/button_autoforms.h \
     src/ui/widgets/button/colorbutton.h \

@@ -16,6 +16,8 @@ ColorPickerGradient::ColorPickerGradient(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    setWindowTitle(tr("Edit Gradient"));
+
     setup();
     connectSlots();
 }
@@ -60,12 +62,12 @@ void ColorPickerGradient::setup()
     colorPicker4CBottomLeft = new ColorPickerColor(ColorPickerConfig::Fill);
     colorPicker4CBottomRight = new ColorPickerColor(ColorPickerConfig::Fill);
 
-    ui->buttonColor->setContextWidget(colorPickerEdit);
-    ui->buttonMeshNode->setContextWidget(colorPickerMeshNode);
-    ui->button4CTopLeft->setContextWidget(colorPicker4CTopLeft);
-    ui->button4CTopRight->setContextWidget(colorPicker4CTopRight);
-    ui->button4CBottomLeft->setContextWidget(colorPicker4CBottomLeft);
-    ui->button4CBottomRight->setContextWidget(colorPicker4CBottomRight);
+    ui->buttonColor->setContextWidget(colorPickerEdit, true);
+    ui->buttonMeshNode->setContextWidget(colorPickerMeshNode, true);
+    ui->button4CTopLeft->setContextWidget(colorPicker4CTopLeft, true);
+    ui->button4CTopRight->setContextWidget(colorPicker4CTopRight, true);
+    ui->button4CBottomLeft->setContextWidget(colorPicker4CBottomLeft, true);
+    ui->button4CBottomRight->setContextWidget(colorPicker4CBottomRight, true);
 
     // Swatches
     ui->swatches->setConfiguration(ItemFillMode::Gradient);

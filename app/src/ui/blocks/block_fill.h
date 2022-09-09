@@ -1,6 +1,7 @@
 #ifndef BLOCK_FILL_H
 #define BLOCK_FILL_H
 
+#include "vgradient.h"
 #include <QWidget>
 #include <sccolor.h>
 
@@ -20,12 +21,12 @@ public:
 
 public slots:
     void setFillColor(ScColor color);
-    void setFillGradient();
+    void setFillGradient(VGradient gradient);
     void setFillPattern();
     void setFillImage();
 
     void setMaskColor(ScColor color);
-    void setMaskGradient();
+    void setMaskGradient(VGradient gradient);
     void setMaskPattern();
 
 private slots:

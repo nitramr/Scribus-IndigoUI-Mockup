@@ -15,6 +15,7 @@ BlockTextOutline::BlockTextOutline(QWidget *parent) :
     ui->setupUi(this);
 
     setup();
+    connectSlots();
 }
 
 BlockTextOutline::~BlockTextOutline()
@@ -25,6 +26,19 @@ BlockTextOutline::~BlockTextOutline()
 void BlockTextOutline::setup()
 {
     // Color Picker
-    colorOutlinePicker = new ColorPicker(ColorPickerConfig::Text);
-    colorOutlinePicker->setColorButton(ui->buttonOutlineColor);
+    colorOutlinePicker = new ColorPicker(ColorPickerConfig::Text);  
+    ui->buttonOutlineColor->setContextWidget(colorOutlinePicker);
 }
+
+void BlockTextOutline::connectSlots()
+{
+    connect(colorOutlinePicker, &ColorPicker::colorChanged, this, &BlockTextOutline::setOutlineColor);
+}
+
+void BlockTextOutline::setOutlineColor(ScColor color)
+{
+    // TODO: handle selected document elements
+
+    ui->buttonOutlineColor->setColor(color);
+}
+

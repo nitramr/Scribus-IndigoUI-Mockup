@@ -12,7 +12,7 @@
  * ********************************************************************************* */
 
 ColorPicker::ColorPicker(ColorPickerConfig config, QWidget *parent) :
-    QDialog(parent),
+    QWidget(parent),
     ui(new Ui::ColorPicker)
 {
     ui->setupUi(this);
@@ -180,23 +180,23 @@ ColorPickerConfig ColorPicker::configuration()
  * ********************************************************************************* */
 
 
-void ColorPicker::setColorButton(ColorButton *button)
-{
-    //    PopupMenu * menu = new PopupMenu(this);
-    //    menu->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowStaysOnTopHint);
+//void ColorPicker::setColorButton(ColorButton *button)
+//{
+//    //    PopupMenu * menu = new PopupMenu(this);
+//    //    menu->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowStaysOnTopHint);
 
-    m_colorButton = button;
-    //    m_colorButton->setCheckable(true);
-    //    m_colorButton->setMenu(menu);
+//    m_colorButton = button;
+//    //    m_colorButton->setCheckable(true);
+//    //    m_colorButton->setMenu(menu);
 
-    //    connect(m_colorButton, &ColorButton::toggled, this, [menu](bool t) {
-    //        menu->setVisible(t);
+//    //    connect(m_colorButton, &ColorButton::toggled, this, [menu](bool t) {
+//    //        menu->setVisible(t);
 
-    //    });
+//    //    });
 
-    m_colorButton->setContextWidget(this);
+//    m_colorButton->setContextWidget(this);
 
-}
+//}
 
 void ColorPicker::setColor(ScColor color)
 {
@@ -228,55 +228,60 @@ void ColorPicker::setImage()
  *
  * ********************************************************************************* */
 
-void ColorPicker::updateColorButton()
-{
-    switch(m_fillMode){
-    case ItemFillMode::Solid:
-        m_colorButton->setColor(m_color);
-        break;
-    case ItemFillMode::Gradient:
-        m_colorButton->setGradient(m_gradient);
-        break;
-    case ItemFillMode::Pattern:
+//void ColorPicker::updateColorButton()
+//{
+//    switch(m_fillMode){
+//    case ItemFillMode::Solid:
+//        m_colorButton->setColor(m_color);
+//        break;
+//    case ItemFillMode::Gradient:
+//        m_colorButton->setGradient(m_gradient);
+//        break;
+//    case ItemFillMode::Pattern:
 
-        break;
-    case ItemFillMode::Image:
+//        break;
+//    case ItemFillMode::Image:
 
-        break;
+//        break;
 
-    }
+//    }
 
-}
+//}
 
 void ColorPicker::updateColor(ScColor color)
 {
     m_color = color;
-    updateColorButton();
+  //  updateColorButton();
     emit colorChanged(m_color);
 }
 
 void ColorPicker::updateGradient(VGradient gradient)
 {
     m_gradient = gradient;
-    updateColorButton();
+  //  updateColorButton();
     emit gradientChanged(m_gradient);
 }
 
 void ColorPicker::updatePattern()
 {
-    updateColorButton();
+ //   updateColorButton();
     emit patternChanged();
 }
 
 void ColorPicker::updateImage()
 {
-    updateColorButton();
+//    updateColorButton();
     emit imageChanged();
 }
 
 void ColorPicker::updateSize()
 {
     this->adjustSize();
+
+    QWidget *parentWidget = qobject_cast<QWidget*>(parent());
+    if(parentWidget){
+        parentWidget->adjustSize();
+    }
 }
 
 void ColorPicker::updatePicker(ItemFillMode mode)

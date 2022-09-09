@@ -20,8 +20,7 @@ ColorPickerColor::ColorPickerColor(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // setMouseTracking(true);
-    setWindowTitle(tr("Color Picker"));
+    setWindowTitle(tr("Edit Color"));
     setWindowFlag(Qt::WindowMinMaxButtonsHint, false);
     setup();
 

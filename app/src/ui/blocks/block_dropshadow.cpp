@@ -29,10 +29,17 @@ void BlockDropShadow::setup()
 
     // Fill Picker
     colorFillPicker = new ColorPicker(ColorPickerConfig::Shadow);
-    colorFillPicker->setColorButton(ui->buttonColor);
+    ui->buttonColor->setContextWidget(colorFillPicker);
 }
 
 void BlockDropShadow::connectSlots()
 {
+    connect(colorFillPicker, &ColorPicker::colorChanged, this, &BlockDropShadow::setFillColor);
+}
 
+void BlockDropShadow::setFillColor(ScColor color)
+{
+    // TODO: handle selected document elements
+
+    ui->buttonColor->setColor(color);
 }

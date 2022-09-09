@@ -2,6 +2,7 @@
 #define COLORBUTTON_H
 
 
+#include "colorpicker.h"
 #include "vgradient.h"
 #include <QToolButton>
 #include <QWidget>
@@ -20,7 +21,7 @@ public:
     QSize backgroundDotSize();
     QSize foregroundDotSize();
 
-    void setContextWidget(QWidget *widget);
+    void setContextWidget(QWidget *widget, bool isFloating = true);
 
 
 public slots:

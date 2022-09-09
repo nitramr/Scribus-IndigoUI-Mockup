@@ -1,6 +1,7 @@
 #ifndef BLOCK_DROPSHADOW_H
 #define BLOCK_DROPSHADOW_H
 
+#include "sccolor.h"
 #include <QWidget>
 
 class ColorPicker;
@@ -24,6 +25,9 @@ private:
 
     void setup();
     void connectSlots();
+
+public slots:
+    void setFillColor(ScColor color);
 };
 
 #endif // BLOCK_DROPSHADOW_H

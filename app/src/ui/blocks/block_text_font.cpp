@@ -15,6 +15,7 @@ BlockTextFont::BlockTextFont(QWidget *parent) :
     ui->setupUi(this);
 
     setup();
+    connectSlots();
 }
 
 BlockTextFont::~BlockTextFont()
@@ -52,9 +53,29 @@ void BlockTextFont::setup()
 
     // Color Picker
     colorPicker = new ColorPicker(ColorPickerConfig::Text);
-    colorPicker->setColorButton(ui->buttonColor);
+    ui->buttonColor->setContextWidget(colorPicker);
 
     colorBackgroundPicker = new ColorPicker(ColorPickerConfig::Text);
-    colorBackgroundPicker->setColorButton(ui->buttonColorBackground);
+    ui->buttonColorBackground->setContextWidget(colorBackgroundPicker);
 
+}
+
+void BlockTextFont::connectSlots()
+{
+    connect(colorPicker, &ColorPicker::colorChanged, this, &BlockTextFont::setTextColor);
+    connect(colorBackgroundPicker, &ColorPicker::colorChanged, this, &BlockTextFont::setBackgroundColor);
+}
+
+void BlockTextFont::setTextColor(ScColor color)
+{
+    // TODO: handle selected document elements
+
+    ui->buttonColor->setColor(color);
+}
+
+void BlockTextFont::setBackgroundColor(ScColor color)
+{
+    // TODO: handle selected document elements
+
+    ui->buttonColorBackground->setColor(color);
 }

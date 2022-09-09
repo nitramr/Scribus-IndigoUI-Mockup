@@ -2,6 +2,7 @@
 #define BLOCK_STROKE_H
 
 #include "sccolor.h"
+#include "vgradient.h"
 #include <QWidget>
 
 class ColorPicker;
@@ -20,7 +21,7 @@ public:
 
 public slots:
     void setFillColor(ScColor color);
-    void setFillGradient();
+    void setFillGradient(VGradient gradient);
 
 private slots:
     void openFillPicker();

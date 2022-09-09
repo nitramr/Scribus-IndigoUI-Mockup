@@ -32,14 +32,11 @@ void BlockFill::setup()
 
     // Fill Picker
     colorFillPicker = new ColorPicker(ColorPickerConfig::Fill);
-    colorFillPicker->setColorButton(ui->buttonFill);
+    ui->buttonFill->setContextWidget(colorFillPicker);
 
     // Mask Picker
     colorMaskPicker = new ColorPicker(ColorPickerConfig::FillMask);
-    colorMaskPicker->setColorButton(ui->buttonMask);
-
-
-//    ui->layoutFillButtons->setVisible(false);
+    ui->buttonMask->setContextWidget(colorMaskPicker);
 
 }
 
@@ -47,7 +44,9 @@ void BlockFill::connectSlots()
 {
 
     connect(colorFillPicker, &ColorPicker::colorChanged, this, &BlockFill::setFillColor);
+    connect(colorFillPicker, &ColorPicker::gradientChanged, this, &BlockFill::setFillGradient);
     connect(colorMaskPicker, &ColorPicker::colorChanged, this, &BlockFill::setMaskColor);
+    connect(colorMaskPicker, &ColorPicker::gradientChanged, this, &BlockFill::setMaskGradient);
 
     connect(ui->buttonFill, &QToolButton::pressed, this, &BlockFill::openFillPicker);
     connect(ui->buttonMask, &QToolButton::pressed, this, &BlockFill::openMaskPicker);
@@ -67,49 +66,42 @@ void BlockFill::setFillColor(ScColor color)
 
     // TODO: handle selected document elements
 
-//    ui->layoutFillButtons->setVisible(false);
+    ui->buttonFill->setColor(color);
 }
 
-void BlockFill::setFillGradient()
+void BlockFill::setFillGradient(VGradient gradient)
 {
 
     // TODO: handle selected document elements
 
-//    ui->buttonFillproperty->setVisible(false);
-//    ui->layoutFillButtons->setVisible(true);
+    ui->buttonFill->setGradient(gradient);
 }
 
 void BlockFill::setFillPattern()
 {
     // TODO: handle selected document elements
 
-
-//    ui->buttonFillproperty->setVisible(true);
-//    ui->layoutFillButtons->setVisible(true);
 }
 
 void BlockFill::setFillImage()
 {
     // TODO: handle selected document elements
 
-//    ui->layoutFillButtons->setVisible(false);
 }
 
 void BlockFill::setMaskColor(ScColor color)
 {
     // TODO: handle selected document elements
 
-    //ui->buttonMask->setColor(color);
-
-    //ui->layoutMaskOpacity->setVisible(true);
+    ui->buttonMask->setColor(color);
 
 }
 
-void BlockFill::setMaskGradient()
+void BlockFill::setMaskGradient(VGradient gradient)
 {
     // TODO: handle selected document elements
 
-    //ui->layoutMaskOpacity->setVisible(false);
+    ui->buttonMask->setGradient(gradient);
 
 }
 

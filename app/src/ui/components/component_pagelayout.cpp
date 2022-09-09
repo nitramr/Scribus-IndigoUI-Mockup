@@ -1,6 +1,6 @@
 #include "component_pagelayout.h"
 #include "ui_component_pagelayout.h"
-#include "iconmanager.h"
+#include "icon_manager.h"
 
 /* ********************************************************************************* *
  *

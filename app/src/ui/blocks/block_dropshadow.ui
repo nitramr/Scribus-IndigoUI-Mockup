@@ -145,7 +145,7 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="ComboBoxBlendMode" name="comboBlending"/>
+       <widget class="BlendModeComboBox" name="comboBlending"/>
       </item>
      </layout>
     </widget>
@@ -263,12 +263,12 @@
   <customwidget>
    <class>ColorButton</class>
    <extends>QToolButton</extends>
-   <header location="global">colorbutton.h</header>
+   <header location="global">color_button.h</header>
   </customwidget>
   <customwidget>
-   <class>ComboBoxBlendMode</class>
+   <class>BlendModeComboBox</class>
    <extends>QComboBox</extends>
-   <header>combobox_blendmode.h</header>
+   <header>blendmode_combobox.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

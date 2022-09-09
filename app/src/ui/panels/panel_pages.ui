@@ -104,7 +104,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="TrashBin" name="labelDeleteParentPage"/>
+           <widget class="TrashBinWidget" name="labelDeleteParentPage"/>
           </item>
          </layout>
         </item>
@@ -223,7 +223,7 @@
                  <number>0</number>
                 </property>
                 <item>
-                 <widget class="ComboBoxFirstPage" name="comboFirstPage"/>
+                 <widget class="FirstPageComboBox" name="comboFirstPage"/>
                 </item>
                </layout>
               </widget>
@@ -299,7 +299,7 @@
               </spacer>
              </item>
              <item>
-              <widget class="TrashBin" name="labelDeletePage"/>
+              <widget class="TrashBinWidget" name="labelDeletePage"/>
              </item>
             </layout>
            </item>
@@ -344,25 +344,25 @@
    <container>1</container>
   </customwidget>
   <customwidget>
+   <class>PageList</class>
+   <extends>QListWidget</extends>
+   <header>pagelist.h</header>
+  </customwidget>
+  <customwidget>
+   <class>FirstPageComboBox</class>
+   <extends>QComboBox</extends>
+   <header>firstpage_combobox.h</header>
+  </customwidget>
+  <customwidget>
    <class>PageViewer</class>
    <extends>QWidget</extends>
    <header location="global">pageviewer.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>TrashBin</class>
+   <class>TrashBinWidget</class>
    <extends>QLabel</extends>
-   <header location="global">trashbin.h</header>
-  </customwidget>
-  <customwidget>
-   <class>PageList</class>
-   <extends>QListWidget</extends>
-   <header location="global">pagelist.h</header>
-  </customwidget>
-  <customwidget>
-   <class>ComboBoxFirstPage</class>
-   <extends>QComboBox</extends>
-   <header>combobox_firstpage.h</header>
+   <header>trashbin_widget.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

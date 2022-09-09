@@ -21,7 +21,7 @@ for which a new license (GPL+exception) is in place.
 
 #include <QMouseEvent>
 
-#include "iconmanager.h"
+#include "icon_manager.h"
 #include "pagelist.h"
 
 

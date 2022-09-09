@@ -3,7 +3,7 @@
 #include <QPainter>
 #include <QPen>
 #include <QMouseEvent>
-#include "util_color.h"
+// #include "color_utils.h"
 
 
 /* ********************************************************************************* *
@@ -287,7 +287,8 @@ bool SectionContainer::eventFilter(QObject *object, QEvent *event)
         case QEvent::Paint:{
 
             QColor lineColor( palette().mid().color() );
-            QColor bgColor( ColorUtils::colorAlpha( palette().color(QPalette::WindowText), 0.15 ));
+            QColor bgColor( palette().color(QPalette::WindowText) );
+            bgColor.setAlphaF(0.15f);
 
             int lineWidth = 1;
             int headerheight = headerWidget->height() - lineWidth;

@@ -4,8 +4,8 @@
 
 #include <QComboBox>
 
-#include "iconmanager.h"
-#include "menu_popup.h"
+#include "icon_manager.h"
+#include "popup_menu.h"
 #include "sectioncontainer.h"
 
 PanelFrame::PanelFrame(QWidget *parent) :
@@ -123,7 +123,7 @@ void PanelFrame::connectSlots()
 
 void PanelFrame::addMenu(SectionContainer *section, QWidget *menuPanel)
 {
-    MenuPopup * menu = new MenuPopup(menuPanel);
+    PopupMenu * menu = new PopupMenu(menuPanel);
     QToolButton *buttonMenu = new QToolButton();
     buttonMenu->setMenu(menu);
     buttonMenu->setPopupMode(QToolButton::InstantPopup);

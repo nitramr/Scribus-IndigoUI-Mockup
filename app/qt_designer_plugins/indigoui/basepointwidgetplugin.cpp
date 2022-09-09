@@ -8,7 +8,7 @@
 #include <QIcon>
 #include <QtPlugin>
 
-#include "basepointwidget.h"
+#include "basepoint_widget.h"
 #include "basepointwidgetplugin.h"
 
 

@@ -62,13 +62,13 @@ SOURCES += \
     src/color/colorspace.cpp \
     src/document/scribusdoc.cpp \
     src/main.cpp \
-    src/manager/actionmanager.cpp \
-    src/manager/configurationmanager.cpp \
-    src/manager/dirpathsmanager.cpp \
-    src/manager/dockmanager.cpp \
-    src/manager/iconmanager.cpp \
-    src/manager/localemanager.cpp \
-    src/manager/thememanager.cpp \
+    src/manager/action_manager.cpp \
+    src/manager/configuration_manager.cpp \
+    src/manager/dirpaths_manager.cpp \
+    src/manager/dock_manager.cpp \
+    src/manager/icon_manager.cpp \
+    src/manager/locale_manager.cpp \
+    src/manager/theme_manager.cpp \
     src/models/action.cpp \
     src/models/colorlist.cpp \
     src/models/colorlistmodel.cpp \
@@ -109,17 +109,18 @@ SOURCES += \
     src/ui/components/component_pagelayout.cpp \
     src/ui/components/component_parentpageselector.cpp \
     src/ui/components/component_spaceinput.cpp \
-    src/ui/delegate/colorlistitemdelegate.cpp \
     src/ui/components/component_documentselector.cpp \
-    src/ui/dialogs/dialog_colorswatchimport.cpp \
-    src/ui/dialogs/dialog_duplicatepage.cpp \
-    src/ui/dialogs/dialog_importpage.cpp \
-    src/ui/dialogs/dialog_importparentpage.cpp \
-    src/ui/dialogs/dialog_managepageproperties.cpp \
-    src/ui/dialogs/dialog_movepage.cpp \
-    src/ui/dialogs/dialog_newdocument.cpp \
-    src/ui/dialogs/dialog_newpage.cpp \
-    src/ui/dialogs/dialog_newparentpage.cpp \
+    src/ui/delegate/colorlistitem_delegate.cpp \
+    src/ui/delegate/listwidgetitem_delegate.cpp \
+    src/ui/dialogs/colorswatchimport_dialog.cpp \
+    src/ui/dialogs/duplicatepage_dialog.cpp \
+    src/ui/dialogs/importpage_dialog.cpp \
+    src/ui/dialogs/importparentpage_dialog.cpp \
+    src/ui/dialogs/managepageproperties_dialog.cpp \
+    src/ui/dialogs/movepage_dialog.cpp \
+    src/ui/dialogs/newdocument_dialog.cpp \
+    src/ui/dialogs/newpage_dialog.cpp \
+    src/ui/dialogs/newparentpage_dialog.cpp \
     src/ui/docks/dock_centralwidget.cpp \
     src/ui/docks/dock_documentbase.cpp \
     src/ui/docks/dock_panelbase.cpp \
@@ -136,38 +137,37 @@ SOURCES += \
     src/ui/splashscreen.cpp \
     src/ui/widgets/advancedspinbox.cpp \
     src/ui/widgets/anglepicker.cpp \
-    src/ui/widgets/basepointwidget.cpp \
+    src/ui/widgets/basepoint_widget.cpp \
+    src/ui/widgets/button/autoforms_button.cpp \
+    src/ui/widgets/button/color_button.cpp \
+    src/ui/widgets/combobox/arrowchooser_combobox.cpp \
+    src/ui/widgets/combobox/blendmode_combobox.cpp \
+    src/ui/widgets/combobox/firstpage_combobox.cpp \
+    src/ui/widgets/combobox/linetype_combobox.cpp \
     src/ui/widgets/container/stickypopup.cpp \
-    src/ui/widgets/menu/menu_autoforms.cpp \
-    src/ui/widgets/button/button_autoforms.cpp \
-    src/ui/widgets/button/colorbutton.cpp \
     src/ui/widgets/color/colorharmonywheel.cpp \
+    src/ui/widgets/menu/autoforms_menu.cpp \
+    src/ui/widgets/menu/popup_menu.cpp \
+    src/ui/widgets/trashbin_widget.cpp \
     src/ui/widgets/views/colorlistview.cpp \
     src/ui/widgets/color/colormap.cpp \
     src/ui/widgets/color/colorslider.cpp \
     src/ui/widgets/color/colorwheel.cpp \
-    src/ui/widgets/combobox/combobox_arrowchooser.cpp \
-    src/ui/widgets/combobox/combobox_firstpage.cpp \
-    src/ui/widgets/combobox/combobox_blendmode.cpp \
-    src/ui/widgets/combobox/combobox_linetype.cpp \
     src/ui/widgets/dummydocument.cpp \
     src/ui/widgets/container/flowlayout.cpp \
     src/ui/widgets/container/formwidget.cpp \
-    src/ui/delegate/listwidgetitemdelegate.cpp \
     src/ui/widgets/color/gradientedit.cpp \
     src/ui/widgets/color/gradientpreview.cpp \
-    src/ui/widgets/menu/menu_popup.cpp \
     src/ui/widgets/views/outlineviewer.cpp \
     src/ui/widgets/views/pagelist.cpp \
     src/ui/widgets/views/pageviewer.cpp \
     src/ui/widgets/container/sectioncontainer.cpp \
-    src/ui/widgets/trashbin.cpp \
+    src/utils/color_utils.cpp \
     src/utils/commonstrings.cpp \
-    src/utils/util.cpp \
-    src/utils/util_color.cpp \
-    src/utils/util_file.cpp \
-    src/utils/util_math.cpp \
-    src/utils/util_render.cpp
+    src/utils/file_utils.cpp \
+    src/utils/math_utils.cpp \
+    src/utils/render_utils.cpp \
+    src/utils/utils.cpp
 
 HEADERS += \
     src/api/api_application.h \
@@ -177,13 +177,13 @@ HEADERS += \
     src/color/colorconverter.h \
     src/color/colorspace.h \
     src/document/scribusdoc.h \
-    src/manager/actionmanager.h \
-    src/manager/configurationmanager.h \
-    src/manager/dirpathsmanager.h \
-    src/manager/dockmanager.h \
-    src/manager/iconmanager.h \
-    src/manager/localemanager.h \
-    src/manager/thememanager.h \
+    src/manager/action_manager.h \
+    src/manager/configuration_manager.h \
+    src/manager/dirpaths_manager.h \
+    src/manager/dock_manager.h \
+    src/manager/icon_manager.h \
+    src/manager/locale_manager.h \
+    src/manager/theme_manager.h \
     src/models/action.h \
     src/models/colorlist.h \
     src/models/colorlistmodel.h \
@@ -220,7 +220,6 @@ HEADERS += \
     src/ui/components/component_pagelayout.h \
     src/ui/components/component_parentpageselector.h \
     src/ui/components/component_spaceinput.h \
-    src/ui/delegate/colorlistitemdelegate.h \
     src/models/sccolor.h \
     src/structs/enums.h \
     src/templates/pixmapcache.h \
@@ -232,16 +231,18 @@ HEADERS += \
     src/ui/blocks/block_xyz_transformation.h \
     src/ui/colorpicker/colorpicker.h \
     src/ui/components/component_documentselector.h \
+    src/ui/delegate/colorlistitem_delegate.h \
+    src/ui/delegate/listwidgetitem_delegate.h \
     src/ui/delegate/sclistboxpixmap.h \
-    src/ui/dialogs/dialog_colorswatchimport.h \
-    src/ui/dialogs/dialog_duplicatepage.h \
-    src/ui/dialogs/dialog_importpage.h \
-    src/ui/dialogs/dialog_importparentpage.h \
-    src/ui/dialogs/dialog_managepageproperties.h \
-    src/ui/dialogs/dialog_movepage.h \
-    src/ui/dialogs/dialog_newdocument.h \
-    src/ui/dialogs/dialog_newpage.h \
-    src/ui/dialogs/dialog_newparentpage.h \
+    src/ui/dialogs/colorswatchimport_dialog.h \
+    src/ui/dialogs/duplicatepage_dialog.h \
+    src/ui/dialogs/importpage_dialog.h \
+    src/ui/dialogs/importparentpage_dialog.h \
+    src/ui/dialogs/managepageproperties_dialog.h \
+    src/ui/dialogs/movepage_dialog.h \
+    src/ui/dialogs/newdocument_dialog.h \
+    src/ui/dialogs/newpage_dialog.h \
+    src/ui/dialogs/newparentpage_dialog.h \
     src/ui/docks/dock_centralwidget.h \
     src/ui/docks/dock_documentbase.h \
     src/ui/docks/dock_panelbase.h \
@@ -258,38 +259,37 @@ HEADERS += \
     src/ui/splashscreen.h \
     src/ui/widgets/advancedspinbox.h \
     src/ui/widgets/anglepicker.h \
-    src/ui/widgets/basepointwidget.h \
+    src/ui/widgets/basepoint_widget.h \
+    src/ui/widgets/button/autoforms_button.h \
+    src/ui/widgets/button/color_button.h \
+    src/ui/widgets/combobox/arrowchooser_combobox.h \
+    src/ui/widgets/combobox/blendmode_combobox.h \
+    src/ui/widgets/combobox/firstpage_combobox.h \
+    src/ui/widgets/combobox/linetype_combobox.h \
     src/ui/widgets/container/stickypopup.h \
-    src/ui/widgets/menu/menu_autoforms.h \
-    src/ui/widgets/button/button_autoforms.h \
-    src/ui/widgets/button/colorbutton.h \
     src/ui/widgets/color/colorharmonywheel.h \
+    src/ui/widgets/menu/autoforms_menu.h \
+    src/ui/widgets/menu/popup_menu.h \
+    src/ui/widgets/trashbin_widget.h \
     src/ui/widgets/views/colorlistview.h \
     src/ui/widgets/color/colormap.h \
     src/ui/widgets/color/colorslider.h \
     src/ui/widgets/color/colorwheel.h \
-    src/ui/widgets/combobox/combobox_arrowchooser.h \
-    src/ui/widgets/combobox/combobox_firstpage.h \
-    src/ui/widgets/combobox/combobox_blendmode.h \
-    src/ui/widgets/combobox/combobox_linetype.h \
     src/ui/widgets/dummydocument.h \
     src/ui/widgets/container/flowlayout.h \
     src/ui/widgets/container/formwidget.h \
-    src/ui/delegate/listwidgetitemdelegate.h \
     src/ui/widgets/color/gradientedit.h \
     src/ui/widgets/color/gradientpreview.h \
-    src/ui/widgets/menu/menu_popup.h \
     src/ui/widgets/views/outlineviewer.h \
     src/ui/widgets/views/pagelist.h \
     src/ui/widgets/views/pageviewer.h \
     src/ui/widgets/container/sectioncontainer.h \
-    src/ui/widgets/trashbin.h \
+    src/utils/color_utils.h \
     src/utils/commonstrings.h \
-    src/utils/util.h \
-    src/utils/util_color.h \
-    src/utils/util_file.h \
-    src/utils/util_math.h \
-    src/utils/util_render.h
+    src/utils/file_utils.h \
+    src/utils/math_utils.h \
+    src/utils/render_utils.h \
+    src/utils/utils.h
 
 
 FORMS += \
@@ -326,15 +326,15 @@ FORMS += \
     src/ui/components/component_parentpageselector.ui \
     src/ui/components/component_spaceinput.ui \
     src/ui/components/component_documentselector.ui \
-    src/ui/dialogs/dialog_colorswatchimport.ui \
-    src/ui/dialogs/dialog_duplicatepage.ui \
-    src/ui/dialogs/dialog_importpage.ui \
-    src/ui/dialogs/dialog_importparentpage.ui \
-    src/ui/dialogs/dialog_managepageproperties.ui \
-    src/ui/dialogs/dialog_movepage.ui \
-    src/ui/dialogs/dialog_newdocument.ui \
-    src/ui/dialogs/dialog_newpage.ui \
-    src/ui/dialogs/dialog_newparentpage.ui \
+    src/ui/dialogs/colorswatchimport_dialog.ui \
+    src/ui/dialogs/duplicatepage_dialog.ui \
+    src/ui/dialogs/importpage_dialog.ui \
+    src/ui/dialogs/importparentpage_dialog.ui \
+    src/ui/dialogs/managepageproperties_dialog.ui \
+    src/ui/dialogs/movepage_dialog.ui \
+    src/ui/dialogs/newdocument_dialog.ui \
+    src/ui/dialogs/newpage_dialog.ui \
+    src/ui/dialogs/newparentpage_dialog.ui \
     src/ui/mainwindow.ui \
     src/ui/panels/panel_aligndistribute.ui \
     src/ui/panels/panel_content.ui \

@@ -1,6 +1,6 @@
 #include "panel_content_text.h"
-#include "iconmanager.h"
-#include "menu_popup.h"
+#include "icon_manager.h"
+#include "popup_menu.h"
 #include "ui_panel_content_text.h"
 
 #include <QComboBox>
@@ -77,7 +77,7 @@ void PanelContentText::setup()
 
 void PanelContentText::addMenu(SectionContainer *section, QWidget *menuPanel)
 {
-    MenuPopup * menu = new MenuPopup(menuPanel);
+    PopupMenu * menu = new PopupMenu(menuPanel);
     QToolButton *buttonMenu = new QToolButton();
     buttonMenu->setMenu(menu);
     buttonMenu->setPopupMode(QToolButton::InstantPopup);

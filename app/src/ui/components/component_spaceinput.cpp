@@ -1,5 +1,5 @@
 #include "component_spaceinput.h"
-#include "iconmanager.h"
+#include "icon_manager.h"
 #include "ui_component_spaceinput.h"
 
 /* ********************************************************************************* *

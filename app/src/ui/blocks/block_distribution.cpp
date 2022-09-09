@@ -1,5 +1,5 @@
 #include "block_distribution.h"
-#include "iconmanager.h"
+#include "icon_manager.h"
 #include "ui_block_distribution.h"
 
 /* ********************************************************************************* *

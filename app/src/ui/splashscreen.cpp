@@ -1,6 +1,6 @@
 #include "splashscreen.h"
 #include <QPainter>
-#include "thememanager.h"
+#include "theme_manager.h"
 
 SplashScreen::SplashScreen()
 {

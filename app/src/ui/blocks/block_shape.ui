@@ -74,7 +74,7 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="ButtonAutoForms" name="buttonShape">
+       <widget class="AutoFormsButton" name="buttonShape">
         <property name="text">
          <string/>
         </property>
@@ -281,9 +281,9 @@
    <header>advancedspinbox.h</header>
   </customwidget>
   <customwidget>
-   <class>ButtonAutoForms</class>
+   <class>AutoFormsButton</class>
    <extends>QToolButton</extends>
-   <header>button_autoforms.h</header>
+   <header>autoforms_button.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

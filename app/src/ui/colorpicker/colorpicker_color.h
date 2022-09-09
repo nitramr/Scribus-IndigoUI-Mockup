@@ -2,7 +2,7 @@
 #define COLORPICKER_COLOR_H
 
 #include <QWidget>
-#include <colorbutton.h>
+#include <color_button.h>
 #include <QComboBox>
 #include "sccolor.h"
 #include "colorblind.h"

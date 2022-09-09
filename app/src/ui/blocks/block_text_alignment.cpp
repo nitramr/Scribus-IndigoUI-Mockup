@@ -1,7 +1,7 @@
 #include "block_text_alignment.h"
 #include "colorpicker.h"
-#include "iconmanager.h"
-#include "menu_popup.h"
+#include "icon_manager.h"
+#include "popup_menu.h"
 #include "qbuttongroup.h"
 #include "ui_block_text_alignment.h"
 
@@ -76,7 +76,7 @@ void BlockTextAlignment::setup()
 
 void BlockTextAlignment::addMenu(QToolButton *button, QWidget *menuPanel)
 {
-    MenuPopup * menu = new MenuPopup(menuPanel);
+    PopupMenu * menu = new PopupMenu(menuPanel);
     button->setMenu(menu);
     button->setPopupMode(QToolButton::DelayedPopup);
    // button->setStyleSheet( "QToolButton::menu-indicator { image: none; }" );

@@ -4,7 +4,7 @@
 #include <DockWidget.h>
 #include <QMenu>
 #include <QToolButton>
-#include "dialog_managepageproperties.h"
+#include "managepageproperties_dialog.h"
 #include "dummydocument.h"
 #include "panel_content.h"
 
@@ -33,7 +33,7 @@ private slots:
 
 private:
     QMenu * m_contextMenu;
-    DialogManagePageProperties * dialogManagePageProperties;
+    ManagePagePropertiesDialog * dialogManagePageProperties;
 
     // Dummy
     DummyDocument * dummyDoc;

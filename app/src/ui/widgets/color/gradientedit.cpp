@@ -2,9 +2,9 @@
 #include <QPainter>
 #include <QPaintEvent>
 #include <QApplication>
-#include "util_render.h"
-#include "iconmanager.h"
-#include "util_color.h"
+#include "render_utils.h"
+#include "icon_manager.h"
+#include "color_utils.h"
 
 
 const int RADIUS = 6;
@@ -212,7 +212,7 @@ void GradientEdit::paintEvent(QPaintEvent *e)
     painter.begin(this);
 
     // Draw Background
-    UtilRender::renderPattern(&painter, gradientRect());
+    RenderUtils::renderPattern(&painter, gradientRect());
 
     // Draw Gradient
     painter.setPen(palette().color(QPalette::Mid));
@@ -266,7 +266,7 @@ void GradientEdit::paintEvent(QPaintEvent *e)
 
             }            
 
-            UtilRender::renderPointerHandle(&painter, QPointF(hCenter, yCenter), RADIUS*2-2, cstops.at(i)->color.toQColor() );
+            RenderUtils::renderPointerHandle(&painter, QPointF(hCenter, yCenter), RADIUS*2-2, cstops.at(i)->color.toQColor() );
 
             //            // Draw Mid Point
             //            qreal mid = cstops.at(i)->midPoint * canvasRect.width() + RADIUS + 0.5;

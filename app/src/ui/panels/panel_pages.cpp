@@ -1,10 +1,10 @@
 #include "panel_pages.h"
 #include <QPainter>
-#include "dialog_newpage.h"
+#include "newpage_dialog.h"
 #include "ui_panel_pages.h"
 
 #include "pagelist.h"
-#include "iconmanager.h"
+#include "icon_manager.h"
 #include "commonstrings.h"
 
 
@@ -25,12 +25,12 @@ PanelPages::PanelPages(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    dialogInsertPage = new DialogNewPage(this);
-    dialogDuplicatePage = new DialogDuplicatePage(this);
-    dialogMovePage = new DialogMovePage(this);
-    dialogNewParentPage = new DialogNewParentPage(this);
-    dialogImportPage = new DialogImportPage(this);
-    dialogImportParentPage = new DialogImportParentPage(this);
+    dialogInsertPage = new NewPageDialog(this);
+    dialogDuplicatePage = new DuplicatePageDialog(this);
+    dialogMovePage = new MovePageDialog(this);
+    dialogNewParentPage = new NewParentPageDialog(this);
+    dialogImportPage = new ImportPageDialog(this);
+    dialogImportParentPage = new ImportParentPageDialog(this);
 
     setup();
     connectSlots();
@@ -162,8 +162,8 @@ void PanelPages::connectSlots()
     connect(ui->buttonImportParent, &QToolButton::pressed, this, &PanelPages::showImportParentPageDialog);
 
     // Labels
-    connect(ui->labelDeletePage, &TrashBin::delPageRequest, this, &PanelPages::delPageRequest);
-    connect(ui->labelDeleteParentPage, &TrashBin::delMasterRequest, this, &PanelPages::delParentRequest);
+    connect(ui->labelDeletePage, &TrashBinWidget::delPageRequest, this, &PanelPages::delPageRequest);
+    connect(ui->labelDeleteParentPage, &TrashBinWidget::delMasterRequest, this, &PanelPages::delParentRequest);
 
     connect(ui->sectionDocumentPages, &SectionContainer::collapsedState, this, &PanelPages::updateLayout);
 

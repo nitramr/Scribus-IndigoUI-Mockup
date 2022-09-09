@@ -5,8 +5,8 @@
 #include <QLocale>
 #include <QTranslator>
 
-#include "configurationmanager.h"
-#include "util_file.h"
+#include "configuration_manager.h"
+#include "file_utils.h"
 #include "splashscreen.h"
 #include <QTimer>
 
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     splash.setMessageRect( QRect(15, 97, 460-16, 320-16), Qt::AlignBottom | Qt::AlignRight );
     splash.showStatusMessage( "Loading...", QColor(207, 215,222), QColor(53, 79, 105) );
 
-    QTimer::singleShot(3000, &splash, &QWidget::close); // keep displayed for 5 seconds
+    QTimer::singleShot(3000, &splash, &QWidget::close); // keep displayed for 3 seconds
 
 
     MainWindow w;

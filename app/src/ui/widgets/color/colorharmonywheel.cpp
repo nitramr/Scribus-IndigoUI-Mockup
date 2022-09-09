@@ -3,7 +3,7 @@
 #include <QMouseEvent>
 #include <QPainter>
 #include <QPainterPath>
-#include "util_render.h"
+#include "render_utils.h"
 
 /* ********************************************************************************* *
  *
@@ -291,32 +291,32 @@ void ColorHarmonyWheel::paintEvent(QPaintEvent *e)
     QColor col4( color(ColorHarmonyWheel::Variant4).red(), color(ColorHarmonyWheel::Variant4).green(), color(ColorHarmonyWheel::Variant4).blue() );
 
 
-    UtilRender::renderCircularHandle(&painter, position(ColorHarmonyWheel::Main) + QPointF(.5,.5), RADIUS*2, QBrush(colMain) );
+    RenderUtils::renderCircularHandle(&painter, position(ColorHarmonyWheel::Main) + QPointF(.5,.5), RADIUS*2, QBrush(colMain) );
 
     switch(m_harmony){
     case ColorHarmonyWheel::Complementary:
-        UtilRender::renderCircularHandle(&painter, position(ColorHarmonyWheel::Variant1) + QPointF(.5,.5), RADIUS*2 - 2, QBrush(col1) );
+        RenderUtils::renderCircularHandle(&painter, position(ColorHarmonyWheel::Variant1) + QPointF(.5,.5), RADIUS*2 - 2, QBrush(col1) );
 
         break;
     case ColorHarmonyWheel::SplitComplementary:
     case ColorHarmonyWheel::Triadic:
-        UtilRender::renderCircularHandle(&painter, position(ColorHarmonyWheel::Variant1) + QPointF(.5,.5), RADIUS*2 - 2, QBrush(col1) );
-        UtilRender::renderCircularHandle(&painter, position(ColorHarmonyWheel::Variant2) + QPointF(.5,.5), RADIUS*2 - 2, QBrush(col2) );
+        RenderUtils::renderCircularHandle(&painter, position(ColorHarmonyWheel::Variant1) + QPointF(.5,.5), RADIUS*2 - 2, QBrush(col1) );
+        RenderUtils::renderCircularHandle(&painter, position(ColorHarmonyWheel::Variant2) + QPointF(.5,.5), RADIUS*2 - 2, QBrush(col2) );
 
         break;
     case ColorHarmonyWheel::Tetradic:
     case ColorHarmonyWheel::Square:
     case ColorHarmonyWheel::Monochromatic:
-        UtilRender::renderCircularHandle(&painter, position(ColorHarmonyWheel::Variant1) + QPointF(.5,.5), RADIUS*2 - 2, QBrush(col1) );
-        UtilRender::renderCircularHandle(&painter, position(ColorHarmonyWheel::Variant2) + QPointF(.5,.5), RADIUS*2 - 2, QBrush(col2) );
-        UtilRender::renderCircularHandle(&painter, position(ColorHarmonyWheel::Variant3) + QPointF(.5,.5), RADIUS*2 - 2, QBrush(col3) );
+        RenderUtils::renderCircularHandle(&painter, position(ColorHarmonyWheel::Variant1) + QPointF(.5,.5), RADIUS*2 - 2, QBrush(col1) );
+        RenderUtils::renderCircularHandle(&painter, position(ColorHarmonyWheel::Variant2) + QPointF(.5,.5), RADIUS*2 - 2, QBrush(col2) );
+        RenderUtils::renderCircularHandle(&painter, position(ColorHarmonyWheel::Variant3) + QPointF(.5,.5), RADIUS*2 - 2, QBrush(col3) );
 
         break;
     case ColorHarmonyWheel::Analogous:
-        UtilRender::renderCircularHandle(&painter, position(ColorHarmonyWheel::Variant1) + QPointF(.5,.5), RADIUS*2 - 2, QBrush(col1) );
-        UtilRender::renderCircularHandle(&painter, position(ColorHarmonyWheel::Variant2) + QPointF(.5,.5), RADIUS*2 - 2, QBrush(col2) );
-        UtilRender::renderCircularHandle(&painter, position(ColorHarmonyWheel::Variant3) + QPointF(.5,.5), RADIUS*2 - 2, QBrush(col3) );
-        UtilRender::renderCircularHandle(&painter, position(ColorHarmonyWheel::Variant4) + QPointF(.5,.5), RADIUS*2 - 2, QBrush(col4) );
+        RenderUtils::renderCircularHandle(&painter, position(ColorHarmonyWheel::Variant1) + QPointF(.5,.5), RADIUS*2 - 2, QBrush(col1) );
+        RenderUtils::renderCircularHandle(&painter, position(ColorHarmonyWheel::Variant2) + QPointF(.5,.5), RADIUS*2 - 2, QBrush(col2) );
+        RenderUtils::renderCircularHandle(&painter, position(ColorHarmonyWheel::Variant3) + QPointF(.5,.5), RADIUS*2 - 2, QBrush(col3) );
+        RenderUtils::renderCircularHandle(&painter, position(ColorHarmonyWheel::Variant4) + QPointF(.5,.5), RADIUS*2 - 2, QBrush(col4) );
         break;
     default:
         break;

@@ -4,7 +4,7 @@
 #include <QPainter>
 #include <QRectF>
 #include "qapplication.h"
-#include "util_color.h"
+#include "color_utils.h"
 
 
 AnglePicker::AnglePicker(QWidget *parent)

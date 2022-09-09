@@ -25,7 +25,7 @@ for which a new license (GPL+exception) is in place.
 #include "qdebug.h"
 
 #include "colorspace.h"
-#include "util_color.h"
+#include "color_utils.h"
 
 // original: https://github.com/scribusproject/scribus/blob/master/scribus/sccolor.cpp
 

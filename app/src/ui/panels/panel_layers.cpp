@@ -1,5 +1,5 @@
 #include "panel_layers.h"
-#include "iconmanager.h"
+#include "icon_manager.h"
 #include "ui_panel_layers.h"
 #include <QCheckBox>
 #include <QPainter>

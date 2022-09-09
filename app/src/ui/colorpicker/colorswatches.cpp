@@ -1,7 +1,7 @@
 #include "colorswatches.h"
 #include "ui_colorswatches.h"
 
-#include "iconmanager.h"
+#include "icon_manager.h"
 
 /* ********************************************************************************* *
  *
@@ -58,7 +58,7 @@ void ColorSwatches::setup()
 
     IconManager& iconManager = IconManager::instance();
 
-    dialogColorSwatchImport = new DialogColorSwatchImport();
+    dialogColorSwatchImport = new ColorSwatchImportDialog();
 
     // Buttons
     ui->buttonAdd->setVisible(false);

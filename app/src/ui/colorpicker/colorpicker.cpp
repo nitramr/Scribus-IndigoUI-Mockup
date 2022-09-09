@@ -1,9 +1,9 @@
 #include "colorpicker.h"
 #include <QButtonGroup>
-#include "iconmanager.h"
+#include "icon_manager.h"
 #include "ui_colorpicker.h"
 
-#include "menu_popup.h"
+#include "popup_menu.h"
 
 /* ********************************************************************************* *
  *

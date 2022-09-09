@@ -6,20 +6,20 @@
 #include <QToolBar>
 #include <QToolButton>
 #include <dock_documentbase.h>
-#include <util_file.h>
+#include <file_utils.h>
 #include "DockAreaWidget.h"
 #include "DockAreaTitleBar.h"
 #include "DockAreaTabBar.h"
 #include "IconProvider.h"
 
 
-#include "configurationmanager.h"
+#include "configuration_manager.h"
 #include "dock_panelbase.h"
-#include "dialog_newdocument.h"
-#include "dockmanager.h"
-#include "iconmanager.h"
-#include "actionmanager.h"
-#include "thememanager.h"
+#include "newdocument_dialog.h"
+#include "dock_manager.h"
+#include "icon_manager.h"
+#include "action_manager.h"
+#include "theme_manager.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -135,7 +135,7 @@ void MainWindow::newDocument()
 {
     qDebug() << "new Doc";
 
-    DialogNewDocument * dialogNewDocument = new DialogNewDocument(this);
+    NewDocumentDialog * dialogNewDocument = new NewDocumentDialog(this);
     if (dialogNewDocument->exec())
     {
 

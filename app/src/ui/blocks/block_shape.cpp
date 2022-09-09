@@ -2,7 +2,7 @@
 #include "ui_block_shape.h"
 
 #include <QButtonGroup>
-#include <iconmanager.h>
+#include <icon_manager.h>
 
 BlockShape::BlockShape(QWidget *parent) :
     QWidget(parent),

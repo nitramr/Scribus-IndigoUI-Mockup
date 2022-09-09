@@ -8,7 +8,7 @@
 #include <QApplication>
 #include <QElapsedTimer>
 
-#include "iconmanager.h"
+#include "icon_manager.h"
 
 const double PAGERATIO = 1.414;
 

@@ -1,7 +1,7 @@
 #include "block_xyz_advanced.h"
 #include "ui_block_xyz_advanced.h"
 
-#include <iconmanager.h>
+#include <icon_manager.h>
 
 BlockXYZAdvanced::BlockXYZAdvanced(QWidget *parent) :
     QWidget(parent),

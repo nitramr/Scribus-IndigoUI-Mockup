@@ -2,7 +2,7 @@
 
 #include <QButtonGroup>
 
-#include "iconmanager.h"
+#include "icon_manager.h"
 #include "ui_block_stroke_advanced.h"
 
 BlockStrokeAdvanced::BlockStrokeAdvanced(QWidget *parent) :

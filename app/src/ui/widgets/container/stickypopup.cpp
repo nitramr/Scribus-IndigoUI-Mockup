@@ -1,5 +1,5 @@
 #include "stickypopup.h"
-#include "iconmanager.h"
+#include "icon_manager.h"
 
 #include <QPainter>
 #include <QPaintEvent>

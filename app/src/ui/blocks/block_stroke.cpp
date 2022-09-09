@@ -2,7 +2,7 @@
 #include "ui_block_stroke.h"
 
 #include "colorpicker.h"
-#include "iconmanager.h"
+#include "icon_manager.h"
 
 /* ********************************************************************************* *
  *

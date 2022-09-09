@@ -1,7 +1,7 @@
 #include "block_xyz_transformation.h"
 #include "ui_block_xyz_transformation.h"
 
-#include "iconmanager.h"
+#include "icon_manager.h"
 
 
 /* ********************************************************************************* *

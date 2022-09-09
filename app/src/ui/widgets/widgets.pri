@@ -1,16 +1,17 @@
 INCLUDEPATH += $$PWD \
-    $$PWD/../../utils
+#    $$PWD/../../utils \
+    $$PWD/container
 
 
 HEADERS += \
-    $$PWD/basepointwidget.h \
+    $$PWD/basepoint_widget.h \
     $$PWD/container/formwidget.h \
-    $$PWD/../../utils/colorutils.h \
+#    $$PWD/../../utils/color_utils.h \
     $$PWD/container/sectioncontainer.h
 
 SOURCES += \
-    $$PWD/basepointwidget.cpp \
+    $$PWD/basepoint_widget.cpp \
     $$PWD/container/formwidget.cpp \
-    $$PWD/../../utils/colorutils.cpp \
+#    $$PWD/../../utils/color_utils.cpp \
     $$PWD/container/sectioncontainer.cpp
 

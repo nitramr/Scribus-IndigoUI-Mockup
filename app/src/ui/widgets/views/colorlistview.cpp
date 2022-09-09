@@ -20,10 +20,10 @@ for which a new license (GPL+exception) is in place.
 
 #include "colorlistmodel.h"
 #include "commonstrings.h"
-#include "iconmanager.h"
+#include "icon_manager.h"
 //#include "scribusdoc.h"
 
-#include "colorlistitemdelegate.h"
+#include "colorlistitem_delegate.h"
 
 
 int ColorListView::initialized;

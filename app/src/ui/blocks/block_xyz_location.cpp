@@ -2,7 +2,7 @@
 #include "ui_block_xyz_location.h"
 
 #include <QComboBox>
-#include <iconmanager.h>
+#include <icon_manager.h>
 
 
 /* ********************************************************************************* *

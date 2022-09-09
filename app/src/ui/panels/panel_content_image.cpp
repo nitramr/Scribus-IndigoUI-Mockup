@@ -1,6 +1,6 @@
 #include "panel_content_image.h"
-#include "menu_popup.h"
-#include "iconmanager.h"
+#include "popup_menu.h"
+#include "icon_manager.h"
 #include "ui_panel_content_image.h"
 
 PanelContentImage::PanelContentImage(QWidget *parent) :
@@ -57,7 +57,7 @@ void PanelContentImage::setup()
 
 void PanelContentImage::addMenu(SectionContainer *section, QWidget *menuPanel)
 {
-    MenuPopup * menu = new MenuPopup(menuPanel);
+    PopupMenu * menu = new PopupMenu(menuPanel);
     QToolButton *buttonMenu = new QToolButton();
     buttonMenu->setMenu(menu);
     buttonMenu->setPopupMode(QToolButton::InstantPopup);

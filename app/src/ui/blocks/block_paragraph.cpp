@@ -1,5 +1,5 @@
 #include "block_paragraph.h"
-#include "iconmanager.h"
+#include "icon_manager.h"
 #include <QButtonGroup>
 #include "ui_block_paragraph.h"
 

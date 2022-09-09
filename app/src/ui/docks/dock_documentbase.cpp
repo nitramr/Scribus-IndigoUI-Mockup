@@ -1,16 +1,16 @@
 #include "dock_documentbase.h"
 
 #include "dummydocument.h"
-#include "iconmanager.h"
+#include "icon_manager.h"
 
 #include <QComboBox>
 #include <QGridLayout>
 #include <QLabel>
 #include <QSpinBox>
-#include <colorbutton.h>
+#include <color_button.h>
 #include "anglepicker.h"
 #include "formwidget.h"
-#include "basepointwidget.h"
+#include "basepoint_widget.h"
 #include "colormap.h"
 #include "colorpicker_color.h"
 #include "colorslider.h"
@@ -38,7 +38,7 @@ DockDocumentBase::DockDocumentBase(const QString &title, QWidget *parent) : ads:
     setIcon(IconManager::instance().icon("file-document"));
     setContextMenuPolicy(Qt::CustomContextMenu);
 
-    dialogManagePageProperties = new DialogManagePageProperties(this);
+    dialogManagePageProperties = new ManagePagePropertiesDialog(this);
     m_contextMenu = new QMenu(this);
     dummyDoc = new DummyDocument();
 

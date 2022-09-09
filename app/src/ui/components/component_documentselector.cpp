@@ -1,12 +1,12 @@
 #include "component_documentselector.h"
 #include "ui_component_documentselector.h"
-#include "iconmanager.h"
-#include "util_file.h"
-#include "configurationmanager.h"
-#include "dialog_newdocument.h"
+#include "icon_manager.h"
+#include "file_utils.h"
+#include "configuration_manager.h"
+#include "newdocument_dialog.h"
 
 #include <QStringListModel>
-#include <listwidgetitemdelegate.h>
+#include <listwidgetitem_delegate.h>
 
 ComponentDocumentSelector::ComponentDocumentSelector(QWidget *parent) :
     QWidget(parent),
@@ -27,7 +27,7 @@ ComponentDocumentSelector::~ComponentDocumentSelector()
 void ComponentDocumentSelector::dummyContent()
 {
 
-    QIcon icon = UtilFile::mimeIconFromFile("test.sla");
+    QIcon icon = FileUtils::mimeIconFromFile("test.sla");
 
 
     QListWidgetItem *item = new QListWidgetItem();
@@ -54,7 +54,7 @@ void ComponentDocumentSelector::connectSlots()
 
 void ComponentDocumentSelector::newDocument()
 {
-    DialogNewDocument *newDocumentDialog = new DialogNewDocument(this);
+    NewDocumentDialog *newDocumentDialog = new NewDocumentDialog(this);
 
     if(newDocumentDialog->exec()){
 

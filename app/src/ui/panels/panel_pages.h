@@ -1,12 +1,12 @@
 #ifndef PANEL_PAGES_H
 #define PANEL_PAGES_H
 
-#include "dialog_duplicatepage.h"
-#include "dialog_importpage.h"
-#include "dialog_importparentpage.h"
-#include "dialog_newpage.h"
-#include "dialog_movepage.h"
-#include "dialog_newparentpage.h"
+#include "duplicatepage_dialog.h"
+#include "importpage_dialog.h"
+#include "importparentpage_dialog.h"
+#include "newpage_dialog.h"
+#include "movepage_dialog.h"
+#include "newparentpage_dialog.h"
 #include "pagelist.h"
 #include <QWidget>
 
@@ -48,12 +48,12 @@ private slots:
 private:
     Ui::PanelPages *ui;
 
-     DialogNewPage          * dialogInsertPage;
-     DialogDuplicatePage    * dialogDuplicatePage;
-     DialogMovePage         * dialogMovePage;
-     DialogNewParentPage    * dialogNewParentPage;
-     DialogImportPage       * dialogImportPage;
-     DialogImportParentPage * dialogImportParentPage;
+     NewPageDialog          * dialogInsertPage;
+     DuplicatePageDialog    * dialogDuplicatePage;
+     MovePageDialog         * dialogMovePage;
+     NewParentPageDialog    * dialogNewParentPage;
+     ImportPageDialog       * dialogImportPage;
+     ImportParentPageDialog * dialogImportParentPage;
 
 //    QPixmap pix;
 

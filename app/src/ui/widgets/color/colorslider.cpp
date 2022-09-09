@@ -7,7 +7,7 @@
 #include <QStyleOption>
 #include <QWidget>
 #include <colorspace.h>
-#include <util_render.h>
+#include <render_utils.h>
 #include <QPainterPath>
 
 /* ********************************************************************************* *
@@ -550,7 +550,7 @@ void ColorSlider::paintEvent(QPaintEvent *e)
 
     switch(m_mode){
     case Mode::Alpha:
-        UtilRender::renderPattern(&painter, sliderArea.toRect());
+        RenderUtils::renderPattern(&painter, sliderArea.toRect());
     default:
         painter.drawImage(sliderArea, m_background);
         break;
@@ -566,7 +566,7 @@ void ColorSlider::paintEvent(QPaintEvent *e)
 
     // Draw Handle
     QRect handle = style()->subControlRect(QStyle::CC_Slider, &opt, QStyle::SC_SliderHandle, this);
-    UtilRender::renderCircularHandle(&painter, handle.center() + QPointF(0.5,0.5), RADIUS*2, Qt::NoBrush);
+    RenderUtils::renderCircularHandle(&painter, handle.center() + QPointF(0.5,0.5), RADIUS*2, Qt::NoBrush);
 
 
     //    opt.subControls = QStyle::SC_SliderHandle;

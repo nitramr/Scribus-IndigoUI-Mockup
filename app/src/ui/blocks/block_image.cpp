@@ -1,6 +1,6 @@
 #include "block_image.h"
 #include "ui_block_image.h"
-#include "iconmanager.h"
+#include "icon_manager.h"
 
 /* ********************************************************************************* *
  *

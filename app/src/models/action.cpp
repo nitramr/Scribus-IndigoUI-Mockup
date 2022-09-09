@@ -1,6 +1,6 @@
 #include "action.h"
 
-#include <iconmanager.h>
+#include <icon_manager.h>
 
 Action::Action(const QString &name, const QString &label, const QString &icon, QKeySequence keySequence, QObject *parent) :
     QAction(label, parent),

@@ -1,6 +1,6 @@
 #include "panel_aligndistribute.h"
 #include "ui_panel_aligndistribute.h"
-#include "iconmanager.h"
+#include "icon_manager.h"
 
 PanelAlignDistribute::PanelAlignDistribute(QWidget *parent) :
     QWidget(parent),

@@ -2,8 +2,8 @@
 #include "colorblind.h"
 #include "ui_colorpicker_color.h"
 
-#include "iconmanager.h"
-#include "util_render.h"
+#include "icon_manager.h"
+#include "render_utils.h"
 #include <QAction>
 #include <QMenu>
 #include <QMouseEvent>
@@ -591,7 +591,7 @@ void ColorPickerColor::updateColorButton(ColorButton *button, ScColor color)
 
     // Button Dot
     int smallSide = button->foregroundDotSize().width();
-    QBrush foreground( UtilRender::renderSplitColor(QSize(smallSide, smallSide), defectColor) );
+    QBrush foreground( RenderUtils::renderSplitColor(QSize(smallSide, smallSide), defectColor) );
     button->setForeground(foreground);
 }
 

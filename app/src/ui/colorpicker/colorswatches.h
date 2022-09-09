@@ -1,7 +1,7 @@
 #ifndef COLORSWATCHES_H
 #define COLORSWATCHES_H
 
-#include "dialog_colorswatchimport.h"
+#include "colorswatchimport_dialog.h"
 #include "sccolor.h"
 #include <QWidget>
 
@@ -22,7 +22,7 @@ public:
 
 private:
     Ui::ColorSwatches *ui;
-    DialogColorSwatchImport *dialogColorSwatchImport;
+    ColorSwatchImportDialog *dialogColorSwatchImport;
     ItemFillMode m_configuration {ItemFillMode::Solid};
 
     void setup();

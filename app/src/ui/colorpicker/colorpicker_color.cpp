@@ -1,5 +1,6 @@
 #include "colorpicker_color.h"
 #include "colorblind.h"
+#include "eyedropper_widget.h"
 #include "ui_colorpicker_color.h"
 
 #include "icon_manager.h"
@@ -48,6 +49,7 @@ void ColorPickerColor::setup()
     QIcon iconCollapsed = iconManager.icon("chevron-right");
     QIcon iconOpen = iconManager.icon("chevron-down");
 
+    eyeDropper = new EyeDropperWidget(this);
 
     // Values
     m_colorSpace = ColorModel::HSV;
@@ -392,7 +394,11 @@ void ColorPickerColor::connectSlots()
     connect(actionPickerHarmony,    &QAction::triggered,this, &ColorPickerColor::changePickerMode );
 
     // Spot Button
-    connect(ui->buttonSpotColor,        &QToolButton::toggled, this, &ColorPickerColor::setSpotFlag);
+    connect(ui->buttonSpotColor,    &QToolButton::toggled, this, &ColorPickerColor::setSpotFlag);
+
+    // EyeDroper
+    connect(ui->buttonEyeDropper,   &QToolButton::released, eyeDropper, &EyeDropperWidget::show);
+    connect(eyeDropper,             &EyeDropperWidget::screenColor, this, &ColorPickerColor::changeColor);
 
 
 }
@@ -513,7 +519,12 @@ void ColorPickerColor::disconnectSlots()
 
     // Spot Button
     disconnect(ui->buttonSpotColor,    &QToolButton::toggled, this, &ColorPickerColor::setSpotFlag);
+
+    // EyeDroper
+    disconnect(ui->buttonEyeDropper,   &QToolButton::released, eyeDropper, &EyeDropperWidget::show);
+    disconnect(eyeDropper,             &EyeDropperWidget::screenColor, this, &ColorPickerColor::changeColor);
 }
+
 
 /* ********************************************************************************* *
  *
@@ -1066,15 +1077,4 @@ void ColorPickerColor::mouseReleaseEvent(QMouseEvent *e)
 {
     // qDebug() << "final global mouse pos" << e->globalPosition().toPoint();
 }
-
-
-//https://forum.qt.io/topic/110076/eye-dropper-implementation/5
-
-//QColor QColorDialogPrivate::grabScreenColor(const QPoint &p)
-//{
-//    const QDesktopWidget *desktop = QApplication::desktop();
-//    const QPixmap pixmap = QGuiApplication::primaryScreen()->grabWindow(desktop->winId(), p.x(), p.y(), 1, 1);
-//    QImage i = pixmap.toImage();
-//    return i.pixel(0, 0);
-//}
 

@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <color_button.h>
 #include <QComboBox>
+#include "eyedropper_widget.h"
 #include "sccolor.h"
 #include "colorblind.h"
 #include "colorharmonywheel.h"
@@ -42,6 +43,7 @@ private:
     ColorPickerConfig m_configuration;
     QToolButton *buttonPickerToggle;
     QComboBox * comboColorSpace;
+    EyeDropperWidget * eyeDropper;
 
     QMenu *menuColorBlind;
     QAction *actionColorBlindNormal;

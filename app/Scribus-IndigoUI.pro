@@ -104,6 +104,7 @@ SOURCES += \
     src/ui/colorpicker/colorpicker_color.cpp \
     src/ui/colorpicker/colorpicker_gradient.cpp \
     src/ui/colorpicker/colorswatches.cpp \
+    src/ui/colorpicker/eyedropper_widget.cpp \
     src/ui/components/component_insertpage.cpp \
     src/ui/components/component_margins.cpp \
     src/ui/components/component_pagelayout.cpp \
@@ -215,6 +216,7 @@ HEADERS += \
     src/ui/colorpicker/colorpicker_color.h \
     src/ui/colorpicker/colorpicker_gradient.h \
     src/ui/colorpicker/colorswatches.h \
+    src/ui/colorpicker/eyedropper_widget.h \
     src/ui/components/component_insertpage.h \
     src/ui/components/component_margins.h \
     src/ui/components/component_pagelayout.h \

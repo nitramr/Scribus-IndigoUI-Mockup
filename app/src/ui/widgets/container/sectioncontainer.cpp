@@ -286,13 +286,16 @@ bool SectionContainer::eventFilter(QObject *object, QEvent *event)
         }
         case QEvent::Paint:{
 
-            QColor lineColor( palette().mid().color() );
+//            QColor topLineColor( palette().color(QPalette::Mid) );
+            QColor bottomLineColor( palette().color(QPalette::Dark) );
+//            lineColor.setAlphaF(0.12f);
+
             QColor bgColor( palette().color(QPalette::WindowText) );
-            bgColor.setAlphaF(0.15f);
+            bgColor.setAlphaF(0.07f);
 
             int lineWidth = 1;
-            int headerheight = headerWidget->height() - lineWidth;
-            QRect headerRect(0,0,this->width(), headerheight);
+            int headerheight = headerWidget->height();
+            QRect headerRect(0, 0, this->width(), headerheight - lineWidth);
 
             QPainter painter( headerWidget );
 
@@ -300,9 +303,15 @@ bool SectionContainer::eventFilter(QObject *object, QEvent *event)
             painter.setBrush(bgColor);
             painter.drawRect(headerRect);
 
-            painter.setPen( lineColor );
             painter.setBrush(Qt::NoBrush);
-            painter.drawLine( 0, headerheight,this->width(), headerheight );
+
+//            // Top Line
+//            painter.setPen( QPen(topLineColor, lineWidth) );
+//            painter.drawLine( 0, 0,this->width(), 0 );
+
+            // Bottom Line
+            painter.setPen( QPen(bottomLineColor, lineWidth) );
+            painter.drawLine( 0, headerheight - lineWidth, this->width(), headerheight - lineWidth );
 
             return true;
 

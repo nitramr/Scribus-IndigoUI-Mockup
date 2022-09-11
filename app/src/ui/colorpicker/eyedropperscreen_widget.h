@@ -4,16 +4,16 @@
 #include "sccolor.h"
 #include <QWidget>
 
-class EyeDropperWidget : public QWidget
+class EyeDropperScreenWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit EyeDropperWidget(QWidget *parent = nullptr);
+    explicit EyeDropperScreenWidget(QWidget *parent = nullptr);
 
     void paintEvent(QPaintEvent *e);
-    void mousePressEvent(QMouseEvent *m);
     void mouseReleaseEvent(QMouseEvent *m);
     void mouseMoveEvent(QMouseEvent *m);
+    void keyPressEvent( QKeyEvent * e );
 
 public slots:
     void show();
@@ -21,10 +21,23 @@ public slots:
 
 private:
 
+    struct screenshotData {
+        QPixmap pixmap;
+        QRect rect;
+    };
+
     QPixmap m_screenshot;
     QPoint m_MousePos;
+    int m_zoomFactor;
+    QSize m_magnifierSize;
+    ScColor m_color;
+    bool m_grid;
 
+    const QRect magnifierRect(int zoomFactor = 1);
+    const QRect labelRect(QFont font, QString text);
     ScColor grabScreenColor(const QPoint &p);
+
+    void takeScreenshot();
 
 signals:
 

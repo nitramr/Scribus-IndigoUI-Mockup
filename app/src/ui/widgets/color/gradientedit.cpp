@@ -19,8 +19,6 @@ GradientEdit::GradientEdit(QWidget *parent)
     : QWidget{parent}
 {
 
-
-
     setMinimumSize(QSize(200, 36));
     setMaximumSize(QSize(3000, 36));
     setMouseTracking(true);
@@ -36,6 +34,8 @@ void GradientEdit::setup()
     m_activeStop = 0;
     m_tmpStop = 0;
     m_isEditable = true;
+    m_isMousePressed = false;
+    m_mousePos = QPointF();
 
 
     ScColor color;
@@ -46,6 +46,7 @@ void GradientEdit::setup()
 
     color = ScColor(0,0,0);
     fill_gradient.addStop( color, 1.0, 0.5, 1.0 );
+
 
 }
 
@@ -62,10 +63,10 @@ int GradientEdit::stopAtPosition(QPoint position)
     QList<VColorStop*> cstops = fill_gradient.colorStops();
     for (int i = 0; i < cstops.count(); ++i)
     {
-        int hLeft = qRound(cstops.at(i)->rampPoint * canvasRect().width() );
+        int stopPos = qRound(cstops.at(i)->rampPoint * canvasRect().width() );
 
-        QRect fpo(hLeft, 0, RADIUS * 2, canvasRect().height());
-        if (fpo.contains(position) )
+        QRect stopRect(stopPos, 0, RADIUS * 2, canvasRect().height());
+        if (stopRect.contains(position) )
         {
             return i;
         }
@@ -76,8 +77,6 @@ int GradientEdit::stopAtPosition(QPoint position)
 
 double GradientEdit::percentFromPosition(QPointF position)
 {
-    //        double wRatio = (double)width() / (double)canvasRect().width();
-    //        double t = (position.x() - RADIUS) * wRatio / (double)width();
 
     double t = static_cast<double>((position.x() - RADIUS)) / static_cast<double>(canvasRect().width());
     return qBound(0., t, 1.);
@@ -86,27 +85,47 @@ double GradientEdit::percentFromPosition(QPointF position)
 
 void GradientEdit::addStop(QPoint mousePosition)
 {
-    //    QList<VColorStop*> cstops = fill_gradient.colorStops();
-    //    double  newStop = percentFromPosition(mousePosition);
-    //    QColor  stopColor = (cstops.count() > 0) ? cstops.at(0)->color : QColor(255, 255, 255);
-    //    QString stopName  = (cstops.count() > 0) ? cstops.at(0)->name  : QString("White");
-    //    int     stopShade = (cstops.count() > 0) ? cstops.at(0)->shade : 100;
-    //    fill_gradient.addStop(stopColor, newStop, 0.5, 1.0, stopName, stopShade);
 
+    ScColor colorLeft;
+    ScColor colorRight;
+    double t = percentFromPosition(mousePosition);
+    double ratio = 0.5;
+    double ratiol = .0;
+    double ratior = .0;
 
-    //    cstops = fill_gradient.colorStops();
-    //    std::sort(cstops.begin(), cstops.end());
-
-    ScColor blendColor = ColorUtils::colorBlend(fill_gradient.colorStops().first()->color, fill_gradient.colorStops().last()->color, 0.5);
-
-    qDebug() << blendColor;
-
-    fill_gradient.addStop(blendColor, percentFromPosition(mousePosition), 0.5, blendColor.alphaF(), blendColor.name(), blendColor.shadeF());
+    // Add tmp stop
+    fill_gradient.addStop(colorLeft, t, 0.5, colorLeft.alphaF(), colorLeft.name(), colorLeft.shadeF());
     sortStops();
 
+    // Update values
     m_activeStop = stopAtPosition(mousePosition);
     m_tmpStop = m_activeStop;
 
+    // Get left stop
+    if (m_activeStop - 1 >= 0) {
+        colorLeft =  fill_gradient.colorStops().at(m_activeStop - 1)->color;
+        ratiol = fill_gradient.colorStops().at(m_activeStop - 1)->rampPoint;
+    }else {
+        colorLeft =  fill_gradient.colorStops().at(m_activeStop + 1)->color;
+    }
+
+    // Get right stop
+    if (m_activeStop + 1 < fill_gradient.colorStops().count()) {
+        colorRight =  fill_gradient.colorStops().at(m_activeStop + 1)->color;
+        ratior = fill_gradient.colorStops().at(m_activeStop + 1)->rampPoint;
+    }else {
+        colorRight = fill_gradient.colorStops().at(m_activeStop - 1)->color;
+    }
+
+    // Calculate ratio
+    ratio = qBound(0., (t - ratiol) / (ratior - ratiol), 1.);
+
+    // Update stop with calculated color
+    ScColor blendColor = ColorUtils::colorBlend(colorLeft, colorRight, ratio);
+    fill_gradient.setStop(blendColor, t, 0.5, blendColor.alphaF(), blendColor.name(), blendColor.shadeF());
+
+
+    // Update UI
     repaint();
 
     if(m_activeStop > -1){
@@ -228,31 +247,37 @@ void GradientEdit::paintEvent(QPaintEvent *e)
         qreal yCenter = 12 + 0.5;
 
         // Draw line
-//        if(fill_gradient.stops() >= 2){
-//            qreal start = cstops.first()->rampPoint * canvasRect().width()  + RADIUS;
-//            qreal end = cstops.last()->rampPoint * canvasRect().width()  + RADIUS;
+        //        if(fill_gradient.stops() >= 2){
+        //            qreal start = cstops.first()->rampPoint * canvasRect().width()  + RADIUS;
+        //            qreal end = cstops.last()->rampPoint * canvasRect().width()  + RADIUS;
 
-//            QPen pen;
+        //            QPen pen;
 
-//            pen.setColor(Qt::white);
-//            pen.setWidth(3);
-//            painter.setPen(pen);
-//            painter.drawLine(QPointF(start, yCenter), QPointF(end, yCenter) );
+        //            pen.setColor(Qt::white);
+        //            pen.setWidth(3);
+        //            painter.setPen(pen);
+        //            painter.drawLine(QPointF(start, yCenter), QPointF(end, yCenter) );
 
-//            pen.setColor(Qt::black);
-//            pen.setWidth(1);
-//            painter.setPen(pen);
-//            painter.drawLine(QPointF(start, yCenter), QPointF(end, yCenter) );
-//        }
+        //            pen.setColor(Qt::black);
+        //            pen.setWidth(1);
+        //            painter.setPen(pen);
+        //            painter.drawLine(QPointF(start, yCenter), QPointF(end, yCenter) );
+        //        }
 
 
         // Draw Stops
         for (int i = 0; i < fill_gradient.stops(); ++i)
         {
-            int hCenter = cstops.at(i)->rampPoint * canvasRect().width() + RADIUS;
+            qreal hCenter = cstops.at(i)->rampPoint * canvasRect().width() + RADIUS;
 
             // Draw Marker
             if (m_tmpStop == i){
+
+                // override hCenter position with real mouse pos to avoid flickering
+                if(m_isMousePressed){
+
+                    hCenter = qBound(RADIUS, m_mousePos.toPoint().x(), gradientRect().width() + RADIUS);
+                }
 
                 QPainterPath marker;
                 marker.moveTo( QPointF(hCenter - 5, -0.5) );
@@ -264,7 +289,7 @@ void GradientEdit::paintEvent(QPaintEvent *e)
                 painter.setBrush(palette().color(QPalette::WindowText));
                 painter.drawPath(marker);
 
-            }            
+            }
 
             RenderUtils::renderPointerHandle(&painter, QPointF(hCenter, yCenter), RADIUS*2-2, cstops.at(i)->color.toQColor() );
 
@@ -310,16 +335,22 @@ void GradientEdit::mousePressEvent(QMouseEvent *m)
     qApp->setOverrideCursor(QCursor(Qt::ArrowCursor));
 
     if (isEditable()){
-        m_activeStop = stopAtPosition(m->pos());
-        m_tmpStop = m_activeStop;
 
-        if(m_activeStop == -1){
-            addStop(m->pos());
-        }else{
-            repaint();
+        if (m->button() == Qt::LeftButton)
+        {
 
-            emitStop();
-            emitStopID();
+            m_activeStop = stopAtPosition(m->pos());
+            m_tmpStop = m_activeStop;
+            m_isMousePressed = true;
+
+            if(m_activeStop == -1){
+                addStop(m->pos());
+            }else{
+                repaint();
+
+                emitStop();
+                emitStopID();
+            }
         }
 
 
@@ -338,8 +369,11 @@ void GradientEdit::mouseReleaseEvent(QMouseEvent *m)
     {
         qApp->restoreOverrideCursor();
 
+        m_isMousePressed = false;
+
         if (m->button() == Qt::LeftButton)
         {
+
             if (isMouseOutside(m->pos())){
                 removeStop();
             }else{
@@ -361,11 +395,13 @@ void GradientEdit::mouseMoveEvent(QMouseEvent *m)
 
         qApp->changeOverrideCursor(QCursor(Qt::ArrowCursor));
 
+        m_mousePos = m->position();
+
         // Set Hover Cursor
-        if (canvasRect().contains(m->position().toPoint()) )
+        if (canvasRect().contains(m_mousePos.toPoint()) )
         {
 
-            if(stopAtPosition(m->position().toPoint()) > -1){
+            if(stopAtPosition(m_mousePos.toPoint()) > -1){
                 setCursor(QCursor(Qt::SizeHorCursor));
                 //return;
             }else{
@@ -378,7 +414,7 @@ void GradientEdit::mouseMoveEvent(QMouseEvent *m)
         if (m->buttons() & Qt::LeftButton)
         {
 
-            double newPos = percentFromPosition(m->position());
+            double newPos = percentFromPosition(m_mousePos);
             updateTmpStop(newPos);
             emitStop();
 

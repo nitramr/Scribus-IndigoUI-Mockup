@@ -3,6 +3,7 @@
 #include <QScreen>
 #include <QPainter>
 #include <QMouseEvent>
+#include <QPainterPath>
 
 EyeDropperScreenWidget::EyeDropperScreenWidget(QWidget *parent)
     : QWidget{parent, /*Qt::Window |*/ Qt::Popup | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint}
@@ -136,15 +137,11 @@ void EyeDropperScreenWidget::keyPressEvent(QKeyEvent *e)
  * ********************************************************************************* */
 
 
-ScColor EyeDropperScreenWidget::grabScreenColor(const QPoint &p)
+QColor EyeDropperScreenWidget::grabScreenColor(const QPoint &p)
 {
-    if(!m_screenshot.rect().contains(p)) return ScColor(0,0,0);
+    if(!m_screenshot.rect().contains(p)) return QColor(0,0,0);
 
-    QColor color = m_screenshot.toImage().pixel(p);
-    ScColor sColor;
-    sColor.fromQColor(color);
-
-    return sColor;
+    return m_screenshot.toImage().pixel(p);
 }
 
 void EyeDropperScreenWidget::takeScreenshot()

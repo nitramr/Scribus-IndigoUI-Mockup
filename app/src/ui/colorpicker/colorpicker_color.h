@@ -104,6 +104,7 @@ private slots:
     void switchSliderScale(bool enabled);
 
     void setColorFromSwatch(ScColor color);
+    void setColorFromEyeDropper(QColor color);
     void setSpotFlag(bool isSpot);
 
     void changeColor(ScColor color);

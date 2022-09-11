@@ -284,9 +284,9 @@ void ColorPickerColor::connectSlots()
     connect(comboColorSpace,    &QComboBox::currentIndexChanged, this, &ColorPickerColor::changeColorSpace);
 
     // Map
-    connect(ui->colorMap,           &ColorMap::colorChanged, this, &ColorPickerColor::changeColor);
+    connect(ui->colorMap,           &ColorMap::colorChanged, this, &ColorPickerColor::changeColor );
     connect(ui->buttonMapMode,      &QToolButton::triggered, ui->buttonMapMode, &QToolButton::setDefaultAction);
-    connect(ui->sliderUniversal,    &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
+    connect(ui->sliderUniversal,    &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
     connect(actionMapHSVHue,        &QAction::triggered,this, &ColorPickerColor::changeMapMode );
     connect(actionMapHSVSaturation, &QAction::triggered,this, &ColorPickerColor::changeMapMode );
     connect(actionMapHSVValue,      &QAction::triggered,this, &ColorPickerColor::changeMapMode );
@@ -298,21 +298,21 @@ void ColorPickerColor::connectSlots()
     connect(actionMapLabb,          &QAction::triggered,this, &ColorPickerColor::changeMapMode );
 
     // Slider (color)
-    connect(ui->sliderCMYKCyan,         &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    connect(ui->sliderCMYKMagenta,      &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    connect(ui->sliderCMYKYellow,       &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    connect(ui->sliderCMYKKey,          &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    connect(ui->sliderRGBRed,           &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    connect(ui->sliderRGBGreen,         &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    connect(ui->sliderRGBBlue,          &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    connect(ui->sliderHSVHue,           &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    connect(ui->sliderHSVSaturation,    &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    connect(ui->sliderHSVValue,         &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    connect(ui->sliderLabL,             &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    connect(ui->sliderLabA,             &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    connect(ui->sliderLabB,             &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    connect(ui->sliderAlpha,            &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    connect(ui->sliderShade,            &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
+    connect(ui->sliderCMYKCyan,         &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    connect(ui->sliderCMYKMagenta,      &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    connect(ui->sliderCMYKYellow,       &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    connect(ui->sliderCMYKKey,          &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    connect(ui->sliderRGBRed,           &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    connect(ui->sliderRGBGreen,         &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    connect(ui->sliderRGBBlue,          &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    connect(ui->sliderHSVHue,           &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    connect(ui->sliderHSVSaturation,    &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    connect(ui->sliderHSVValue,         &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    connect(ui->sliderLabL,             &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    connect(ui->sliderLabA,             &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    connect(ui->sliderLabB,             &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    connect(ui->sliderAlpha,            &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    connect(ui->sliderShade,            &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
 
     // Slider (value)
     connect(ui->sliderCMYKCyan,         &ColorSlider::valueChanged, ui->numberCMYKCyan, &QDoubleSpinBox::setValue);
@@ -349,8 +349,8 @@ void ColorPickerColor::connectSlots()
     connect(ui->numberShade,            &QDoubleSpinBox::valueChanged, ui->sliderShade, &ColorSlider::setValue);
 
     // Color Harmony
-    connect(ui->sliderHarmonyValue, &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    connect(ui->colorHarmonyWheel,  &ColorHarmonyWheel::colorChanged, this, &ColorPickerColor::changeColor);
+    connect(ui->sliderHarmonyValue, &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    connect(ui->colorHarmonyWheel,  &ColorHarmonyWheel::colorChanged, this, &ColorPickerColor::changeColor );
     connect(ui->colorHarmonyWheel,  &ColorHarmonyWheel::harmonyChanged, this, &ColorPickerColor::changeColorButtons);
     connect(ui->buttonHarmony,      &QToolButton::triggered, ui->buttonHarmony, &QToolButton::setDefaultAction);
     connect(actionHarmonyAnalogous,             &QAction::triggered,this, &ColorPickerColor::changeHarmony );
@@ -398,7 +398,7 @@ void ColorPickerColor::connectSlots()
 
     // EyeDroper
     connect(ui->buttonEyeDropper,   &QToolButton::released, eyeDropper, &EyeDropperScreenWidget::show);
-    connect(eyeDropper,             &EyeDropperScreenWidget::screenColor, this, &ColorPickerColor::changeColor);
+    connect(eyeDropper,             &EyeDropperScreenWidget::screenColor, this, &ColorPickerColor::setColorFromEyeDropper );
 
 
 }
@@ -409,9 +409,9 @@ void ColorPickerColor::disconnectSlots()
     disconnect(comboColorSpace,    &QComboBox::currentIndexChanged, this, &ColorPickerColor::changeColorSpace);
 
     // Map
-    disconnect(ui->colorMap,           &ColorMap::colorChanged, this, &ColorPickerColor::changeColor);
+    disconnect(ui->colorMap,           &ColorMap::colorChanged, this, &ColorPickerColor::changeColor );
     disconnect(ui->buttonMapMode,      &QToolButton::triggered, ui->buttonMapMode, &QToolButton::setDefaultAction);
-    disconnect(ui->sliderUniversal,    &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
+    disconnect(ui->sliderUniversal,    &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
     disconnect(actionMapHSVHue,        &QAction::triggered,this, &ColorPickerColor::changeMapMode );
     disconnect(actionMapHSVSaturation, &QAction::triggered,this, &ColorPickerColor::changeMapMode );
     disconnect(actionMapHSVValue,      &QAction::triggered,this, &ColorPickerColor::changeMapMode );
@@ -423,21 +423,21 @@ void ColorPickerColor::disconnectSlots()
     disconnect(actionMapLabb,          &QAction::triggered,this, &ColorPickerColor::changeMapMode );
 
     // Slider (color)
-    disconnect(ui->sliderCMYKCyan,         &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    disconnect(ui->sliderCMYKMagenta,      &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    disconnect(ui->sliderCMYKYellow,       &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    disconnect(ui->sliderCMYKKey,          &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    disconnect(ui->sliderRGBRed,           &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    disconnect(ui->sliderRGBGreen,         &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    disconnect(ui->sliderRGBBlue,          &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    disconnect(ui->sliderHSVHue,           &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    disconnect(ui->sliderHSVSaturation,    &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    disconnect(ui->sliderHSVValue,         &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    disconnect(ui->sliderLabL,             &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    disconnect(ui->sliderLabA,             &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    disconnect(ui->sliderLabB,             &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    disconnect(ui->sliderAlpha,            &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    disconnect(ui->sliderShade,            &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
+    disconnect(ui->sliderCMYKCyan,         &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    disconnect(ui->sliderCMYKMagenta,      &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    disconnect(ui->sliderCMYKYellow,       &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    disconnect(ui->sliderCMYKKey,          &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    disconnect(ui->sliderRGBRed,           &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    disconnect(ui->sliderRGBGreen,         &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    disconnect(ui->sliderRGBBlue,          &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    disconnect(ui->sliderHSVHue,           &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    disconnect(ui->sliderHSVSaturation,    &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    disconnect(ui->sliderHSVValue,         &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    disconnect(ui->sliderLabL,             &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    disconnect(ui->sliderLabA,             &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    disconnect(ui->sliderLabB,             &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    disconnect(ui->sliderAlpha,            &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    disconnect(ui->sliderShade,            &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
 
     // Slider (value)
     disconnect(ui->sliderCMYKCyan,         &ColorSlider::valueChanged, ui->numberCMYKCyan, &QDoubleSpinBox::setValue);
@@ -474,8 +474,8 @@ void ColorPickerColor::disconnectSlots()
     disconnect(ui->numberShade,            &QDoubleSpinBox::valueChanged, ui->sliderShade, &ColorSlider::setValue);
 
     // Color Harmony
-    disconnect(ui->sliderHarmonyValue, &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor);
-    disconnect(ui->colorHarmonyWheel,  &ColorHarmonyWheel::colorChanged, this, &ColorPickerColor::changeColor);
+    disconnect(ui->sliderHarmonyValue, &ColorSlider::colorChanged, this, &ColorPickerColor::changeColor );
+    disconnect(ui->colorHarmonyWheel,  &ColorHarmonyWheel::colorChanged, this, &ColorPickerColor::changeColor );
     disconnect(ui->colorHarmonyWheel,  &ColorHarmonyWheel::harmonyChanged, this, &ColorPickerColor::changeColorButtons);
     disconnect(ui->buttonHarmony,      &QToolButton::triggered, ui->buttonHarmony, &QToolButton::setDefaultAction);
     disconnect(actionHarmonyAnalogous,             &QAction::triggered,this, &ColorPickerColor::changeHarmony );
@@ -522,7 +522,7 @@ void ColorPickerColor::disconnectSlots()
 
     // EyeDroper
     disconnect(ui->buttonEyeDropper,   &QToolButton::released, eyeDropper, &EyeDropperScreenWidget::show);
-    disconnect(eyeDropper,             &EyeDropperScreenWidget::screenColor, this, &ColorPickerColor::changeColor);
+    disconnect(eyeDropper,             &EyeDropperScreenWidget::screenColor, this, &ColorPickerColor::setColorFromEyeDropper );
 }
 
 
@@ -682,6 +682,7 @@ ScColor ColorPickerColor::color()
     case ColorModel::HSV:
         return col.toHsv();
         break;
+    default:
     case ColorModel::RGB:
         return col.toRgb();
         break;
@@ -763,7 +764,6 @@ void ColorPickerColor::setColor(ScColor color)
         m_colorSpace = colModel;
     }
 
-    //ui->checkBox->setChecked(color.isSpotColor());
     ui->buttonSpotColor->setChecked(color.isSpotColor());
 
     changeUI();
@@ -830,6 +830,30 @@ void ColorPickerColor::setColorFromSwatch(ScColor color)
 {
     setColor(color);
     emit colorChanged(this->color());
+}
+
+void ColorPickerColor::setColorFromEyeDropper(QColor color)
+{
+    ScColor sColor;
+    sColor.fromQColor(color);
+
+    switch(m_colorSpace){
+    case ColorModel::HSV:
+        sColor = sColor.toHsv();
+        break;
+    default:
+    case ColorModel::RGB:
+        sColor = sColor.toRgb();
+        break;
+    case ColorModel::CMYK:
+        sColor = sColor.toCmyk();
+        break;
+    case ColorModel::Lab:
+        sColor = sColor.toLab();
+        break;
+    }
+
+    changeColor(sColor);
 }
 
 void ColorPickerColor::setSpotFlag(bool isSpot)

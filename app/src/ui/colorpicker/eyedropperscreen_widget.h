@@ -1,7 +1,6 @@
 #ifndef EYEDROPPERWIDGET_H
 #define EYEDROPPERWIDGET_H
 
-#include "sccolor.h"
 #include <QWidget>
 
 class EyeDropperScreenWidget : public QWidget
@@ -30,18 +29,18 @@ private:
     QPoint m_MousePos;
     int m_zoomFactor;
     QSize m_magnifierSize;
-    ScColor m_color;
+    QColor m_color;
     bool m_grid;
 
     const QRect magnifierRect(int zoomFactor = 1);
     const QRect labelRect(QFont font, QString text);
-    ScColor grabScreenColor(const QPoint &p);
+    QColor grabScreenColor(const QPoint &p);
 
     void takeScreenshot();
 
 signals:
 
-    void screenColor(ScColor color);
+    void screenColor(QColor color);
 
 };
 

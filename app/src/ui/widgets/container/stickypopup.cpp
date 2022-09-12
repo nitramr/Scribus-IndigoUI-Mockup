@@ -136,15 +136,15 @@ QPolygon StickyPopup::mask()
 void StickyPopup::paintEvent(QPaintEvent *event)
 {
 
-    QRegion widgetMask(mask());
-    setMask(widgetMask);
+//    QRegion widgetMask(mask());
+//    setMask(widgetMask);
 
     QPainter painter(this);
 
     painter.setPen(QPen(palette().color(QPalette::Mid), 2) );
     painter.setBrush(palette().color(QPalette::Window) );
 //    painter.drawRect(this->rect().adjusted(0,0,-1,-1));
-    painter.drawPolygon(mask());
+//    painter.drawPolygon(mask());
 
 }
 
@@ -162,7 +162,7 @@ bool StickyPopup::eventFilter(QObject *obj, QEvent *event)
         QMouseEvent *mEvent = (QMouseEvent*)event;
         if(mEvent->buttons() & Qt::LeftButton)
         {
-            setPointerDirection(PointerDirection::None);
+            //setPointerDirection(PointerDirection::None);
             this->move(mapToParent(mEvent->pos() - m_mousePos));
         }
     }

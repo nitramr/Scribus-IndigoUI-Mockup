@@ -2,7 +2,7 @@
 #include <QPainter>
 #include "theme_manager.h"
 
-SplashScreen::SplashScreen()
+SplashScreen::SplashScreen() : QSplashScreen()
 {
 
     ThemeManager &themeManager = ThemeManager::instance();
@@ -12,6 +12,7 @@ SplashScreen::SplashScreen()
 
     this->setPixmap(QPixmap(splashImage));
     this->setWindowFlag(Qt::WindowStaysOnTopHint, true);
+
 
 }
 
@@ -30,7 +31,7 @@ void SplashScreen::setMessageRect(QRect rect, int alignement)
 
 void SplashScreen::drawContents(QPainter *painter)
 {
-    QPixmap textPix = QSplashScreen::pixmap();
+    // QPixmap textPix = QSplashScreen::pixmap();
     painter->setPen(this->colorText);
     painter->drawText(this->rect, this->alignement, this->message);
 }

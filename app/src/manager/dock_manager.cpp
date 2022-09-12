@@ -134,13 +134,14 @@ void DockManager::loadDefaultWorkspace()
 {
     // Left Panel
     auto * areaLeft = addDockWidget(ads::LeftDockWidgetArea, dockContent);
+    addDockWidget(ads::CenterDockWidgetArea, dockOutliner, areaLeft);
     addDockWidget(ads::CenterDockWidgetArea, dockPages, areaLeft);
 
 
     // Right Panel
     auto * areaRight = addDockWidget(ads::RightDockWidgetArea, dockFrame);
     auto * areaRightBottom = addDockWidget(ads::BottomDockWidgetArea, dockLayers, areaRight);
-    addDockWidget(ads::CenterDockWidgetArea, dockOutliner, areaRightBottom);
+
     addDockWidget(ads::CenterDockWidgetArea, dockAlignDistribute, areaRightBottom);
 
 

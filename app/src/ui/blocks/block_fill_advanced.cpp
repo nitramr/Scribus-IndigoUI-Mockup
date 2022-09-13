@@ -18,8 +18,6 @@ BlockFillAdvanced::~BlockFillAdvanced()
 
 void BlockFillAdvanced::setup()
 {
-    ui->comboFillRule->addItem("Evenodd");
-    ui->comboFillRule->addItem("Nonzero");
 
     ui->comboOverprinting->addItem("Knockout");
     ui->comboOverprinting->addItem("Overprint");

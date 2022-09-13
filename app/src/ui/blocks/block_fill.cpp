@@ -38,6 +38,10 @@ void BlockFill::setup()
     colorMaskPicker = new ColorPicker(ColorPickerConfig::FillMask);
     ui->buttonMask->setContextWidget(colorMaskPicker);
 
+    QButtonGroup * fillRuleGroup = new QButtonGroup();
+    fillRuleGroup->addButton(ui->buttonEvenodd);
+    fillRuleGroup->addButton(ui->buttonNonezero);
+
 }
 
 void BlockFill::connectSlots()

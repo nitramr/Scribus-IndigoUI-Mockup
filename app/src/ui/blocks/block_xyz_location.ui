@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>300</width>
-    <height>103</height>
+    <height>174</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -35,7 +35,322 @@
    <property name="spacing">
     <number>4</number>
    </property>
-   <item row="0" column="5" rowspan="2">
+   <item row="3" column="1" colspan="4">
+    <widget class="FormWidget" name="formLevel">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="label">
+      <string>Level:</string>
+     </property>
+     <property name="direction">
+      <enum>FormWidget::Left</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_11">
+      <property name="spacing">
+       <number>4</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QToolButton" name="buttonMoveTop">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="buttonMoveUp">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="buttonMoveDown">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="buttonMoveBottom">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelLevel">
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="FormWidget" name="formWidget">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="label">
+      <string>X</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="AdvancedSpinBox" name="numXPos"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="5">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="1">
+    <widget class="FormWidget" name="formWidget_3">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="label">
+      <string>Y</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="AdvancedSpinBox" name="numYPos"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="3">
+    <widget class="FormWidget" name="formWidget_4">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="label">
+      <string>Height</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="AdvancedSpinBox" name="numHeight"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="3">
+    <widget class="FormWidget" name="formWidget_2">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="label">
+      <string>Width</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="AdvancedSpinBox" name="numWidth"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="FormWidget" name="formWidget_8">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="label">
+      <string>Rotation</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_9">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QDoubleSpinBox" name="numRotation">
+        <property name="suffix">
+         <string>°</string>
+        </property>
+        <property name="decimals">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <double>360.000000000000000</double>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="2" rowspan="2">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="FormWidget" name="formWidget_6">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="label">
+        <string/>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="preserveLabelSpace">
+        <bool>true</bool>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QToolButton" name="buttonLockSize">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="4" rowspan="2">
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="FormWidget" name="formWidget_7">
@@ -87,10 +402,29 @@
      </item>
     </layout>
    </item>
-   <item row="0" column="3" rowspan="2">
-    <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item row="2" column="2" colspan="3">
+    <layout class="QHBoxLayout" name="horizontalLayout_8">
+     <property name="spacing">
+      <number>4</number>
+     </property>
      <item>
-      <widget class="FormWidget" name="formWidget_6">
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>8</width>
+         <height>0</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="FormWidget" name="formWidget_9">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
          <horstretch>0</horstretch>
@@ -98,17 +432,17 @@
         </sizepolicy>
        </property>
        <property name="label">
-        <string/>
+        <string>Flip</string>
        </property>
        <property name="font">
         <font>
          <pointsize>8</pointsize>
         </font>
        </property>
-       <property name="preserveLabelSpace">
-        <bool>true</bool>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_6">
+       <layout class="QHBoxLayout" name="horizontalLayout_10">
+        <property name="spacing">
+         <number>4</number>
+        </property>
         <property name="leftMargin">
          <number>0</number>
         </property>
@@ -122,7 +456,17 @@
          <number>0</number>
         </property>
         <item>
-         <widget class="QToolButton" name="buttonLockSize">
+         <widget class="QToolButton" name="buttonFlipHorizontal">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="buttonFlipVertical">
           <property name="text">
            <string/>
           </property>
@@ -134,9 +478,22 @@
        </layout>
       </widget>
      </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
     </layout>
    </item>
-   <item row="1" column="0">
+   <item row="2" column="0">
     <widget class="FormWidget" name="formWidget_5">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
@@ -178,8 +535,8 @@
      </layout>
     </widget>
    </item>
-   <item row="0" column="2">
-    <widget class="FormWidget" name="formWidget">
+   <item row="0" column="0" rowspan="2">
+    <widget class="FormWidget" name="formWidget_10">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
        <horstretch>0</horstretch>
@@ -187,14 +544,17 @@
       </sizepolicy>
      </property>
      <property name="label">
-      <string>X</string>
+      <string/>
      </property>
      <property name="font">
       <font>
        <pointsize>8</pointsize>
       </font>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="preserveLabelSpace">
+      <bool>true</bool>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_12">
       <property name="leftMargin">
        <number>0</number>
       </property>
@@ -208,148 +568,10 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="AdvancedSpinBox" name="numXPos"/>
+       <widget class="BasePointWidget" name="basePoint"/>
       </item>
      </layout>
     </widget>
-   </item>
-   <item row="0" column="6">
-    <spacer name="horizontalSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>0</width>
-       <height>0</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="0" column="0">
-    <widget class="BasePointWidget" name="basePoint">
-     <property name="mode">
-      <enum>BasePointWidget::Full</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="2">
-    <widget class="FormWidget" name="formWidget_3">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="label">
-      <string>Y</string>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>8</pointsize>
-      </font>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
-      <property name="leftMargin">
-       <number>0</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>0</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
-      <item>
-       <widget class="AdvancedSpinBox" name="numYPos"/>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item row="0" column="4">
-    <widget class="FormWidget" name="formWidget_2">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="label">
-      <string>Width</string>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>8</pointsize>
-      </font>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <property name="leftMargin">
-       <number>0</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>0</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
-      <item>
-       <widget class="AdvancedSpinBox" name="numWidth"/>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item row="1" column="4">
-    <widget class="FormWidget" name="formWidget_4">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="label">
-      <string>Height</string>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>8</pointsize>
-      </font>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_4">
-      <property name="leftMargin">
-       <number>0</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>0</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
-      <item>
-       <widget class="AdvancedSpinBox" name="numHeight"/>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item row="2" column="2" colspan="3">
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>0</width>
-       <height>0</height>
-      </size>
-     </property>
-    </spacer>
    </item>
   </layout>
  </widget>

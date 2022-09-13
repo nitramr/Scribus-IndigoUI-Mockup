@@ -7,7 +7,6 @@
 #include "block_paragraph.h"
 #include "block_paragraph_advanced.h"
 #include "block_text_advanced.h"
-#include "block_text_alignment.h"
 #include "block_text_font.h"
 #include "block_textonpath.h"
 #include "sectioncontainer.h"
@@ -29,7 +28,6 @@ private:
     Ui::PanelContentText *ui;
 
     BlockTextFont           * blockTextFont;
-    BlockTextAlignment      * blockTextAlignment;
     BlockTextAdvanced       * blockTextAdvanced;
     BlockParagraph          * blockParagraph;
     BlockParagraphAdvanced  * blockParagraphAdvanced;

@@ -20,6 +20,8 @@ public slots:
     void lockSize(bool state);
     void linkSize(bool state);
     void rotate(double angle);
+    void flipVertical(bool state);
+    void flipHorizontal(bool state);
 
 private:
     Ui::BlockXYZLocation *ui;

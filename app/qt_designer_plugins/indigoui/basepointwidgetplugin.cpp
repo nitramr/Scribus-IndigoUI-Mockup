@@ -39,7 +39,7 @@ QString BasePointWidgetPlugin::whatsThis() const
 
 QString BasePointWidgetPlugin::includeFile() const
 {
-    return QLatin1String("basepointwidget.h");
+    return QLatin1String("basepoint_widget.h");
 }
 
 QIcon BasePointWidgetPlugin::icon() const

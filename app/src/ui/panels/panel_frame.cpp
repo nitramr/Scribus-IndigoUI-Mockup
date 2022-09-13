@@ -34,7 +34,6 @@ void PanelFrame::setup()
     // Blocks
 
     blockXYZLocation        = new BlockXYZLocation();
-    blockXYZTransformation  = new BlockXYZTransformation();
     blockXYZAdvanced        = new BlockXYZAdvanced();
     blockShape              = new BlockShape();
     blockFill               = new BlockFill();
@@ -72,7 +71,6 @@ void PanelFrame::setup()
 
     // Add blocks
     ui->layoutXYZ->layout()->addWidget(blockXYZLocation);
-    ui->layoutXYZ->layout()->addWidget(blockXYZTransformation);
     ui->layoutShape->layout()->addWidget(blockShape);
     ui->layoutFill->layout()->addWidget(blockFill);
     ui->layoutBorder->layout()->addWidget(blockStroke);
@@ -114,11 +112,10 @@ void PanelFrame::setup()
 
 void PanelFrame::connectSlots()
 {
-    connect(blockXYZLocation, &BlockXYZLocation::signalLockFrame, blockXYZTransformation, &BlockXYZTransformation::lockFrame);
+
     connect(blockXYZLocation, &BlockXYZLocation::signalLockFrame, blockShape, &BlockShape::lockFrame);
     connect(blockXYZLocation, &BlockXYZLocation::signalLockSize, blockShape, &BlockShape::lockSize);
 
-    connect(blockXYZTransformation, &BlockXYZTransformation::signalRotate, blockXYZLocation, &BlockXYZLocation::rotate);
 }
 
 void PanelFrame::addMenu(SectionContainer *section, QWidget *menuPanel)

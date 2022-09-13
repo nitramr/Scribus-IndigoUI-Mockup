@@ -9,7 +9,6 @@
 #include "block_stroke.h"
 #include "block_stroke_advanced.h"
 #include "block_xyz_location.h"
-#include "block_xyz_transformation.h"
 #include "block_xyz_advanced.h"
 #include "block_shape.h"
 #include "block_fill.h"
@@ -31,8 +30,7 @@ private:
     Ui::PanelFrame *ui;
 
     BlockXYZLocation *          blockXYZLocation;
-    BlockXYZTransformation *    blockXYZTransformation;
-    BlockXYZAdvanced *          blockXYZAdvanced;
+     BlockXYZAdvanced *          blockXYZAdvanced;
     BlockShape *                blockShape;
     BlockFill *                 blockFill;
     BlockFillAdvanced *         blockFillAdvanced;

@@ -29,7 +29,6 @@ void PanelContentText::setup()
 
     // Blocks
     blockTextFont           = new BlockTextFont();
-    blockTextAlignment      = new BlockTextAlignment();
     blockTextAdvanced       = new BlockTextAdvanced();
     blockParagraph          = new BlockParagraph();
     blockParagraphAdvanced  = new BlockParagraphAdvanced();
@@ -67,7 +66,6 @@ void PanelContentText::setup()
 
     // Add blocks
     ui->layoutText->layout()->addWidget(blockTextFont);
-    ui->layoutText->layout()->addWidget(blockTextAlignment);
     ui->layoutParagraph->layout()->addWidget(blockParagraph);
     ui->layoutCharacter->layout()->addWidget(blockCharacter);
     ui->layoutLists->layout()->addWidget(blockLists);

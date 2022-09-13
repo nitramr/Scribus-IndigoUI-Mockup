@@ -2,7 +2,6 @@
 #include "block_fill.h"
 #include "block_stroke.h"
 #include "block_xyz_location.h"
-#include "block_xyz_transformation.h"
 #include "flowlayout.h"
 #include "qpushbutton.h"
 #include "ui_panel_test.h"
@@ -26,7 +25,6 @@ PanelTest::~PanelTest()
 void PanelTest::setup()
 {
     BlockXYZLocation *blockXZYLocation = new BlockXYZLocation();
-    BlockXYZTransformation * blockXYZTransformation = new BlockXYZTransformation();
     BlockFill * blockFill = new BlockFill();
     BlockStroke * blockStroke = new BlockStroke();
 
@@ -52,7 +50,6 @@ void PanelTest::setup()
     FlowLayout *flowLayout = new FlowLayout;
     flowLayout->addWidget(blockXZYLocation);
     flowLayout->addWidget(line);
-    flowLayout->addWidget(blockXYZTransformation);
     flowLayout->addWidget(line2);
     flowLayout->addWidget(blockFill);
     flowLayout->addWidget(line3);

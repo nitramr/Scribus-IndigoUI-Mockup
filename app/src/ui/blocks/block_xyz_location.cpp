@@ -34,6 +34,12 @@ void BlockXYZLocation::setup()
     ui->buttonLinkSize->setIcon(iconManager.icon("link-off"));
     ui->buttonLockFrame->setIcon(iconManager.icon("lock-open"));
     ui->buttonLockSize->setIcon(iconManager.icon("lock-open"));
+    ui->buttonFlipHorizontal->setIcon(iconManager.icon("flip-horizontal"));
+    ui->buttonFlipVertical->setIcon(iconManager.icon("flip-vertical"));
+    ui->buttonMoveTop->setIcon(iconManager.icon("layer-top"));
+    ui->buttonMoveUp->setIcon(iconManager.icon("layer-up"));
+    ui->buttonMoveDown->setIcon(iconManager.icon("layer-down"));
+    ui->buttonMoveBottom->setIcon(iconManager.icon("layer-bottom"));
 }
 
 void BlockXYZLocation::connectSlots()
@@ -43,7 +49,12 @@ void BlockXYZLocation::connectSlots()
     connect(ui->buttonLockSize, &QToolButton::toggled, this, &BlockXYZLocation::lockSize);
     connect(ui->buttonLinkSize, &QToolButton::toggled, this, &BlockXYZLocation::linkSize);
 
+    // Buttons
+    connect(ui->buttonFlipHorizontal, &QToolButton::toggled, this, &BlockXYZLocation::flipHorizontal);
+    connect(ui->buttonFlipVertical, &QToolButton::toggled, this, &BlockXYZLocation::flipVertical);
 
+    // Numeric Inputs
+    connect(ui->numRotation, &QDoubleSpinBox::valueChanged, this, &BlockXYZLocation::rotate);
 }
 
 /* ********************************************************************************* *
@@ -68,6 +79,8 @@ void BlockXYZLocation::lockFrame(bool state)
 
     ui->numXPos->setReadOnly(state);
     ui->numYPos->setReadOnly(state);
+    ui->numRotation->setReadOnly(state);
+    ui->formLevel->setDisabled(state);
 
     emit signalLockFrame(state);
 }
@@ -104,6 +117,17 @@ void BlockXYZLocation::linkSize(bool state)
 void BlockXYZLocation::rotate(double angle)
 {
     ui->basePoint->setAngle(angle);
+}
+
+
+void BlockXYZLocation::flipVertical(bool state)
+{
+
+}
+
+void BlockXYZLocation::flipHorizontal(bool state)
+{
+
 }
 
 

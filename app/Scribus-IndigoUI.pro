@@ -93,13 +93,11 @@ SOURCES += \
     src/ui/blocks/block_stroke.cpp \
     src/ui/blocks/block_stroke_advanced.cpp \
     src/ui/blocks/block_text_advanced.cpp \
-    src/ui/blocks/block_text_alignment.cpp \
     src/ui/blocks/block_text_font.cpp \
     src/ui/blocks/block_text_outline.cpp \
     src/ui/blocks/block_textonpath.cpp \
     src/ui/blocks/block_xyz_advanced.cpp \
     src/ui/blocks/block_xyz_location.cpp \
-    src/ui/blocks/block_xyz_transformation.cpp \
     src/ui/colorpicker/colorpicker.cpp \
     src/ui/colorpicker/colorpicker_color.cpp \
     src/ui/colorpicker/colorpicker_gradient.cpp \
@@ -209,7 +207,6 @@ HEADERS += \
     src/ui/blocks/block_stroke.h \
     src/ui/blocks/block_stroke_advanced.h \
     src/ui/blocks/block_text_advanced.h \
-    src/ui/blocks/block_text_alignment.h \
     src/ui/blocks/block_text_font.h \
     src/ui/blocks/block_text_outline.h \
     src/ui/blocks/block_textonpath.h \
@@ -230,7 +227,6 @@ HEADERS += \
     src/ui/blocks/block_shape.h \
     src/ui/blocks/block_xyz_advanced.h \
     src/ui/blocks/block_xyz_location.h \
-    src/ui/blocks/block_xyz_transformation.h \
     src/ui/colorpicker/colorpicker.h \
     src/ui/components/component_documentselector.h \
     src/ui/delegate/colorlistitem_delegate.h \
@@ -311,13 +307,11 @@ FORMS += \
     src/ui/blocks/block_stroke.ui \
     src/ui/blocks/block_stroke_advanced.ui \
     src/ui/blocks/block_text_advanced.ui \
-    src/ui/blocks/block_text_alignment.ui \
     src/ui/blocks/block_text_font.ui \
     src/ui/blocks/block_text_outline.ui \
     src/ui/blocks/block_textonpath.ui \
     src/ui/blocks/block_xyz_advanced.ui \
     src/ui/blocks/block_xyz_location.ui \
-    src/ui/blocks/block_xyz_transformation.ui \
     src/ui/colorpicker/colorpicker.ui \
     src/ui/colorpicker/colorpicker_color.ui \
     src/ui/colorpicker/colorpicker_gradient.ui \

@@ -6,6 +6,7 @@ IndigoUI::IndigoUI(QObject *parent)
 {
     widgets.append(new BasePointWidgetPlugin(this));
     widgets.append(new FormWidgetPlugin(this));
+    widgets.append(new HeadlineWidgetPlugin(this));
     widgets.append(new SectionContainerPlugin(this));
 }
 

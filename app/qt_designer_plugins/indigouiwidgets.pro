@@ -25,6 +25,7 @@ include ($$PWD/../src/ui/widgets/widgets.pri)
 HEADERS += \
     indigoui/basepointwidgetplugin.h \
     indigoui/formwidgetplugin.h \
+    indigoui/headlinewidgetplugin.h \
     indigoui/indigoui.h \
     indigoui/sectioncontainerextension.h \
     indigoui/sectioncontainerextensionfactory.h \
@@ -33,6 +34,7 @@ HEADERS += \
 SOURCES += \
     indigoui/basepointwidgetplugin.cpp \
     indigoui/formwidgetplugin.cpp \
+    indigoui/headlinewidgetplugin.cpp \
     indigoui/indigoui.cpp \
     indigoui/sectioncontainerextension.cpp \
     indigoui/sectioncontainerextensionfactory.cpp \

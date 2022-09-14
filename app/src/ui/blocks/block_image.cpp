@@ -59,7 +59,7 @@ void BlockImage::changeAutoFit(bool doesFit)
     ui->layoutDpiY->setEnabled(!doesFit);
     ui->layoutScaleX->setEnabled(!doesFit);
     ui->layoutScaleY->setEnabled(!doesFit);
-    ui->layoutPositionX->setEnabled(!doesFit);
-    ui->layoutPositionY->setEnabled(!doesFit);
+//    ui->layoutPositionX->setEnabled(!doesFit);
+//    ui->layoutPositionY->setEnabled(!doesFit);
 
 }

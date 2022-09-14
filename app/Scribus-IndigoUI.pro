@@ -143,6 +143,7 @@ SOURCES += \
     src/ui/widgets/combobox/blendmode_combobox.cpp \
     src/ui/widgets/combobox/firstpage_combobox.cpp \
     src/ui/widgets/combobox/linetype_combobox.cpp \
+    src/ui/widgets/container/headline_widget.cpp \
     src/ui/widgets/container/stickypopup.cpp \
     src/ui/widgets/color/colorharmonywheel.cpp \
     src/ui/widgets/menu/autoforms_menu.cpp \
@@ -264,6 +265,7 @@ HEADERS += \
     src/ui/widgets/combobox/blendmode_combobox.h \
     src/ui/widgets/combobox/firstpage_combobox.h \
     src/ui/widgets/combobox/linetype_combobox.h \
+    src/ui/widgets/container/headline_widget.h \
     src/ui/widgets/container/stickypopup.h \
     src/ui/widgets/color/colorharmonywheel.h \
     src/ui/widgets/menu/autoforms_menu.h \

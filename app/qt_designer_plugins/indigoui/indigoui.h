@@ -7,6 +7,7 @@
 #include "formwidgetplugin.h"
 #include "basepointwidgetplugin.h"
 #include "sectioncontainerplugin.h"
+#include "headlinewidgetplugin.h"
 
 class IndigoUI: public QObject, public QDesignerCustomWidgetCollectionInterface
 {

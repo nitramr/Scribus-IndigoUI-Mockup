@@ -45,54 +45,6 @@ ColorFormat
 
 Styles: http://doc.qt.io/qt-4.8/stylesheet-examples.html
 */
-/*Palette::dark {
-	[all]		alternate-base:		#424242;
-	[all]		base:			#282828;
-	[all]		bright-text:		rgb(255,0,0);
-	[all]		button-text:		#ffffff;
-	[disabled]	button-text:		#808080;
-	[all]		highlight:		rgb(42,130,218);
-	[all]		highlighted-text:	rgb(0,0,0);
-	[all]		link:			rgb(42,130,218);
-	[all]		text:			#ffffff;
-	[disabled]	text:			#808080;
-	[all]		tooltip-base:		#424242;
-	[all]		tooltip-text:		#ffffff;
-	[all]		window:			#424242;
-	[all]		window-text: 		#ffffff;
-	[disabled]	window-text: 		#808080;
-	[all]		light:			#686868; // Lighter than Button color.
-	[all]		midlight:		#585858; // Between Button and Light.
-	[all]		button:			#464646;
-	[all]		mid:			#424242; // Between Button and Dark.
-	[all]		dark:			#282828; // Darker than Button.
-	[all]		shadow:			#000000; // A very dark color.
-}
-*/
-
-/*Palette::dark {
-	[all]		alternate-base:		#2e2e2e;
-	[all]		base:			#1a1a1a;
-	[all]		bright-text:		#ffffff;
-	[all]		button-text:		#ffffff;
-	[disabled]	button-text:		#808080;
-	[all]		highlight:		rgb(42,130,218);
-	[all]		highlighted-text:	#ffffff;
-	[all]		link:			rgb(42,130,218);
-	[all]		text:			#ffffff;
-	[disabled]	text:			#808080;
-	[all]		tooltip-base:		#424242;
-	[all]		tooltip-text:		#ffffff;
-	[all]		window:			#3d3d3d;
-	[all]		window-text: 		#ffffff;
-	[disabled]	window-text: 		#808080;
-	[all]		light:			#b2b2b2; // Lighter than Button color.
-	[all]		midlight:		#757575; // Between Button and Light.
-	[all]		button:			#3d3d3d;
-	[all]		mid:			#2e2e2e; // Between Button and Dark.
-	[all]		dark:			#1a1a1a; // Darker than Button.
-	[all]		shadow:			#000000; // A very dark color.
-}*/
 
 Palette::dark {
 	[all]      alternate-base:	hsl(0,0,14); //hsl(0,0,96);
@@ -113,12 +65,12 @@ Palette::dark {
 	[all]      window:		hsl(0,0,20); //hsl(0,0,93);
 	[all]      window-text:		hsl(0,0,100); //hsl(0,0,0);
 	[disabled] window-text:		hsl(0,0,50); //hsl(0,0,74);
-	[all]      light:		hsl(0,0,70); //hsl(0,0,100);
-	[all]      midlight:		hsl(0,0,49); //hsl(0,0,79);
+	[all]      light:		hsl(0,0,46); //hsl(0,0,100); Lighter than Button color.
+	[all]      midlight:		hsl(0,0,36); //hsl(0,0,79); Between Button and Light.
 	[all]      button:		hsl(0,0,20); //hsl(0,0,93);
-	[all]      mid:			hsl(0,0,32); //hsl(0,0,72);
-	[all]      dark:		hsl(0,0,18); //hsl(0,0,62);
-	[all]      shadow:		hsl(0,0,10); //hsl(0,0,46);
+	[all]      mid:			hsl(0,0,28); //hsl(0,0,72); Between Button and Dark.
+	[all]      dark:		hsl(0,0,12); //hsl(0,0,62); Darker than Button.
+	[all]      shadow:		hsl(0,0,10); //hsl(0,0,46); A very dark color.
 	[disabled] shadow:		hsl(0,0,39); //hsl(0,0,69);
 }
 
@@ -142,7 +94,7 @@ ads--CDockContainerWidget > QSplitter{
 }
 
 ads--CDockContainerWidget ads--CDockSplitter::handle {
-	background: palette(base);
+	background: none;
 	height: 2px;
 }
 
@@ -151,7 +103,7 @@ ads--CDockContainerWidget ads--CDockSplitter::handle {
  */
 
 ads--CDockAreaWidget {
-	background: palette(midlight);
+	background: none;
 	border: none;
 	/*border: 1px solid white;*/
 }
@@ -168,19 +120,21 @@ ads--CDockAreaTitleBar
 {
 	background: palette(base);
 	min-height: 24px;
-	border-bottom: 1px solid palette(mid);
+	/* border-bottom: 1px solid palette(window); */
 }
 
+/* Container of all tabs */
 ads--CDockAreaTabBar #tabsContainerWidget
 {
 	background: palette(base);
+	/* border-bottom: 1px solid palette(window); */
 }
 
 /*
  * Tab
  */
 ads--CDockWidgetTab {
-	background: palette(window);
+	background: none;
 	/*border-color: palette(light);
 	border-style: solid;
 	border-width: 0 1px 0 0;*/
@@ -190,9 +144,9 @@ ads--CDockWidgetTab {
 
 ads--CDockWidgetTab[activeTab="false"]
 {
-	background: palette(base);
+	background: none;
 	border-right: 1px solid palette(window);
-	border-bottom: 1px solid palette(mid);
+	/* border-bottom: 1px solid palette(window); */
 }
 
 ads--CDockWidgetTab[activeTab="true"] {
@@ -200,7 +154,7 @@ ads--CDockWidgetTab[activeTab="true"] {
 }
 
 ads--CDockWidgetTab QLabel {
-	color: palette(dark);
+	color: palette(foreground);
 }
 
 ads--CDockWidgetTab[activeTab="true"] QLabel {
@@ -217,7 +171,7 @@ ads--CDockWidgetTab[activeTab="false"] QLabel {
  */
 
 ads--CDockWidget {
-	background: palette(light);
+	background: none;
 	border: none;	
 	/*border-color: palette(light);
 	border-style: solid;

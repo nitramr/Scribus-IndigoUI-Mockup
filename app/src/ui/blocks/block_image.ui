@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>264</width>
+    <width>300</width>
     <height>383</height>
    </rect>
   </property>
@@ -38,6 +38,83 @@
    <property name="verticalSpacing">
     <number>8</number>
    </property>
+   <item row="9" column="0" colspan="4">
+    <layout class="QHBoxLayout" name="horizontalLayout_11">
+     <property name="spacing">
+      <number>4</number>
+     </property>
+     <item>
+      <widget class="FormWidget" name="formWidget">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="label">
+        <string>Method</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QComboBox" name="comboBoxPDFCompressionMethod"/>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="FormWidget" name="formWidget_2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="label">
+        <string>Quality</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_12">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QComboBox" name="comboBoxPDFCompressionQuality"/>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
    <item row="2" column="2">
     <widget class="FormWidget" name="layoutPage">
      <property name="sizePolicy">
@@ -118,7 +195,7 @@
      </layout>
     </widget>
    </item>
-   <item row="5" column="2">
+   <item row="7" column="2">
     <widget class="FormWidget" name="layoutDpiY">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
@@ -163,7 +240,7 @@
      </layout>
     </widget>
    </item>
-   <item row="4" column="0">
+   <item row="6" column="0">
     <widget class="FormWidget" name="layoutScaleX">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
@@ -253,7 +330,20 @@
      </layout>
     </widget>
    </item>
-   <item row="4" column="1" rowspan="2">
+   <item row="2" column="3">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="6" column="1" rowspan="2">
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="FormWidget" name="formWidget_10">
@@ -305,7 +395,7 @@
      </item>
     </layout>
    </item>
-   <item row="4" column="2">
+   <item row="6" column="2">
     <widget class="FormWidget" name="layoutDpiX">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
@@ -350,6 +440,13 @@
      </layout>
     </widget>
    </item>
+   <item row="8" column="0" colspan="4">
+    <widget class="HeadlineWidget" name="headlineWidget_2">
+     <property name="text">
+      <string>PDF Compression</string>
+     </property>
+    </widget>
+   </item>
    <item row="3" column="0">
     <widget class="FormWidget" name="layoutPositionY">
      <property name="sizePolicy">
@@ -392,14 +489,7 @@
      </layout>
     </widget>
    </item>
-   <item row="1" column="0" colspan="3">
-    <widget class="QCheckBox" name="checkBoxAutoFit">
-     <property name="text">
-      <string>Auto-Fit</string>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="1">
+   <item row="12" column="1">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -412,7 +502,14 @@
      </property>
     </spacer>
    </item>
-   <item row="5" column="0">
+   <item row="4" column="0" colspan="4">
+    <widget class="HeadlineWidget" name="headlineWidget">
+     <property name="text">
+      <string>Scaling</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0">
     <widget class="FormWidget" name="layoutScaleY">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
@@ -460,6 +557,13 @@
      </layout>
     </widget>
    </item>
+   <item row="5" column="0" colspan="4">
+    <widget class="QCheckBox" name="checkBoxAutoFit">
+     <property name="text">
+      <string>Auto-Fit</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <customwidgets>
@@ -467,6 +571,12 @@
    <class>FormWidget</class>
    <extends>QWidget</extends>
    <header>formwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>HeadlineWidget</class>
+   <extends>QWidget</extends>
+   <header>headline_widget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>

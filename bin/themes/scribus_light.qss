@@ -86,14 +86,14 @@ Palette::light {
   * Dock Container
   */
 ads--CDockContainerWidget {
-	background: palette(base);
+	background: palette(mid);
 }
 ads--CDockContainerWidget > QSplitter{
         padding: 1 0 1 0;
 }
 
 ads--CDockContainerWidget ads--CDockSplitter::handle {
-	background: palette(base);
+	background: none;
 	height: 2px;
 }
 
@@ -102,7 +102,7 @@ ads--CDockContainerWidget ads--CDockSplitter::handle {
  */
 
 ads--CDockAreaWidget {
-	background: palette(midlight);
+	background: none;
 	border: none;
 	/*border: 1px solid white;*/
 }
@@ -117,21 +117,23 @@ ads--CDockAreaWidget #tabsMenuButton::menu-indicator {
 
 ads--CDockAreaTitleBar
 {
-	background: palette(base);
+	background: palette(mid);
 	min-height: 24px;
-	border-bottom: 1px solid palette(mid);
+	/* border-bottom: 1px solid palette(window); */
 }
 
+/* Container of all tabs */
 ads--CDockAreaTabBar #tabsContainerWidget
 {
-	background: palette(base);
+	background: palette(mid);
+	/* border-bottom: 1px solid palette(window); */
 }
 
 /*
  * Tab
  */
 ads--CDockWidgetTab {
-	background: palette(window);
+	background: none;
 	/*border-color: palette(light);
 	border-style: solid;
 	border-width: 0 1px 0 0;*/
@@ -141,9 +143,9 @@ ads--CDockWidgetTab {
 
 ads--CDockWidgetTab[activeTab="false"]
 {
-	background: palette(base);
+	background: none;
 	border-right: 1px solid palette(window);
-	border-bottom: 1px solid palette(mid);
+	/* border-bottom: 1px solid palette(window); */
 }
 
 ads--CDockWidgetTab[activeTab="true"] {
@@ -151,7 +153,7 @@ ads--CDockWidgetTab[activeTab="true"] {
 }
 
 ads--CDockWidgetTab QLabel {
-	color: palette(dark);
+	color: palette(foreground);
 }
 
 ads--CDockWidgetTab[activeTab="true"] QLabel {
@@ -168,7 +170,7 @@ ads--CDockWidgetTab[activeTab="false"] QLabel {
  */
 
 ads--CDockWidget {
-	background: palette(light);
+	background: none;
 	border: none;	
 	/*border-color: palette(light);
 	border-style: solid;

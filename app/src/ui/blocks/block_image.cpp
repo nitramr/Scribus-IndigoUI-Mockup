@@ -28,6 +28,24 @@ void BlockImage::setup()
 
     ui->buttonLink->setIcon(IconManager::instance().icon("link"));
 
+    QStringList pdfCompressionMethod = QStringList();
+    pdfCompressionMethod.append("Global");
+    pdfCompressionMethod.append("Automatic");
+    pdfCompressionMethod.append("Lossy - JPEG");
+    pdfCompressionMethod.append("Lossless - Zip");
+    pdfCompressionMethod.append("None");
+
+    QStringList pdfCompressionQuality = QStringList();
+    pdfCompressionQuality.append("Global");
+    pdfCompressionQuality.append("Maximum");
+    pdfCompressionQuality.append("High");
+    pdfCompressionQuality.append("Medium");
+    pdfCompressionQuality.append("Low");
+    pdfCompressionQuality.append("Minimum");
+
+    ui->comboBoxPDFCompressionMethod->addItems(pdfCompressionMethod);
+    ui->comboBoxPDFCompressionQuality->addItems(pdfCompressionQuality);
+
 }
 
 void BlockImage::connectSlots()

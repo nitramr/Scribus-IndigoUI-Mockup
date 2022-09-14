@@ -200,10 +200,10 @@ QColor ThemeManager::parseColor(const QString str)
         QRegularExpressionMatch mRGBA = rx_rgba.match(str);
 
         if (mRGBA.hasMatch()) {
-            qreal r = qBound(mRGBA.captured(1).toInt(),0,255);
-            qreal g = qBound(mRGBA.captured(2).toInt(),0,255);
-            qreal b = qBound(mRGBA.captured(3).toInt(),0,255);
-            qreal a = qBound(mRGBA.captured(4).toDouble() / 100 *255,0.,255.);
+            int r = qBound(0, mRGBA.captured(1).toInt(), 255);
+            int g = qBound(0, mRGBA.captured(2).toInt(), 255);
+            int b = qBound(0, mRGBA.captured(3).toInt(), 255);
+            qreal a = qBound(0., mRGBA.captured(4).toDouble() / 100 *255, 255.);
 
             return QColor(r, g, b, a);
         }
@@ -214,9 +214,9 @@ QColor ThemeManager::parseColor(const QString str)
         QRegularExpressionMatch mRGB = rx_rgb.match(str);
 
         if (mRGB.hasMatch()) {
-            qreal r = qBound(mRGB.captured(1).toInt(),0,255);
-            qreal g = qBound(mRGB.captured(2).toInt(),0,255);
-            qreal b = qBound(mRGB.captured(3).toInt(),0,255);
+            int r = qBound(0, mRGB.captured(1).toInt(), 255);
+            int g = qBound(0, mRGB.captured(2).toInt(), 255);
+            int b = qBound(0, mRGB.captured(3).toInt(), 255);
 
             return QColor(r, g, b);
         }
@@ -229,10 +229,10 @@ QColor ThemeManager::parseColor(const QString str)
         QRegularExpressionMatch mHSVA = rx_hsva.match(str);
 
         if (mHSVA.hasMatch()) {
-            qreal h = qBound(mHSVA.captured(1).toDouble() / 360,0.,1.);
-            qreal s = qBound(mHSVA.captured(2).toDouble() / 100,0.,1.);
-            qreal v = qBound(mHSVA.captured(3).toDouble() / 100,0.,1.);
-            qreal a = qBound(mHSVA.captured(4).toDouble() / 100,0.,1.);
+            qreal h = qBound(0., mHSVA.captured(1).toDouble() / 360, 1.);
+            qreal s = qBound(0., mHSVA.captured(2).toDouble() / 100, 1.);
+            qreal v = qBound(0., mHSVA.captured(3).toDouble() / 100, 1.);
+            qreal a = qBound(0., mHSVA.captured(4).toDouble() / 100, 1.);
 
             return QColor::fromHsvF(h, s, v, a);
         }
@@ -244,9 +244,9 @@ QColor ThemeManager::parseColor(const QString str)
         QRegularExpressionMatch mHSV = rx_hsv.match(str);
 
         if (mHSV.hasMatch()) {
-            qreal h = qBound(mHSV.captured(1).toDouble() / 360,0.,1.);
-            qreal s = qBound(mHSV.captured(2).toDouble() / 100,0.,1.);
-            qreal v = qBound(mHSV.captured(3).toDouble() / 100,0.,1.);
+            qreal h = qBound(0., mHSV.captured(1).toDouble() / 360, 1.);
+            qreal s = qBound(0., mHSV.captured(2).toDouble() / 100, 1.);
+            qreal v = qBound(0., mHSV.captured(3).toDouble() / 100, 1.);
 
             return QColor::fromHsvF(h, s, v);
         }
@@ -258,10 +258,10 @@ QColor ThemeManager::parseColor(const QString str)
         QRegularExpressionMatch mHSLA = rx_hsla.match(str);
 
         if (mHSLA.hasMatch()) {
-            qreal h = qBound(mHSLA.captured(1).toDouble() / 360,0.,1.);
-            qreal s = qBound(mHSLA.captured(2).toDouble() / 100,0.,1.);
-            qreal l = qBound(mHSLA.captured(3).toDouble() / 100,0.,1.);
-            qreal a = qBound(mHSLA.captured(4).toDouble() / 100,0.,1.);
+            qreal h = qBound(0., mHSLA.captured(1).toDouble() / 360, 1.);
+            qreal s = qBound(0., mHSLA.captured(2).toDouble() / 100, 1.);
+            qreal l = qBound(0., mHSLA.captured(3).toDouble() / 100, 1.);
+            qreal a = qBound(0., mHSLA.captured(4).toDouble() / 100, 1.);
 
             return QColor::fromHslF(h, s, l, a);
         }
@@ -273,9 +273,9 @@ QColor ThemeManager::parseColor(const QString str)
         QRegularExpressionMatch mHSL = rx_hsl.match(str);
 
         if (mHSL.hasMatch()) {
-            qreal h = qBound(mHSL.captured(1).toDouble() / 360,0.,1.);
-            qreal s = qBound(mHSL.captured(2).toDouble() / 100,0.,1.);
-            qreal l = qBound(mHSL.captured(3).toDouble() / 100,0.,1.);
+            qreal h = qBound(0., mHSL.captured(1).toDouble() / 360, 1.);
+            qreal s = qBound(0., mHSL.captured(2).toDouble() / 100, 1.);
+            qreal l = qBound(0., mHSL.captured(3).toDouble() / 100, 1.);
 
             return QColor::fromHslF(h, s, l);
         }

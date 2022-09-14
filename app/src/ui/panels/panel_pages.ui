@@ -35,6 +35,11 @@
       <enum>Qt::Vertical</enum>
      </property>
      <widget class="SectionContainer" name="sectionParentPages">
+      <property name="font">
+       <font>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="title" stdset="0">
        <string>Parent Pages</string>
       </property>
@@ -127,10 +132,20 @@
            <verstretch>1</verstretch>
           </sizepolicy>
          </property>
+         <property name="font">
+          <font>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="title" stdset="0">
           <string>Document Pages</string>
          </property>
          <widget class="QWidget" name="layoutDocumentPages">
+          <property name="font">
+           <font>
+            <bold>false</bold>
+           </font>
+          </property>
           <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,1,0">
            <property name="spacing">
             <number>8</number>

@@ -86,6 +86,7 @@ SOURCES += \
     src/ui/blocks/block_fill.cpp \
     src/ui/blocks/block_fill_advanced.cpp \
     src/ui/blocks/block_image.cpp \
+    src/ui/blocks/block_imageeffects.cpp \
     src/ui/blocks/block_lists.cpp \
     src/ui/blocks/block_paragraph.cpp \
     src/ui/blocks/block_paragraph_advanced.cpp \
@@ -110,7 +111,7 @@ SOURCES += \
     src/ui/components/component_spaceinput.cpp \
     src/ui/components/component_documentselector.cpp \
     src/ui/delegate/colorlistitem_delegate.cpp \
-    src/ui/delegate/listwidgetitem_delegate.cpp \
+    src/ui/delegate/documentlistitem_delegate.cpp \
     src/ui/dialogs/colorswatchimport_dialog.cpp \
     src/ui/dialogs/duplicatepage_dialog.cpp \
     src/ui/dialogs/importpage_dialog.cpp \
@@ -124,6 +125,7 @@ SOURCES += \
     src/ui/docks/dock_documentbase.cpp \
     src/ui/docks/dock_panelbase.cpp \
     src/ui/mainwindow.cpp \
+    src/ui/panels/panel.cpp \
     src/ui/panels/panel_aligndistribute.cpp \
     src/ui/panels/panel_content.cpp \
     src/ui/panels/panel_content_image.cpp \
@@ -146,6 +148,7 @@ SOURCES += \
     src/ui/widgets/container/headline_widget.cpp \
     src/ui/widgets/container/stickypopup.cpp \
     src/ui/widgets/color/colorharmonywheel.cpp \
+    src/ui/widgets/imageeffects/imageeffect_item.cpp \
     src/ui/widgets/menu/autoforms_menu.cpp \
     src/ui/widgets/menu/popup_menu.cpp \
     src/ui/widgets/trashbin_widget.cpp \
@@ -202,6 +205,7 @@ HEADERS += \
     src/ui/blocks/block_dropshadow_advanced.h \
     src/ui/blocks/block_fill_advanced.h \
     src/ui/blocks/block_image.h \
+    src/ui/blocks/block_imageeffects.h \
     src/ui/blocks/block_lists.h \
     src/ui/blocks/block_paragraph.h \
     src/ui/blocks/block_paragraph_advanced.h \
@@ -231,7 +235,7 @@ HEADERS += \
     src/ui/colorpicker/colorpicker.h \
     src/ui/components/component_documentselector.h \
     src/ui/delegate/colorlistitem_delegate.h \
-    src/ui/delegate/listwidgetitem_delegate.h \
+    src/ui/delegate/documentlistitem_delegate.h \
     src/ui/delegate/sclistboxpixmap.h \
     src/ui/dialogs/colorswatchimport_dialog.h \
     src/ui/dialogs/duplicatepage_dialog.h \
@@ -246,6 +250,7 @@ HEADERS += \
     src/ui/docks/dock_documentbase.h \
     src/ui/docks/dock_panelbase.h \
     src/ui/mainwindow.h \
+    src/ui/panels/panel.h \
     src/ui/panels/panel_aligndistribute.h \
     src/ui/panels/panel_content.h \
     src/ui/panels/panel_content_image.h \
@@ -268,6 +273,7 @@ HEADERS += \
     src/ui/widgets/container/headline_widget.h \
     src/ui/widgets/container/stickypopup.h \
     src/ui/widgets/color/colorharmonywheel.h \
+    src/ui/widgets/imageeffects/imageeffect_item.h \
     src/ui/widgets/menu/autoforms_menu.h \
     src/ui/widgets/menu/popup_menu.h \
     src/ui/widgets/trashbin_widget.h \
@@ -302,6 +308,7 @@ FORMS += \
     src/ui/blocks/block_fill.ui \
     src/ui/blocks/block_fill_advanced.ui \
     src/ui/blocks/block_image.ui \
+    src/ui/blocks/block_imageeffects.ui \
     src/ui/blocks/block_lists.ui \
     src/ui/blocks/block_paragraph.ui \
     src/ui/blocks/block_paragraph_advanced.ui \

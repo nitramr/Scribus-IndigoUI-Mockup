@@ -6,7 +6,7 @@
 #include "newdocument_dialog.h"
 
 #include <QStringListModel>
-#include <listwidgetitem_delegate.h>
+#include <documentlistitem_delegate.h>
 
 ComponentDocumentSelector::ComponentDocumentSelector(QWidget *parent) :
     QWidget(parent),
@@ -39,7 +39,7 @@ void ComponentDocumentSelector::dummyContent()
     item2->setText("New Document.sla");
 
 
-    ui->listWidget->setItemDelegate(new ListWidgetItemDelegate(64, ui->listWidget));
+    ui->listWidget->setItemDelegate(new DocumentListItemDelegate(64, ui->listWidget));
     ui->listWidget->addItem(item);
     ui->listWidget->addItem(item2);
 

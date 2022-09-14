@@ -9,7 +9,7 @@
 #include <QFrame>
 
 PanelTest::PanelTest(QWidget *parent) :
-    QWidget(parent),
+    Panel(parent),
     ui(new Ui::PanelTest)
 {
     ui->setupUi(this);

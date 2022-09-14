@@ -39,7 +39,7 @@ void ColorPickerGradient::setup()
 
     // Sections
     ui->sectionGradient->setCollapseIcons(iconCollapsed, iconOpen);
-    ui->sectionGradient->addHeaderWidget(ui->comboType);
+    ui->sectionGradient->addHeaderSuffixWidget(ui->comboType);
     ui->sectionSwatches->setCollapseIcons(iconCollapsed, iconOpen);
 
     // Buttons

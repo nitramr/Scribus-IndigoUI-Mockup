@@ -31,6 +31,11 @@
    </property>
    <item>
     <widget class="SectionContainer" name="sectionXYZ">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="title" stdset="0">
       <string>XYZ</string>
      </property>
@@ -57,6 +62,11 @@
    </item>
    <item>
     <widget class="SectionContainer" name="sectionShape">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="title" stdset="0">
       <string>Shape</string>
      </property>
@@ -83,6 +93,11 @@
    </item>
    <item>
     <widget class="SectionContainer" name="sectionFill">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="title" stdset="0">
       <string>Fill</string>
      </property>
@@ -109,6 +124,11 @@
    </item>
    <item>
     <widget class="SectionContainer" name="sectionStroke">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="title" stdset="0">
       <string>Stroke</string>
      </property>
@@ -135,8 +155,16 @@
    </item>
    <item>
     <widget class="SectionContainer" name="sectionDropShadow">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="title" stdset="0">
       <string>Drop Shadow</string>
+     </property>
+     <property name="hasStyle">
+      <bool>true</bool>
      </property>
      <widget class="QWidget" name="layoutDropShadow">
       <layout class="QVBoxLayout" name="verticalLayout_5">

@@ -11,7 +11,7 @@
  * ********************************************************************************* */
 
 PanelLayers::PanelLayers(QWidget *parent) :
-    QWidget(parent),
+    Panel(parent),
     ui(new Ui::PanelLayers)
 {
     ui->setupUi(this);

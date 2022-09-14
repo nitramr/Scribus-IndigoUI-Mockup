@@ -20,7 +20,7 @@
  * ********************************************************************************* */
 
 PanelPages::PanelPages(QWidget *parent) :
-    QWidget(parent),
+    Panel(parent),
     ui(new Ui::PanelPages)
 {
     ui->setupUi(this);

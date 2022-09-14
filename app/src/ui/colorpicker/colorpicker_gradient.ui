@@ -163,6 +163,11 @@
    </item>
    <item>
     <widget class="SectionContainer" name="sectionGradient">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="title" stdset="0">
       <string>Gradient</string>
      </property>
@@ -674,6 +679,11 @@
    </item>
    <item>
     <widget class="SectionContainer" name="sectionSwatches">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="title" stdset="0">
       <string>Swatches</string>
      </property>

@@ -134,6 +134,11 @@ QString SectionContainerPlugin::domXml() const
     return QLatin1String(R"(
 <ui language="c++"  displayname="Section Container">
     <widget class="SectionContainer" name="sectionContainer">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
      <widget class="QWidget" name="page">
       <layout class="QVBoxLayout" name="verticalLayout"/>
      </widget>

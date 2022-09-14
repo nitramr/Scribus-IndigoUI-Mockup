@@ -81,8 +81,8 @@ void ColorPickerColor::setup()
 
     // Sections
     ui->sectionPicker->setCollapseIcons(iconCollapsed, iconOpen);
-    ui->sectionPicker->addHeaderWidget(comboColorSpace);
-    ui->sectionPicker->addHeaderWidget(buttonPickerToggle);
+    ui->sectionPicker->addHeaderSuffixWidget(comboColorSpace);
+    ui->sectionPicker->addHeaderSuffixWidget(buttonPickerToggle);
     ui->sectionSwatches->setCollapseIcons(iconCollapsed, iconOpen);
 
 

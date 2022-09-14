@@ -2,12 +2,13 @@
 #define PANEL_TEST_H
 
 #include <QWidget>
+#include "panel.h"
 
 namespace Ui {
 class PanelTest;
 }
 
-class PanelTest : public QWidget
+class PanelTest : public Panel
 {
     Q_OBJECT
 

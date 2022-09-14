@@ -6,7 +6,7 @@
 #include <QComboBox>
 
 PanelContentText::PanelContentText(QWidget *parent) :
-    QWidget(parent),
+    Panel(parent),
     ui(new Ui::PanelContentText)
 {
     ui->setupUi(this);
@@ -49,13 +49,13 @@ void PanelContentText::setup()
     // Add custom elements in header
     QComboBox * comboParagraphStyle = new QComboBox();
     comboParagraphStyle->addItems(stylePreset);
-    ui->sectionParagraph->addHeaderWidget(comboParagraphStyle);
-    ui->sectionParagraph->addHeaderSpacing(8);
+    ui->sectionParagraph->addHeaderSuffixWidget(comboParagraphStyle);
+    ui->sectionParagraph->addHeaderSuffixSpacing(8);
 
     QComboBox * comboCharacterStyle = new QComboBox();
     comboCharacterStyle->addItems(stylePreset);
-    ui->sectionCharacter->addHeaderWidget(comboCharacterStyle);
-    ui->sectionCharacter->addHeaderSpacing(8);
+    ui->sectionCharacter->addHeaderSuffixWidget(comboCharacterStyle);
+    ui->sectionCharacter->addHeaderSuffixSpacing(8);
 
 
     // Add Menus
@@ -73,14 +73,3 @@ void PanelContentText::setup()
 
 }
 
-void PanelContentText::addMenu(SectionContainer *section, QWidget *menuPanel)
-{
-    PopupMenu * menu = new PopupMenu(menuPanel);
-    QToolButton *buttonMenu = new QToolButton();
-    buttonMenu->setMenu(menu);
-    buttonMenu->setPopupMode(QToolButton::InstantPopup);
-    buttonMenu->setIcon(IconManager::instance().icon("setting"));
-    buttonMenu->setStyleSheet( "QToolButton::menu-indicator { image: none; }" );
-
-    section->addHeaderWidget(buttonMenu);
-}

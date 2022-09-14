@@ -130,6 +130,7 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="lock" file="24/lock.svg" />
 		<icon id="lock-open" file="24/lock-open.svg" />
 		<icon id="menu-down" file="24/menu-down.svg" />
+		<icon id="more" file="24/dots-vertical.svg" />
 		<icon id="page-add" file="24/file-outline.svg" />
 		<icon id="page-delete-close" file="24/delete.svg" />
 		<icon id="page-delete-open" file="24/delete-empty.svg" />

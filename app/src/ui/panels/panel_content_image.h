@@ -2,14 +2,16 @@
 #define PANEL_CONTENT_IMAGE_H
 
 #include "block_image.h"
+#include "block_imageeffects.h"
 #include "sectioncontainer.h"
+#include "panel.h"
 #include <QWidget>
 
 namespace Ui {
 class PanelContentImage;
 }
 
-class PanelContentImage : public QWidget
+class PanelContentImage : public Panel
 {
     Q_OBJECT
 
@@ -21,9 +23,13 @@ private:
     Ui::PanelContentImage *ui;
 
     BlockImage * blockImage;
+    BlockImageEffects * blockImageEffects;
 
     void setup();
-    void addMenu(SectionContainer *section, QWidget *menuPanel);
+    void connectSlots();
+
+private slots:
+    void updateLayout(bool isCollapsed);
 };
 
 #endif // PANEL_CONTENT_IMAGE_H

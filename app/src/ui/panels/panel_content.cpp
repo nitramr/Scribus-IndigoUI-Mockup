@@ -8,7 +8,7 @@
  * ********************************************************************************* */
 
 PanelContent::PanelContent(QWidget *parent) :
-    QWidget(parent),
+    Panel(parent),
     ui(new Ui::PanelContent)
 {
     ui->setupUi(this);

@@ -3,13 +3,14 @@
 
 #include "block_alignment.h"
 #include "block_distribution.h"
+#include "panel.h"
 #include <QWidget>
 
 namespace Ui {
 class PanelAlignDistribute;
 }
 
-class PanelAlignDistribute : public QWidget
+class PanelAlignDistribute : public Panel
 {
     Q_OBJECT
 

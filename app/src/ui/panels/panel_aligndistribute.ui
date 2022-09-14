@@ -31,6 +31,11 @@
    </property>
    <item>
     <widget class="SectionContainer" name="sectionAlignment">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="title" stdset="0">
       <string>Aligment</string>
      </property>
@@ -41,6 +46,11 @@
    </item>
    <item>
     <widget class="SectionContainer" name="sectionDistribution">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="title" stdset="0">
       <string>Distribution</string>
      </property>

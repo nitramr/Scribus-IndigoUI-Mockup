@@ -12,13 +12,14 @@
 #include "block_xyz_advanced.h"
 #include "block_shape.h"
 #include "block_fill.h"
+#include "panel.h"
 #include "sectioncontainer.h"
 
 namespace Ui {
 class PanelFrame;
 }
 
-class PanelFrame : public QWidget
+class PanelFrame : public Panel
 {
     Q_OBJECT
 
@@ -41,7 +42,6 @@ private:
 
     void setup();
     void connectSlots();
-    void addMenu(SectionContainer *section, QWidget * menuPanel);
 
 
 };

@@ -17,7 +17,8 @@ SectionContainer::SectionContainer(QWidget *parent) : SectionContainer("Title", 
 SectionContainer::SectionContainer(QString title, bool isCollapsible, QWidget *parent)
     : QWidget{parent}
     , headerLayout (new QHBoxLayout)
-    , addonLayout (new QHBoxLayout)
+    , layoutHeaderPrefix (new QHBoxLayout)
+    , layoutHeaderSuffix (new QHBoxLayout)
     , bodyWidget(new QStackedWidget)
     , labelTitle (new QLabel("Title"))
     , buttonCollapse (new QToolButton)
@@ -26,28 +27,34 @@ SectionContainer::SectionContainer(QString title, bool isCollapsible, QWidget *p
     , iconExpanded (QIcon())
     , boolIsCollapsible(isCollapsible)
     , boolIsCollapsed(false)
+    , boolHasStyle(true)
 {
     int padding = 4;
 
     // Label
-    QFont m_font(this->font());
-    m_font.setBold( true );
-    labelTitle->setFont(m_font);
+//    QFont m_font(this->font());
+//    m_font.setBold( true );
+//    labelTitle->setFont(m_font);
     labelTitle->setText(title);
 
     // Buttons
     buttonCollapse->setAutoRaise(true);
     buttonCollapse->adjustSize(); // needed to calculate the header height later
 
-    // Addon Layout
-    addonLayout->setContentsMargins( 0,0,0,0 );
-    addonLayout->setSpacing(padding);
+    // Header Prefix layout
+    layoutHeaderPrefix->setContentsMargins( 0,0,0,0 );
+    layoutHeaderPrefix->setSpacing(padding);
+
+    // Header Suffix Layout
+    layoutHeaderSuffix->setContentsMargins( 0,0,0,0 );
+    layoutHeaderSuffix->setSpacing(padding);
 
     // Header Layout
     headerLayout->addWidget( buttonCollapse );
+    headerLayout->addLayout( layoutHeaderPrefix );
     headerLayout->addWidget( labelTitle );
     headerLayout->addStretch( 0 );
-    headerLayout->addLayout( addonLayout );
+    headerLayout->addLayout( layoutHeaderSuffix );
     headerLayout->setContentsMargins( padding, padding/2, padding, padding/2 );
 
     // Header Widget
@@ -88,39 +95,74 @@ void SectionContainer::connectSlots()
  *
  * ********************************************************************************* */
 
-void SectionContainer::addHeaderWidget(QWidget *widget)
+void SectionContainer::addHeaderSuffixWidget(QWidget *widget)
 {
-    insertHeaderWidget(-1, widget);
+    insertHeaderSuffixWidget(-1, widget);
 }
 
-void SectionContainer::insertHeaderWidget(int index, QWidget *widget)
+void SectionContainer::insertHeaderSuffixWidget(int index, QWidget *widget)
 {
     QToolButton *toolButton = static_cast<QToolButton*>(widget);
 
     if(toolButton){
         toolButton->setAutoRaise(true);
         //m_addonLayout->insertWidget( m_headerLayout->count(), toolButton );
-        addonLayout->insertWidget(index, toolButton);
+        layoutHeaderSuffix->insertWidget(index, toolButton);
     }else{
         //m_addonLayout->insertWidget( m_headerLayout->count(), widget );
-        addonLayout->insertWidget(index, widget);
+        layoutHeaderSuffix->insertWidget(index, widget);
     }
 }
 
-void SectionContainer::removeHeaderWidget(QWidget *widget)
+void SectionContainer::removeHeaderSuffixWidget(QWidget *widget)
 {
-    addonLayout->removeWidget( widget );
+    layoutHeaderSuffix->removeWidget( widget );
     widget->deleteLater();
 }
 
-void SectionContainer::addHeaderSpacing(int size)
+void SectionContainer::addHeaderSuffixSpacing(int size)
 {
-    insertHeaderSpacing(-1, size);
+    insertHeaderSuffixSpacing(-1, size);
 }
 
-void SectionContainer::insertHeaderSpacing(int index, int size)
+void SectionContainer::insertHeaderSuffixSpacing(int index, int size)
 {
-    addonLayout->insertSpacing(index, size);
+    layoutHeaderSuffix->insertSpacing(index, size);
+}
+
+void SectionContainer::addHeaderPrefixWidget(QWidget *widget)
+{
+    insertHeaderPrefixWidget(-1, widget);
+}
+
+void SectionContainer::insertHeaderPrefixWidget(int index, QWidget *widget)
+{
+    QToolButton *toolButton = static_cast<QToolButton*>(widget);
+
+    if(toolButton){
+        toolButton->setAutoRaise(true);
+        //m_addonLayout->insertWidget( m_headerLayout->count(), toolButton );
+        layoutHeaderPrefix->insertWidget(index, toolButton);
+    }else{
+        //m_addonLayout->insertWidget( m_headerLayout->count(), widget );
+        layoutHeaderPrefix->insertWidget(index, widget);
+    }
+}
+
+void SectionContainer::removeHeaderPrefixWidget(QWidget *widget)
+{
+    layoutHeaderPrefix->removeWidget( widget );
+    widget->deleteLater();
+}
+
+void SectionContainer::addHeaderPrefixSpacing(int size)
+{
+    insertHeaderPrefixSpacing(-1, size);
+}
+
+void SectionContainer::insertHeaderPrefixSpacing(int index, int size)
+{
+    layoutHeaderPrefix->insertSpacing(index, size);
 }
 
 
@@ -139,6 +181,28 @@ void SectionContainer::setText(QString text)
 QString SectionContainer::text() const
 {
     return labelTitle->text();
+}
+
+void SectionContainer::setFont(QFont font)
+{
+    labelTitle->setFont(font);
+    QWidget::setFont(font);
+}
+
+QFont SectionContainer::font()
+{
+    return labelTitle->font();
+}
+
+void SectionContainer::setHasStyle(bool isSimple)
+{
+    boolHasStyle = isSimple;
+    update();
+}
+
+bool SectionContainer::hasStyle()
+{
+    return boolHasStyle;
 }
 
 void SectionContainer::setIsCollapsible(bool isCollapsible)
@@ -165,18 +229,18 @@ void SectionContainer::setIsCollapsed(bool state)
 
     if( boolIsCollapsed ){
         // save size policy
-     //   tmpSizePolicy = this->sizePolicy();
+        //   tmpSizePolicy = this->sizePolicy();
 
         bodyWidget->hide();
         buttonCollapse->setIcon(iconCollapsed);
 
-//        // optimize size policy for collapsed state
-//        QSizePolicy sizePol = QSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Maximum );
-//        setSizePolicy(sizePol);
+        //        // optimize size policy for collapsed state
+        //        QSizePolicy sizePol = QSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Maximum );
+        //        setSizePolicy(sizePol);
 
     } else {
         // restore size policy
-      //  this->setSizePolicy(tmpSizePolicy);
+        //  this->setSizePolicy(tmpSizePolicy);
 
         bodyWidget->show();
         buttonCollapse->setIcon(iconExpanded);
@@ -286,33 +350,35 @@ bool SectionContainer::eventFilter(QObject *object, QEvent *event)
         }
         case QEvent::Paint:{
 
-//            QColor topLineColor( palette().color(QPalette::Mid) );
-            QColor bottomLineColor( palette().color(QPalette::Dark) );
-//            lineColor.setAlphaF(0.12f);
+            if(boolHasStyle){
 
-            QColor bgColor( palette().color(QPalette::WindowText) );
-            bgColor.setAlphaF(0.07f);
+                //            QColor topLineColor( palette().color(QPalette::Mid) );
+                QColor bottomLineColor( palette().color(QPalette::Dark) );
+                //            lineColor.setAlphaF(0.12f);
 
-            int lineWidth = 1;
-            int headerheight = headerWidget->height();
-            QRect headerRect(0, 0, this->width(), headerheight - lineWidth);
+                QColor bgColor( palette().color(QPalette::WindowText) );
+                bgColor.setAlphaF(0.07f);
 
-            QPainter painter( headerWidget );
+                int lineWidth = 1;
+                int headerheight = headerWidget->height();
+                QRect headerRect(0, 0, this->width(), headerheight - lineWidth);
 
-            painter.setPen( Qt::NoPen );
-            painter.setBrush(bgColor);
-            painter.drawRect(headerRect);
+                QPainter painter( headerWidget );
 
-            painter.setBrush(Qt::NoBrush);
+                painter.setPen( Qt::NoPen );
+                painter.setBrush(bgColor);
+                painter.drawRect(headerRect);
 
-//            // Top Line
-//            painter.setPen( QPen(topLineColor, lineWidth) );
-//            painter.drawLine( 0, 0,this->width(), 0 );
+                painter.setBrush(Qt::NoBrush);
 
-            // Bottom Line
-            painter.setPen( QPen(bottomLineColor, lineWidth) );
-            painter.drawLine( 0, headerheight - lineWidth, this->width(), headerheight - lineWidth );
+                //            // Top Line
+                //            painter.setPen( QPen(topLineColor, lineWidth) );
+                //            painter.drawLine( 0, 0,this->width(), 0 );
 
+                // Bottom Line
+                painter.setPen( QPen(bottomLineColor, lineWidth) );
+                painter.drawLine( 0, headerheight - lineWidth, this->width(), headerheight - lineWidth );
+            }
             return true;
 
             break;
@@ -332,12 +398,12 @@ void SectionContainer::paintEvent(QPaintEvent *event)
 {
 
     QWidget::paintEvent(event);
-//    QColor bgColor( Qt::red);
+    //    QColor bgColor( Qt::red);
 
-//    QPainter painter( this );
+    //    QPainter painter( this );
 
-//    painter.setPen( Qt::NoPen );
-//    painter.setBrush(bgColor);
-//    painter.drawRect(this->rect());
+    //    painter.setPen( Qt::NoPen );
+    //    painter.setBrush(bgColor);
+    //    painter.drawRect(this->rect());
 
 }

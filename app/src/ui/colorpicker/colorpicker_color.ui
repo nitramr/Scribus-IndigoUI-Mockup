@@ -377,6 +377,11 @@
    </item>
    <item>
     <widget class="SectionContainer" name="sectionPicker">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="title" stdset="0">
       <string>Color Picker</string>
      </property>
@@ -1190,6 +1195,11 @@
    </item>
    <item>
     <widget class="SectionContainer" name="sectionSwatches">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="title" stdset="0">
       <string>Swatches</string>
      </property>

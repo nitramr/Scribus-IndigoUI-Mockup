@@ -8,7 +8,7 @@
  * ********************************************************************************* */
 
 PanelOutliner::PanelOutliner(QWidget *parent) :
-    QWidget(parent),
+    Panel(parent),
     ui(new Ui::PanelOutliner)
 {
     ui->setupUi(this);

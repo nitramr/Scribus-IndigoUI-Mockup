@@ -3,7 +3,7 @@
 #include "icon_manager.h"
 
 PanelAlignDistribute::PanelAlignDistribute(QWidget *parent) :
-    QWidget(parent),
+    Panel(parent),
     ui(new Ui::PanelAlignDistribute)
 {
     ui->setupUi(this);

@@ -2,12 +2,13 @@
 #define PANEL_OUTLINER_H
 
 #include <QWidget>
+#include "panel.h"
 
 namespace Ui {
 class PanelOutliner;
 }
 
-class PanelOutliner : public QWidget
+class PanelOutliner : public Panel
 {
     Q_OBJECT
 

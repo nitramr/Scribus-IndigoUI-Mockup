@@ -9,6 +9,7 @@
 #include "block_text_advanced.h"
 #include "block_text_font.h"
 #include "block_textonpath.h"
+#include "panel.h"
 #include "sectioncontainer.h"
 #include <QWidget>
 
@@ -16,7 +17,7 @@ namespace Ui {
 class PanelContentText;
 }
 
-class PanelContentText : public QWidget
+class PanelContentText : public Panel
 {
     Q_OBJECT
 
@@ -37,7 +38,6 @@ private:
     BlockTextOnPath         * blockTextOnPath;
 
     void setup();
-    void addMenu(SectionContainer *section, QWidget *menuPanel);
 };
 
 #endif // PANEL_CONTENT_TEXT_H

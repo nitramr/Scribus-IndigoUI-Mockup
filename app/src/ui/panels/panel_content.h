@@ -2,12 +2,13 @@
 #define PANEL_CONTENT_H
 
 #include <QWidget>
+#include "panel.h"
 
 namespace Ui {
 class PanelContent;
 }
 
-class PanelContent : public QWidget
+class PanelContent : public Panel
 {
     Q_OBJECT
 

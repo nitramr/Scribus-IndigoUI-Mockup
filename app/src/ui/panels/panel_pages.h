@@ -8,13 +8,14 @@
 #include "movepage_dialog.h"
 #include "newparentpage_dialog.h"
 #include "pagelist.h"
+#include "panel.h"
 #include <QWidget>
 
 namespace Ui {
 class PanelPages;
 }
 
-class PanelPages : public QWidget
+class PanelPages : public Panel
 {
     Q_OBJECT
 

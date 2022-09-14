@@ -17,7 +17,7 @@ HeadlineWidget::HeadlineWidget(const QString text, FontSize fontSize, QWidget *p
     m_line->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Minimum);
 
     QVBoxLayout *layoutHeader = new QVBoxLayout;
-    layoutHeader->setContentsMargins(0 ,8, 0, 4);
+    layoutHeader->setContentsMargins(0 ,4, 0, 0);
     layoutHeader->setSpacing(4);
     layoutHeader->addWidget(m_label);
     layoutHeader->addWidget(m_line);

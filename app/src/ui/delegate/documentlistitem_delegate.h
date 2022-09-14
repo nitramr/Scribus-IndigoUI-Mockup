@@ -1,13 +1,13 @@
-#ifndef LISTWIDGETITEM_DELEGATE_H
-#define LISTWIDGETITEM_DELEGATE_H
+#ifndef DOCUMENTLISTITEM_DELEGATE_H
+#define DOCUMENTLISTITEM_DELEGATE_H
 
 #include <QAbstractItemDelegate>
 
-class ListWidgetItemDelegate : public QAbstractItemDelegate
+class DocumentListItemDelegate : public QAbstractItemDelegate
 {
 public:
-    ListWidgetItemDelegate(int iconSize, QObject *parent = nullptr);
-    virtual ~ListWidgetItemDelegate(){};
+    DocumentListItemDelegate(int iconSize, QObject *parent = nullptr);
+    virtual ~DocumentListItemDelegate(){};
 
     void paint ( QPainter * painter, const QStyleOptionViewItem & option, const QModelIndex & index ) const;
 
@@ -20,4 +20,4 @@ private:
 };
 
 
-#endif // LISTWIDGETITEM_DELEGATE_H
+#endif // DOCUMENTLISTITEM_DELEGATE_H

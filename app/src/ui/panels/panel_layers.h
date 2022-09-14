@@ -3,12 +3,13 @@
 
 #include <QWidget>
 #include "sclayers.h"
+#include "panel.h"
 
 namespace Ui {
 class PanelLayers;
 }
 
-class PanelLayers : public QWidget
+class PanelLayers : public Panel
 {
     Q_OBJECT
 

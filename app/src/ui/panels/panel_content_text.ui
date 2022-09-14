@@ -31,6 +31,11 @@
    </property>
    <item>
     <widget class="SectionContainer" name="sectionText">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="title" stdset="0">
       <string>Text</string>
      </property>
@@ -57,6 +62,11 @@
    </item>
    <item>
     <widget class="SectionContainer" name="sectionParagraph">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="title" stdset="0">
       <string>Paragraph</string>
      </property>
@@ -83,6 +93,11 @@
    </item>
    <item>
     <widget class="SectionContainer" name="sectionCharacter">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="title" stdset="0">
       <string>Character</string>
      </property>
@@ -109,6 +124,11 @@
    </item>
    <item>
     <widget class="SectionContainer" name="sectionLists">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="title" stdset="0">
       <string>Lists</string>
      </property>
@@ -135,6 +155,11 @@
    </item>
    <item>
     <widget class="SectionContainer" name="sectionTextOnPath">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="title" stdset="0">
       <string>Text On Path</string>
      </property>

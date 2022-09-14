@@ -15,21 +15,34 @@ class SectionContainer : public QWidget
     Q_PROPERTY(QString title READ text WRITE setText)
     Q_PROPERTY(bool isCollapsible READ isCollapsible WRITE setIsCollapsible)
     Q_PROPERTY(bool isCollapsed READ isCollapsed WRITE setIsCollapsed)
+    Q_PROPERTY(bool hasStyle READ hasStyle WRITE setHasStyle)
 
 
 public:
     SectionContainer(QWidget *parent = nullptr);
     SectionContainer(QString title, bool isCollapsible = true, QWidget *parent = nullptr);
 
-    void addHeaderWidget(QWidget *widget);
-    void insertHeaderWidget(int index, QWidget *widget);    
-    void removeHeaderWidget(QWidget *widget);
-    void addHeaderSpacing(int size);
-    void insertHeaderSpacing(int index, int size);
+    void addHeaderSuffixWidget(QWidget *widget);
+    void insertHeaderSuffixWidget(int index, QWidget *widget);    
+    void removeHeaderSuffixWidget(QWidget *widget);
+    void addHeaderSuffixSpacing(int size);
+    void insertHeaderSuffixSpacing(int index, int size);
+
+    void addHeaderPrefixWidget(QWidget *widget);
+    void insertHeaderPrefixWidget(int index, QWidget *widget);
+    void removeHeaderPrefixWidget(QWidget *widget);
+    void addHeaderPrefixSpacing(int size);
+    void insertHeaderPrefixSpacing(int index, int size);
 
 
     void setText(QString text);
     QString text() const;
+
+    void setFont(QFont font);
+    QFont font();
+
+    void setHasStyle(bool hasStyle);
+    bool hasStyle();
 
     void setIsCollapsible(bool isCollapsible);
     bool isCollapsible();
@@ -46,7 +59,8 @@ public:
 
 private:
     QHBoxLayout * headerLayout;
-    QHBoxLayout * addonLayout;
+    QHBoxLayout * layoutHeaderPrefix;
+    QHBoxLayout * layoutHeaderSuffix;
     QStackedWidget * bodyWidget;
     QLabel * labelTitle;
     QToolButton * buttonCollapse;
@@ -56,6 +70,7 @@ private:
     bool boolIsCollapsible;
     bool boolIsCollapsed;
     QSizePolicy tmpSizePolicy;
+    bool boolHasStyle;
 
     void connectSlots();
 

@@ -1,5 +1,5 @@
 #include "newdocument_dialog.h"
-#include "listwidgetitem_delegate.h"
+#include "documentlistitem_delegate.h"
 #include "ui_newdocument_dialog.h"
 #include "icon_manager.h"
 #include "enums.h"
@@ -91,7 +91,7 @@ void NewDocumentDialog::dummyContent()
 
 
 
-    ui->listDocumentTypes->setItemDelegate(new ListWidgetItemDelegate(48, ui->listDocumentTypes));
+    ui->listDocumentTypes->setItemDelegate(new DocumentListItemDelegate(48, ui->listDocumentTypes));
     ui->listDocumentTypes->addItem(itemSingle);
     ui->listDocumentTypes->addItem(itemFaced);
     ui->listDocumentTypes->addItem(item3Fold);

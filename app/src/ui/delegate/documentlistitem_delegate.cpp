@@ -1,16 +1,16 @@
-#include "listwidgetitem_delegate.h"
+#include "documentlistitem_delegate.h"
 
 #include <QPainter>
 #include <QRect>
 #include <QApplication>
 
 
-ListWidgetItemDelegate::ListWidgetItemDelegate(int iconSize, QObject *parent) : QAbstractItemDelegate (parent)
+DocumentListItemDelegate::DocumentListItemDelegate(int iconSize, QObject *parent) : QAbstractItemDelegate (parent)
 {
     m_iconSize = iconSize;
 }
 
-void ListWidgetItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const{
+void DocumentListItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const{
 
     int padding = 8;
     qreal margin = 4.5;
@@ -72,16 +72,16 @@ void ListWidgetItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
 }
 
-QSize ListWidgetItemDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const{
+QSize DocumentListItemDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const{
     return option.rect.size();//QSize(128, 128);
 }
 
-int ListWidgetItemDelegate::iconSize()
+int DocumentListItemDelegate::iconSize()
 {
     return m_iconSize;
 }
 
-void ListWidgetItemDelegate::setIconSize(int size)
+void DocumentListItemDelegate::setIconSize(int size)
 {
     m_iconSize = size;
 }

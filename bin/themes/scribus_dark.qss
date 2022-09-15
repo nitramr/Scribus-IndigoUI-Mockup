@@ -47,29 +47,29 @@ Styles: http://doc.qt.io/qt-4.8/stylesheet-examples.html
 */
 
 Palette::dark {
-	[all]      alternate-base:	hsl(0,0,14); //hsl(0,0,96);
-	[all]      base:		hsl(0,0,10); //hsl(0,0,100);
-	[disabled] base:		hsl(0,0,20); //hsl(0,0,93);
+	[all]      alternate-base:	hsl(0,0,24); //hsl(0,0,96); #
+	[all]      base:		hsl(0,0,18); //hsl(0,0,100); #
+	[disabled] base:		hsl(0,0,28); //hsl(0,0,93); #
 	[all]      bright-text:		hsl(0,0,100);
-	[all]      button-text:		hsl(0,0,100); //hsl(0,0,0);
+	[all]      button-text:		hsl(0,0,96); //hsl(0,0,0); #
 	[disabled] button-text:		hsl(0,0,50); //hsl(0,0,74);
 	[all]      highlight:		hsl(207,89,68); //hsl(203,60,48);
 	[disabled] highlight:		hsl(0,0,50); //hsl(0,0,56);
 	[all]      highlighted-text:	hsl(0,0,100);
 	[all]      link:		hsl(288,100,75); //hsl(240,100,50);
 	[all]      link-visited:	hsl(288,100,60); //hsl(300,100,50);
-	[all]      text:		hsl(0,0,100); //hsl(0,0,0);
+	[all]      text:		hsl(0,0,96); //hsl(0,0,0);
 	[disabled] text:		hsl(0,0,50); //hsl(0,0,74);
 	[all]      tooltip-base:	hsl(0,0,26); //hsl(60,100,93);
-	[all]      tooltip-text:	hsl(0,0,100); //hsl(0,0,0);
-	[all]      window:		hsl(0,0,20); //hsl(0,0,93);
-	[all]      window-text:		hsl(0,0,100); //hsl(0,0,0);
+	[all]      tooltip-text:	hsl(0,0,80); //hsl(0,0,0); #
+	[all]      window:		hsl(0,0,28); //hsl(0,0,93); #
+	[all]      window-text:		hsl(0,0,96); //hsl(0,0,0); #
 	[disabled] window-text:		hsl(0,0,50); //hsl(0,0,74);
 	[all]      light:		hsl(0,0,46); //hsl(0,0,100); Lighter than Button color.
 	[all]      midlight:		hsl(0,0,36); //hsl(0,0,79); Between Button and Light.
-	[all]      button:		hsl(0,0,20); //hsl(0,0,93);
+	[all]      button:		hsl(0,0,28); //hsl(0,0,93); #
 	[all]      mid:			hsl(0,0,28); //hsl(0,0,72); Between Button and Dark.
-	[all]      dark:		hsl(0,0,12); //hsl(0,0,62); Darker than Button.
+	[all]      dark:		hsl(0,0,16); //hsl(0,0,62); Darker than Button. #
 	[all]      shadow:		hsl(0,0,10); //hsl(0,0,46); A very dark color.
 	[disabled] shadow:		hsl(0,0,39); //hsl(0,0,69);
 }

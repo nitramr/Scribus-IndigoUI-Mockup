@@ -48,25 +48,25 @@ ColorFormat
 Palette::light {
 	[all]      alternate-base:	hsl(0,0,96);
 	[all]      base:		hsl(0,0,100);
-	[disabled] base:		hsl(0,0,84); //#
+	[disabled] base:		hsl(0,0,93);
 	[all]      bright-text:		hsl(0,0,100);
-	[all]      button-text:		hsl(0,0,0);
+	[all]      button-text:		hsl(0,0,14); //#
 	[disabled] button-text:		hsl(0,0,74);
 	[all]      highlight:		hsl(203,60,48);
 	[disabled] highlight:		hsl(0,0,56);
 	[all]      highlighted-text:	hsl(0,0,100);
 	[all]      link:		hsl(240,100,50);
 	[all]      link-visited:	hsl(300,100,50);
-	[all]      text:		hsl(0,0,0);
+	[all]      text:		hsl(0,0,14); //#
 	[disabled] text:		hsl(0,0,74);
 	[all]      tooltip-base:	hsl(60,100,93);
 	[all]      tooltip-text:	hsl(0,0,0);
-	[all]      window:		hsl(0,0,84); //#
-	[all]      window-text:		hsl(0,0,0);
+	[all]      window:		hsl(0,0,93);
+	[all]      window-text:		hsl(0,0,14); //#
 	[disabled] window-text:		hsl(0,0,74);
-	[all]      light:		hsl(0,0,90);
+	[all]      light:		hsl(0,0,100);
 	[all]      midlight:		hsl(0,0,79);
-	[all]      button:		hsl(0,0,84); //#
+	[all]      button:		hsl(0,0,93);
 	[all]      mid:			hsl(0,0,72);
 	[all]      dark:		hsl(0,0,62);
 	[all]      shadow:		hsl(0,0,46);

@@ -27,7 +27,7 @@ Next you have to compile a Qt designer plugin with custom IndigoUI Widgets.
 ### Configure Scribus-IndigoUI Project
 1. Open Scribus-IndigoUI.pro file in Qt Creator
 2. Go to `Projects->Run` in Qt Creator and configure the output path of the binary. It should be the `bin` folder.
-3. Set folder to: `Scribus-IndigoUI/build-debug/../bin`
+3. Set folder to: `Scribus-IndigoUI-Mockup/build-debug/../bin`
 4. Click on Run button (Ctrl + R) and compile the project.
 
 ### Preview

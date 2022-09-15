@@ -42,3 +42,32 @@ Next you have to compile a Qt designer plugin with custom IndigoUI Widgets.
 5. Custom widgets:
   * new base point widget support rotation of selected item
   * new arrange pages widget support page previews and page orientation
+
+### Themes
+
+|![Bildschirmfoto vom 2022-09-15 19-10-07](https://user-images.githubusercontent.com/15112256/190467927-40cac002-91ca-4902-9588-1cb0a796b302.png)|![Bildschirmfoto vom 2022-09-15 19-10-30](https://user-images.githubusercontent.com/15112256/190467980-dd1fcafc-4d21-427b-9b77-dc2d40c2b318.png)|![Bildschirmfoto vom 2022-09-15 19-09-04](https://user-images.githubusercontent.com/15112256/190468026-64a601a7-afea-4bb7-b30b-98226f434e5e.png)|![Bildschirmfoto vom 2022-09-15 19-09-42](https://user-images.githubusercontent.com/15112256/190468060-26a4ba69-004b-4a29-91f2-3018a90bd179.png)|
+|---|---|---|---|
+|Lighter|Light|Dark|Darker|
+
+Currently, there is no in-built option to switch the theme. To switch the theme you have to change it in `config_manager.cpp`
+```c++
+list->insert("app_default_theme", DirPathsManager::instance().themeDir() + "scribus_light.qss");
+```
+
+### Widget Gallery
+#### Color Button
+![Bildschirmfoto vom 2022-08-07 18-55-25](https://user-images.githubusercontent.com/15112256/190470547-1c3bed91-486a-412c-8298-ac272321f531.png)
+![Bildschirmfoto vom 2022-08-07 18-56-09](https://user-images.githubusercontent.com/15112256/190470559-a55ac6ab-69f7-4ce3-b097-7b50969e58b4.png)
+
+#### Color Slider
+![Bildschirmfoto vom 2022-09-15 19-20-58](https://user-images.githubusercontent.com/15112256/190470691-55098218-60b2-4150-b7a3-a74763a1311e.png)
+
+#### Gradient Edit
+
+![Bildschirmfoto vom 2022-09-15 19-22-27](https://user-images.githubusercontent.com/15112256/190470652-d7f2605b-67e2-4b8b-9b91-b895979865dd.png)
+
+#### Color Harmony Wheel
+![Bildschirmfoto vom 2022-09-15 19-20-28](https://user-images.githubusercontent.com/15112256/190470758-d4b7be8a-fd1f-42ff-99d4-678a4fb41af1.png)
+
+#### Page Arrange Widget
+![Bildschirmfoto vom 2022-09-15 19-23-10](https://user-images.githubusercontent.com/15112256/190470889-058146c6-6fbd-48eb-b216-400d18996b24.png)

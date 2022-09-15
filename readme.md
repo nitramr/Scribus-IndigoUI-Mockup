@@ -5,6 +5,11 @@ IndigoUI is an experimental UI framework for Scribus. The primary focus is to ad
 ## Project
 This project does not claim to be full software. It is a test balloon of the user interface that can be tested for both usability and technical runnability.
 
+## Requirements
+Qt 6.2.3 (maybe older versions are working too)
+
+https://www.qt.io/download-open-source
+
 ## Installation & Compilation
 
 ### Setup

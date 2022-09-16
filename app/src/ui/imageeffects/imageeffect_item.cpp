@@ -6,6 +6,7 @@ ImageEffectItem::ImageEffectItem(QString title, bool isCollapsible, QWidget *par
 {
 
     setup();
+    connectSetup();
 
 }
 
@@ -27,6 +28,18 @@ void ImageEffectItem::setup()
     addHeaderSuffixWidget(buttonDelete);
 
     setCollapseIcons(iconClose, iconOpen);
+    setHasStyle(false);
 
 
+}
+
+void ImageEffectItem::connectSetup()
+{
+    connect(buttonDelete, &QToolButton::clicked, this, &ImageEffectItem::removeItem );
+}
+
+void ImageEffectItem::removeItem()
+{
+    this->deleteLater();
+    //delete this;
 }

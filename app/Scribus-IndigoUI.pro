@@ -43,6 +43,7 @@ INCLUDEPATH += \
     $$PWD/src/ui/delegate \
     $$PWD/src/ui/dialogs \
     $$PWD/src/ui/docks \
+    $$PWD/src/ui/imageeffects \
     $$PWD/src/ui/panels \    
     $$PWD/src/ui/widgets \
     $$PWD/src/ui/widgets/_combobox \
@@ -118,6 +119,7 @@ SOURCES += \
     src/ui/docks/dock_centralwidget.cpp \
     src/ui/docks/dock_documentbase.cpp \
     src/ui/docks/dock_panelbase.cpp \
+    src/ui/imageeffects/imageeffect_brightness.cpp \
     src/ui/mainwindow.cpp \
     src/ui/panels/panel.cpp \
     src/ui/panels/panel_aligndistribute.cpp \
@@ -140,10 +142,11 @@ SOURCES += \
     src/ui/widgets/_combobox/firstpage_combobox.cpp \
     src/ui/widgets/_combobox/linetype_combobox.cpp \
     src/ui/widgets/headline_widget/headline_widget.cpp \
+    src/ui/widgets/imageeffect_list/imageeffect_list.cpp \
     src/ui/widgets/stickypopup_widget/stickypopup.cpp \
     src/ui/widgets/colorharmony_wheel/colorharmony_wheel.cpp \
     src/ui/widgets/eyedropperscreen_widget/eyedropperscreen_widget.cpp \
-#    src/ui/widgets/imageeffect_item/imageeffect_item.cpp \
+    src/ui/imageeffects/imageeffect_item.cpp \
     src/ui/widgets/autoforms_menu/autoforms_menu.cpp \
     src/ui/widgets/popup_menu/popup_menu.cpp \
     src/ui/widgets/trashbin_widget/trashbin_widget.cpp \
@@ -243,6 +246,7 @@ HEADERS += \
     src/ui/docks/dock_centralwidget.h \
     src/ui/docks/dock_documentbase.h \
     src/ui/docks/dock_panelbase.h \
+    src/ui/imageeffects/imageeffect_brightness.h \
     src/ui/mainwindow.h \
     src/ui/panels/panel.h \
     src/ui/panels/panel_aligndistribute.h \
@@ -265,10 +269,11 @@ HEADERS += \
     src/ui/widgets/_combobox/firstpage_combobox.h \
     src/ui/widgets/_combobox/linetype_combobox.h \
     src/ui/widgets/headline_widget/headline_widget.h \
+    src/ui/widgets/imageeffect_list/imageeffect_list.h \
     src/ui/widgets/stickypopup_widget/stickypopup.h \
     src/ui/widgets/colorharmony_wheel/colorharmony_wheel.h \
     src/ui/widgets/eyedropperscreen_widget/eyedropperscreen_widget.h \
-#    src/ui/widgets/imageeffect_items/imageeffect_item.h \
+    src/ui/imageeffects/imageeffect_item.h \
     src/ui/widgets/autoforms_menu/autoforms_menu.h \
     src/ui/widgets/popup_menu/popup_menu.h \
     src/ui/widgets/trashbin_widget/trashbin_widget.h \
@@ -335,6 +340,7 @@ FORMS += \
     src/ui/dialogs/newdocument_dialog.ui \
     src/ui/dialogs/newpage_dialog.ui \
     src/ui/dialogs/newparentpage_dialog.ui \
+    src/ui/imageeffects/imageeffect_brightness.ui \
     src/ui/mainwindow.ui \
     src/ui/panels/panel_aligndistribute.ui \
     src/ui/panels/panel_content.ui \

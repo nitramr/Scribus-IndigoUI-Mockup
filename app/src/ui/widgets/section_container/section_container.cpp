@@ -412,12 +412,18 @@ void SectionContainer::paintEvent(QPaintEvent *event)
 {
 
     QWidget::paintEvent(event);
-    //    QColor bgColor( Qt::red);
 
-    //    QPainter painter( this );
+    if(!boolHasStyle){
 
-    //    painter.setPen( Qt::NoPen );
-    //    painter.setBrush(bgColor);
-    //    painter.drawRect(this->rect());
+    int lineWidth = 1;
+    QColor bottomLineColor( palette().color(QPalette::Dark) );
+
+    QPainter painter( this );
+
+    // Bottom Line
+    painter.setPen( QPen(bottomLineColor, lineWidth) );
+    painter.drawLine( 0, this->height() - lineWidth, this->width(), this->height() - lineWidth );
+
+    }
 
 }

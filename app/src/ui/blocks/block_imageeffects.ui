@@ -36,7 +36,7 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QListWidget" name="listEffects"/>
+    <widget class="ImageEffectList" name="imageeffectList" native="true"/>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -54,12 +54,8 @@
        <property name="text">
         <string/>
        </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QToolButton" name="buttonRemoveEffect">
-       <property name="text">
-        <string/>
+       <property name="popupMode">
+        <enum>QToolButton::InstantPopup</enum>
        </property>
       </widget>
      </item>
@@ -107,6 +103,14 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ImageEffectList</class>
+   <extends>QWidget</extends>
+   <header>imageeffect_list/imageeffect_list.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

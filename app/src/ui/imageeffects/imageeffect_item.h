@@ -15,6 +15,10 @@ private:
     QToolButton * buttonDelete;
 
     void setup();
+    void connectSetup();
+
+private slots:
+    void removeItem();
 };
 
 #endif // IMAGEEFFECTITEM_H

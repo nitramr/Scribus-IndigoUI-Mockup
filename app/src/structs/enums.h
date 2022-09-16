@@ -82,6 +82,26 @@ enum class ColorPickerConfig {
     Text = 6
 };
 
+/************************
+ *
+ * Image
+ *
+ * **********************/
+
+enum class ImageEffects {
+    Blur = 0,
+    Brightness = 1,
+    Colorize = 2,
+    Duotone = 3,
+    Tritone = 4,
+    Quadtone = 5,
+    Contrast = 6,
+    Grayscale = 7,
+    Curves = 8,
+    Invert = 9,
+    Posterize = 10,
+    Sharpen = 11
+};
 
 /************************
  *

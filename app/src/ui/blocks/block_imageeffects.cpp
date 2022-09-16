@@ -1,7 +1,10 @@
 #include "block_imageeffects.h"
-//#include "imageeffect_item/imageeffect_item.h"
-#include "section_container/section_container.h"
+#include "imageeffect_brightness.h"
 #include "ui_block_imageeffects.h"
+#include "enums.h"
+#include "icon_manager.h"
+
+#include <QAction>
 
 /* ********************************************************************************* *
  *
@@ -15,6 +18,7 @@ BlockImageEffects::BlockImageEffects(QWidget *parent) :
 {
     ui->setupUi(this);
     setup();
+    connectSlots();
 }
 
 BlockImageEffects::~BlockImageEffects()
@@ -25,90 +29,178 @@ BlockImageEffects::~BlockImageEffects()
 void BlockImageEffects::setup()
 {
 
-    // https://akshaybabloo.medium.com/creating-custom-widget-for-qlistwidget-in-qt-6-3ae03f051906
+    IconManager & iconManager = IconManager::instance();
 
-    for(int i = 1; i < 5; ++i){
+    // Image Effects
+    actionEffectBlur        = new QAction(iconManager.icon("image-effects"), "Blur", this);
+    actionEffectBrightness  = new QAction(iconManager.icon("image-effects"), "Brightness", this);
+    actionEffectColorize    = new QAction(iconManager.icon("image-effects"), "Colorize", this);
+    actionEffectDuotone     = new QAction(iconManager.icon("image-effects"), "Duotone", this);
+    actionEffectTritone     = new QAction(iconManager.icon("image-effects"), "Tritone", this);
+    actionEffectQuadtone    = new QAction(iconManager.icon("image-effects"), "Quadtone", this);
+    actionEffectContrast    = new QAction(iconManager.icon("image-effects"), "Contrast", this);
+    actionEffectGrayscale   = new QAction(iconManager.icon("image-effects"), "Grayscale", this);
+    actionEffectCurves      = new QAction(iconManager.icon("image-effects"), "Curves", this);
+    actionEffectInvert      = new QAction(iconManager.icon("image-effects"), "Invert", this);
+    actionEffectPosterize   = new QAction(iconManager.icon("image-effects"), "Posterize", this);
+    actionEffectSharpen     = new QAction(iconManager.icon("image-effects"), "Sharpen", this);
 
-        //QLabel label("Label" + QString::number(i));
+    actionEffectBlur->setData( QVariant::fromValue(ImageEffects::Blur) );
+    actionEffectBrightness->setData( QVariant::fromValue(ImageEffects::Brightness) );
+    actionEffectColorize->setData( QVariant::fromValue(ImageEffects::Colorize) );
+    actionEffectDuotone->setData( QVariant::fromValue(ImageEffects::Duotone) );
+    actionEffectTritone->setData( QVariant::fromValue(ImageEffects::Tritone) );
+    actionEffectQuadtone->setData( QVariant::fromValue(ImageEffects::Quadtone) );
+    actionEffectContrast->setData( QVariant::fromValue(ImageEffects::Contrast) );
+    actionEffectGrayscale->setData( QVariant::fromValue(ImageEffects::Grayscale) );
+    actionEffectCurves->setData( QVariant::fromValue(ImageEffects::Curves) );
+    actionEffectInvert->setData( QVariant::fromValue(ImageEffects::Invert) );
+    actionEffectPosterize->setData( QVariant::fromValue(ImageEffects::Posterize) );
+    actionEffectSharpen->setData( QVariant::fromValue(ImageEffects::Sharpen) );
 
-//        auto widget = new ImageEffectItem("Effect " + QString::number(i));
-//        widget->setHasStyle(false);
-//        auto item = new QListWidgetItem();
-//        item->setSizeHint(widget->sizeHint());
-//        item->setBackground(palette().color(QPalette::Window));
-
-//        ui->listEffects->addItem(item);
-//        ui->listEffects->setItemWidget(item, widget);
-
-       // ui->listEffects->addItem(new QListWidgetItem(QString("Item %1").arg(i)));
-    }
-
-
-    QPalette palette;
-    palette.setColor(QPalette::Highlight, ui->listEffects->palette().color(QPalette::Window));
-    palette.setColor(QPalette::HighlightedText, ui->listEffects->palette().color(QPalette::WindowText));
-    ui->listEffects->setPalette(palette);
-
-    ui->listEffects->setDragDropMode(QAbstractItemView::InternalMove);
-    ui->listEffects->setFocusPolicy(Qt::NoFocus);
-    ui->listEffects->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
-//    ui->listEffects->setFixedSize(ui->listEffects->sizeHintForColumn(0) + ui->listEffects->frameWidth() * 2, ui->listEffects->sizeHintForRow(0) * ui->listEffects->count() + 2 * ui->listEffects->frameWidth());
-//    ui->listEffects->setFixedHeight( ui->listEffects->sizeHintForRow(0) * ui->listEffects->count() + 2 * ui->listEffects->frameWidth() );
-//    ui->listEffects->setSelectionMode(QAbstractItemView::SingleSelection);
-//    ui->listEffects->setSizeAdjustPolicy(QListWidget::AdjustToContents);
-
-    // #########################
-
-
-//    for(int i = 1; i < 5; ++i){
-
-//       // QLabel label("Label" + QString::number(i));
-
-//        auto widget = new ImageEffectItem(i);
-//       // widget->addPage(&label);
-//        auto item = new QTreeWidgetItem();
-//        auto childItem = new QTreeWidgetItem();
-
-//        item->setSizeHint(0, widget->sizeHint());
-//        item->setBackground(0, palette().color(QPalette::Window));
-//        item->addChild(childItem);
-//        ui->treeEffects->addTopLevelItem(item);
-//        ui->treeEffects->setItemWidget(childItem, 0, widget);
-
-//       // ui->listEffects->addItem(new QListWidgetItem(QString("Item %1").arg(i)));
-//    }
+    menuImageEffects = new QMenu;
+    menuImageEffects->addAction(actionEffectBlur);
+    menuImageEffects->addAction(actionEffectBrightness);
+    menuImageEffects->addAction(actionEffectColorize);
+    menuImageEffects->addAction(actionEffectDuotone);
+    menuImageEffects->addAction(actionEffectTritone);
+    menuImageEffects->addAction(actionEffectQuadtone);
+    menuImageEffects->addAction(actionEffectContrast);
+    menuImageEffects->addAction(actionEffectGrayscale);
+    menuImageEffects->addAction(actionEffectCurves);
+    menuImageEffects->addAction(actionEffectInvert);
+    menuImageEffects->addAction(actionEffectPosterize);
+    menuImageEffects->addAction(actionEffectSharpen);
 
 
-////    QPalette palette;
-////    palette.setColor(QPalette::Highlight, ui->listEffects->palette().color(QPalette::Window));
-////    palette.setColor(QPalette::HighlightedText, ui->listEffects->palette().color(QPalette::WindowText));
-////    ui->treeEffects->setPalette(palette);
-
-
-////    ui->treeEffects->setFocusPolicy(Qt::NoFocus);
-//    ui->treeEffects->setColumnCount(2);
-//    ui->treeEffects->setSelectionMode(QAbstractItemView::MultiSelection);
-//    ui->treeEffects->setSelectionBehavior(QAbstractItemView::SelectRows);
-//    ui->treeEffects->setContextMenuPolicy(Qt::CustomContextMenu);
-//    ui->treeEffects->setEditTriggers(QAbstractItemView::NoEditTriggers);
-////    ui->treeEffects->setItemsExpandable(false);
-//    ui->treeEffects->setExpandsOnDoubleClick(false);
-
-//    ui->treeEffects->setDragEnabled(true);
-//        ui->treeEffects->viewport()->setAcceptDrops(true);
-//        ui->treeEffects->setDropIndicatorShown(true);
-//        ui->treeEffects->setDragDropMode(QAbstractItemView::InternalMove);
-
-////    ui->listEffects->setFixedSize(ui->listEffects->sizeHintForColumn(0) + ui->listEffects->frameWidth() * 2, ui->listEffects->sizeHintForRow(0) * ui->listEffects->count() + 2 * ui->listEffects->frameWidth());
-////    ui->treeEffects->setFixedHeight( ui->listEffects->sizeHintForRow(0) * ui->listEffects->count() + 2 * ui->listEffects->frameWidth() );
-
+    // Buttons
+    ui->buttonAddEffect->setMenu(menuImageEffects);
+    ui->buttonAddEffect->setIcon( iconManager.icon("add") );
+    ui->buttonMoveDown->setIcon( iconManager.icon("move-down") );
+    ui->buttonMoveUp->setIcon( iconManager.icon("move-up") );
 
 
 
 }
 
+void BlockImageEffects::connectSlots()
+{
+    connect(actionEffectBlur,       &QAction::triggered,this, &BlockImageEffects::addImageEffect );
+    connect(actionEffectBrightness, &QAction::triggered,this, &BlockImageEffects::addImageEffect );
+    connect(actionEffectColorize,   &QAction::triggered,this, &BlockImageEffects::addImageEffect );
+    connect(actionEffectDuotone,    &QAction::triggered,this, &BlockImageEffects::addImageEffect );
+    connect(actionEffectTritone,    &QAction::triggered,this, &BlockImageEffects::addImageEffect );
+    connect(actionEffectQuadtone,   &QAction::triggered,this, &BlockImageEffects::addImageEffect );
+    connect(actionEffectContrast,   &QAction::triggered,this, &BlockImageEffects::addImageEffect );
+    connect(actionEffectGrayscale,  &QAction::triggered,this, &BlockImageEffects::addImageEffect );
+    connect(actionEffectCurves,     &QAction::triggered,this, &BlockImageEffects::addImageEffect );
+    connect(actionEffectInvert,     &QAction::triggered,this, &BlockImageEffects::addImageEffect );
+    connect(actionEffectPosterize,  &QAction::triggered,this, &BlockImageEffects::addImageEffect );
+    connect(actionEffectSharpen,    &QAction::triggered,this, &BlockImageEffects::addImageEffect );
+}
+
+
 /* ********************************************************************************* *
  *
- * Constructor & Setup
+ * Private Slots
  *
  * ********************************************************************************* */
+
+void BlockImageEffects::addImageEffect()
+{
+
+    QAction *action = qobject_cast<QAction *>(sender());
+
+    if(action == nullptr) return;
+
+    ImageEffects m_effect = static_cast<ImageEffects>(action->data().toInt());
+
+    switch(m_effect){
+    case ImageEffects::Blur:{
+
+        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
+        ui->imageeffectList->addItem(effBrightness);
+
+        break;
+    }
+    case ImageEffects::Brightness:{
+
+        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
+        ui->imageeffectList->addItem(effBrightness);
+
+        break;
+    }
+    case ImageEffects::Colorize:{
+
+        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
+        ui->imageeffectList->addItem(effBrightness);
+
+        break;
+    }
+    case ImageEffects::Duotone:{
+
+        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
+        ui->imageeffectList->addItem(effBrightness);
+
+        break;
+    }
+    case ImageEffects::Tritone:{
+
+        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
+        ui->imageeffectList->addItem(effBrightness);
+
+        break;
+    }
+    case ImageEffects::Quadtone:{
+
+        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
+        ui->imageeffectList->addItem(effBrightness);
+
+        break;
+    }
+    case ImageEffects::Contrast:{
+
+        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
+        ui->imageeffectList->addItem(effBrightness);
+
+        break;
+    }
+    case ImageEffects::Grayscale:{
+
+        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
+        ui->imageeffectList->addItem(effBrightness);
+
+        break;
+    }
+    case ImageEffects::Curves:{
+
+        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
+        ui->imageeffectList->addItem(effBrightness);
+
+        break;
+    }
+    case ImageEffects::Invert:{
+
+        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
+        ui->imageeffectList->addItem(effBrightness);
+
+        break;
+    }
+    case ImageEffects::Posterize:{
+
+        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
+        ui->imageeffectList->addItem(effBrightness);
+
+        break;
+    }
+    case ImageEffects::Sharpen:{
+
+        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
+        ui->imageeffectList->addItem(effBrightness);
+
+        break;
+    }
+    }
+
+}
+

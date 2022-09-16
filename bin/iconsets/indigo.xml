@@ -113,7 +113,8 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="harmony-square" file="24/harmony-square.svg" />
 		<icon id="harmony-tetradic" file="24/harmony-tetradic.svg" />
 		<icon id="harmony-triadic" file="24/harmony-triadic.svg" />
-		<icon id="import" file="24/download.svg" />
+		<icon id="image-effects" file="24/tune.svg" />
+		<icon id="import" file="24/download.svg" />		
 		<icon id="layer-bottom" file="24/format-vertical-align-bottom.svg" />
 		<icon id="layer-down" file="24/arrow-down-thin.svg" />
 		<icon id="layer-lock" file="24/lock.svg" />
@@ -131,6 +132,8 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="lock-open" file="24/lock-open.svg" />
 		<icon id="menu-down" file="24/menu-down.svg" />
 		<icon id="more" file="24/dots-vertical.svg" />
+		<icon id="move-down" file="24/arrow-down-thin.svg" />
+		<icon id="move-up" file="24/arrow-up-thin.svg" />
 		<icon id="page-add" file="24/file-outline.svg" />
 		<icon id="page-delete-close" file="24/delete.svg" />
 		<icon id="page-delete-open" file="24/delete-empty.svg" />

@@ -126,13 +126,13 @@ void ColorPickerColor::setup()
     actionHarmonyAnalogous          = new QAction(iconManager.icon("harmony-analogous"), "Analogous", this);
     actionHarmonyMonochromatic      = new QAction(iconManager.icon("harmony-monochromatic"), "Monochromatic", this);
 
-    actionHarmonyComplementary->setData(ColorHarmonyWheel::Complementary);
-    actionHarmonySplitComplementary->setData(ColorHarmonyWheel::SplitComplementary);
-    actionHarmonyTriadic->setData(ColorHarmonyWheel::Triadic);
-    actionHarmonyTetradic->setData(ColorHarmonyWheel::Tetradic);
-    actionHarmonySquare->setData(ColorHarmonyWheel::Square);
-    actionHarmonyAnalogous->setData(ColorHarmonyWheel::Analogous);
-    actionHarmonyMonochromatic->setData(ColorHarmonyWheel::Monochromatic);
+    actionHarmonyComplementary->setData( QVariant::fromValue(ColorHarmonyWheel::Complementary) );
+    actionHarmonySplitComplementary->setData( QVariant::fromValue(ColorHarmonyWheel::SplitComplementary) );
+    actionHarmonyTriadic->setData( QVariant::fromValue(ColorHarmonyWheel::Triadic) );
+    actionHarmonyTetradic->setData( QVariant::fromValue(ColorHarmonyWheel::Tetradic) );
+    actionHarmonySquare->setData( QVariant::fromValue(ColorHarmonyWheel::Square) );
+    actionHarmonyAnalogous->setData( QVariant::fromValue(ColorHarmonyWheel::Analogous) );
+    actionHarmonyMonochromatic->setData( QVariant::fromValue(ColorHarmonyWheel::Monochromatic) );
 
     menuHarmony = new QMenu;
     menuHarmony->addAction(actionHarmonyComplementary);
@@ -148,25 +148,25 @@ void ColorPickerColor::setup()
 
 
     // Color Slider
-    ui->sliderCMYKCyan->setMode(ColorSlider::CMYKCyan);
-    ui->sliderCMYKMagenta->setMode(ColorSlider::CMYKMagenta);
-    ui->sliderCMYKYellow->setMode(ColorSlider::CMYKYellow);
-    ui->sliderCMYKKey->setMode(ColorSlider::CMYKKey);
+    ui->sliderCMYKCyan->setMode( ColorSlider::CMYKCyan);
+    ui->sliderCMYKMagenta->setMode( ColorSlider::CMYKMagenta);
+    ui->sliderCMYKYellow->setMode( ColorSlider::CMYKYellow);
+    ui->sliderCMYKKey->setMode( ColorSlider::CMYKKey);
 
-    ui->sliderRGBRed->setMode(ColorSlider::RGBRed);
-    ui->sliderRGBGreen->setMode(ColorSlider::RGBGreen);
-    ui->sliderRGBBlue->setMode(ColorSlider::RGBBlue);
+    ui->sliderRGBRed->setMode( ColorSlider::RGBRed);
+    ui->sliderRGBGreen->setMode( ColorSlider::RGBGreen);
+    ui->sliderRGBBlue->setMode( ColorSlider::RGBBlue);
 
-    ui->sliderHSVHue->setMode(ColorSlider::HSVHue);
-    ui->sliderHSVSaturation->setMode(ColorSlider::HSVSaturation);
-    ui->sliderHSVValue->setMode(ColorSlider::HSVValue);
+    ui->sliderHSVHue->setMode( ColorSlider::HSVHue);
+    ui->sliderHSVSaturation->setMode( ColorSlider::HSVSaturation);
+    ui->sliderHSVValue->setMode( ColorSlider::HSVValue);
 
-    ui->sliderLabL->setMode(ColorSlider::LabLightness);
-    ui->sliderLabA->setMode(ColorSlider::LabA);
-    ui->sliderLabB->setMode(ColorSlider::LabB);
+    ui->sliderLabL->setMode( ColorSlider::LabLightness);
+    ui->sliderLabA->setMode( ColorSlider::LabA);
+    ui->sliderLabB->setMode( ColorSlider::LabB);
 
-    ui->sliderAlpha->setMode(ColorSlider::Alpha);
-    ui->sliderShade->setMode(ColorSlider::Shade);
+    ui->sliderAlpha->setMode( ColorSlider::Alpha);
+    ui->sliderShade->setMode( ColorSlider::Shade);
 
 
     // Numeric Inputs
@@ -194,11 +194,11 @@ void ColorPickerColor::setup()
     actionColorBlindBlue    = new QAction(iconManager.icon("colorblind-blue"), "Tritanopia (Blue)", this);
     actionColorBlindFull    = new QAction(iconManager.icon("colorblind-full"), "Full Color Blindness", this);
 
-    actionColorBlindNormal->setData(VisionDefectColor::normalVision);
-    actionColorBlindRed->setData(VisionDefectColor::protanopeVision);
-    actionColorBlindGreen->setData(VisionDefectColor::deuteranopeVision);
-    actionColorBlindBlue->setData(VisionDefectColor::tritanopeVision);
-    actionColorBlindFull->setData(VisionDefectColor::colorBlindnessVision);
+    actionColorBlindNormal->setData( QVariant::fromValue(VisionDefectColor::normalVision) );
+    actionColorBlindRed->setData( QVariant::fromValue(VisionDefectColor::protanopeVision) );
+    actionColorBlindGreen->setData( QVariant::fromValue(VisionDefectColor::deuteranopeVision) );
+    actionColorBlindBlue->setData( QVariant::fromValue(VisionDefectColor::tritanopeVision) );
+    actionColorBlindFull->setData( QVariant::fromValue(VisionDefectColor::colorBlindnessVision) );
 
     menuColorBlind = new QMenu;
     menuColorBlind->addAction(actionColorBlindNormal);
@@ -225,15 +225,15 @@ void ColorPickerColor::setup()
     actionMapLaba           = new QAction(iconManager.icon("color-map-mode"), "a", this);
     actionMapLabb           = new QAction(iconManager.icon("color-map-mode"), "b", this);
 
-    actionMapHSVHue->setData(ColorMap::HSVHue);
-    actionMapHSVSaturation->setData(ColorMap::HSVSaturation);
-    actionMapHSVValue->setData(ColorMap::HSVValue);
-    actionMapRGBRed->setData(ColorMap::RGBRed);
-    actionMapRGBGreen->setData(ColorMap::RGBGreen);
-    actionMapRGBBlue->setData(ColorMap::RGBBlue);
-    actionMapLabL->setData(ColorMap::LabLightness);
-    actionMapLaba->setData(ColorMap::LabA);
-    actionMapLabb->setData(ColorMap::LabB);
+    actionMapHSVHue->setData( QVariant::fromValue(ColorMap::HSVHue) );
+    actionMapHSVSaturation->setData( QVariant::fromValue(ColorMap::HSVSaturation) );
+    actionMapHSVValue->setData( QVariant::fromValue(ColorMap::HSVValue) );
+    actionMapRGBRed->setData( QVariant::fromValue(ColorMap::RGBRed) );
+    actionMapRGBGreen->setData( QVariant::fromValue(ColorMap::RGBGreen) );
+    actionMapRGBBlue->setData( QVariant::fromValue(ColorMap::RGBBlue) );
+    actionMapLabL->setData( QVariant::fromValue(ColorMap::LabLightness) );
+    actionMapLaba->setData( QVariant::fromValue(ColorMap::LabA) );
+    actionMapLabb->setData( QVariant::fromValue(ColorMap::LabB) );
 
     menuMapMode = new QMenu;
     menuMapMode->addAction(actionMapHSVHue);

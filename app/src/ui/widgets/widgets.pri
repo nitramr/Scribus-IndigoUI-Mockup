@@ -1,19 +1,19 @@
 INCLUDEPATH += $$PWD \
 #    $$PWD/../../utils \
-    $$PWD/container
+#    $$PWD/container
 
 
 HEADERS += \
-    $$PWD/basepoint_widget.h \
-    $$PWD/container/formwidget.h \
+    $$PWD/basepoint_widget/basepoint_widget.h \
+    $$PWD/form_widget/form_widget.h \
 #    $$PWD/../../utils/color_utils.h \
-    $$PWD/container/headline_widget.h \
-    $$PWD/container/sectioncontainer.h
+    $$PWD/headline_widget/headline_widget.h \
+    $$PWD/section_container/section_container.h
 
 SOURCES += \
-    $$PWD/basepoint_widget.cpp \
-    $$PWD/container/formwidget.cpp \
+    $$PWD/basepoint_widget/basepoint_widget.cpp \
+    $$PWD/form_widget/form_widget.cpp \
 #    $$PWD/../../utils/color_utils.cpp \
-    $$PWD/container/headline_widget.cpp \
-    $$PWD/container/sectioncontainer.cpp
+    $$PWD/headline_widget/headline_widget.cpp \
+    $$PWD/section_container/section_container.cpp
 

@@ -8,7 +8,7 @@
 #include <QIcon>
 #include <QtPlugin>
 
-#include "formwidget.h"
+#include "form_widget/form_widget.h"
 #include "formwidgetplugin.h"
 
 
@@ -39,7 +39,7 @@ QString FormWidgetPlugin::whatsThis() const
 
 QString FormWidgetPlugin::includeFile() const
 {
-    return QLatin1String("formwidget.h");
+    return QLatin1String("form_widget/form_widget.h");
 }
 
 QIcon FormWidgetPlugin::icon() const

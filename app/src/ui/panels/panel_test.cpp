@@ -2,7 +2,7 @@
 #include "block_fill.h"
 #include "block_stroke.h"
 #include "block_xyz_location.h"
-#include "flowlayout.h"
+#include "flow_layout/flow_layout.h"
 #include "qpushbutton.h"
 #include "ui_panel_test.h"
 

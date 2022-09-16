@@ -3,7 +3,7 @@
 
 #include "block_image.h"
 #include "block_imageeffects.h"
-#include "sectioncontainer.h"
+#include "section_container/section_container.h"
 #include "panel.h"
 #include <QWidget>
 

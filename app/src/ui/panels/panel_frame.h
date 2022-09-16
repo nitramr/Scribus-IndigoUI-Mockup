@@ -13,7 +13,7 @@
 #include "block_shape.h"
 #include "block_fill.h"
 #include "panel.h"
-#include "sectioncontainer.h"
+#include "section_container/section_container.h"
 
 namespace Ui {
 class PanelFrame;

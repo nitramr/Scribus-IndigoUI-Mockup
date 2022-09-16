@@ -1,6 +1,6 @@
 #include "block_imageeffects.h"
-#include "imageeffects/imageeffect_item.h"
-#include "sectioncontainer.h"
+//#include "imageeffect_item/imageeffect_item.h"
+#include "section_container/section_container.h"
 #include "ui_block_imageeffects.h"
 
 /* ********************************************************************************* *
@@ -31,14 +31,14 @@ void BlockImageEffects::setup()
 
         //QLabel label("Label" + QString::number(i));
 
-        auto widget = new ImageEffectItem("Effect " + QString::number(i));
-        widget->setHasStyle(false);
-        auto item = new QListWidgetItem();
-        item->setSizeHint(widget->sizeHint());
-        item->setBackground(palette().color(QPalette::Window));
+//        auto widget = new ImageEffectItem("Effect " + QString::number(i));
+//        widget->setHasStyle(false);
+//        auto item = new QListWidgetItem();
+//        item->setSizeHint(widget->sizeHint());
+//        item->setBackground(palette().color(QPalette::Window));
 
-        ui->listEffects->addItem(item);
-        ui->listEffects->setItemWidget(item, widget);
+//        ui->listEffects->addItem(item);
+//        ui->listEffects->setItemWidget(item, widget);
 
        // ui->listEffects->addItem(new QListWidgetItem(QString("Item %1").arg(i)));
     }

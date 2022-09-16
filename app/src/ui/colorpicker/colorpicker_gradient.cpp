@@ -1,7 +1,7 @@
 #include "colorpicker_gradient.h"
 #include "icon_manager.h"
 #include "ui_colorpicker_gradient.h"
-#include "popup_menu.h"
+#include "popup_menu/popup_menu.h"
 #include "enums.h"
 
 /* ********************************************************************************* *

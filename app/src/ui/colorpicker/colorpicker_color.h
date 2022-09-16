@@ -2,13 +2,13 @@
 #define COLORPICKER_COLOR_H
 
 #include <QWidget>
-#include <color_button.h>
+#include "color_button/color_button.h"
 #include <QComboBox>
-#include "eyedropperscreen_widget.h"
+#include "eyedropperscreen_widget/eyedropperscreen_widget.h"
 #include "sccolor.h"
 #include "colorblind.h"
-#include "colorharmonywheel.h"
-#include "colormap.h"
+#include "colorharmony_wheel/colorharmony_wheel.h"
+#include "color_map/color_map.h"
 
 namespace Ui {
 class ColorPickerColor;

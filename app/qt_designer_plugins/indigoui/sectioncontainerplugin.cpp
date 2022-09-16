@@ -58,7 +58,7 @@
 #include <QIcon>
 #include <QtPlugin>
 
-#include "sectioncontainer.h"
+#include "section_container/section_container.h"
 #include "sectioncontainerplugin.h"
 #include "sectioncontainerextensionfactory.h"
 
@@ -89,7 +89,7 @@ QString SectionContainerPlugin::whatsThis() const
 
 QString SectionContainerPlugin::includeFile() const
 {
-    return QLatin1String("sectioncontainer.h");
+    return QLatin1String("section_container/section_container.h");
 }
 
 QIcon SectionContainerPlugin::icon() const

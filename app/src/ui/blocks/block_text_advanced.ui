@@ -186,7 +186,7 @@
   <customwidget>
    <class>HeadlineWidget</class>
    <extends>QWidget</extends>
-   <header>headline_widget.h</header>
+   <header>headline_widget/headline_widget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

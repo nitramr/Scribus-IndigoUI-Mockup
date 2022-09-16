@@ -187,7 +187,7 @@
   <customwidget>
    <class>SectionContainer</class>
    <extends>QWidget</extends>
-   <header>sectioncontainer.h</header>
+   <header>section_container/section_container.h</header>
    <addpagemethod>addPage</addpagemethod>
    <container>1</container>
   </customwidget>

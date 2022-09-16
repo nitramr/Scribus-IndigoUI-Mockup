@@ -1,7 +1,7 @@
 #ifndef PANEL_H
 #define PANEL_H
 
-#include "sectioncontainer.h"
+#include "section_container/section_container.h"
 #include <QWidget>
 
 class Panel : public QWidget

@@ -10,7 +10,7 @@
 #include "block_text_font.h"
 #include "block_textonpath.h"
 #include "panel.h"
-#include "sectioncontainer.h"
+#include "section_container/section_container.h"
 #include <QWidget>
 
 namespace Ui {

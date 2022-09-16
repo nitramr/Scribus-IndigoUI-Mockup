@@ -1,8 +1,8 @@
 #ifndef COMPONENT_SPACEINPUT_H
 #define COMPONENT_SPACEINPUT_H
 
-#include "advancedspinbox.h"
-#include "formwidget.h"
+#include "advanced_spinbox/advanced_spinbox.h"
+#include "form_widget/form_widget.h"
 #include <QToolButton>
 #include <QWidget>
 

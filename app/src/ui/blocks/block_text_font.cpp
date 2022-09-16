@@ -1,7 +1,7 @@
 #include "block_text_font.h"
 #include "colorpicker.h"
 #include "icon_manager.h"
-#include "popup_menu.h"
+#include "popup_menu/popup_menu.h"
 #include "ui_block_text_font.h"
 
 /* ********************************************************************************* *

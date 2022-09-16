@@ -1,5 +1,5 @@
 #include "sectioncontainerextension.h"
-#include "sectioncontainer.h"
+#include "section_container/section_container.h"
 
 SectionContainerExtension::SectionContainerExtension(SectionContainer *widget,
                                                                      QObject *parent)

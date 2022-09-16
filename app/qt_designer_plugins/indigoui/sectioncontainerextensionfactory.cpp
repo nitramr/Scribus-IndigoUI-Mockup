@@ -1,6 +1,6 @@
 #include "sectioncontainerextensionfactory.h"
 #include "sectioncontainerextension.h"
-#include "sectioncontainer.h"
+#include "section_container/section_container.h"
 
 
 SectionContainerExtensionFactory::SectionContainerExtensionFactory(QExtensionManager *parent)

@@ -45,12 +45,7 @@ INCLUDEPATH += \
     $$PWD/src/ui/docks \
     $$PWD/src/ui/panels \    
     $$PWD/src/ui/widgets \
-    $$PWD/src/ui/widgets/button \
-    $$PWD/src/ui/widgets/color \
-    $$PWD/src/ui/widgets/combobox \
-    $$PWD/src/ui/widgets/container \
-    $$PWD/src/ui/widgets/menu \
-     $$PWD/src/ui/widgets/views \
+    $$PWD/src/ui/widgets/_combobox \
     $$PWD/src/utils
 
 
@@ -103,7 +98,6 @@ SOURCES += \
     src/ui/colorpicker/colorpicker_color.cpp \
     src/ui/colorpicker/colorpicker_gradient.cpp \
     src/ui/colorpicker/colorswatches.cpp \
-    src/ui/colorpicker/eyedropperscreen_widget.cpp \
     src/ui/components/component_insertpage.cpp \
     src/ui/components/component_margins.cpp \
     src/ui/components/component_pagelayout.cpp \
@@ -136,35 +130,36 @@ SOURCES += \
     src/ui/panels/panel_pages.cpp \
     src/ui/panels/panel_test.cpp \
     src/ui/splashscreen.cpp \
-    src/ui/widgets/advancedspinbox.cpp \
-    src/ui/widgets/anglepicker.cpp \
-    src/ui/widgets/basepoint_widget.cpp \
-    src/ui/widgets/button/autoforms_button.cpp \
-    src/ui/widgets/button/color_button.cpp \
-    src/ui/widgets/combobox/arrowchooser_combobox.cpp \
-    src/ui/widgets/combobox/blendmode_combobox.cpp \
-    src/ui/widgets/combobox/firstpage_combobox.cpp \
-    src/ui/widgets/combobox/linetype_combobox.cpp \
-    src/ui/widgets/container/headline_widget.cpp \
-    src/ui/widgets/container/stickypopup.cpp \
-    src/ui/widgets/color/colorharmonywheel.cpp \
-    src/ui/widgets/imageeffects/imageeffect_item.cpp \
-    src/ui/widgets/menu/autoforms_menu.cpp \
-    src/ui/widgets/menu/popup_menu.cpp \
-    src/ui/widgets/trashbin_widget.cpp \
-    src/ui/widgets/views/colorlistview.cpp \
-    src/ui/widgets/color/colormap.cpp \
-    src/ui/widgets/color/colorslider.cpp \
-    src/ui/widgets/color/colorwheel.cpp \
+    src/ui/widgets/advanced_spinbox/advanced_spinbox.cpp \
+    src/ui/widgets/anglepicker/anglepicker.cpp \
+    src/ui/widgets/basepoint_widget/basepoint_widget.cpp \
+    src/ui/widgets/autoforms_button/autoforms_button.cpp \
+    src/ui/widgets/color_button/color_button.cpp \
+    src/ui/widgets/_combobox/arrowchooser_combobox.cpp \
+    src/ui/widgets/_combobox/blendmode_combobox.cpp \
+    src/ui/widgets/_combobox/firstpage_combobox.cpp \
+    src/ui/widgets/_combobox/linetype_combobox.cpp \
+    src/ui/widgets/headline_widget/headline_widget.cpp \
+    src/ui/widgets/stickypopup_widget/stickypopup.cpp \
+    src/ui/widgets/colorharmony_wheel/colorharmony_wheel.cpp \
+    src/ui/widgets/eyedropperscreen_widget/eyedropperscreen_widget.cpp \
+#    src/ui/widgets/imageeffect_item/imageeffect_item.cpp \
+    src/ui/widgets/autoforms_menu/autoforms_menu.cpp \
+    src/ui/widgets/popup_menu/popup_menu.cpp \
+    src/ui/widgets/trashbin_widget/trashbin_widget.cpp \
+    src/ui/widgets/color_listview/color_listview.cpp \
+    src/ui/widgets/color_map/color_map.cpp \
+    src/ui/widgets/color_slider/color_slider.cpp \
+    src/ui/widgets/color_wheel/color_wheel.cpp \
     src/ui/widgets/dummydocument.cpp \
-    src/ui/widgets/container/flowlayout.cpp \
-    src/ui/widgets/container/formwidget.cpp \
-    src/ui/widgets/color/gradientedit.cpp \
-    src/ui/widgets/color/gradientpreview.cpp \
-    src/ui/widgets/views/outlineviewer.cpp \
-    src/ui/widgets/views/pagelist.cpp \
-    src/ui/widgets/views/pageviewer.cpp \
-    src/ui/widgets/container/sectioncontainer.cpp \
+    src/ui/widgets/flow_layout/flow_layout.cpp \
+    src/ui/widgets/form_widget/form_widget.cpp \
+    src/ui/widgets/gradient_edit/gradient_edit.cpp \
+    src/ui/widgets/gradient_preview/gradient_preview.cpp \
+    src/ui/widgets/outline_viewer/outline_viewer.cpp \
+    src/ui/widgets/page_list/page_list.cpp \
+    src/ui/widgets/page_viewer/page_viewer.cpp \
+    src/ui/widgets/section_container/section_container.cpp \
     src/utils/color_utils.cpp \
     src/utils/commonstrings.cpp \
     src/utils/file_utils.cpp \
@@ -218,7 +213,6 @@ HEADERS += \
     src/ui/colorpicker/colorpicker_color.h \
     src/ui/colorpicker/colorpicker_gradient.h \
     src/ui/colorpicker/colorswatches.h \
-    src/ui/colorpicker/eyedropperscreen_widget.h \
     src/ui/components/component_insertpage.h \
     src/ui/components/component_margins.h \
     src/ui/components/component_pagelayout.h \
@@ -261,35 +255,36 @@ HEADERS += \
     src/ui/panels/panel_pages.h \
     src/ui/panels/panel_test.h \
     src/ui/splashscreen.h \
-    src/ui/widgets/advancedspinbox.h \
-    src/ui/widgets/anglepicker.h \
-    src/ui/widgets/basepoint_widget.h \
-    src/ui/widgets/button/autoforms_button.h \
-    src/ui/widgets/button/color_button.h \
-    src/ui/widgets/combobox/arrowchooser_combobox.h \
-    src/ui/widgets/combobox/blendmode_combobox.h \
-    src/ui/widgets/combobox/firstpage_combobox.h \
-    src/ui/widgets/combobox/linetype_combobox.h \
-    src/ui/widgets/container/headline_widget.h \
-    src/ui/widgets/container/stickypopup.h \
-    src/ui/widgets/color/colorharmonywheel.h \
-    src/ui/widgets/imageeffects/imageeffect_item.h \
-    src/ui/widgets/menu/autoforms_menu.h \
-    src/ui/widgets/menu/popup_menu.h \
-    src/ui/widgets/trashbin_widget.h \
-    src/ui/widgets/views/colorlistview.h \
-    src/ui/widgets/color/colormap.h \
-    src/ui/widgets/color/colorslider.h \
-    src/ui/widgets/color/colorwheel.h \
+    src/ui/widgets/advanced_spinbox/advanced_spinbox.h \
+    src/ui/widgets/anglepicker/anglepicker.h \
+    src/ui/widgets/basepoint_widget/basepoint_widget.h \
+    src/ui/widgets/autoforms_button/autoforms_button.h \
+    src/ui/widgets/color_button/color_button.h \
+    src/ui/widgets/_combobox/arrowchooser_combobox.h \
+    src/ui/widgets/_combobox/blendmode_combobox.h \
+    src/ui/widgets/_combobox/firstpage_combobox.h \
+    src/ui/widgets/_combobox/linetype_combobox.h \
+    src/ui/widgets/headline_widget/headline_widget.h \
+    src/ui/widgets/stickypopup_widget/stickypopup.h \
+    src/ui/widgets/colorharmony_wheel/colorharmony_wheel.h \
+    src/ui/widgets/eyedropperscreen_widget/eyedropperscreen_widget.h \
+#    src/ui/widgets/imageeffect_items/imageeffect_item.h \
+    src/ui/widgets/autoforms_menu/autoforms_menu.h \
+    src/ui/widgets/popup_menu/popup_menu.h \
+    src/ui/widgets/trashbin_widget/trashbin_widget.h \
+    src/ui/widgets/color_listview/color_listview.h \
+    src/ui/widgets/color_map/color_map.h \
+    src/ui/widgets/color_slider/color_slider.h \
+    src/ui/widgets/color_wheel/color_wheel.h \
     src/ui/widgets/dummydocument.h \
-    src/ui/widgets/container/flowlayout.h \
-    src/ui/widgets/container/formwidget.h \
-    src/ui/widgets/color/gradientedit.h \
-    src/ui/widgets/color/gradientpreview.h \
-    src/ui/widgets/views/outlineviewer.h \
-    src/ui/widgets/views/pagelist.h \
-    src/ui/widgets/views/pageviewer.h \
-    src/ui/widgets/container/sectioncontainer.h \
+    src/ui/widgets/flow_layout/flow_layout.h \
+    src/ui/widgets/form_widget/form_widget.h \
+    src/ui/widgets/gradient_edit/gradient_edit.h \
+    src/ui/widgets/gradient_preview/gradient_preview.h \
+    src/ui/widgets/outline_viewer/outline_viewer.h \
+    src/ui/widgets/page_list/page_list.h \
+    src/ui/widgets/page_viewer/page_viewer.h \
+    src/ui/widgets/section_container/section_container.h \
     src/utils/color_utils.h \
     src/utils/commonstrings.h \
     src/utils/file_utils.h \

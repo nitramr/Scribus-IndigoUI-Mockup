@@ -1233,36 +1233,36 @@
   <customwidget>
    <class>FormWidget</class>
    <extends>QWidget</extends>
-   <header>formwidget.h</header>
+   <header>form_widget/form_widget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>SectionContainer</class>
    <extends>QWidget</extends>
-   <header>sectioncontainer.h</header>
+   <header>section_container/section_container.h</header>
    <addpagemethod>addPage</addpagemethod>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>ColorButton</class>
    <extends>QToolButton</extends>
-   <header location="global">color_button.h</header>
+   <header location="global">color_button/color_button.h</header>
   </customwidget>
   <customwidget>
    <class>ColorMap</class>
    <extends>QWidget</extends>
-   <header location="global">colormap.h</header>
+   <header location="global">color_map/color_map.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>ColorSlider</class>
    <extends>QSlider</extends>
-   <header location="global">colorslider.h</header>
+   <header location="global">color_slider/color_slider.h</header>
   </customwidget>
   <customwidget>
    <class>ColorHarmonyWheel</class>
    <extends>QWidget</extends>
-   <header location="global">colorharmonywheel.h</header>
+   <header location="global">colorharmony_wheel/colorharmony_wheel.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>

@@ -717,20 +717,20 @@
   <customwidget>
    <class>FormWidget</class>
    <extends>QWidget</extends>
-   <header>formwidget.h</header>
+   <header>form_widget/form_widget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>SectionContainer</class>
    <extends>QWidget</extends>
-   <header>sectioncontainer.h</header>
+   <header>section_container/section_container.h</header>
    <addpagemethod>addPage</addpagemethod>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>ColorButton</class>
    <extends>QToolButton</extends>
-   <header location="global">color_button.h</header>
+   <header location="global">color_button/color_button.h</header>
   </customwidget>
   <customwidget>
    <class>ColorSwatches</class>
@@ -741,7 +741,7 @@
   <customwidget>
    <class>GradientEdit</class>
    <extends>QWidget</extends>
-   <header>gradientedit.h</header>
+   <header>gradient_edit/gradient_edit.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

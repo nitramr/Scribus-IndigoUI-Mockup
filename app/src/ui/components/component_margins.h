@@ -1,9 +1,9 @@
 #ifndef COMPONENT_MARGINS_H
 #define COMPONENT_MARGINS_H
 
-#include "advancedspinbox.h"
+#include "advanced_spinbox/advanced_spinbox.h"
 #include "component_spaceinput.h"
-#include "formwidget.h"
+#include "form_widget/form_widget.h"
 #include <QPushButton>
 #include <QComboBox>
 #include <QWidget>

@@ -1,7 +1,7 @@
 #ifndef COMPONENT_PAGELAYOUT_H
 #define COMPONENT_PAGELAYOUT_H
 
-#include "advancedspinbox.h"
+#include "advanced_spinbox/advanced_spinbox.h"
 #include <QComboBox>
 #include <QCheckBox>
 #include <QButtonGroup>

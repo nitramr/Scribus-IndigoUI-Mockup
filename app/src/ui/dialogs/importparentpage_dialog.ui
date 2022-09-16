@@ -70,7 +70,7 @@
   <customwidget>
    <class>PageList</class>
    <extends>QListWidget</extends>
-   <header>pagelist.h</header>
+   <header>page_list/page_list.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -7,7 +7,8 @@
 #include "newpage_dialog.h"
 #include "movepage_dialog.h"
 #include "newparentpage_dialog.h"
-#include "pagelist.h"
+#include "page_list/page_list.h"
+#include "section_container/section_container.h"
 #include "panel.h"
 #include <QWidget>
 

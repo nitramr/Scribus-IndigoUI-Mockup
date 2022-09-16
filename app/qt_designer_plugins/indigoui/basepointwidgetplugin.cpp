@@ -8,7 +8,7 @@
 #include <QIcon>
 #include <QtPlugin>
 
-#include "basepoint_widget.h"
+#include "basepoint_widget/basepoint_widget.h"
 #include "basepointwidgetplugin.h"
 
 
@@ -39,7 +39,7 @@ QString BasePointWidgetPlugin::whatsThis() const
 
 QString BasePointWidgetPlugin::includeFile() const
 {
-    return QLatin1String("basepoint_widget.h");
+    return QLatin1String("basepoint_widget/basepoint_widget.h");
 }
 
 QIcon BasePointWidgetPlugin::icon() const

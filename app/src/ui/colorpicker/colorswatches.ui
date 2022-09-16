@@ -136,7 +136,7 @@
   <customwidget>
    <class>ColorListView</class>
    <extends>QListWidget</extends>
-   <header location="global">colorlistview.h</header>
+   <header location="global">color_listview/color_listview.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -1,6 +1,6 @@
 #include "colorpicker_color.h"
 #include "colorblind.h"
-#include "eyedropperscreen_widget.h"
+#include "eyedropperscreen_widget/eyedropperscreen_widget.h"
 #include "ui_colorpicker_color.h"
 
 #include "icon_manager.h"

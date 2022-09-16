@@ -8,7 +8,7 @@
 #include <QIcon>
 #include <QtPlugin>
 
-#include "headline_widget.h"
+#include "headline_widget/headline_widget.h"
 #include "headlinewidgetplugin.h"
 
 
@@ -39,7 +39,7 @@ QString HeadlineWidgetPlugin::whatsThis() const
 
 QString HeadlineWidgetPlugin::includeFile() const
 {
-    return QLatin1String("headline_widget.h");
+    return QLatin1String("headline_widget/headline_widget.h");
 }
 
 QIcon HeadlineWidgetPlugin::icon() const

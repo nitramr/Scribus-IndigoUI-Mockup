@@ -348,20 +348,20 @@
   <customwidget>
    <class>FormWidget</class>
    <extends>QWidget</extends>
-   <header>formwidget.h</header>
+   <header>form_widget/form_widget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>SectionContainer</class>
    <extends>QWidget</extends>
-   <header>sectioncontainer.h</header>
+   <header>section_container/section_container.h</header>
    <addpagemethod>addPage</addpagemethod>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>PageList</class>
    <extends>QListWidget</extends>
-   <header>pagelist.h</header>
+   <header>page_list/page_list.h</header>
   </customwidget>
   <customwidget>
    <class>FirstPageComboBox</class>
@@ -371,13 +371,13 @@
   <customwidget>
    <class>PageViewer</class>
    <extends>QWidget</extends>
-   <header location="global">pageviewer.h</header>
+   <header location="global">page_viewer/page_viewer.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>TrashBinWidget</class>
    <extends>QLabel</extends>
-   <header>trashbin_widget.h</header>
+   <header>trashbin_widget/trashbin_widget.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

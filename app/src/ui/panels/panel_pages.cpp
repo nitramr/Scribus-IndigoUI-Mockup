@@ -3,7 +3,7 @@
 #include "newpage_dialog.h"
 #include "ui_panel_pages.h"
 
-#include "pagelist.h"
+#include "page_list/page_list.h"
 #include "icon_manager.h"
 #include "commonstrings.h"
 

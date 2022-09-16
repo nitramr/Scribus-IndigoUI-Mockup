@@ -1,5 +1,5 @@
 #include "panel.h"
-#include "popup_menu.h"
+#include "popup_menu/popup_menu.h"
 #include "icon_manager.h"
 
 Panel::Panel(QWidget *parent)

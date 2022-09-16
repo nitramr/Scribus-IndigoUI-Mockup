@@ -450,13 +450,13 @@
   <customwidget>
    <class>FormWidget</class>
    <extends>QWidget</extends>
-   <header>formwidget.h</header>
+   <header>form_widget/form_widget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>AdvancedSpinBox</class>
    <extends>QDoubleSpinBox</extends>
-   <header>advancedspinbox.h</header>
+   <header>advanced_spinbox/advanced_spinbox.h</header>
   </customwidget>
   <customwidget>
    <class>ComponentPageLayout</class>

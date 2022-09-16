@@ -5,8 +5,8 @@
 #include <QComboBox>
 
 #include "icon_manager.h"
-#include "popup_menu.h"
-#include "sectioncontainer.h"
+#include "popup_menu/popup_menu.h"
+#include "section_container/section_container.h"
 
 PanelFrame::PanelFrame(QWidget *parent) :
     Panel(parent),

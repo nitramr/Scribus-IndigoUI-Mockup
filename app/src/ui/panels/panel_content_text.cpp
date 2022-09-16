@@ -1,6 +1,6 @@
 #include "panel_content_text.h"
 #include "icon_manager.h"
-#include "popup_menu.h"
+#include "popup_menu/popup_menu.h"
 #include "ui_panel_content_text.h"
 
 #include <QComboBox>

@@ -121,9 +121,6 @@
        <property name="spacing">
         <number>0</number>
        </property>
-       <property name="bottomMargin">
-        <number>8</number>
-       </property>
        <item>
         <widget class="SectionContainer" name="sectionDocumentPages">
          <property name="sizePolicy">

@@ -19,7 +19,7 @@ ImageEffectList::ImageEffectList(QWidget *parent)
 
 void ImageEffectList::addItem(QWidget *item)
 {
-    layoutList->insertWidget(layoutList->count()-1, item);
+    layoutList->addWidget(item);
 }
 
 void ImageEffectList::setup()
@@ -28,18 +28,26 @@ void ImageEffectList::setup()
     QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     layoutList = new QVBoxLayout();
-    layoutList->addStretch(1);
-    layoutList->setSpacing(1);
+    layoutList->setSpacing(0);
+
+    // Layout that only separate stretch item from item list
+    QVBoxLayout *layoutBase = new QVBoxLayout();
+    layoutBase->addLayout(layoutList);
+    layoutBase->addStretch(1);
+    layoutBase->setSpacing(0);
+    layoutBase->setContentsMargins(0,0,0,0);
 
     scrollContainer = new QWidget();
-    scrollContainer->setLayout(layoutList);
+    scrollContainer->setLayout(layoutBase);
     scrollContainer->setSizePolicy( sizePolicy );
-    scrollContainer->installEventFilter(this);
+    scrollContainer->setContentsMargins(0,0,0,0);
+//    scrollContainer->installEventFilter(this);
 
     QScrollArea *m_scrollArea = new QScrollArea();
     m_scrollArea->setWidget(scrollContainer);
     m_scrollArea->setWidgetResizable(true);
     m_scrollArea->setSizePolicy( sizePolicy );
+    m_scrollArea->setFrameShape(QFrame::NoFrame);
 
     QVBoxLayout *box = new QVBoxLayout();
     box->addWidget(m_scrollArea);
@@ -70,16 +78,6 @@ bool ImageEffectList::eventFilter(QObject *object, QEvent *event)
 
                 return true;
             }
-            break;
-        }
-        case QEvent::Paint:{
-
-//            QPainter painter(this);
-//            painter.fillRect(this->rect(), QPalette::Base);
-//            painter.end();
-
-            return true;
-
             break;
         }
         default:

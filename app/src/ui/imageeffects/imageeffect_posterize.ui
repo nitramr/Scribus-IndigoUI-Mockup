@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ImageEffectBrightness</class>
- <widget class="SectionContainer" name="ImageEffectBrightness">
+ <class>ImageEffectPosterize</class>
+ <widget class="SectionContainer" name="ImageEffectPosterize">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>213</width>
+    <width>274</width>
     <height>98</height>
    </rect>
   </property>
@@ -14,61 +14,14 @@
    <string>Form</string>
   </property>
   <property name="title" stdset="0">
-   <string>Brightness</string>
+   <string>Posterize</string>
   </property>
   <widget class="QWidget" name="page">
    <layout class="QGridLayout" name="gridLayout">
-    <property name="leftMargin">
-     <number>8</number>
-    </property>
-    <property name="topMargin">
-     <number>8</number>
-    </property>
-    <property name="rightMargin">
-     <number>8</number>
-    </property>
-    <property name="bottomMargin">
-     <number>8</number>
-    </property>
-    <property name="horizontalSpacing">
-     <number>4</number>
-    </property>
-    <property name="verticalSpacing">
-     <number>8</number>
-    </property>
-    <item row="0" column="0">
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Fixed</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>0</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
     <item row="0" column="1">
      <widget class="QLabel" name="label">
       <property name="text">
-       <string>Value:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="3">
-     <widget class="QDoubleSpinBox" name="doubleSpinBox">
-      <property name="decimals">
-       <number>0</number>
-      </property>
-      <property name="minimum">
-       <double>-255.000000000000000</double>
-      </property>
-      <property name="maximum">
-       <double>255.000000000000000</double>
+       <string>Strength:</string>
       </property>
      </widget>
     </item>
@@ -79,16 +32,26 @@
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>0</width>
-        <height>0</height>
+        <width>91</width>
+        <height>20</height>
        </size>
       </property>
      </spacer>
     </item>
+    <item row="0" column="3">
+     <widget class="QSpinBox" name="spinBox">
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>255</number>
+      </property>
+     </widget>
+    </item>
     <item row="1" column="1" colspan="3">
      <widget class="QSlider" name="horizontalSlider">
       <property name="minimum">
-       <number>-255</number>
+       <number>1</number>
       </property>
       <property name="maximum">
        <number>255</number>
@@ -100,6 +63,22 @@
        <enum>QSlider::TicksBelow</enum>
       </property>
      </widget>
+    </item>
+    <item row="0" column="0">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>24</height>
+       </size>
+      </property>
+     </spacer>
     </item>
    </layout>
   </widget>

@@ -415,14 +415,14 @@ void SectionContainer::paintEvent(QPaintEvent *event)
 
     if(!boolHasStyle){
 
-    int lineWidth = 1;
-    QColor bottomLineColor( palette().color(QPalette::Dark) );
+        int lineWidth = 1;
+        QColor bottomLineColor( palette().color(QPalette::Dark) );
 
-    QPainter painter( this );
+        QPainter painter( this );
 
-    // Bottom Line
-    painter.setPen( QPen(bottomLineColor, lineWidth) );
-    painter.drawLine( 0, this->height() - lineWidth, this->width(), this->height() - lineWidth );
+        // Bottom Line
+        painter.setPen( QPen(bottomLineColor, lineWidth) );
+        painter.drawLine( 8, this->height() - lineWidth, this->width() - 8, this->height() - lineWidth );
 
     }
 

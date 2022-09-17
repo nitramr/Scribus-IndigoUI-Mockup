@@ -1,5 +1,11 @@
 #include "block_imageeffects.h"
+#include "imageeffect_blur.h"
 #include "imageeffect_brightness.h"
+#include "imageeffect_contrast.h"
+#include "imageeffect_grayscale.h"
+#include "imageeffect_invert.h"
+#include "imageeffect_posterize.h"
+#include "imageeffect_sharpen.h"
 #include "ui_block_imageeffects.h"
 #include "enums.h"
 #include "icon_manager.h"
@@ -118,85 +124,85 @@ void BlockImageEffects::addImageEffect()
     switch(m_effect){
     case ImageEffects::Blur:{
 
-        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
-        ui->imageeffectList->addItem(effBrightness);
+        ImageEffectBlur * effectWidget = new ImageEffectBlur();
+        ui->imageeffectList->addItem(effectWidget);
 
         break;
     }
     case ImageEffects::Brightness:{
 
-        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
-        ui->imageeffectList->addItem(effBrightness);
+        ImageEffectBrightness * effectWidget = new ImageEffectBrightness();
+        ui->imageeffectList->addItem(effectWidget);
 
         break;
     }
     case ImageEffects::Colorize:{
 
-        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
-        ui->imageeffectList->addItem(effBrightness);
+        ImageEffectBrightness * effectWidget = new ImageEffectBrightness();
+        ui->imageeffectList->addItem(effectWidget);
 
         break;
     }
     case ImageEffects::Duotone:{
 
-        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
-        ui->imageeffectList->addItem(effBrightness);
+        ImageEffectBrightness * effectWidget = new ImageEffectBrightness();
+        ui->imageeffectList->addItem(effectWidget);
 
         break;
     }
     case ImageEffects::Tritone:{
 
-        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
-        ui->imageeffectList->addItem(effBrightness);
+        ImageEffectBrightness * effectWidget = new ImageEffectBrightness();
+        ui->imageeffectList->addItem(effectWidget);
 
         break;
     }
     case ImageEffects::Quadtone:{
 
-        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
-        ui->imageeffectList->addItem(effBrightness);
+        ImageEffectBrightness * effectWidget = new ImageEffectBrightness();
+        ui->imageeffectList->addItem(effectWidget);
 
         break;
     }
     case ImageEffects::Contrast:{
 
-        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
-        ui->imageeffectList->addItem(effBrightness);
+        ImageEffectContrast * effectWidget = new ImageEffectContrast();
+        ui->imageeffectList->addItem(effectWidget);
 
         break;
     }
     case ImageEffects::Grayscale:{
 
-        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
-        ui->imageeffectList->addItem(effBrightness);
+        ImageEffectGrayscale * effectWidget = new ImageEffectGrayscale();
+        ui->imageeffectList->addItem(effectWidget);
 
         break;
     }
     case ImageEffects::Curves:{
 
-        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
-        ui->imageeffectList->addItem(effBrightness);
+        ImageEffectBrightness * effectWidget = new ImageEffectBrightness();
+        ui->imageeffectList->addItem(effectWidget);
 
         break;
     }
     case ImageEffects::Invert:{
 
-        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
-        ui->imageeffectList->addItem(effBrightness);
+        ImageEffectInvert * effectWidget = new ImageEffectInvert();
+        ui->imageeffectList->addItem(effectWidget);
 
         break;
     }
     case ImageEffects::Posterize:{
 
-        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
-        ui->imageeffectList->addItem(effBrightness);
+        ImageEffectPosterize * effectWidget = new ImageEffectPosterize();
+        ui->imageeffectList->addItem(effectWidget);
 
         break;
     }
     case ImageEffects::Sharpen:{
 
-        ImageEffectBrightness * effBrightness = new ImageEffectBrightness();
-        ui->imageeffectList->addItem(effBrightness);
+        ImageEffectSharpen * effectWidget = new ImageEffectSharpen();
+        ui->imageeffectList->addItem(effectWidget);
 
         break;
     }

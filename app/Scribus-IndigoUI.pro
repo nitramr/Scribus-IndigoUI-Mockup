@@ -119,7 +119,13 @@ SOURCES += \
     src/ui/docks/dock_centralwidget.cpp \
     src/ui/docks/dock_documentbase.cpp \
     src/ui/docks/dock_panelbase.cpp \
+    src/ui/imageeffects/imageeffect_blur.cpp \
     src/ui/imageeffects/imageeffect_brightness.cpp \
+    src/ui/imageeffects/imageeffect_contrast.cpp \
+    src/ui/imageeffects/imageeffect_grayscale.cpp \
+    src/ui/imageeffects/imageeffect_invert.cpp \
+    src/ui/imageeffects/imageeffect_posterize.cpp \
+    src/ui/imageeffects/imageeffect_sharpen.cpp \
     src/ui/mainwindow.cpp \
     src/ui/panels/panel.cpp \
     src/ui/panels/panel_aligndistribute.cpp \
@@ -246,7 +252,13 @@ HEADERS += \
     src/ui/docks/dock_centralwidget.h \
     src/ui/docks/dock_documentbase.h \
     src/ui/docks/dock_panelbase.h \
+    src/ui/imageeffects/imageeffect_blur.h \
     src/ui/imageeffects/imageeffect_brightness.h \
+    src/ui/imageeffects/imageeffect_contrast.h \
+    src/ui/imageeffects/imageeffect_grayscale.h \
+    src/ui/imageeffects/imageeffect_invert.h \
+    src/ui/imageeffects/imageeffect_posterize.h \
+    src/ui/imageeffects/imageeffect_sharpen.h \
     src/ui/mainwindow.h \
     src/ui/panels/panel.h \
     src/ui/panels/panel_aligndistribute.h \
@@ -340,7 +352,13 @@ FORMS += \
     src/ui/dialogs/newdocument_dialog.ui \
     src/ui/dialogs/newpage_dialog.ui \
     src/ui/dialogs/newparentpage_dialog.ui \
+    src/ui/imageeffects/imageeffect_blur.ui \
     src/ui/imageeffects/imageeffect_brightness.ui \
+    src/ui/imageeffects/imageeffect_contrast.ui \
+    src/ui/imageeffects/imageeffect_grayscale.ui \
+    src/ui/imageeffects/imageeffect_invert.ui \
+    src/ui/imageeffects/imageeffect_posterize.ui \
+    src/ui/imageeffects/imageeffect_sharpen.ui \
     src/ui/mainwindow.ui \
     src/ui/panels/panel_aligndistribute.ui \
     src/ui/panels/panel_content.ui \

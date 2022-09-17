@@ -21,14 +21,19 @@ void ImageEffectItem::setup()
 
 
     checkBoxEffect = new QCheckBox();
+    checkBoxEffect->setCheckState(Qt::Checked);
     buttonDelete = new QToolButton();
     buttonDelete->setIcon(iconDelete);
 
     addHeaderPrefixWidget(checkBoxEffect);
     addHeaderSuffixWidget(buttonDelete);
 
+    QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Maximum);
+
     setCollapseIcons(iconClose, iconOpen);
     setHasStyle(false);
+    setSizePolicy(sizePolicy);
+//    setMaximumWidth(300);
 
 
 }

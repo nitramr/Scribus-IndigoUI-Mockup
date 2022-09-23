@@ -301,7 +301,6 @@ void FPointArray::addPoint(const FPoint& p)
     QVector<FPoint>::append(p);
 }
 
-
 bool FPointArray::hasLastQuadPoint(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4) const
 {
     int i = QVector<FPoint>::count() - 4;

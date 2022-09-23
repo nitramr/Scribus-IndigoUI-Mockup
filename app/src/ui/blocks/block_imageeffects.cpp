@@ -2,6 +2,7 @@
 #include "imageeffect_blur.h"
 #include "imageeffect_brightness.h"
 #include "imageeffect_contrast.h"
+#include "imageeffect_curves.h"
 #include "imageeffect_grayscale.h"
 #include "imageeffect_invert.h"
 #include "imageeffect_posterize.h"
@@ -180,7 +181,7 @@ void BlockImageEffects::addImageEffect()
     }
     case ImageEffects::Curves:{
 
-        ImageEffectBrightness * effectWidget = new ImageEffectBrightness();
+        ImageEffectCurves * effectWidget = new ImageEffectCurves();
         ui->imageeffectList->addItem(effectWidget);
 
         break;

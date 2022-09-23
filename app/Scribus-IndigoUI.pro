@@ -122,6 +122,7 @@ SOURCES += \
     src/ui/imageeffects/imageeffect_blur.cpp \
     src/ui/imageeffects/imageeffect_brightness.cpp \
     src/ui/imageeffects/imageeffect_contrast.cpp \
+    src/ui/imageeffects/imageeffect_curves.cpp \
     src/ui/imageeffects/imageeffect_grayscale.cpp \
     src/ui/imageeffects/imageeffect_invert.cpp \
     src/ui/imageeffects/imageeffect_posterize.cpp \
@@ -147,6 +148,7 @@ SOURCES += \
     src/ui/widgets/_combobox/blendmode_combobox.cpp \
     src/ui/widgets/_combobox/firstpage_combobox.cpp \
     src/ui/widgets/_combobox/linetype_combobox.cpp \
+    src/ui/widgets/curveedit_widget/curveedit_widget.cpp \
     src/ui/widgets/headline_widget/headline_widget.cpp \
     src/ui/widgets/imageeffect_list/imageeffect_list.cpp \
     src/ui/widgets/stickypopup_widget/stickypopup.cpp \
@@ -174,6 +176,7 @@ SOURCES += \
     src/utils/file_utils.cpp \
     src/utils/math_utils.cpp \
     src/utils/render_utils.cpp \
+    src/utils/spline_utils.cpp \
     src/utils/utils.cpp
 
 HEADERS += \
@@ -255,6 +258,7 @@ HEADERS += \
     src/ui/imageeffects/imageeffect_blur.h \
     src/ui/imageeffects/imageeffect_brightness.h \
     src/ui/imageeffects/imageeffect_contrast.h \
+    src/ui/imageeffects/imageeffect_curves.h \
     src/ui/imageeffects/imageeffect_grayscale.h \
     src/ui/imageeffects/imageeffect_invert.h \
     src/ui/imageeffects/imageeffect_posterize.h \
@@ -280,6 +284,7 @@ HEADERS += \
     src/ui/widgets/_combobox/blendmode_combobox.h \
     src/ui/widgets/_combobox/firstpage_combobox.h \
     src/ui/widgets/_combobox/linetype_combobox.h \
+    src/ui/widgets/curveedit_widget/curveedit_widget.h \
     src/ui/widgets/headline_widget/headline_widget.h \
     src/ui/widgets/imageeffect_list/imageeffect_list.h \
     src/ui/widgets/stickypopup_widget/stickypopup.h \
@@ -307,6 +312,7 @@ HEADERS += \
     src/utils/file_utils.h \
     src/utils/math_utils.h \
     src/utils/render_utils.h \
+    src/utils/spline_utils.h \
     src/utils/utils.h
 
 
@@ -355,6 +361,7 @@ FORMS += \
     src/ui/imageeffects/imageeffect_blur.ui \
     src/ui/imageeffects/imageeffect_brightness.ui \
     src/ui/imageeffects/imageeffect_contrast.ui \
+    src/ui/imageeffects/imageeffect_curves.ui \
     src/ui/imageeffects/imageeffect_grayscale.ui \
     src/ui/imageeffects/imageeffect_invert.ui \
     src/ui/imageeffects/imageeffect_posterize.ui \

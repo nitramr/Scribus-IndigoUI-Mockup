@@ -76,3 +76,6 @@ list->insert("app_default_theme", DirPathsManager::instance().themeDir() + "scri
 
 #### Page Arrange Widget
 ![Bildschirmfoto vom 2022-09-15 19-23-10](https://user-images.githubusercontent.com/15112256/190470889-058146c6-6fbd-48eb-b216-400d18996b24.png)
+
+#### Curve Edit Widget
+![Bildschirmfoto vom 2022-09-23 21-29-25](https://user-images.githubusercontent.com/15112256/192044614-ace2f601-448e-4f4b-a38c-16005a9d2832.png)

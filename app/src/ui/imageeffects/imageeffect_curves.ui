@@ -34,7 +34,7 @@
      <number>4</number>
     </property>
     <item row="0" column="0">
-     <widget class="CurveEditWidget" name="widget" native="true"/>
+     <widget class="ComponentCurveWidget" name="componentCurveWidget" native="true"/>
     </item>
    </layout>
   </widget>
@@ -48,9 +48,9 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>CurveEditWidget</class>
+   <class>ComponentCurveWidget</class>
    <extends>QWidget</extends>
-   <header>curveedit_widget/curveedit_widget.h</header>
+   <header>component_curvewidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

@@ -34,7 +34,7 @@ SectionContainer::SectionContainer(QString title, bool isCollapsible, QWidget *p
     layoutHeaderPrefix =new QHBoxLayout;
     layoutHeaderSuffix =new QHBoxLayout;
     bodyWidget=new QStackedWidget;
-    labelTitle =new QLabel("Title");
+    labelTitle =new QLabel(title);
     buttonCollapse =new QToolButton;
     headerWidget =new QWidget;
     iconCollapsed=QIcon();

@@ -99,6 +99,7 @@ SOURCES += \
     src/ui/colorpicker/colorpicker_color.cpp \
     src/ui/colorpicker/colorpicker_gradient.cpp \
     src/ui/colorpicker/colorswatches.cpp \
+    src/ui/components/component_curvewidget.cpp \
     src/ui/components/component_insertpage.cpp \
     src/ui/components/component_margins.cpp \
     src/ui/components/component_pagelayout.cpp \
@@ -121,6 +122,7 @@ SOURCES += \
     src/ui/docks/dock_panelbase.cpp \
     src/ui/imageeffects/imageeffect_blur.cpp \
     src/ui/imageeffects/imageeffect_brightness.cpp \
+    src/ui/imageeffects/imageeffect_colorize.cpp \
     src/ui/imageeffects/imageeffect_contrast.cpp \
     src/ui/imageeffects/imageeffect_curves.cpp \
     src/ui/imageeffects/imageeffect_grayscale.cpp \
@@ -225,6 +227,7 @@ HEADERS += \
     src/ui/colorpicker/colorpicker_color.h \
     src/ui/colorpicker/colorpicker_gradient.h \
     src/ui/colorpicker/colorswatches.h \
+    src/ui/components/component_curvewidget.h \
     src/ui/components/component_insertpage.h \
     src/ui/components/component_margins.h \
     src/ui/components/component_pagelayout.h \
@@ -257,6 +260,7 @@ HEADERS += \
     src/ui/docks/dock_panelbase.h \
     src/ui/imageeffects/imageeffect_blur.h \
     src/ui/imageeffects/imageeffect_brightness.h \
+    src/ui/imageeffects/imageeffect_colorize.h \
     src/ui/imageeffects/imageeffect_contrast.h \
     src/ui/imageeffects/imageeffect_curves.h \
     src/ui/imageeffects/imageeffect_grayscale.h \
@@ -343,6 +347,7 @@ FORMS += \
     src/ui/colorpicker/colorpicker_color.ui \
     src/ui/colorpicker/colorpicker_gradient.ui \
     src/ui/colorpicker/colorswatches.ui \
+    src/ui/components/component_curvewidget.ui \
     src/ui/components/component_insertpage.ui \
     src/ui/components/component_margins.ui \
     src/ui/components/component_pagelayout.ui \
@@ -360,6 +365,7 @@ FORMS += \
     src/ui/dialogs/newparentpage_dialog.ui \
     src/ui/imageeffects/imageeffect_blur.ui \
     src/ui/imageeffects/imageeffect_brightness.ui \
+    src/ui/imageeffects/imageeffect_colorize.ui \
     src/ui/imageeffects/imageeffect_contrast.ui \
     src/ui/imageeffects/imageeffect_curves.ui \
     src/ui/imageeffects/imageeffect_grayscale.ui \

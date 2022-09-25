@@ -14,8 +14,8 @@ private:
     QCheckBox * checkBoxEffect;
     QToolButton * buttonDelete;
 
-    void setup();
-    void connectSetup();
+    void internalSetup();
+    void internalConnectSlots();
 
 private slots:
     void removeItem();

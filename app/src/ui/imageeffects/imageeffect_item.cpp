@@ -5,13 +5,13 @@
 ImageEffectItem::ImageEffectItem(QString title, bool isCollapsible, QWidget *parent) : SectionContainer(title, isCollapsible, parent)
 {
 
-    setup();
-    connectSetup();
+    internalSetup();
+    internalConnectSlots();
 
 }
 
 
-void ImageEffectItem::setup()
+void ImageEffectItem::internalSetup()
 {
 
     IconManager &iconManager = IconManager::instance();
@@ -38,7 +38,7 @@ void ImageEffectItem::setup()
 
 }
 
-void ImageEffectItem::connectSetup()
+void ImageEffectItem::internalConnectSlots()
 {
     connect(buttonDelete, &QToolButton::clicked, this, &ImageEffectItem::removeItem );
 }

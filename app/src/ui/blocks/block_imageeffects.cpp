@@ -1,6 +1,7 @@
 #include "block_imageeffects.h"
 #include "imageeffect_blur.h"
 #include "imageeffect_brightness.h"
+#include "imageeffect_colorize.h"
 #include "imageeffect_contrast.h"
 #include "imageeffect_curves.h"
 #include "imageeffect_grayscale.h"
@@ -139,28 +140,28 @@ void BlockImageEffects::addImageEffect()
     }
     case ImageEffects::Colorize:{
 
-        ImageEffectBrightness * effectWidget = new ImageEffectBrightness();
+        ImageEffectColorize * effectWidget = new ImageEffectColorize();
         ui->imageeffectList->addItem(effectWidget);
 
         break;
     }
     case ImageEffects::Duotone:{
 
-        ImageEffectBrightness * effectWidget = new ImageEffectBrightness();
+        ImageEffectColorize * effectWidget = new ImageEffectColorize(ImageEffectColorize::Duotone);
         ui->imageeffectList->addItem(effectWidget);
 
         break;
     }
     case ImageEffects::Tritone:{
 
-        ImageEffectBrightness * effectWidget = new ImageEffectBrightness();
+        ImageEffectColorize * effectWidget = new ImageEffectColorize(ImageEffectColorize::Tritone);
         ui->imageeffectList->addItem(effectWidget);
 
         break;
     }
     case ImageEffects::Quadtone:{
 
-        ImageEffectBrightness * effectWidget = new ImageEffectBrightness();
+        ImageEffectColorize * effectWidget = new ImageEffectColorize(ImageEffectColorize::Quadtone);
         ui->imageeffectList->addItem(effectWidget);
 
         break;

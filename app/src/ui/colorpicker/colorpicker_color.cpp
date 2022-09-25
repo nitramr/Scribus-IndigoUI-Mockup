@@ -1,6 +1,7 @@
 #include "colorpicker_color.h"
 #include "colorblind.h"
 #include "eyedropperscreen_widget/eyedropperscreen_widget.h"
+#include <QElapsedTimer>
 #include "ui_colorpicker_color.h"
 
 #include "icon_manager.h"
@@ -21,6 +22,9 @@ ColorPickerColor::ColorPickerColor(QWidget *parent) :
 {
     ui->setupUi(this);
 
+//    QElapsedTimer timer;
+//    timer.start();
+
     setWindowTitle(tr("Edit Color"));
     setWindowFlag(Qt::WindowMinMaxButtonsHint, false);
     setup();
@@ -29,11 +33,18 @@ ColorPickerColor::ColorPickerColor(QWidget *parent) :
     switchSliderScale(actionSliderScale->isChecked());
     setColor(ScColor(255,0,0));
 
+//    qDebug() << "ColorPicker initialize in" << timer.elapsed() << "ms";
+
 }
 
 ColorPickerColor::ColorPickerColor(ColorPickerConfig config, QWidget *parent) : ColorPickerColor(parent)
 {
+    QElapsedTimer timer;
+    timer.start();
+
     setConfiguration(config);
+
+    qDebug() << "ColorPicker initialize in" << timer.elapsed() << "ms";
 }
 
 ColorPickerColor::~ColorPickerColor()

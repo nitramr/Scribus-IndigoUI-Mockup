@@ -57,7 +57,7 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="chevron-right" file="24/chevron-right.svg" />
 		<icon id="close" file="24/close.svg" />		
 		<icon id="color-map-mode" file="24/palette.svg" />
-		<icon onLight="#D6922B" onDark="#FFC266" id="color-alert" file="24/alert.svg" />
+		<icon id="color-alert" file="24/alert.svg" onLight="#D6922B" onDark="#FFC266"  />
 		<icon id="color-cmyk" file="16/color-cmyk.svg" />
 		<icon id="color-lab" file="16/color-lab.svg" />
 		<icon id="color-register" file="16/color-registration.svg" />
@@ -73,6 +73,7 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="colorpicker-solid" file="24/solid-square.svg" />
 		<icon id="colorpicker-gradient" file="24/gradient-horizontal.svg" />
 		<icon id="copy" file="24/content-copy.svg" />
+		<icon id="curves" file="24/chart-bell-curve-cumulative.svg" />
 		<icon id="delete" file="24/delete.svg" />
 		<icon id="distribute-bottom" file="24/distribute-vertical-bottom.svg" />
 		<icon id="distribute-center" file="24/distribute-horizontal-center.svg" />		
@@ -114,7 +115,8 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="harmony-tetradic" file="24/harmony-tetradic.svg" />
 		<icon id="harmony-triadic" file="24/harmony-triadic.svg" />
 		<icon id="image-effects" file="24/tune.svg" />
-		<icon id="import" file="24/download.svg" />		
+		<icon id="import" file="24/download.svg" />
+		<icon id="invert" file="24/invert.svg" />		
 		<icon id="layer-bottom" file="24/format-vertical-align-bottom.svg" />
 		<icon id="layer-down" file="24/arrow-down-thin.svg" />
 		<icon id="layer-lock" file="24/lock.svg" />
@@ -158,12 +160,12 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="paragraph-space-below" file="24/paragraph-space-below.svg" />
 		<icon id="remove" file="24/minus.svg" />
 		<icon id="remove-unused" file="24/eye-remove.svg" />
+		<icon id="reset" file="24/restore.svg" />
 		<icon id="save" file="24/content-save.svg" />
 		<icon id="setting" file="24/tune.svg" />
 		<icon id="setting-edit" file="24/cog.svg" />
 		<icon id="space-bottom" file="24/border-bottom-variant.svg" />
 		<icon id="space-inside" file="24/border-inline.svg" />
-		<!--<icon id="space-inside" file="24/test.svg" />-->
 		<icon id="space-left" file="24/border-left-variant.svg" />
 		<icon id="space-right" file="24/border-right-variant.svg" />
 		<icon id="space-outside" file="24/border-outline.svg" />

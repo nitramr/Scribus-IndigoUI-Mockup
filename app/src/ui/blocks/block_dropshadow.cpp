@@ -27,14 +27,13 @@ BlockDropShadow::~BlockDropShadow()
 void BlockDropShadow::setup()
 {
 
-    // Fill Picker
-    colorFillPicker = new ColorPicker(ColorPickerConfig::Shadow);
-    ui->buttonColor->setContextWidget(colorFillPicker);
+    // Color Buttons
+    ui->buttonColor->setConfiguration(ColorPickerConfig::Shadow);
 }
 
 void BlockDropShadow::connectSlots()
 {
-    connect(colorFillPicker, &ColorPicker::colorChanged, this, &BlockDropShadow::setFillColor);
+    connect(ui->buttonColor, &ColorButton::colorChanged, this, &BlockDropShadow::setFillColor);
 }
 
 void BlockDropShadow::setFillColor(ScColor color)

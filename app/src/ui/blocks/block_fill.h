@@ -29,15 +29,9 @@ public slots:
     void setMaskGradient(VGradient gradient);
     void setMaskPattern();
 
-private slots:
-    void openFillPicker();
-    void openMaskPicker();
 
 private:
     Ui::BlockFill *ui;
-
-    ColorPicker *colorFillPicker;
-    ColorPicker *colorMaskPicker;
 
     void setup();
     void connectSlots();

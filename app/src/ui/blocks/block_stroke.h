@@ -23,13 +23,9 @@ public slots:
     void setFillColor(ScColor color);
     void setFillGradient(VGradient gradient);
 
-private slots:
-    void openFillPicker();
 
 private:
     Ui::BlockStroke *ui;
-
-    ColorPicker *colorFillPicker;
 
     void setup();
     void connectSlots();

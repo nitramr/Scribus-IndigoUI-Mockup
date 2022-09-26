@@ -8,6 +8,8 @@
 #include <QButtonGroup>
 #include <QWidget>
 
+class ColorButton;
+
 namespace Ui {
 class ColorPicker;
 }
@@ -25,6 +27,9 @@ public:
 
     void setConfiguration(ColorPickerConfig config);
     ColorPickerConfig configuration();
+
+    void setColorButton(ColorButton *button);
+    ColorButton *colorButton();
 
 public slots:
 //    void setColorButton(ColorButton *button);
@@ -56,6 +61,8 @@ private:
     VGradient m_gradient;
     ColorPickerConfig m_configuration {ColorPickerConfig::Default};
     QButtonGroup *m_buttonGroup;
+
+    ColorButton *m_colorButton;
 
     void setup();
     void connectSlots();

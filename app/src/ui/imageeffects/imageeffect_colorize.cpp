@@ -2,7 +2,7 @@
 #include "icon_manager.h"
 #include "popup_menu/popup_menu.h"
 #include "ui_imageeffect_colorize.h"
-#include <QElapsedTimer>
+#include "widget_manager.h"
 
 /* ********************************************************************************* *
  *
@@ -16,14 +16,9 @@ ImageEffectColorize::ImageEffectColorize(Mode mode, QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QElapsedTimer timer;
-    timer.start();
-
-    setup();
-    connectSlots();
+    setup();    
     setMode(mode);
-
-    qDebug() << "ImageEffectColorize initialize in" << timer.elapsed() << "ms";
+    connectSlots();
 }
 
 ImageEffectColorize::~ImageEffectColorize()
@@ -41,19 +36,11 @@ void ImageEffectColorize::setup()
     ui->buttonCurve3->setIcon(iconManager.icon("curves"));
     ui->buttonCurve4->setIcon(iconManager.icon("curves"));
 
-
-    // Color Picker
-    colorPicker1 = new ColorPicker(ColorPickerConfig::Text);
-    ui->buttonColor1->setContextWidget(colorPicker1);
-
-    colorPicker2 = new ColorPicker(ColorPickerConfig::Text);
-    ui->buttonColor2->setContextWidget(colorPicker2);
-
-    colorPicker3 = new ColorPicker(ColorPickerConfig::Text);
-    ui->buttonColor3->setContextWidget(colorPicker3);
-
-    colorPicker4 = new ColorPicker(ColorPickerConfig::Text);
-    ui->buttonColor4->setContextWidget(colorPicker4);
+    // Color Buttons
+    ui->buttonColor1->setConfiguration(ColorPickerConfig::Text);
+    ui->buttonColor2->setConfiguration(ColorPickerConfig::Text);
+    ui->buttonColor3->setConfiguration(ColorPickerConfig::Text);
+    ui->buttonColor4->setConfiguration(ColorPickerConfig::Text);
 
 
     // Curve Widgets
@@ -73,10 +60,10 @@ void ImageEffectColorize::setup()
 
 void ImageEffectColorize::connectSlots()
 {
-    connect(colorPicker1, &ColorPicker::colorChanged, this, &ImageEffectColorize::setColor1);
-    connect(colorPicker2, &ColorPicker::colorChanged, this, &ImageEffectColorize::setColor2);
-    connect(colorPicker3, &ColorPicker::colorChanged, this, &ImageEffectColorize::setColor3);
-    connect(colorPicker4, &ColorPicker::colorChanged, this, &ImageEffectColorize::setColor4);
+    connect(ui->buttonColor1, &ColorButton::colorChanged, this, &ImageEffectColorize::setColor1);
+    connect(ui->buttonColor2, &ColorButton::colorChanged, this, &ImageEffectColorize::setColor2);
+    connect(ui->buttonColor3, &ColorButton::colorChanged, this, &ImageEffectColorize::setColor3);
+    connect(ui->buttonColor4, &ColorButton::colorChanged, this, &ImageEffectColorize::setColor4);
 }
 
 /* ********************************************************************************* *
@@ -118,6 +105,7 @@ void ImageEffectColorize::setColor4(ScColor color)
 {
     ui->buttonColor4->setColor(color);
 }
+
 
 /* ********************************************************************************* *
  *

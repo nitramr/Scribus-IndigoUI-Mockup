@@ -29,20 +29,17 @@ BlockStroke::~BlockStroke()
 void BlockStroke::setup()
 {
 
-
-    // Fill Picker
-    colorFillPicker = new ColorPicker(ColorPickerConfig::Stroke);
-    ui->buttonFill->setContextWidget(colorFillPicker);
+    // Color Buttons
+    ui->buttonFill->setConfiguration(ColorPickerConfig::Stroke);
 
 }
 
 void BlockStroke::connectSlots()
 {
-    connect(colorFillPicker, &ColorPicker::colorChanged, this, &BlockStroke::setFillColor);
-    connect(colorFillPicker, &ColorPicker::gradientChanged, this, &BlockStroke::setFillGradient);
+    connect(ui->buttonFill, &ColorButton::colorChanged, this, &BlockStroke::setFillColor);
+    connect(ui->buttonFill, &ColorButton::gradientChanged, this, &BlockStroke::setFillGradient);
 
-    connect(ui->buttonFill, &QToolButton::pressed, this, &BlockStroke::openFillPicker);
-}
+  }
 
 /* ********************************************************************************* *
  *
@@ -70,7 +67,3 @@ void BlockStroke::setFillGradient(VGradient gradient)
  *
  * ********************************************************************************* */
 
-void BlockStroke::openFillPicker()
-{
-
-}

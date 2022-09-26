@@ -28,15 +28,9 @@ BlockFill::~BlockFill()
 
 void BlockFill::setup()
 {
-
-
-    // Fill Picker
-    colorFillPicker = new ColorPicker(ColorPickerConfig::Fill);
-    ui->buttonFill->setContextWidget(colorFillPicker);
-
-    // Mask Picker
-    colorMaskPicker = new ColorPicker(ColorPickerConfig::FillMask);
-    ui->buttonMask->setContextWidget(colorMaskPicker);
+    // Color Buttons
+    ui->buttonMask->setConfiguration(ColorPickerConfig::FillMask);
+    ui->buttonFill->setConfiguration(ColorPickerConfig::Fill);
 
     QButtonGroup * fillRuleGroup = new QButtonGroup();
     fillRuleGroup->addButton(ui->buttonEvenodd);
@@ -47,16 +41,12 @@ void BlockFill::setup()
 void BlockFill::connectSlots()
 {
 
-    connect(colorFillPicker, &ColorPicker::colorChanged, this, &BlockFill::setFillColor);
-    connect(colorFillPicker, &ColorPicker::gradientChanged, this, &BlockFill::setFillGradient);
-    connect(colorMaskPicker, &ColorPicker::colorChanged, this, &BlockFill::setMaskColor);
-    connect(colorMaskPicker, &ColorPicker::gradientChanged, this, &BlockFill::setMaskGradient);
+    connect(ui->buttonFill, &ColorButton::colorChanged, this, &BlockFill::setFillColor);
+    connect(ui->buttonFill, &ColorButton::gradientChanged, this, &BlockFill::setFillGradient);
+    connect(ui->buttonMask, &ColorButton::colorChanged, this, &BlockFill::setMaskColor);
+    connect(ui->buttonMask, &ColorButton::gradientChanged, this, &BlockFill::setMaskGradient);
 
-    connect(ui->buttonFill, &QToolButton::pressed, this, &BlockFill::openFillPicker);
-    connect(ui->buttonMask, &QToolButton::pressed, this, &BlockFill::openMaskPicker);
-
-
-}
+  }
 
 
 /* ********************************************************************************* *
@@ -120,14 +110,3 @@ void BlockFill::setMaskPattern()
  *
  * ********************************************************************************* */
 
-void BlockFill::openFillPicker()
-{
-
-
-
-}
-
-void BlockFill::openMaskPicker()
-{
-
-}

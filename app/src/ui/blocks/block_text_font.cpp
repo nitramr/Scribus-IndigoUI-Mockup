@@ -96,19 +96,17 @@ void BlockTextFont::setup()
     // Add menu
     addMenu(ui->buttonOutline, blockOutline);
 
-    // Color Picker
-    colorPicker = new ColorPicker(ColorPickerConfig::Text);
-    ui->buttonColor->setContextWidget(colorPicker);
+    // Color Buttons
+    ui->buttonColor->setConfiguration(ColorPickerConfig::Text);
+    ui->buttonColorBackground->setConfiguration(ColorPickerConfig::Text);
 
-    colorBackgroundPicker = new ColorPicker(ColorPickerConfig::Text);
-    ui->buttonColorBackground->setContextWidget(colorBackgroundPicker);
 
 }
 
 void BlockTextFont::connectSlots()
 {
-    connect(colorPicker, &ColorPicker::colorChanged, this, &BlockTextFont::setTextColor);
-    connect(colorBackgroundPicker, &ColorPicker::colorChanged, this, &BlockTextFont::setBackgroundColor);
+    connect( ui->buttonColor, &ColorButton::colorChanged, this, &BlockTextFont::setTextColor);
+    connect( ui->buttonColorBackground, &ColorButton::colorChanged, this, &BlockTextFont::setBackgroundColor);
 }
 
 /* ********************************************************************************* *

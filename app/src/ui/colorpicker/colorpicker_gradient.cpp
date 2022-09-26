@@ -3,6 +3,7 @@
 #include "ui_colorpicker_gradient.h"
 #include "popup_menu/popup_menu.h"
 #include "enums.h"
+#include <QElapsedTimer>
 
 /* ********************************************************************************* *
  *
@@ -14,12 +15,18 @@ ColorPickerGradient::ColorPickerGradient(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ColorPickerGradient)
 {
+//    QElapsedTimer timer;
+//    timer.start();
+//    qDebug() << "ColorPicker Gradient start" << timer.elapsed() << "ms";
+
     ui->setupUi(this);
 
     setWindowTitle(tr("Edit Gradient"));
 
     setup();
     connectSlots();
+
+ //   qDebug() << "ColorPicker Gradient initialize in" << timer.elapsed() << "ms";
 }
 
 ColorPickerGradient::~ColorPickerGradient()
@@ -54,20 +61,20 @@ void ColorPickerGradient::setup()
     ui->comboType->addItem(tr("Mesh"), QVariant::fromValue(GradientType::Mesh));
     ui->comboType->addItem(tr("Patch Mesh"), QVariant::fromValue(GradientType::PatchMesh));
 
-    // Fill Picker
-    colorPickerEdit = new ColorPickerColor(ColorPickerConfig::Fill);
-    colorPickerMeshNode = new ColorPickerColor(ColorPickerConfig::Fill);
-    colorPicker4CTopLeft = new ColorPickerColor(ColorPickerConfig::Fill);
-    colorPicker4CTopRight = new ColorPickerColor(ColorPickerConfig::Fill);
-    colorPicker4CBottomLeft = new ColorPickerColor(ColorPickerConfig::Fill);
-    colorPicker4CBottomRight = new ColorPickerColor(ColorPickerConfig::Fill);
+    // Color Buttons
+    ui->buttonColor->setConfiguration(ColorPickerConfig::Text);
+    ui->buttonColor->setColorPickerType(ColorButton::ColorPickerSolid);
+    ui->buttonMeshNode->setConfiguration(ColorPickerConfig::Text);
+    ui->buttonMeshNode->setColorPickerType(ColorButton::ColorPickerSolid);
+    ui->button4CTopLeft->setConfiguration(ColorPickerConfig::Text);
+    ui->button4CTopLeft->setColorPickerType(ColorButton::ColorPickerSolid);
+    ui->button4CTopRight->setConfiguration(ColorPickerConfig::Text);
+    ui->button4CTopRight->setColorPickerType(ColorButton::ColorPickerSolid);
+    ui->button4CBottomLeft->setConfiguration(ColorPickerConfig::Text);
+    ui->button4CBottomLeft->setColorPickerType(ColorButton::ColorPickerSolid);
+    ui->button4CBottomRight->setConfiguration(ColorPickerConfig::Text);
+    ui->button4CBottomRight->setColorPickerType(ColorButton::ColorPickerSolid);
 
-    ui->buttonColor->setContextWidget(colorPickerEdit, true);
-    ui->buttonMeshNode->setContextWidget(colorPickerMeshNode, true);
-    ui->button4CTopLeft->setContextWidget(colorPicker4CTopLeft, true);
-    ui->button4CTopRight->setContextWidget(colorPicker4CTopRight, true);
-    ui->button4CBottomLeft->setContextWidget(colorPicker4CBottomLeft, true);
-    ui->button4CBottomRight->setContextWidget(colorPicker4CBottomRight, true);
 
     // Swatches
     ui->swatches->setConfiguration(ItemFillMode::Gradient);
@@ -75,7 +82,6 @@ void ColorPickerGradient::setup()
     // Default Values
     ScColor baseGradient = ui->gradientEdit->gradient().colorStops().first()->color;
     ui->buttonColor->setColor(baseGradient);
-    colorPickerEdit->setColor(baseGradient);
 
 }
 
@@ -89,12 +95,15 @@ void ColorPickerGradient::connectSlots()
 
     connect(ui->numberPosition, &QSpinBox::valueChanged, this, &ColorPickerGradient::updateSimpleGradientStep);
 
-    connect(colorPickerEdit, &ColorPickerColor::colorChanged, this, &ColorPickerGradient::updateSimpleGradientColor);
-    connect(colorPickerMeshNode, &ColorPickerColor::colorChanged, this, &ColorPickerGradient::updateMeshNodeGradientColor);
-    connect(colorPicker4CTopLeft, &ColorPickerColor::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
-    connect(colorPicker4CTopRight, &ColorPickerColor::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
-    connect(colorPicker4CBottomLeft, &ColorPickerColor::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
-    connect(colorPicker4CBottomRight, &ColorPickerColor::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
+    connect(ui->buttonColor, &ColorButton::colorChanged, this, &ColorPickerGradient::updateSimpleGradientColor);
+    connect(ui->buttonMeshNode, &ColorButton::colorChanged, this, &ColorPickerGradient::updateMeshNodeGradientColor);
+    connect(ui->button4CTopLeft, &ColorButton::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
+    connect(ui->button4CTopRight, &ColorButton::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
+    connect(ui->button4CBottomLeft, &ColorButton::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
+    connect(ui->button4CBottomRight, &ColorButton::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
+
+//    connect(ui->buttonColor, &QToolButton::clicked, this, &ColorPickerGradient::colorButtonClick);
+//    connect(ui->buttonMeshNode, &QToolButton::clicked, this, &ColorPickerGradient::colorButtonClick);
 
     // Sections
     connect(ui->sectionGradient,      &SectionContainer::collapsedState, this, &ColorPickerGradient::changeSize);
@@ -112,12 +121,12 @@ void ColorPickerGradient::disconnectSlots()
 
     disconnect(ui->numberPosition, &QSpinBox::valueChanged, this, &ColorPickerGradient::updateSimpleGradientStep);
 
-    disconnect(colorPickerEdit, &ColorPickerColor::colorChanged, this, &ColorPickerGradient::updateSimpleGradientColor);
-    disconnect(colorPickerMeshNode, &ColorPickerColor::colorChanged, this, &ColorPickerGradient::updateMeshNodeGradientColor);
-    disconnect(colorPicker4CTopLeft, &ColorPickerColor::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
-    disconnect(colorPicker4CTopRight, &ColorPickerColor::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
-    disconnect(colorPicker4CBottomLeft, &ColorPickerColor::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
-    disconnect(colorPicker4CBottomRight, &ColorPickerColor::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
+    disconnect(ui->buttonColor, &ColorButton::colorChanged, this, &ColorPickerGradient::updateSimpleGradientColor);
+    disconnect(ui->buttonMeshNode, &ColorButton::colorChanged, this, &ColorPickerGradient::updateMeshNodeGradientColor);
+    disconnect(ui->button4CTopLeft, &ColorButton::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
+    disconnect(ui->button4CTopRight, &ColorButton::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
+    disconnect(ui->button4CBottomLeft, &ColorButton::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
+    disconnect(ui->button4CBottomRight, &ColorButton::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
 
     // Sections
     disconnect(ui->sectionGradient,      &SectionContainer::collapsedState, this, &ColorPickerGradient::changeSize);
@@ -272,10 +281,10 @@ void ColorPickerGradient::openColorPicker()
 
 void ColorPickerGradient::update4ColorGradientColor(ScColor color)
 {
-    if( colorPicker4CTopLeft        == qobject_cast<ColorPickerColor*>(sender()) )   ui->button4CTopLeft->setColor(color);
-    if( colorPicker4CTopRight       == qobject_cast<ColorPickerColor*>(sender()) )   ui->button4CTopRight->setColor(color);
-    if( colorPicker4CBottomLeft     == qobject_cast<ColorPickerColor*>(sender()) )   ui->button4CBottomLeft->setColor(color);
-    if( colorPicker4CBottomRight    == qobject_cast<ColorPickerColor*>(sender()) )   ui->button4CBottomRight->setColor(color);
+//    if( ui->button4CTopLeft        == qobject_cast<ColorPickerColor*>(sender()) )   ui->button4CTopLeft->setColor(color);
+//    if( ui->button4CTopRight       == qobject_cast<ColorPickerColor*>(sender()) )   ui->button4CTopRight->setColor(color);
+//    if( ui->button4CBottomLeft     == qobject_cast<ColorPickerColor*>(sender()) )   ui->button4CBottomLeft->setColor(color);
+//    if( ui->button4CBottomRight    == qobject_cast<ColorPickerColor*>(sender()) )   ui->button4CBottomRight->setColor(color);
 
     createGradient();
     emit gradientChanged(m_gradient);
@@ -292,10 +301,10 @@ void ColorPickerGradient::updateMeshNodeGradientColor(ScColor color)
 void ColorPickerGradient::updateSimpleGradientColor(ScColor color)
 {
 
-    if( colorPickerEdit            != qobject_cast<ColorPickerColor*>(sender()) )   colorPickerEdit->setColor(color);
+ //   if( colorPickerEdit            != qobject_cast<ColorPickerColor*>(sender()) )   colorPickerEdit->setColor(color);
     if( ui->gradientEdit           != qobject_cast<GradientEdit*>(sender()) )       ui->gradientEdit->setActiveStopColor(color);
 
-    ui->buttonColor->setColor(color);
+  //  ui->buttonColor->setColor(color);
 
     createGradient();
     emit gradientChanged(m_gradient);
@@ -311,6 +320,7 @@ void ColorPickerGradient::updateSimpleGradientStep(int position)
 {
     ui->gradientEdit->setActiveStopPosition((double)position/100);
 }
+
 
 /* ********************************************************************************* *
  *

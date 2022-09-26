@@ -20,6 +20,7 @@
 #include "icon_manager.h"
 #include "action_manager.h"
 #include "theme_manager.h"
+#include "widget_manager.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -27,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
     , iconManager(IconManager::instance())
     , actionManager(ActionManager::instance())
     , themeManager(ThemeManager::instance())
+    , widgetManager(WidgetManager::instance())
 {
 
     // Manager Setup
@@ -34,6 +36,8 @@ MainWindow::MainWindow(QWidget *parent)
    // themeManager.setup(); // <-- setup is execute on SplashScreen, if you remove it there, enable it here!
     iconManager.setIconsForDarkMode(themeManager.isDark());
     iconManager.setup();
+
+    widgetManager.setup();
 
 
 

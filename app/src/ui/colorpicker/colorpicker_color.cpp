@@ -1,7 +1,6 @@
 #include "colorpicker_color.h"
 #include "colorblind.h"
 #include "eyedropperscreen_widget/eyedropperscreen_widget.h"
-#include <QElapsedTimer>
 #include "ui_colorpicker_color.h"
 
 #include "icon_manager.h"
@@ -9,6 +8,7 @@
 #include <QAction>
 #include <QMenu>
 #include <QMouseEvent>
+#include <QElapsedTimer>
 
 /* ********************************************************************************* *
  *
@@ -39,12 +39,12 @@ ColorPickerColor::ColorPickerColor(QWidget *parent) :
 
 ColorPickerColor::ColorPickerColor(ColorPickerConfig config, QWidget *parent) : ColorPickerColor(parent)
 {
-    QElapsedTimer timer;
-    timer.start();
+//    QElapsedTimer timer;
+//    timer.start();
 
     setConfiguration(config);
 
-    qDebug() << "ColorPicker initialize in" << timer.elapsed() << "ms";
+//    qDebug() << "ColorPicker configure in" << timer.elapsed() << "ms";
 }
 
 ColorPickerColor::~ColorPickerColor()
@@ -98,10 +98,15 @@ void ColorPickerColor::setup()
 
 
     // Color Buttons
+    ui->buttonColorMain->setColorPickerType(ColorButton::None);
     ui->buttonColor1->setVisible(true);
+    ui->buttonColor1->setColorPickerType(ColorButton::None);
     ui->buttonColor2->setVisible(false);
+    ui->buttonColor2->setColorPickerType(ColorButton::None);
     ui->buttonColor3->setVisible(false);
+    ui->buttonColor3->setColorPickerType(ColorButton::None);
     ui->buttonColor4->setVisible(false);
+    ui->buttonColor4->setColorPickerType(ColorButton::None);
 
 
     // Color Space

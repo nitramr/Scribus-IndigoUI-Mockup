@@ -12,7 +12,15 @@ class ColorButton : public QToolButton
 {
     Q_OBJECT
 public:
+
+    enum ColorPickerType {
+        None = 0,
+        ColorPickerFull = 1,
+        ColorPickerSolid = 2
+    };
+
     ColorButton(QWidget *parent = nullptr);
+    ColorButton(ColorPickerConfig config, ColorPickerType type = ColorPickerType::ColorPickerFull, QWidget *parent = nullptr);
     ~ColorButton(){};
 
     bool hasDot();
@@ -21,7 +29,10 @@ public:
     QSize backgroundDotSize();
     QSize foregroundDotSize();
 
-    void setContextWidget(QWidget *widget, bool isFloating = true);
+    void setConfiguration(ColorPickerConfig config);
+    ColorPickerConfig configuration();
+
+    void setColorPickerType(ColorPickerType type);
 
 
 public slots:
@@ -30,6 +41,7 @@ public slots:
     void setHasDot(bool enabled);
     void setColor(ScColor color);
     void setGradient(VGradient gradient);
+    void showContext();
 
 protected:
     void paintEvent(QPaintEvent *e);
@@ -43,6 +55,17 @@ private:
     ScColor m_color;
     VGradient m_gradient;
 
+    ItemFillMode m_fillMode;
+    ColorPickerConfig m_config;
+    ColorPickerType m_colorPickerType {ColorPickerType::ColorPickerFull};
+
+private slots:
+    void setColorFromPicker(ScColor color);
+    void setGradientFromPicker(VGradient gradient);
+
+signals:
+    void colorChanged(ScColor);
+    void gradientChanged(VGradient);
 
 };
 

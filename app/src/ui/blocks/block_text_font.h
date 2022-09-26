@@ -23,11 +23,6 @@ public:
 private:
     Ui::BlockTextFont *ui;
 
-
-    ColorPicker *colorPicker;
-    ColorPicker *colorBackgroundPicker;
-    ColorPicker *colorOutlinePicker;
-
     BlockTextOutline * blockOutline;
 
     void setup();

@@ -2,6 +2,7 @@
 #include <QButtonGroup>
 #include "icon_manager.h"
 #include "ui_colorpicker.h"
+#include <QElapsedTimer>
 
 #include "popup_menu/popup_menu.h"
 
@@ -15,13 +16,18 @@ ColorPicker::ColorPicker(ColorPickerConfig config, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ColorPicker)
 {
+    QElapsedTimer timer;
+    timer.start();
+
     ui->setupUi(this);
+    qDebug() << "ColorPicker UI done in" << timer.elapsed() << "ms";
 
     setConfiguration(config);
     setWindowTitle(tr("Color Picker"));
 
     setup();
     connectSlots();
+
 }
 
 ColorPicker::~ColorPicker()
@@ -173,6 +179,16 @@ ColorPickerConfig ColorPicker::configuration()
     return m_configuration;
 }
 
+void ColorPicker::setColorButton(ColorButton *button)
+{
+    m_colorButton = button;
+}
+
+ColorButton *ColorPicker::colorButton()
+{
+    return m_colorButton;
+}
+
 /* ********************************************************************************* *
  *
  * Public Slots
@@ -202,6 +218,7 @@ void ColorPicker::setColor(ScColor color)
 {
     m_color = color;
     ui->colorEdit->setColor(color);
+    ui->buttonSolid->setChecked(true);
     updatePicker(ItemFillMode::Solid);
 }
 
@@ -209,6 +226,7 @@ void ColorPicker::setGradient(VGradient gradient)
 {
     m_gradient = gradient;
     ui->gradientEdit->setGradient(gradient);
+    ui->buttonGradient->setChecked(true);
     updatePicker(ItemFillMode::Gradient);
 }
 

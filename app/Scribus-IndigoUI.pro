@@ -65,6 +65,7 @@ SOURCES += \
     src/manager/icon_manager.cpp \
     src/manager/locale_manager.cpp \
     src/manager/theme_manager.cpp \
+    src/manager/widget_manager.cpp \
     src/models/action.cpp \
     src/models/colorlist.cpp \
     src/models/colorlistmodel.cpp \
@@ -196,6 +197,7 @@ HEADERS += \
     src/manager/icon_manager.h \
     src/manager/locale_manager.h \
     src/manager/theme_manager.h \
+    src/manager/widget_manager.h \
     src/models/action.h \
     src/models/colorlist.h \
     src/models/colorlistmodel.h \

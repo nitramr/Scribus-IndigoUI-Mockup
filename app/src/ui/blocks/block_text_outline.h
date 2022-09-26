@@ -21,8 +21,6 @@ public:
 private:
     Ui::BlockTextOutline *ui;
 
-    ColorPicker * colorOutlinePicker;
-
     void setup();
     void connectSlots();
 

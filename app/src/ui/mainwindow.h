@@ -12,6 +12,7 @@ class ActionManager;
 class IconManager;
 class DockManager;
 class ThemeManager;
+class WidgetManager;
 
 class MainWindow : public QMainWindow
 {
@@ -30,10 +31,13 @@ private:
     Ui::MainWindow *ui;
 
     // Manager
+    DockManager *dockManager;
     IconManager& iconManager;
     ActionManager &actionManager;
     ThemeManager &themeManager;
-    DockManager *dockManager;
+    WidgetManager &widgetManager;
+
+
 
     void initMenu();
     void initToolBars();

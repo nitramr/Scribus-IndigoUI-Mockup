@@ -9,11 +9,10 @@ class StickyPopup : public QWidget
     Q_OBJECT
 public:   
 
-    explicit StickyPopup(QWidget * child, QWidget *parent);
+    explicit StickyPopup(QWidget * child, QWidget *parent = nullptr);
 
     ~StickyPopup();
 
-    QWidget * parent();
     QWidget * child();
 
 protected:
@@ -42,13 +41,13 @@ private:
 
     QPolygon mask();
 
-    void calculatePosition();
+    void calculatePosition(QWidget *widget);
 
 
 signals:
 
 public slots:
-    void show();
+    void show(QWidget *widget = nullptr);
     void updateSize();
 
 };

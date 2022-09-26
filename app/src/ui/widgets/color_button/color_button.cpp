@@ -7,17 +7,23 @@
 #include <render_utils.h>
 #include "colorpicker.h"
 #include "colorpicker_color.h"
-#include "colorpicker_gradient.h"
 #include "stickypopup_widget/stickypopup.h"
+#include "widget_manager.h"
 
 /* ********************************************************************************* *
  *
  * Constructor + Setup
  *
  * ********************************************************************************* */
-ColorButton::ColorButton(QWidget *parent) : QToolButton(parent)
+ColorButton::ColorButton(QWidget *parent) : ColorButton(ColorPickerConfig::Default, ColorPickerType::ColorPickerFull, parent){}
+
+ColorButton::ColorButton(ColorPickerConfig config, ColorPickerType type, QWidget *parent) : QToolButton(parent)
 {
     setFixedSize(26,26);
+    m_fillMode = ItemFillMode::Solid;
+    m_config = config;
+    setColorPickerType(type);
+
 }
 
 /* ********************************************************************************* *
@@ -58,51 +64,28 @@ QSize ColorButton::foregroundDotSize()
     return QSize(smallestSize,smallestSize);
 }
 
-void ColorButton::setContextWidget(QWidget *widget, bool isFloating)
+void ColorButton::setConfiguration(ColorPickerConfig config)
 {
+    m_config = config;
+}
 
-//    ColorPicker *colorPicker = qobject_cast<ColorPicker*>(widget);
-//    ColorPickerColor *colorPickerColor = qobject_cast<ColorPickerColor*>(widget);
-//    ColorPickerGradient *colorPickerGradient = qobject_cast<ColorPickerGradient*>(widget);
+ColorPickerConfig ColorButton::configuration()
+{
+    return m_config;
+}
 
-//    if(colorPicker){
-//        connect(colorPicker, &ColorPicker::colorChanged, this, &ColorButton::setColor);
-//        connect(colorPicker, &ColorPicker::gradientChanged, this, &ColorButton::setGradient);
-//    }
+void ColorButton::setColorPickerType(ColorPickerType type)
+{
+    m_colorPickerType = type;
 
-//    if(colorPickerColor){
-//        connect(colorPickerColor, &ColorPickerColor::colorChanged, this, &ColorButton::setColor);
-//    }
-
-//    if(colorPickerGradient){
-//        connect(colorPickerGradient, &ColorPickerGradient::gradientChanged, this, &ColorButton::setGradient);
-//    }
-
-
-    if(isFloating){
-
-        StickyPopup * stickyPopup = new StickyPopup(widget, this);
-
-        connect(this, &ColorButton::clicked, this, [stickyPopup]() {
-            if(stickyPopup->isVisible()){
-                 stickyPopup->hide();
-            }else{
-                stickyPopup->show();
-            }
-        });
-
-    }else{
-        PopupMenu * menu = new PopupMenu(widget);
-
-        this->setCheckable(true);
-        this->setMenu(menu);
-
-        connect(this, &ColorButton::toggled, this, [menu](bool t) {
-            menu->setVisible(t);
-            menu->raise();
-
-        });
-
+    switch(m_colorPickerType){
+    case ColorPickerType::ColorPickerFull:
+    case ColorPickerType::ColorPickerSolid:
+         connect(this, &QToolButton::pressed, this, &ColorButton::showContext);
+        break;
+    case ColorPickerType::None:
+         disconnect(this, &QToolButton::pressed, this, &ColorButton::showContext);
+        break;
     }
 
 }
@@ -116,6 +99,26 @@ void ColorButton::setContextWidget(QWidget *widget, bool isFloating)
 void ColorButton::renderFill(QPainter *painter, QPointF center, qreal radius, QBrush background)
 {
     RenderUtils::renderCircularHandle(painter, center, radius, background);
+}
+
+void ColorButton::setColorFromPicker(ScColor color)
+{
+    ColorPicker * colorPicker = qobject_cast<ColorPicker*>(sender());
+
+    if(colorPicker->colorButton() == this){
+        setColor(color);
+        emit colorChanged(color);
+    }
+}
+
+void ColorButton::setGradientFromPicker(VGradient gradient)
+{
+    ColorPicker * colorPicker = qobject_cast<ColorPicker*>(sender());
+
+    if(colorPicker->colorButton() == this){
+        setGradient(gradient);
+        emit gradientChanged(gradient);
+    }
 }
 
 
@@ -145,6 +148,7 @@ void ColorButton::setHasDot(bool enabled)
 void ColorButton::setColor(ScColor color)
 {
     m_color = color;
+    m_fillMode = ItemFillMode::Solid;
 
     int smallSide = backgroundDotSize().width();
     setBackground( RenderUtils::renderSplitColor(QSize(smallSide, smallSide), color.toQColor()) );
@@ -154,6 +158,7 @@ void ColorButton::setColor(ScColor color)
 void ColorButton::setGradient(VGradient gradient)
 {
     m_gradient = gradient;
+    m_fillMode = ItemFillMode::Gradient;
 
     switch(m_gradient.type()){
     default:
@@ -185,6 +190,74 @@ void ColorButton::setGradient(VGradient gradient)
         setBackground(background);
     }
         break;
+    }
+
+
+
+}
+
+void ColorButton::showContext()
+{
+
+    WidgetManager &widgetManager = WidgetManager::instance();
+
+    switch(m_colorPickerType){
+    case ColorPickerType::ColorPickerFull:{
+
+        StickyPopup *popup = widgetManager.colorPicker();
+        ColorPicker *colorPicker = qobject_cast<ColorPicker*>(popup->child());
+
+        if(colorPicker != nullptr){
+            colorPicker->setColorButton(this);
+            colorPicker->setConfiguration(m_config);
+
+            switch(m_fillMode){
+            case ItemFillMode::Solid:
+                colorPicker->setColor(m_color);
+                break;
+            case ItemFillMode::Gradient:
+                colorPicker->setGradient(m_gradient);
+                break;
+            default:
+                break;
+            }
+
+            connect(colorPicker, &ColorPicker::colorChanged, this, &ColorButton::setColorFromPicker);
+            connect(colorPicker, &ColorPicker::gradientChanged, this, &ColorButton::setGradientFromPicker);
+
+        }
+
+        popup->show(this);
+
+        break;
+    }
+    case ColorPickerType::ColorPickerSolid:{
+
+        StickyPopup *popup = widgetManager.colorPickerColor();
+
+        ColorPicker *solidColor = qobject_cast<ColorPicker*>(popup->child());
+
+        if(solidColor != nullptr){
+            solidColor->setColorButton(this);
+            solidColor->setConfiguration(m_config);
+
+            switch(m_fillMode){
+            case ItemFillMode::Solid:
+                solidColor->setColor(m_color);
+                break;
+            default:
+                break;
+            }
+
+            connect(solidColor, &ColorPicker::colorChanged, this, &ColorButton::setColorFromPicker);
+
+
+        }
+
+        popup->show(this);
+
+        break;
+    }
     }
 
 

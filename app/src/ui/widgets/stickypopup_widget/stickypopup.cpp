@@ -60,10 +60,15 @@ StickyPopup::~StickyPopup()
    // deleteLater();
 }
 
-QWidget *StickyPopup::parent()
-{
-    return qobject_cast<QWidget*>(QWidget::parent());
-}
+//QWidget *StickyPopup::parent()
+//{
+//    return qobject_cast<QWidget*>(QWidget::parent());
+//}
+
+//void StickyPopup::setParent(QWidget *widget)
+//{
+//    QWidget::setParent(widget, Qt::Window | Qt::Tool | Qt::FramelessWindowHint);
+//}
 
 QWidget *StickyPopup::child()
 {
@@ -218,11 +223,13 @@ void StickyPopup::setPointerDirection(PointerDirection direction)
 //    return result;
 //}
 
-void StickyPopup::calculatePosition()
+void StickyPopup::calculatePosition(QWidget * widget)
 {
     updateSize();
 
-    QPoint parentGlobalPos = parent()->mapToGlobal(QPoint());
+    if(widget == nullptr) return;
+
+    QPoint parentGlobalPos = widget->mapToGlobal(QPoint());
     QPoint position = parentGlobalPos;
 
     QSize screen = QGuiApplication::primaryScreen()->size();
@@ -232,10 +239,10 @@ void StickyPopup::calculatePosition()
     // Check if widget can be displayed on a side of parent
     bool canBeLeft = (parentGlobalPos.x() >= this->width() + POINTER_HEIGHT) ? true : false;
     bool canBeTop = (parentGlobalPos.y() >= this->height() + POINTER_HEIGHT) ? true : false;
-    bool canBeRight = (parentGlobalPos.x() + parent()->width() + this->width() + POINTER_HEIGHT <= screenWidth) ? true : false;
-    bool canBeBottom = (parentGlobalPos.y() + parent()->height() + this->height() + POINTER_HEIGHT <= screenHeight) ? true : false;
+    bool canBeRight = (parentGlobalPos.x() + widget->width() + this->width() + POINTER_HEIGHT <= screenWidth) ? true : false;
+    bool canBeBottom = (parentGlobalPos.y() + widget->height() + this->height() + POINTER_HEIGHT <= screenHeight) ? true : false;
 
-    //  qDebug() << "Parent:" << parentGlobalPos << "Widget:" << this->size() << "L:" << canBeLeft << "T:" << canBeTop << "R:" << canBeRight << "B:" << canBeBottom;
+    // qDebug() << "Parent:" << parentGlobalPos << "Widget:" << this->size() << "L:" << canBeLeft << "T:" << canBeTop << "R:" << canBeRight << "B:" << canBeBottom;
 
 
     // Show left (L:yes T:na R:no B:na)
@@ -248,7 +255,7 @@ void StickyPopup::calculatePosition()
     // Show Right (L:no T:na R:yes B:na)
     if(canBeRight == true){
         // setPointerDirection(PointerDirection::Left);
-        position.setX( parentGlobalPos.x() + parent()->width());
+        position.setX( parentGlobalPos.x() + widget->width());
 
     }
 
@@ -262,7 +269,7 @@ void StickyPopup::calculatePosition()
     // Show Bottom (L:yes T:no R:yes B:yes)
     if(canBeBottom == true && canBeLeft == true && canBeRight == true){
         // setPointerDirection(PointerDirection::Top);
-        position.setY( parentGlobalPos.y() + parent()->height());
+        position.setY( parentGlobalPos.y() + widget->height());
 
     }
 
@@ -271,11 +278,11 @@ void StickyPopup::calculatePosition()
 
 }
 
-void StickyPopup::show()
+void StickyPopup::show(QWidget * widget)
 {
 
-    calculatePosition();
-
+    calculatePosition(widget);
+    this->raise();
     QWidget::show();
 }
 

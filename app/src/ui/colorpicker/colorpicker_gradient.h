@@ -29,12 +29,6 @@ private:
 
     GradientType m_mode;
     VGradient m_gradient;
-    ColorPickerColor *colorPickerEdit;
-    ColorPickerColor *colorPicker4CTopLeft;
-    ColorPickerColor *colorPicker4CTopRight;
-    ColorPickerColor *colorPicker4CBottomLeft;
-    ColorPickerColor *colorPicker4CBottomRight;
-    ColorPickerColor *colorPickerMeshNode;
     ColorPickerConfig m_configuration {ColorPickerConfig::Default};
 
 
@@ -54,6 +48,8 @@ private slots:
     void updateSimpleGradientColor(ScColor color);
     void updateSimpleGradientInputPosition(double position);
     void updateSimpleGradientStep(int position);
+
+//    void colorButtonClick();
 
 public slots:
     void setGradient(VGradient gradient);

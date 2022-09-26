@@ -25,14 +25,14 @@ BlockTextOutline::~BlockTextOutline()
 
 void BlockTextOutline::setup()
 {
-    // Color Picker
-    colorOutlinePicker = new ColorPicker(ColorPickerConfig::Text);  
-    ui->buttonOutlineColor->setContextWidget(colorOutlinePicker);
+
+    // Color Buttons
+    ui->buttonOutlineColor->setConfiguration(ColorPickerConfig::Text);
 }
 
 void BlockTextOutline::connectSlots()
 {
-    connect(colorOutlinePicker, &ColorPicker::colorChanged, this, &BlockTextOutline::setOutlineColor);
+    connect(ui->buttonOutlineColor, &ColorButton::colorChanged, this, &BlockTextOutline::setOutlineColor);
 }
 
 void BlockTextOutline::setOutlineColor(ScColor color)

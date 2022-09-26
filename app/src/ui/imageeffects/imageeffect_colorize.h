@@ -32,10 +32,6 @@ private:
     Ui::ImageEffectColorize *ui;
 
     Mode m_mode;
-    ColorPicker *colorPicker1;
-    ColorPicker *colorPicker2;
-    ColorPicker *colorPicker3;
-    ColorPicker *colorPicker4;
 
     ComponentCurveWidget *curveWidget1;
     ComponentCurveWidget *curveWidget2;
@@ -51,6 +47,7 @@ private slots:
     void setColor2(ScColor color);
     void setColor3(ScColor color);
     void setColor4(ScColor color);
+
 };
 
 #endif // IMAGEEFFECT_COLORIZE_H

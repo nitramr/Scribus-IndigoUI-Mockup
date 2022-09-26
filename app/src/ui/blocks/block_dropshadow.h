@@ -21,8 +21,6 @@ public:
 private:
     Ui::BlockDropShadow *ui;
 
-    ColorPicker *colorFillPicker;
-
     void setup();
     void connectSlots();
 

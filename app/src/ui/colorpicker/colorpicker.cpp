@@ -196,24 +196,6 @@ ColorButton *ColorPicker::colorButton()
  * ********************************************************************************* */
 
 
-//void ColorPicker::setColorButton(ColorButton *button)
-//{
-//    //    PopupMenu * menu = new PopupMenu(this);
-//    //    menu->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowStaysOnTopHint);
-
-//    m_colorButton = button;
-//    //    m_colorButton->setCheckable(true);
-//    //    m_colorButton->setMenu(menu);
-
-//    //    connect(m_colorButton, &ColorButton::toggled, this, [menu](bool t) {
-//    //        menu->setVisible(t);
-
-//    //    });
-
-//    m_colorButton->setContextWidget(this);
-
-//}
-
 void ColorPicker::setColor(ScColor color)
 {
     m_color = color;
@@ -339,10 +321,12 @@ void ColorPicker::changedTab()
     switch(fillMode){
     default:
     case ItemFillMode::Solid:
+        ui->colorEdit->setColor(m_color);
         updateColor(m_color);       
 
         break;
     case ItemFillMode::Gradient:
+        ui->gradientEdit->setGradient(m_gradient);
         updateGradient(m_gradient);
 
         break;

@@ -81,10 +81,10 @@ void ColorButton::setColorPickerType(ColorPickerType type)
     switch(m_colorPickerType){
     case ColorPickerType::ColorPickerFull:
     case ColorPickerType::ColorPickerSolid:
-         connect(this, &QToolButton::pressed, this, &ColorButton::showContext);
+        connect(this, &QToolButton::pressed, this, &ColorButton::showContext);
         break;
     case ColorPickerType::None:
-         disconnect(this, &QToolButton::pressed, this, &ColorButton::showContext);
+        disconnect(this, &QToolButton::pressed, this, &ColorButton::showContext);
         break;
     }
 
@@ -201,10 +201,21 @@ void ColorButton::showContext()
 
     WidgetManager &widgetManager = WidgetManager::instance();
 
+    StickyPopup *popup;
+
     switch(m_colorPickerType){
     case ColorPickerType::ColorPickerFull:{
+        popup = widgetManager.colorPicker();
+        break;
+    }
+    default:
+    case ColorPickerType::ColorPickerSolid:{
+        popup = widgetManager.colorPickerColor();
+        break;
+    }
+    }
 
-        StickyPopup *popup = widgetManager.colorPicker();
+    if(popup != nullptr){
         ColorPicker *colorPicker = qobject_cast<ColorPicker*>(popup->child());
 
         if(colorPicker != nullptr){
@@ -228,37 +239,68 @@ void ColorButton::showContext()
         }
 
         popup->show(this);
-
-        break;
     }
-    case ColorPickerType::ColorPickerSolid:{
-
-        StickyPopup *popup = widgetManager.colorPickerColor();
-
-        ColorPicker *solidColor = qobject_cast<ColorPicker*>(popup->child());
-
-        if(solidColor != nullptr){
-            solidColor->setColorButton(this);
-            solidColor->setConfiguration(m_config);
-
-            switch(m_fillMode){
-            case ItemFillMode::Solid:
-                solidColor->setColor(m_color);
-                break;
-            default:
-                break;
-            }
-
-            connect(solidColor, &ColorPicker::colorChanged, this, &ColorButton::setColorFromPicker);
 
 
-        }
 
-        popup->show(this);
+    //    switch(m_colorPickerType){
+    //    case ColorPickerType::ColorPickerFull:{
 
-        break;
-    }
-    }
+    //        StickyPopup *popup = widgetManager.colorPicker();
+    //        ColorPicker *colorPicker = qobject_cast<ColorPicker*>(popup->child());
+
+    //        if(colorPicker != nullptr){
+    //            colorPicker->setColorButton(this);
+    //            colorPicker->setConfiguration(m_config);
+
+    //            switch(m_fillMode){
+    //            case ItemFillMode::Solid:
+    //                colorPicker->setColor(m_color);
+    //                break;
+    //            case ItemFillMode::Gradient:
+    //                colorPicker->setGradient(m_gradient);
+    //                break;
+    //            default:
+    //                break;
+    //            }
+
+    //            connect(colorPicker, &ColorPicker::colorChanged, this, &ColorButton::setColorFromPicker);
+    //            connect(colorPicker, &ColorPicker::gradientChanged, this, &ColorButton::setGradientFromPicker);
+
+    //        }
+
+    //        popup->show(this);
+
+    //        break;
+    //    }
+    //    case ColorPickerType::ColorPickerSolid:{
+
+    //        StickyPopup *popup = widgetManager.colorPickerColor();
+
+    //        ColorPicker *solidColor = qobject_cast<ColorPicker*>(popup->child());
+
+    //        if(solidColor != nullptr){
+    //            solidColor->setColorButton(this);
+    //            solidColor->setConfiguration(m_config);
+
+    //            switch(m_fillMode){
+    //            case ItemFillMode::Solid:
+    //                solidColor->setColor(m_color);
+    //                break;
+    //            default:
+    //                break;
+    //            }
+
+    //            connect(solidColor, &ColorPicker::colorChanged, this, &ColorButton::setColorFromPicker);
+
+
+    //        }
+
+    //        popup->show(this);
+
+    //        break;
+    //    }
+    //    }
 
 
 

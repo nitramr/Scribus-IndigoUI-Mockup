@@ -21,6 +21,7 @@ public:
 //    void resizeEvent(QResizeEvent *e);
 
     void setActiveStopColor(const ScColor& c);
+    ScColor activeStopColor();
 
     void setActiveStopPosition(double t);
 

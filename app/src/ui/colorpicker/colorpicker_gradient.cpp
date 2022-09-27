@@ -3,7 +3,7 @@
 #include "ui_colorpicker_gradient.h"
 #include "popup_menu/popup_menu.h"
 #include "enums.h"
-#include <QElapsedTimer>
+//#include <QElapsedTimer>
 
 /* ********************************************************************************* *
  *
@@ -15,9 +15,9 @@ ColorPickerGradient::ColorPickerGradient(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ColorPickerGradient)
 {
-//    QElapsedTimer timer;
-//    timer.start();
-//    qDebug() << "ColorPicker Gradient start" << timer.elapsed() << "ms";
+    //    QElapsedTimer timer;
+    //    timer.start();
+    //    qDebug() << "ColorPicker Gradient start" << timer.elapsed() << "ms";
 
     ui->setupUi(this);
 
@@ -26,7 +26,7 @@ ColorPickerGradient::ColorPickerGradient(QWidget *parent) :
     setup();
     connectSlots();
 
- //   qDebug() << "ColorPicker Gradient initialize in" << timer.elapsed() << "ms";
+    //   qDebug() << "ColorPicker Gradient initialize in" << timer.elapsed() << "ms";
 }
 
 ColorPickerGradient::~ColorPickerGradient()
@@ -53,13 +53,13 @@ void ColorPickerGradient::setup()
     ui->buttonAddGradient->setIcon(iconManager.icon("add"));
 
     // Picker Type
-    ui->comboType->addItem(tr("Linear"), QVariant::fromValue(GradientType::Linear));
-    ui->comboType->addItem(tr("Radial"), QVariant::fromValue(GradientType::Radial));
-    ui->comboType->addItem(tr("Conical"), QVariant::fromValue(GradientType::Conical));
-    ui->comboType->addItem(tr("Diamond"), QVariant::fromValue(GradientType::Diamond));
-    ui->comboType->addItem(tr("4 Colors"), QVariant::fromValue(GradientType::FourColors));
-    ui->comboType->addItem(tr("Mesh"), QVariant::fromValue(GradientType::Mesh));
-    ui->comboType->addItem(tr("Patch Mesh"), QVariant::fromValue(GradientType::PatchMesh));
+    ui->comboType->addItem(tr("Linear"),        QVariant::fromValue(GradientType::Linear));
+    ui->comboType->addItem(tr("Radial"),        QVariant::fromValue(GradientType::Radial));
+    ui->comboType->addItem(tr("Conical"),       QVariant::fromValue(GradientType::Conical));
+    ui->comboType->addItem(tr("Diamond"),       QVariant::fromValue(GradientType::Diamond));
+    ui->comboType->addItem(tr("4 Colors"),      QVariant::fromValue(GradientType::FourColors));
+    ui->comboType->addItem(tr("Mesh"),          QVariant::fromValue(GradientType::Mesh));
+    ui->comboType->addItem(tr("Patch Mesh"),    QVariant::fromValue(GradientType::PatchMesh));
 
     // Color Buttons
     ui->buttonColor->setConfiguration(ColorPickerConfig::Text);
@@ -88,49 +88,45 @@ void ColorPickerGradient::setup()
 void ColorPickerGradient::connectSlots()
 {
 
-    connect(ui->comboType, &QComboBox::currentIndexChanged, this, &ColorPickerGradient::changeSelectorMode);
+    connect(ui->comboType,              &QComboBox::currentIndexChanged, this, &ColorPickerGradient::changeSelectorMode);
 
-    connect(ui->gradientEdit, &GradientEdit::selectedColor, this, &ColorPickerGradient::updateSimpleGradientColor);
-    connect(ui->gradientEdit, &GradientEdit::selectedPosition, this, &ColorPickerGradient::updateSimpleGradientInputPosition);
+    connect(ui->gradientEdit,           &GradientEdit::selectedColor, this, &ColorPickerGradient::updateGradientColor);
+    connect(ui->gradientEdit,           &GradientEdit::selectedPosition, this, &ColorPickerGradient::updateSimpleGradientInputPosition);
 
-    connect(ui->numberPosition, &QSpinBox::valueChanged, this, &ColorPickerGradient::updateSimpleGradientStep);
+    connect(ui->numberPosition,         &QSpinBox::valueChanged, this, &ColorPickerGradient::updateSimpleGradientStep);
 
-    connect(ui->buttonColor, &ColorButton::colorChanged, this, &ColorPickerGradient::updateSimpleGradientColor);
-    connect(ui->buttonMeshNode, &ColorButton::colorChanged, this, &ColorPickerGradient::updateMeshNodeGradientColor);
-    connect(ui->button4CTopLeft, &ColorButton::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
-    connect(ui->button4CTopRight, &ColorButton::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
-    connect(ui->button4CBottomLeft, &ColorButton::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
-    connect(ui->button4CBottomRight, &ColorButton::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
-
-//    connect(ui->buttonColor, &QToolButton::clicked, this, &ColorPickerGradient::colorButtonClick);
-//    connect(ui->buttonMeshNode, &QToolButton::clicked, this, &ColorPickerGradient::colorButtonClick);
+    connect(ui->buttonColor,            &ColorButton::colorChanged, this, &ColorPickerGradient::updateGradientColor);
+    connect(ui->buttonMeshNode,         &ColorButton::colorChanged, this, &ColorPickerGradient::updateGradientColor);
+    connect(ui->button4CTopLeft,        &ColorButton::colorChanged, this, &ColorPickerGradient::updateGradientColor);
+    connect(ui->button4CTopRight,       &ColorButton::colorChanged, this, &ColorPickerGradient::updateGradientColor);
+    connect(ui->button4CBottomLeft,     &ColorButton::colorChanged, this, &ColorPickerGradient::updateGradientColor);
+    connect(ui->button4CBottomRight,    &ColorButton::colorChanged, this, &ColorPickerGradient::updateGradientColor);
 
     // Sections
-    connect(ui->sectionGradient,      &SectionContainer::collapsedState, this, &ColorPickerGradient::changeSize);
-    connect(ui->sectionSwatches,    &SectionContainer::collapsedState, this, &ColorPickerGradient::changeSize);
+    connect(ui->sectionGradient,        &SectionContainer::collapsedState, this, &ColorPickerGradient::changeSize);
+    connect(ui->sectionSwatches,        &SectionContainer::collapsedState, this, &ColorPickerGradient::changeSize);
 
-    // connect(ui->buttonColor, &QToolButton::pressed, this, &ColorPickerGradient::openColorPicker);
 }
 
 void ColorPickerGradient::disconnectSlots()
 {
-    disconnect(ui->comboType, &QComboBox::currentIndexChanged, this, &ColorPickerGradient::changeSelectorMode);
+    disconnect(ui->comboType,           &QComboBox::currentIndexChanged, this, &ColorPickerGradient::changeSelectorMode);
 
-    disconnect(ui->gradientEdit, &GradientEdit::selectedColor, this, &ColorPickerGradient::updateSimpleGradientColor);
-    disconnect(ui->gradientEdit, &GradientEdit::selectedPosition, this, &ColorPickerGradient::updateSimpleGradientInputPosition);
+    disconnect(ui->gradientEdit,        &GradientEdit::selectedColor, this, &ColorPickerGradient::updateGradientColor);
+    disconnect(ui->gradientEdit,        &GradientEdit::selectedPosition, this, &ColorPickerGradient::updateSimpleGradientInputPosition);
 
-    disconnect(ui->numberPosition, &QSpinBox::valueChanged, this, &ColorPickerGradient::updateSimpleGradientStep);
+    disconnect(ui->numberPosition,      &QSpinBox::valueChanged, this, &ColorPickerGradient::updateSimpleGradientStep);
 
-    disconnect(ui->buttonColor, &ColorButton::colorChanged, this, &ColorPickerGradient::updateSimpleGradientColor);
-    disconnect(ui->buttonMeshNode, &ColorButton::colorChanged, this, &ColorPickerGradient::updateMeshNodeGradientColor);
-    disconnect(ui->button4CTopLeft, &ColorButton::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
-    disconnect(ui->button4CTopRight, &ColorButton::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
-    disconnect(ui->button4CBottomLeft, &ColorButton::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
-    disconnect(ui->button4CBottomRight, &ColorButton::colorChanged, this, &ColorPickerGradient::update4ColorGradientColor);
+    disconnect(ui->buttonColor,         &ColorButton::colorChanged, this, &ColorPickerGradient::updateGradientColor);
+    disconnect(ui->buttonMeshNode,      &ColorButton::colorChanged, this, &ColorPickerGradient::updateGradientColor);
+    disconnect(ui->button4CTopLeft,     &ColorButton::colorChanged, this, &ColorPickerGradient::updateGradientColor);
+    disconnect(ui->button4CTopRight,    &ColorButton::colorChanged, this, &ColorPickerGradient::updateGradientColor);
+    disconnect(ui->button4CBottomLeft,  &ColorButton::colorChanged, this, &ColorPickerGradient::updateGradientColor);
+    disconnect(ui->button4CBottomRight, &ColorButton::colorChanged, this, &ColorPickerGradient::updateGradientColor);
 
     // Sections
-    disconnect(ui->sectionGradient,      &SectionContainer::collapsedState, this, &ColorPickerGradient::changeSize);
-    disconnect(ui->sectionSwatches,    &SectionContainer::collapsedState, this, &ColorPickerGradient::changeSize);
+    disconnect(ui->sectionGradient,     &SectionContainer::collapsedState, this, &ColorPickerGradient::changeSize);
+    disconnect(ui->sectionSwatches,     &SectionContainer::collapsedState, this, &ColorPickerGradient::changeSize);
 
 }
 
@@ -158,19 +154,19 @@ void ColorPickerGradient::setConfiguration(ColorPickerConfig config)
 
     case ColorPickerConfig::Stroke:
     case ColorPickerConfig::FillMask:
-        ui->comboType->addItem(tr("Linear"), QVariant::fromValue(GradientType::Linear));
-        ui->comboType->addItem(tr("Radial"), QVariant::fromValue(GradientType::Radial));
+        ui->comboType->addItem(tr("Linear"),        QVariant::fromValue(GradientType::Linear));
+        ui->comboType->addItem(tr("Radial"),        QVariant::fromValue(GradientType::Radial));
         ui->comboType->setCurrentIndex(0);
         break;
 
     case ColorPickerConfig::Fill:
-        ui->comboType->addItem(tr("Linear"), QVariant::fromValue(GradientType::Linear));
-        ui->comboType->addItem(tr("Radial"), QVariant::fromValue(GradientType::Radial));
-        ui->comboType->addItem(tr("Conical"), QVariant::fromValue(GradientType::Conical));
-        ui->comboType->addItem(tr("Diamond"), QVariant::fromValue(GradientType::Diamond));
-        ui->comboType->addItem(tr("4 Colors"), QVariant::fromValue(GradientType::FourColors));
-        ui->comboType->addItem(tr("Mesh"), QVariant::fromValue(GradientType::Mesh));
-        ui->comboType->addItem(tr("Patch Mesh"), QVariant::fromValue(GradientType::PatchMesh));
+        ui->comboType->addItem(tr("Linear"),        QVariant::fromValue(GradientType::Linear));
+        ui->comboType->addItem(tr("Radial"),        QVariant::fromValue(GradientType::Radial));
+        ui->comboType->addItem(tr("Conical"),       QVariant::fromValue(GradientType::Conical));
+        ui->comboType->addItem(tr("Diamond"),       QVariant::fromValue(GradientType::Diamond));
+        ui->comboType->addItem(tr("4 Colors"),      QVariant::fromValue(GradientType::FourColors));
+        ui->comboType->addItem(tr("Mesh"),          QVariant::fromValue(GradientType::Mesh));
+        ui->comboType->addItem(tr("Patch Mesh"),    QVariant::fromValue(GradientType::PatchMesh));
         ui->comboType->setCurrentIndex(0);
         break;
     case ColorPickerConfig::StrokeMask:
@@ -181,9 +177,11 @@ void ColorPickerGradient::setConfiguration(ColorPickerConfig config)
         break;
     }
 
-
-
     connectSlots();
+
+    // set right mode after combobox reset
+    m_mode = static_cast<GradientType>(ui->comboType->currentData(Qt::UserRole).toInt());
+    changeUI();
 }
 
 ColorPickerConfig ColorPickerGradient::configuration()
@@ -214,7 +212,7 @@ void ColorPickerGradient::changeUI()
     case GradientType::Mesh:
     case GradientType::PatchMesh:
         ui->stackGradientPicker->setCurrentIndex(2);
-        break;    
+        break;
     }
 
 }
@@ -233,14 +231,17 @@ void ColorPickerGradient::createGradient()
         break;
     case GradientType::FourColors:{
 
+        // Add colors clockwise
         VGradient gradient4Color(GradientType::FourColors);
+        gradient4Color.clearStops(); // delete default stops
+
         ScColor col = ui->button4CTopLeft->color();
         gradient4Color.addStop(col, .0, .5, col.alphaF(), col.name());
         col = ui->button4CTopRight->color();
         gradient4Color.addStop(col, 1. / 3, .5, col.alphaF(), col.name());
-        col = ui->button4CBottomLeft->color();
-        gradient4Color.addStop(col, 1. / 3 * 2, .5, col.alphaF(), col.name());
         col = ui->button4CBottomRight->color();
+        gradient4Color.addStop(col, 1. / 3 * 2, .5, col.alphaF(), col.name());
+        col = ui->button4CBottomLeft->color();
         gradient4Color.addStop(col, 1., .5, col.alphaF(), col.name());
 
         m_gradient = gradient4Color;
@@ -259,6 +260,49 @@ void ColorPickerGradient::createGradient()
 
 }
 
+void ColorPickerGradient::updateGradientControls()
+{
+    switch(m_mode){
+    default:
+    case GradientType::Linear:
+    case GradientType::Radial:
+    case GradientType::Conical:
+    case GradientType::Diamond:
+
+        ui->gradientEdit->setGradient(m_gradient);
+        ui->buttonColor->setColor(ui->gradientEdit->activeStopColor());
+
+        break;
+    case GradientType::FourColors:{
+
+        int size = m_gradient.colorStops().size();
+
+        // Get color clockwise
+        if( size > 0 ){
+            ui->button4CTopLeft->setColor(m_gradient.colorStops().at(0)->color);
+        }
+        if( size > 1 ){
+            ui->button4CTopRight->setColor(m_gradient.colorStops().at(1)->color);
+        }
+        if( size > 2 ){
+            ui->button4CBottomRight->setColor(m_gradient.colorStops().at(2)->color);
+        }
+        if( size > 3 ){
+            ui->button4CBottomLeft->setColor(m_gradient.colorStops().at(3)->color);
+        }
+
+
+    }
+        break;
+    case GradientType::Mesh:
+        // TODO: set Gradient (m_gradient)
+        break;
+    case GradientType::PatchMesh:
+        // TODO: set Gradient (m_gradient)
+        break;
+    }
+}
+
 /* ********************************************************************************* *
  *
  * Private Slots
@@ -268,43 +312,23 @@ void ColorPickerGradient::createGradient()
 void ColorPickerGradient::changeSelectorMode()
 {
     m_mode = static_cast<GradientType>(ui->comboType->currentData(Qt::UserRole).toInt());
+
+    disconnectSlots();
+    updateGradientControls();
+    connectSlots();
+
     changeUI();
     createGradient();
     emit gradientChanged(m_gradient);
 }
 
 
-void ColorPickerGradient::openColorPicker()
-{
-    // colorPickerEdit->setColor(ui->gradientPreview.)
-}
-
-void ColorPickerGradient::update4ColorGradientColor(ScColor color)
-{
-//    if( ui->button4CTopLeft        == qobject_cast<ColorPickerColor*>(sender()) )   ui->button4CTopLeft->setColor(color);
-//    if( ui->button4CTopRight       == qobject_cast<ColorPickerColor*>(sender()) )   ui->button4CTopRight->setColor(color);
-//    if( ui->button4CBottomLeft     == qobject_cast<ColorPickerColor*>(sender()) )   ui->button4CBottomLeft->setColor(color);
-//    if( ui->button4CBottomRight    == qobject_cast<ColorPickerColor*>(sender()) )   ui->button4CBottomRight->setColor(color);
-
-    createGradient();
-    emit gradientChanged(m_gradient);
-}
-
-void ColorPickerGradient::updateMeshNodeGradientColor(ScColor color)
-{
-    ui->buttonMeshNode->setColor(color);
-
-    createGradient();
-    emit gradientChanged(m_gradient);
-}
-
-void ColorPickerGradient::updateSimpleGradientColor(ScColor color)
+void ColorPickerGradient::updateGradientColor(ScColor color)
 {
 
- //   if( colorPickerEdit            != qobject_cast<ColorPickerColor*>(sender()) )   colorPickerEdit->setColor(color);
-    if( ui->gradientEdit           != qobject_cast<GradientEdit*>(sender()) )       ui->gradientEdit->setActiveStopColor(color);
+    if( ui->gradientEdit  != qobject_cast<GradientEdit*>(sender()) ) ui->gradientEdit->setActiveStopColor(color);
+    if( ui->gradientEdit  == qobject_cast<GradientEdit*>(sender()) ) ui->buttonColor->setColor(color);
 
-  //  ui->buttonColor->setColor(color);
 
     createGradient();
     emit gradientChanged(m_gradient);
@@ -330,9 +354,21 @@ void ColorPickerGradient::updateSimpleGradientStep(int position)
 
 void ColorPickerGradient::setGradient(VGradient gradient)
 {
+
     m_gradient = gradient;
-    m_mode = gradient.type();
+
+    GradientType gradType = gradient.type();
+    int index = ui->comboType->findData(QVariant::fromValue(gradType));
+
+    if ( index != -1 ) {
+        ui->comboType->setCurrentIndex(index);
+        m_mode = gradType;
+    }
+
+    disconnectSlots();
+    updateGradientControls();
     changeUI();
+    connectSlots();
 }
 
 void ColorPickerGradient::changeSize()

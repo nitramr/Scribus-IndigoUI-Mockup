@@ -449,6 +449,15 @@ void GradientEdit::setActiveStopColor(const ScColor &c)
     repaint();
 }
 
+ScColor GradientEdit::activeStopColor()
+{
+    if (m_activeStop == -1)
+        return ScColor();
+
+    return fill_gradient.colorStops().at(m_activeStop)->color;
+
+}
+
 void GradientEdit::setActiveStopPosition(double t)
 {
     if (m_activeStop == -1)
@@ -458,6 +467,7 @@ void GradientEdit::setActiveStopPosition(double t)
 
     repaint();
 }
+
 
 void GradientEdit::setIsEditable(bool isEditable)
 {

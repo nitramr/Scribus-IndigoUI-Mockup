@@ -37,15 +37,12 @@ private:
     void disconnectSlots();
     void changeUI();
     void createGradient();
+    void updateGradientControls();
 
 private slots:
     void changeSelectorMode();    
 
-    void openColorPicker();
-
-    void update4ColorGradientColor(ScColor color);
-    void updateMeshNodeGradientColor(ScColor color);
-    void updateSimpleGradientColor(ScColor color);
+    void updateGradientColor(ScColor color);
     void updateSimpleGradientInputPosition(double position);
     void updateSimpleGradientStep(int position);
 

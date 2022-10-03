@@ -8,17 +8,18 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
-class ActionManager;
+class MenuManager;
 class IconManager;
 class DockManager;
 class ThemeManager;
 class WidgetManager;
+class ToolbarManager;
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-    friend class ActionManager;
+    friend class MenuManager;
 
 public:
     MainWindow(QWidget *parent = nullptr);
@@ -32,10 +33,11 @@ private:
 
     // Manager
     DockManager *dockManager;
-    IconManager& iconManager;
-    ActionManager &actionManager;
+    IconManager &iconManager;
+    MenuManager &menuManager;
     ThemeManager &themeManager;
     WidgetManager &widgetManager;
+    ToolbarManager &toolbarManager;
 
 
 

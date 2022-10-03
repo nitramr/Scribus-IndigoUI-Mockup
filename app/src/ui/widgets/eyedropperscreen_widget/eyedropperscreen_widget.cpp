@@ -12,6 +12,7 @@ EyeDropperScreenWidget::EyeDropperScreenWidget(QWidget *parent)
     m_zoomFactor = 12;
     m_magnifierSize = QSize(120, 120); // this must be a multiple of zoom factor
     m_grid = true;
+    m_drawMagnifier = false;
 }
 
 /* ********************************************************************************* *
@@ -24,7 +25,7 @@ void EyeDropperScreenWidget::show()
 {
     takeScreenshot();
     setGeometry(m_screenshot.rect());
-
+    m_drawMagnifier = false;
     QWidget::show();
 }
 
@@ -42,59 +43,63 @@ void EyeDropperScreenWidget::paintEvent(QPaintEvent *e)
     QPainter painter(this);
     painter.drawPixmap(rect(), m_screenshot);
 
-    // Magnifier mask
-    QPainterPath mask;
-    mask.addEllipse(magnifierRect());
+    if(m_drawMagnifier){
 
-    // Magnifier zoom pixmap
-    QPixmap pixmapZoom;
-    pixmapZoom = m_screenshot.copy(magnifierRect(m_zoomFactor));
-    pixmapZoom.scaled(magnifierRect().size());
+        // Magnifier mask
+        QPainterPath mask;
+        mask.addEllipse(magnifierRect());
 
-    painter.setClipPath(mask);
-    painter.drawPixmap(magnifierRect(), pixmapZoom);
+        // Magnifier zoom pixmap
+        QPixmap pixmapZoom;
+        pixmapZoom = m_screenshot.copy(magnifierRect(m_zoomFactor));
+        pixmapZoom.scaled(magnifierRect().size());
 
-    // Magnifier pixel grid
-    if(m_grid){
+        painter.setClipPath(mask);
+        painter.drawPixmap(magnifierRect(), pixmapZoom);
 
-        QRect gridRect = magnifierRect();
+        // Magnifier pixel grid
+        if(m_grid){
 
-        QVarLengthArray<QLineF, 1> lines;
-        for (int x = gridRect.left(); x < gridRect.right(); x += m_zoomFactor)
-            lines.append(QLineF(x, gridRect.top(), x, gridRect.bottom()));
+            QRect gridRect = magnifierRect();
 
-        for (int y = gridRect.top(); y < gridRect.bottom(); y += m_zoomFactor)
-            lines.append(QLineF(gridRect.left(), y, gridRect.right(), y));
+            QVarLengthArray<QLineF, 1> lines;
+            for (int x = gridRect.left(); x < gridRect.right(); x += m_zoomFactor)
+                lines.append(QLineF(x, gridRect.top(), x, gridRect.bottom()));
 
-        QColor gridColor(128,128,128);
-        gridColor.setAlphaF(0.2);
+            for (int y = gridRect.top(); y < gridRect.bottom(); y += m_zoomFactor)
+                lines.append(QLineF(gridRect.left(), y, gridRect.right(), y));
 
-        painter.setPen(gridColor);
-        painter.drawLines(lines.data(), lines.size());
+            QColor gridColor(128,128,128);
+            gridColor.setAlphaF(0.2);
+
+            painter.setPen(gridColor);
+            painter.drawLines(lines.data(), lines.size());
+
+        }
+
+        painter.setClipping(false);
+
+        // Magnifier border
+        painter.setRenderHint(QPainter::Antialiasing, true);
+        painter.setPen(QPen(Qt::black, 2));
+        painter.drawEllipse(magnifierRect().adjusted(-1, -1, 1, 1));
+        painter.setPen(QPen(Qt::white, 2));
+        painter.drawEllipse(magnifierRect());
+
+        // Magnifier color label
+        QFont m_labelFont(font());
+        m_labelFont.setPointSize(8);
+        QString m_labelText = QString("%1, %2, %3").arg(m_color.red()).arg(m_color.green()).arg(m_color.blue());
+        QRect m_labelRect = labelRect(m_labelFont, m_labelText);
+
+        painter.setFont(m_labelFont);
+        painter.setBrush(palette().color(QPalette::Window));
+        painter.setPen(Qt::NoPen);
+        painter.drawRoundedRect(m_labelRect, 2, 2);
+        painter.setPen(palette().color(QPalette::WindowText));
+        painter.drawText(m_labelRect, Qt::AlignVCenter | Qt::AlignCenter, m_labelText);
 
     }
-
-    painter.setClipping(false);
-
-    // Magnifier border
-    painter.setRenderHint(QPainter::Antialiasing, true);
-    painter.setPen(QPen(Qt::black, 2));
-    painter.drawEllipse(magnifierRect().adjusted(-1, -1, 1, 1));
-    painter.setPen(QPen(Qt::white, 2));
-    painter.drawEllipse(magnifierRect());
-
-    // Magnifier color label
-    QFont m_labelFont(font());
-    m_labelFont.setPointSize(8);
-    QString m_labelText = QString("%1, %2, %3").arg(m_color.red()).arg(m_color.green()).arg(m_color.blue());
-    QRect m_labelRect = labelRect(m_labelFont, m_labelText);
-
-    painter.setFont(m_labelFont);
-    painter.setBrush(palette().color(QPalette::Window));
-    painter.setPen(Qt::NoPen);
-    painter.drawRoundedRect(m_labelRect, 2, 2);
-    painter.setPen(palette().color(QPalette::WindowText));
-    painter.drawText(m_labelRect, Qt::AlignVCenter | Qt::AlignCenter, m_labelText);
 
     painter.end();
 }
@@ -105,13 +110,14 @@ void EyeDropperScreenWidget::mouseReleaseEvent(QMouseEvent *m)
     m_color = grabScreenColor(m->pos());
     emit screenColor(m_color);
 
-    this->hide();
+    hide();
 }
 
 void EyeDropperScreenWidget::mouseMoveEvent(QMouseEvent *m)
 {
-    m_MousePos = m->pos();
+    m_mousePos = m->pos();
     m_color = grabScreenColor(m->pos());
+    m_drawMagnifier = true;
     update();
 }
 
@@ -177,13 +183,12 @@ void EyeDropperScreenWidget::takeScreenshot()
 
 }
 
-
 const QRect EyeDropperScreenWidget::magnifierRect(int zoomFactor)
 {
     zoomFactor = qBound(1, zoomFactor, 16);
 
-    int xPos = qBound(0, m_MousePos.x(), m_screenshot.width());
-    int yPos = qBound(0, m_MousePos.y(), m_screenshot.height());
+    int xPos = qBound(0, m_mousePos.x(), m_screenshot.width());
+    int yPos = qBound(0, m_mousePos.y(), m_screenshot.height());
 
 
     return QRect(

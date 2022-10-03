@@ -20,8 +20,8 @@ ColorButton::ColorButton(QWidget *parent) : ColorButton(ColorPickerConfig::Defau
 ColorButton::ColorButton(ColorPickerConfig config, ColorPickerType type, QWidget *parent) : QToolButton(parent)
 {
     setFixedSize(26,26);
-    m_fillMode = ItemFillMode::Solid;
-    m_config = config;
+    setColor( ScColor(128,128,128) );
+    setConfiguration(config);
     setColorPickerType(type);
 
 }

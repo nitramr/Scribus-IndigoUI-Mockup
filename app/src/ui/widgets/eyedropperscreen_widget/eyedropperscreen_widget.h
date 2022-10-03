@@ -17,7 +17,6 @@ public:
 public slots:
     void show();
 
-
 private:
 
     struct screenshotData {
@@ -26,11 +25,12 @@ private:
     };
 
     QPixmap m_screenshot;
-    QPoint m_MousePos;
+    QPoint m_mousePos;
     int m_zoomFactor;
     QSize m_magnifierSize;
     QColor m_color;
     bool m_grid;
+    bool m_drawMagnifier;
 
     const QRect magnifierRect(int zoomFactor = 1);
     const QRect labelRect(QFont font, QString text);

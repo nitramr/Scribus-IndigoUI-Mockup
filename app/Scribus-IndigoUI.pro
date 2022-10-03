@@ -44,7 +44,8 @@ INCLUDEPATH += \
     $$PWD/src/ui/dialogs \
     $$PWD/src/ui/docks \
     $$PWD/src/ui/imageeffects \
-    $$PWD/src/ui/panels \    
+    $$PWD/src/ui/panels \
+    $$PWD/src/ui/toolbars \
     $$PWD/src/ui/widgets \
     $$PWD/src/ui/widgets/_combobox \
     $$PWD/src/utils
@@ -58,13 +59,14 @@ SOURCES += \
     src/color/colorspace.cpp \
     src/document/scribusdoc.cpp \
     src/main.cpp \
-    src/manager/action_manager.cpp \
     src/manager/configuration_manager.cpp \
     src/manager/dirpaths_manager.cpp \
     src/manager/dock_manager.cpp \
     src/manager/icon_manager.cpp \
     src/manager/locale_manager.cpp \
+    src/manager/menu_manager.cpp \
     src/manager/theme_manager.cpp \
+    src/manager/toolbar_manager.cpp \
     src/manager/widget_manager.cpp \
     src/models/action.cpp \
     src/models/colorlist.cpp \
@@ -140,8 +142,11 @@ SOURCES += \
     src/ui/panels/panel_layers.cpp \
     src/ui/panels/panel_outliner.cpp \
     src/ui/panels/panel_pages.cpp \
-    src/ui/panels/panel_test.cpp \
+    src/ui/panels/panel_toolproperties.cpp \
     src/ui/splashscreen.cpp \
+    src/ui/toolbars/toolbarproperty.cpp \
+    src/ui/toolbars/toolbarproperty_arc.cpp \
+    src/ui/toolbars/toolbarproperty_empty.cpp \
     src/ui/widgets/advanced_spinbox/advanced_spinbox.cpp \
     src/ui/widgets/anglepicker/anglepicker.cpp \
     src/ui/widgets/basepoint_widget/basepoint_widget.cpp \
@@ -190,13 +195,14 @@ HEADERS += \
     src/color/colorconverter.h \
     src/color/colorspace.h \
     src/document/scribusdoc.h \
-    src/manager/action_manager.h \
     src/manager/configuration_manager.h \
     src/manager/dirpaths_manager.h \
     src/manager/dock_manager.h \
     src/manager/icon_manager.h \
     src/manager/locale_manager.h \
+    src/manager/menu_manager.h \
     src/manager/theme_manager.h \
+    src/manager/toolbar_manager.h \
     src/manager/widget_manager.h \
     src/models/action.h \
     src/models/colorlist.h \
@@ -279,8 +285,11 @@ HEADERS += \
     src/ui/panels/panel_layers.h \
     src/ui/panels/panel_outliner.h \
     src/ui/panels/panel_pages.h \
-    src/ui/panels/panel_test.h \
+    src/ui/panels/panel_toolproperties.h \
     src/ui/splashscreen.h \
+    src/ui/toolbars/toolbarproperty.h \
+    src/ui/toolbars/toolbarproperty_arc.h \
+    src/ui/toolbars/toolbarproperty_empty.h \
     src/ui/widgets/advanced_spinbox/advanced_spinbox.h \
     src/ui/widgets/anglepicker/anglepicker.h \
     src/ui/widgets/basepoint_widget/basepoint_widget.h \
@@ -383,7 +392,7 @@ FORMS += \
     src/ui/panels/panel_layers.ui \
     src/ui/panels/panel_outliner.ui \
     src/ui/panels/panel_pages.ui \
-    src/ui/panels/panel_test.ui
+    src/ui/panels/panel_toolproperties.ui
 
 TRANSLATIONS += \
     Scribus-IndigoUI_en_US.ts

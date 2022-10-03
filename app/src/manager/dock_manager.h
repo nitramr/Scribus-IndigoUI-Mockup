@@ -11,7 +11,7 @@
 #include "panel_layers.h"
 #include "panel_outliner.h"
 #include "panel_pages.h"
-#include "panel_test.h"
+#include "panel_toolproperties.h"
 
 
 class DockManager : public ads::CDockManager
@@ -37,6 +37,7 @@ private:
     DockPanelBase * dockPages;
     DockPanelBase * dockOutliner;
     DockPanelBase * dockAlignDistribute;
+//    DockPanelBase * dockToolProperties;
 
     PanelFrame * panelFrame;
     PanelContent * panelContent;
@@ -44,8 +45,6 @@ private:
     PanelLayers * panelLayers;
     PanelOutliner * panelOutliner;
     PanelAlignDistribute * panelAlignDistribute;
-
-    //DockBase * dockTest;
 
     void setupDocks();
     void setupMenus(QMenu *menu);

@@ -41,7 +41,7 @@ public:
     void rebuildCache();
     bool createCache();
 
-    bool setup();
+    bool setup(bool forDarkMode = false);
 
     QCursor cursor(const QString& name, int hotX = -1, int hotY = -1);
     QIcon icon(const QString& name);

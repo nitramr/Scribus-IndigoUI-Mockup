@@ -41,8 +41,11 @@ IconManager& IconManager::instance()
 }
 
 
-bool IconManager::setup()
+bool IconManager::setup(bool forDarkMode)
 {
+
+    m_forDarkMode = forDarkMode;
+
     if (!initIconSets())
     {
         qWarning()<<"No icons found :(";

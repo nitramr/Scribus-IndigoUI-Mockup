@@ -39,7 +39,7 @@ void DockManager::setupDocks()
     dockFrame = new DockPanelBase(tr("Frame"));
     dockOutliner = new DockPanelBase(tr("Outliner"));
     dockAlignDistribute = new DockPanelBase(tr("Align and Distribute"));
-    //dockTest = new DockBase("Test");
+//    dockToolProperties = new DockPanelBase("Tool Properties");
 
 
 
@@ -63,12 +63,14 @@ void DockManager::setupDocks()
     panelOutliner= new PanelOutliner();
     dockOutliner->setWidget(panelOutliner);
 
+    // Panel Alignment & Distribution
     panelAlignDistribute = new PanelAlignDistribute();
     dockAlignDistribute->setWidget(panelAlignDistribute);
 
-
-//    PanelTest * panelTest = new PanelTest();
-    //    dockTest->setWidget(panelTest);
+    // Panel ToolProperties
+//    PanelToolProperties * panelTest = new PanelToolProperties();
+//    dockToolProperties->setWidget(panelTest);
+//    dockToolProperties->setFeature(ads::CDockWidget::NoTab, true);
 }
 
 void DockManager::setupMenus(QMenu *menu)
@@ -146,6 +148,9 @@ void DockManager::loadDefaultWorkspace()
 
 
     // Top Panel
-    //auto * areaTop = addDockWidget(ads::TopDockWidgetArea, dockTest);
+//    auto * areaTop = addDockWidget(ads::TopDockWidgetArea, dockToolProperties);
+//    areaTop->setAllowedAreas(ads::NoDockWidgetArea);
+//    areaTop->setDockAreaFlag(ads::CDockAreaWidget::HideSingleWidgetTitleBar, true);
+
 }
 

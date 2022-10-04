@@ -37,7 +37,7 @@ Next you have to compile a Qt designer plugin with custom IndigoUI Widgets.
 
 ### Preview
 
-![Bildschirmfoto vom 2022-08-04 19-59-02](https://user-images.githubusercontent.com/15112256/182931586-db6be82c-30d7-4a81-9f44-2fa1cba91d8b.png)
+![Bildschirmfoto vom 2022-10-04 23-49-26](https://user-images.githubusercontent.com/15112256/193937108-bc540f2e-cff0-4415-be59-ed4063590911.png)
 
 ## Features
 1. UI theme support for dark and light themes

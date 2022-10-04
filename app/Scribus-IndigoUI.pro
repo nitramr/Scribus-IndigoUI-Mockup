@@ -146,6 +146,7 @@ SOURCES += \
     src/ui/splashscreen.cpp \
     src/ui/toolbars/toolbarproperty.cpp \
     src/ui/toolbars/toolbarproperty_arc.cpp \
+    src/ui/toolbars/toolbarproperty_bezier.cpp \
     src/ui/toolbars/toolbarproperty_empty.cpp \
     src/ui/widgets/advanced_spinbox/advanced_spinbox.cpp \
     src/ui/widgets/anglepicker/anglepicker.cpp \
@@ -289,6 +290,7 @@ HEADERS += \
     src/ui/splashscreen.h \
     src/ui/toolbars/toolbarproperty.h \
     src/ui/toolbars/toolbarproperty_arc.h \
+    src/ui/toolbars/toolbarproperty_bezier.h \
     src/ui/toolbars/toolbarproperty_empty.h \
     src/ui/widgets/advanced_spinbox/advanced_spinbox.h \
     src/ui/widgets/anglepicker/anglepicker.h \

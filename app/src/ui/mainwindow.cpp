@@ -177,6 +177,7 @@ void MainWindow::initToolBars()
 //    this->addToolBarBreak();
     this->addToolBar(Qt::TopToolBarArea, toolbarManager.toolbarEmptyProperties());
     this->addToolBar(Qt::TopToolBarArea, toolbarManager.toolbarArcProperties());
+    this->addToolBar(Qt::TopToolBarArea, toolbarManager.toolbarBezierProperties());
 
 }
 
@@ -189,7 +190,7 @@ void MainWindow::initToolBars()
 void MainWindow::dummySlot()
 {
     // this is a dummy function
-    qDebug() << "MainWindow::dummySlot";
+    // qDebug() << "MainWindow::dummySlot";
 }
 
 void MainWindow::newDocument()

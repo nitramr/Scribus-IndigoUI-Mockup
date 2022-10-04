@@ -6,6 +6,7 @@
 #include <QToolBar>
 
 #include "toolbarproperty_arc.h"
+#include "toolbarproperty_bezier.h"
 #include "toolbarproperty_empty.h"
 
 class MainWindow;
@@ -37,6 +38,7 @@ public:
     QToolBar * toolbarQuickTools();
     ToolBarPropertyEmpty * toolbarEmptyProperties();
     ToolBarPropertyArc * toolbarArcProperties();
+    ToolBarPropertyBezier * toolbarBezierProperties();
 
 private:
 
@@ -51,6 +53,7 @@ private:
     QToolBar * m_toolQuickTools;
     ToolBarPropertyEmpty * m_toolEmptyProperties;
     ToolBarPropertyArc * m_toolArcProperties;
+    ToolBarPropertyBezier * m_toolBezierProperties;
 
     QAction * actionTool(QString icon, QString label, Tool data);
 
@@ -58,6 +61,7 @@ private:
     void initQuickTools();
     void initToolEmptyProperties();
     void initToolArcProperties();
+    void initToolBezierProperties();
 
 private slots:
 

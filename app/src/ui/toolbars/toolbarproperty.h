@@ -15,7 +15,7 @@ public:
 private:
     QLabel* m_icon;
 
-    int calculateMinHeight();
+    int minHeight();
 
 };
 

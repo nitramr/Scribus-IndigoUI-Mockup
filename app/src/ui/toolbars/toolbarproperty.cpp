@@ -3,6 +3,7 @@
 
 #include <QDoubleSpinBox>
 #include <QHBoxLayout>
+#include <QToolButton>
 
 ToolBarProperty::ToolBarProperty(QWidget * parent) : QToolBar(parent)
 {
@@ -13,7 +14,7 @@ ToolBarProperty::ToolBarProperty(QWidget * parent) : QToolBar(parent)
     this->setFloatable(false);
     this->setOrientation(Qt::Horizontal);
     this->setAllowedAreas(Qt::TopToolBarArea);
-    this->setFixedHeight( 60 );
+    this->setMinimumHeight( minHeight() );
 
     this->addSpacing(8);
     this->addWidget(m_icon);
@@ -33,22 +34,25 @@ void ToolBarProperty::addSpacing(int spacing)
     label->setFixedWidth(spacing);
 }
 
-int ToolBarProperty::calculateMinHeight()
+int ToolBarProperty::minHeight()
 {
-    QFont fontLabel = this->font();
-    fontLabel.setPointSize(8);
+//    QFont fontLabel = this->font();
+//    fontLabel.setPointSize(8);
 
-    QDoubleSpinBox *spinBox = new QDoubleSpinBox();
+//    QDoubleSpinBox *spinBox = new QDoubleSpinBox();
 
-    QHBoxLayout *layout = new QHBoxLayout;
-    layout->addWidget(spinBox);
-    layout->setContentsMargins(0,0,0,0);
+//    QHBoxLayout *layout = new QHBoxLayout;
+//    layout->addWidget(spinBox);
+//    layout->setContentsMargins(0,0,0,0);
 
-    FormWidget * form = new FormWidget();
-    form->setLabel(tr("Start Angle"));
-    form->setLayout(layout);
-    form->setFont(fontLabel);
-    form->adjustSize();
+//    FormWidget * form = new FormWidget();
+//    form->setLabel(tr("Start Angle"));
+//    form->setLayout(layout);
+//    form->setFont(fontLabel);
+//    form->adjustSize();
 
-    return form->height();
+//    return form->height();
+
+    return 40;
+
 }

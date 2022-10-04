@@ -45,7 +45,25 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="align-right" file="24/align-horizontal-right.svg" />
 		<icon id="align-right-anchor" file="24/close.svg" />
 		<icon id="align-top" file="24/align-vertical-top.svg" />
-		<icon id="align-top-anchor" file="24/close.svg" />		
+		<icon id="align-top-anchor" file="24/close.svg" />
+		<icon id="bezier-control-asymetric" file="24/bezier-control-asymetric.svg" />
+		<icon id="bezier-control-symetric" file="24/bezier-control-symetric.svg" />
+		<icon id="bezier-control-reset" file="24/bezier-control-reset.svg" />
+		<icon id="bezier-controls-reset" file="24/bezier-controls-reset.svg" />
+		<icon id="bezier-add-node" file="24/vector-point-plus.svg" />
+		<icon id="bezier-remove-node" file="24/vector-point-minus.svg" />
+		<icon id="bezier-path-close" file="24/vector-square-close.svg" />
+		<icon id="bezier-path-open" file="24/vector-square-open.svg" />
+		<icon id="bezier-path-rotate-left" file="24/rotate-left.svg" />
+		<icon id="bezier-path-rotate-right" file="24/rotate-right.svg" />
+		<icon id="bezier-path-expand" file="24/arrow-expand-all.svg" />
+		<icon id="bezier-path-shrink" file="24/arrow-collapse-all.svg" />
+		<icon id="bezier-path-flip-horizontal" file="24/flip-horizontal.svg" />
+		<icon id="bezier-path-flip-vertical" file="24/flip-vertical.svg" />
+		<icon id="bezier-path-shear-down" file="24/bezier-path-shear-down.svg" />
+		<icon id="bezier-path-shear-left" file="24/bezier-path-shear-left.svg" />
+		<icon id="bezier-path-shear-right" file="24/bezier-path-shear-right.svg" />
+		<icon id="bezier-path-shear-up" file="24/bezier-path-shear-up.svg" />		
 		<icon id="character-offset-baseline" file="24/character-offset-baseline.svg" />		
 		<icon id="character-scale-height" file="24/character-scale-height.svg" />
 		<icon id="character-scale-width" file="24/character-scale-width.svg" />

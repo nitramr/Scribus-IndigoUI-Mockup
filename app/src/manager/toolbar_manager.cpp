@@ -31,11 +31,14 @@ void ToolbarManager::setup(MainWindow *mainWindow)
     m_toolQuickTools = new QToolBar();
     m_toolArcProperties = new ToolBarPropertyArc();
     m_toolEmptyProperties = new ToolBarPropertyEmpty();
+    m_toolBezierProperties = new ToolBarPropertyBezier();
 
     initTools();
     initQuickTools();
     initToolEmptyProperties();
     initToolArcProperties();
+    initToolBezierProperties();
+
 }
 
 
@@ -50,7 +53,7 @@ void ToolbarManager::initTools()
 
     // Selection
     m_toolTools->addAction( actionTool("tool-selection",            tr("Selection"), Tool::None) );
-    m_toolTools->addAction( actionTool("tool-edit",                 tr("Edit"), Tool::None) );
+    m_toolTools->addAction( actionTool("tool-edit",                 tr("Edit"), Tool::Bezier) );
     m_toolTools->addSeparator();
     // Content
     m_toolTools->addAction( actionTool("tool-text-frame",           tr("Textbox"), Tool::None) );
@@ -101,6 +104,11 @@ void ToolbarManager::initToolArcProperties()
     m_toolArcProperties->setVisible(false);
 }
 
+void ToolbarManager::initToolBezierProperties()
+{
+    m_toolBezierProperties->setVisible(false);
+}
+
 /* ********************************************************************************* *
  *
  * Private Members
@@ -149,6 +157,11 @@ ToolBarPropertyArc *ToolbarManager::toolbarArcProperties()
     return m_toolArcProperties;
 }
 
+ToolBarPropertyBezier *ToolbarManager::toolbarBezierProperties()
+{
+    return m_toolBezierProperties;
+}
+
 
 /* ********************************************************************************* *
  *
@@ -165,10 +178,11 @@ void ToolbarManager::togglePropertyToolBar()
 
         m_toolEmptyProperties->setVisible(false);
         m_toolArcProperties->setVisible(false);
+        m_toolBezierProperties->setVisible(false);
 
         Tool m_tool = static_cast<ToolbarManager::Tool>(action->data().toInt());
 
-        qDebug() << "Selected tool is" << m_tool;
+//        qDebug() << "Selected tool is" << m_tool;
 
         switch(m_tool){
         default:
@@ -177,6 +191,9 @@ void ToolbarManager::togglePropertyToolBar()
             break;
         case Tool::Arc:
             m_toolArcProperties->setVisible(true);
+            break;
+        case Tool::Bezier:
+            m_toolBezierProperties->setVisible(true);
             break;
         }
 

@@ -8,7 +8,7 @@ class AdvancedSpinBox : public QDoubleSpinBox
 {
     Q_OBJECT
     public:
-        AdvancedSpinBox(QWidget *parent);
+        AdvancedSpinBox(QWidget *parent = nullptr);
         ~AdvancedSpinBox() override;
 
 

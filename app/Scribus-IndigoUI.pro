@@ -148,6 +148,9 @@ SOURCES += \
     src/ui/toolbars/toolbarproperty_arc.cpp \
     src/ui/toolbars/toolbarproperty_bezier.cpp \
     src/ui/toolbars/toolbarproperty_empty.cpp \
+    src/ui/toolbars/toolbarproperty_polygon.cpp \
+    src/ui/toolbars/toolbarproperty_spiral.cpp \
+    src/ui/toolbars/toolbarproperty_table.cpp \
     src/ui/widgets/advanced_spinbox/advanced_spinbox.cpp \
     src/ui/widgets/anglepicker/anglepicker.cpp \
     src/ui/widgets/basepoint_widget/basepoint_widget.cpp \
@@ -292,6 +295,9 @@ HEADERS += \
     src/ui/toolbars/toolbarproperty_arc.h \
     src/ui/toolbars/toolbarproperty_bezier.h \
     src/ui/toolbars/toolbarproperty_empty.h \
+    src/ui/toolbars/toolbarproperty_polygon.h \
+    src/ui/toolbars/toolbarproperty_spiral.h \
+    src/ui/toolbars/toolbarproperty_table.h \
     src/ui/widgets/advanced_spinbox/advanced_spinbox.h \
     src/ui/widgets/anglepicker/anglepicker.h \
     src/ui/widgets/basepoint_widget/basepoint_widget.h \

@@ -223,6 +223,7 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon onLight="#68B259" onDark="#88CC7A" id="tool-rectangle"  file="tools/rectangle.svg" />
 		<icon onLight="#68B259" onDark="#88CC7A" id="tool-star" file="tools/star.svg" />
 		<icon onLight="#68B259" onDark="#88CC7A" id="tool-arc" file="tools/tool-arc.svg" />
+		<icon onLight="#68B259" onDark="#88CC7A" id="tool-spiral" file="tools/tool-spiral.svg" />
 		<icon onLight="#68B259" onDark="#88CC7A" id="tool-bezier" file="tools/fountain-pen-tip.svg" />
 		<icon onLight="#68B259" onDark="#88CC7A" id="tool-pencil" file="tools/lead-pencil.svg" />
 		<icon onLight="#68B259" onDark="#88CC7A" id="tool-calligraphy" file="tools/brush.svg" />

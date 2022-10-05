@@ -32,12 +32,18 @@ void ToolbarManager::setup(MainWindow *mainWindow)
     m_toolArcProperties = new ToolBarPropertyArc();
     m_toolEmptyProperties = new ToolBarPropertyEmpty();
     m_toolBezierProperties = new ToolBarPropertyBezier();
+    m_toolTableProperties = new ToolBarPropertyTable();
+    m_toolPolygonProperties = new ToolBarPropertyPolygon();
+    m_toolSpiralProperties = new ToolBarPropertySpiral();
 
     initTools();
     initQuickTools();
     initToolEmptyProperties();
     initToolArcProperties();
     initToolBezierProperties();
+    initToolTableProperties();
+    initToolPolygonProperties();
+    initToolSpiralProperties();
 
 }
 
@@ -59,12 +65,13 @@ void ToolbarManager::initTools()
     m_toolTools->addAction( actionTool("tool-text-frame",           tr("Textbox"), Tool::None) );
     m_toolTools->addAction( actionTool("tool-image",                tr("Image"), Tool::None) );
     m_toolTools->addAction( actionTool("tool-render-frame",         tr("Render Frame"), Tool::None) );
-    m_toolTools->addAction( actionTool("tool-table",                tr("Table"), Tool::None) );
+    m_toolTools->addAction( actionTool("tool-table",                tr("Table"), Tool::Table) );
     m_toolTools->addSeparator();
     // Path + Shapes
     m_toolTools->addAction( actionTool("tool-rectangle",            tr("Rectangle"), Tool::None) );
-    m_toolTools->addAction( actionTool("tool-star",                 tr("Star"), Tool::None) );
+    m_toolTools->addAction( actionTool("tool-star",                 tr("Star"), Tool::Polygon) );
     m_toolTools->addAction( actionTool("tool-arc",                  tr("Arc"), Tool::Arc) );
+    m_toolTools->addAction( actionTool("tool-spiral",               tr("Spiral"), Tool::Spiral) );
     m_toolTools->addAction( actionTool("tool-bezier",               tr("Bezier"), Tool::None) );
     m_toolTools->addAction( actionTool("tool-pencil",               tr("Pen"), Tool::None) );
     m_toolTools->addAction( actionTool("tool-calligraphy",          tr("Calligraphy"), Tool::None) );
@@ -107,6 +114,21 @@ void ToolbarManager::initToolArcProperties()
 void ToolbarManager::initToolBezierProperties()
 {
     m_toolBezierProperties->setVisible(false);
+}
+
+void ToolbarManager::initToolTableProperties()
+{
+    m_toolTableProperties->setVisible(false);
+}
+
+void ToolbarManager::initToolPolygonProperties()
+{
+    m_toolPolygonProperties->setVisible(false);
+}
+
+void ToolbarManager::initToolSpiralProperties()
+{
+    m_toolSpiralProperties->setVisible(false);
 }
 
 /* ********************************************************************************* *
@@ -162,6 +184,21 @@ ToolBarPropertyBezier *ToolbarManager::toolbarBezierProperties()
     return m_toolBezierProperties;
 }
 
+ToolBarPropertyTable *ToolbarManager::toolbarTableProperties()
+{
+    return m_toolTableProperties;
+}
+
+ToolBarPropertyPolygon *ToolbarManager::toolbarPolygonProperties()
+{
+    return m_toolPolygonProperties;
+}
+
+ToolBarPropertySpiral *ToolbarManager::toolbarSpiralProperties()
+{
+    return m_toolSpiralProperties;
+}
+
 
 /* ********************************************************************************* *
  *
@@ -179,6 +216,9 @@ void ToolbarManager::togglePropertyToolBar()
         m_toolEmptyProperties->setVisible(false);
         m_toolArcProperties->setVisible(false);
         m_toolBezierProperties->setVisible(false);
+        m_toolTableProperties->setVisible(false);
+        m_toolPolygonProperties->setVisible(false);
+        m_toolSpiralProperties->setVisible(false);
 
         Tool m_tool = static_cast<ToolbarManager::Tool>(action->data().toInt());
 
@@ -194,6 +234,15 @@ void ToolbarManager::togglePropertyToolBar()
             break;
         case Tool::Bezier:
             m_toolBezierProperties->setVisible(true);
+            break;
+        case Tool::Table:
+            m_toolTableProperties->setVisible(true);
+            break;
+        case Tool::Polygon:
+            m_toolPolygonProperties->setVisible(true);
+            break;
+        case Tool::Spiral:
+            m_toolSpiralProperties->setVisible(true);
             break;
         }
 

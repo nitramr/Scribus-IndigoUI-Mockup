@@ -178,6 +178,9 @@ void MainWindow::initToolBars()
     this->addToolBar(Qt::TopToolBarArea, toolbarManager.toolbarEmptyProperties());
     this->addToolBar(Qt::TopToolBarArea, toolbarManager.toolbarArcProperties());
     this->addToolBar(Qt::TopToolBarArea, toolbarManager.toolbarBezierProperties());
+    this->addToolBar(Qt::TopToolBarArea, toolbarManager.toolbarTableProperties());
+    this->addToolBar(Qt::TopToolBarArea, toolbarManager.toolbarPolygonProperties());
+    this->addToolBar(Qt::TopToolBarArea, toolbarManager.toolbarSpiralProperties());
 
 }
 

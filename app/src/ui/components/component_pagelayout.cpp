@@ -34,19 +34,6 @@ void ComponentPageLayout::setup()
     pageSizes.append("Letter");
     pageSizes.append("Custom");
 
-    QStringList units = QStringList();
-    units.append("Points (pt)");
-    units.append("Millimeters (mm)");
-    units.append("Inches (in)");
-    units.append("Picas (p)");
-    units.append("Centimeters (cm)");
-    units.append("Cicero (c)");
-
-
-    // Layout
-    ui->comboUnits->addItems(units);
-    ui->comboUnits->setCurrentIndex(1);
-
 
     // Layout
     ui->comboPageSize->addItems(pageSizes);

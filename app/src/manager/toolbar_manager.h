@@ -7,7 +7,9 @@
 
 #include "toolbarproperty_arc.h"
 #include "toolbarproperty_bezier.h"
+#include "toolbarproperty_calligraphy.h"
 #include "toolbarproperty_empty.h"
+#include "toolbarproperty_measurement.h"
 #include "toolbarproperty_polygon.h"
 #include "toolbarproperty_spiral.h"
 #include "toolbarproperty_table.h"
@@ -45,6 +47,8 @@ public:
     ToolBarPropertyTable * toolbarTableProperties();
     ToolBarPropertyPolygon * toolbarPolygonProperties();
     ToolBarPropertySpiral * toolbarSpiralProperties();
+    ToolBarPropertyMeasurement * toolbarMeasurementProperties();
+    ToolBarPropertyCalligraphy * toolbarCalligraphyProperties();
 
 private:
 
@@ -63,6 +67,8 @@ private:
     ToolBarPropertyTable * m_toolTableProperties;
     ToolBarPropertyPolygon * m_toolPolygonProperties;
     ToolBarPropertySpiral * m_toolSpiralProperties;
+    ToolBarPropertyMeasurement * m_toolMeasurementProperties;
+    ToolBarPropertyCalligraphy * m_toolCalligraphyProperties;
 
     QAction * actionTool(QString icon, QString label, Tool data);
 
@@ -74,6 +80,8 @@ private:
     void initToolTableProperties();
     void initToolPolygonProperties();
     void initToolSpiralProperties();
+    void initToolMeasurementProperties();
+    void initToolCalligraphyProperties();
 
 private slots:
 

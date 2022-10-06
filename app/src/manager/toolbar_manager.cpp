@@ -35,6 +35,8 @@ void ToolbarManager::setup(MainWindow *mainWindow)
     m_toolTableProperties = new ToolBarPropertyTable();
     m_toolPolygonProperties = new ToolBarPropertyPolygon();
     m_toolSpiralProperties = new ToolBarPropertySpiral();
+    m_toolMeasurementProperties = new ToolBarPropertyMeasurement();
+    m_toolCalligraphyProperties = new ToolBarPropertyCalligraphy();
 
     initTools();
     initQuickTools();
@@ -44,6 +46,8 @@ void ToolbarManager::setup(MainWindow *mainWindow)
     initToolTableProperties();
     initToolPolygonProperties();
     initToolSpiralProperties();
+    initToolMeasurementProperties();
+    initToolCalligraphyProperties();
 
 }
 
@@ -74,14 +78,14 @@ void ToolbarManager::initTools()
     m_toolTools->addAction( actionTool("tool-spiral",               tr("Spiral"), Tool::Spiral) );
     m_toolTools->addAction( actionTool("tool-bezier",               tr("Bezier"), Tool::None) );
     m_toolTools->addAction( actionTool("tool-pencil",               tr("Pen"), Tool::None) );
-    m_toolTools->addAction( actionTool("tool-calligraphy",          tr("Calligraphy"), Tool::None) );
+    m_toolTools->addAction( actionTool("tool-calligraphy",          tr("Calligraphy"), Tool::Calligraphy) );
     m_toolTools->addSeparator();
     // Tools
     m_toolTools->addAction( actionTool("tool-gradient",             tr("Gradient Edit"), Tool::None) );
     m_toolTools->addAction( actionTool("tool-zoom",                 tr("Zoom"), Tool::None) );
     m_toolTools->addAction( actionTool("tool-text-link",            tr("Link Text Frames"), Tool::None) );
     m_toolTools->addAction( actionTool("tool-text-unlink",          tr("Unlink Text Frames"), Tool::None) );
-    m_toolTools->addAction( actionTool("tool-measure",              tr("Measure"), Tool::None) );
+    m_toolTools->addAction( actionTool("tool-measure",              tr("Measure"), Tool::Measurement) );
     m_toolTools->addAction( actionTool("tool-property-copy",        tr("Copy Item property"), Tool::None) );
     m_toolTools->addAction( actionTool("tool-eyedropper",           tr("Eye Dropper"), Tool::None) );
     m_toolTools->addSeparator();
@@ -103,7 +107,6 @@ void ToolbarManager::initQuickTools()
 void ToolbarManager::initToolEmptyProperties()
 {
     m_toolEmptyProperties->setVisible(true);
-
 }
 
 void ToolbarManager::initToolArcProperties()
@@ -129,6 +132,16 @@ void ToolbarManager::initToolPolygonProperties()
 void ToolbarManager::initToolSpiralProperties()
 {
     m_toolSpiralProperties->setVisible(false);
+}
+
+void ToolbarManager::initToolMeasurementProperties()
+{
+    m_toolMeasurementProperties->setVisible(false);
+}
+
+void ToolbarManager::initToolCalligraphyProperties()
+{
+    m_toolCalligraphyProperties->setVisible(false);
 }
 
 /* ********************************************************************************* *
@@ -199,6 +212,16 @@ ToolBarPropertySpiral *ToolbarManager::toolbarSpiralProperties()
     return m_toolSpiralProperties;
 }
 
+ToolBarPropertyMeasurement *ToolbarManager::toolbarMeasurementProperties()
+{
+    return m_toolMeasurementProperties;
+}
+
+ToolBarPropertyCalligraphy *ToolbarManager::toolbarCalligraphyProperties()
+{
+    return m_toolCalligraphyProperties;
+}
+
 
 /* ********************************************************************************* *
  *
@@ -219,6 +242,8 @@ void ToolbarManager::togglePropertyToolBar()
         m_toolTableProperties->setVisible(false);
         m_toolPolygonProperties->setVisible(false);
         m_toolSpiralProperties->setVisible(false);
+        m_toolMeasurementProperties->setVisible(false);
+        m_toolCalligraphyProperties->setVisible(false);
 
         Tool m_tool = static_cast<ToolbarManager::Tool>(action->data().toInt());
 
@@ -243,6 +268,12 @@ void ToolbarManager::togglePropertyToolBar()
             break;
         case Tool::Spiral:
             m_toolSpiralProperties->setVisible(true);
+            break;
+        case Tool::Measurement:
+            m_toolMeasurementProperties->setVisible(true);
+            break;
+        case Tool::Calligraphy:
+            m_toolCalligraphyProperties->setVisible(true);
             break;
         }
 

@@ -125,7 +125,7 @@
     </widget>
    </item>
    <item row="2" column="1">
-    <widget class="QComboBox" name="comboUnits"/>
+    <widget class="UnitComboBox" name="comboUnits"/>
    </item>
    <item row="0" column="1">
     <widget class="QComboBox" name="comboPageSize"/>
@@ -157,6 +157,11 @@
    <class>AdvancedSpinBox</class>
    <extends>QDoubleSpinBox</extends>
    <header>advanced_spinbox/advanced_spinbox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>UnitComboBox</class>
+   <extends>QComboBox</extends>
+   <header>_combobox/unit_combobox.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -144,6 +144,15 @@ enum class PageInsert {
     Swap = 3
 };
 
+enum class PageUnits {
+    Points = 0,
+    Millimeters = 1,
+    Inches = 2,
+    Picas = 3,
+    Centimeters = 4,
+    Cicero = 5
+};
+
 /************************
  *
  * Text
@@ -162,8 +171,7 @@ enum class ListType {
     DropCap = 1,
     Bullet = 2,
     Numbered = 3
-
-
 };
+
 
 #endif // ENUMS_H

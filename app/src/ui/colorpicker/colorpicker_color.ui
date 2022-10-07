@@ -359,7 +359,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QToolButton" name="buttonColorBlind">
+        <widget class="ColorBlindnessButton" name="buttonColorBlind">
          <property name="text">
           <string/>
          </property>
@@ -1270,6 +1270,11 @@
    <extends>QWidget</extends>
    <header location="global">colorswatches.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ColorBlindnessButton</class>
+   <extends>QToolButton</extends>
+   <header>colorblindness_button/colorblindness_button.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

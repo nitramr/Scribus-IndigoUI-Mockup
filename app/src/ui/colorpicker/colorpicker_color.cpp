@@ -204,27 +204,27 @@ void ColorPickerColor::setup()
 
 
     // Color Blindness
-    actionColorBlindNormal  = new QAction(iconManager.icon("colorblind-normal"), "Normal Vision", this);
-    actionColorBlindRed     = new QAction(iconManager.icon("colorblind-red"), "Protanopia (Red)", this);
-    actionColorBlindGreen   = new QAction(iconManager.icon("colorblind-green"), "Deuteranopia (Green)", this);
-    actionColorBlindBlue    = new QAction(iconManager.icon("colorblind-blue"), "Tritanopia (Blue)", this);
-    actionColorBlindFull    = new QAction(iconManager.icon("colorblind-full"), "Full Color Blindness", this);
+//    actionColorBlindNormal  = new QAction(iconManager.icon("colorblind-normal"), "Normal Vision", this);
+//    actionColorBlindRed     = new QAction(iconManager.icon("colorblind-red"), "Protanopia (Red)", this);
+//    actionColorBlindGreen   = new QAction(iconManager.icon("colorblind-green"), "Deuteranopia (Green)", this);
+//    actionColorBlindBlue    = new QAction(iconManager.icon("colorblind-blue"), "Tritanopia (Blue)", this);
+//    actionColorBlindFull    = new QAction(iconManager.icon("colorblind-full"), "Full Color Blindness", this);
 
-    actionColorBlindNormal->setData( QVariant::fromValue(VisionDefectColor::normalVision) );
-    actionColorBlindRed->setData( QVariant::fromValue(VisionDefectColor::protanopeVision) );
-    actionColorBlindGreen->setData( QVariant::fromValue(VisionDefectColor::deuteranopeVision) );
-    actionColorBlindBlue->setData( QVariant::fromValue(VisionDefectColor::tritanopeVision) );
-    actionColorBlindFull->setData( QVariant::fromValue(VisionDefectColor::colorBlindnessVision) );
+//    actionColorBlindNormal->setData( QVariant::fromValue(VisionDefectColor::normalVision) );
+//    actionColorBlindRed->setData( QVariant::fromValue(VisionDefectColor::protanopeVision) );
+//    actionColorBlindGreen->setData( QVariant::fromValue(VisionDefectColor::deuteranopeVision) );
+//    actionColorBlindBlue->setData( QVariant::fromValue(VisionDefectColor::tritanopeVision) );
+//    actionColorBlindFull->setData( QVariant::fromValue(VisionDefectColor::colorBlindnessVision) );
 
-    menuColorBlind = new QMenu;
-    menuColorBlind->addAction(actionColorBlindNormal);
-    menuColorBlind->addAction(actionColorBlindRed);
-    menuColorBlind->addAction(actionColorBlindGreen);
-    menuColorBlind->addAction(actionColorBlindBlue);
-    menuColorBlind->addAction(actionColorBlindFull);
+//    menuColorBlind = new QMenu;
+//    menuColorBlind->addAction(actionColorBlindNormal);
+//    menuColorBlind->addAction(actionColorBlindRed);
+//    menuColorBlind->addAction(actionColorBlindGreen);
+//    menuColorBlind->addAction(actionColorBlindBlue);
+//    menuColorBlind->addAction(actionColorBlindFull);
 
-    ui->buttonColorBlind->setMenu(menuColorBlind);
-    ui->buttonColorBlind->setDefaultAction(actionColorBlindNormal);
+//    ui->buttonColorBlind->setMenu(menuColorBlind);
+//    ui->buttonColorBlind->setDefaultAction(actionColorBlindNormal);
 
     // Color Map
     ui->colorMap->setMode(ColorMap::HSVHue);
@@ -378,12 +378,7 @@ void ColorPickerColor::connectSlots()
     connect(actionHarmonyTriadic,               &QAction::triggered,this, &ColorPickerColor::changeHarmony );
 
     // Color Blindness
-    connect(ui->buttonColorBlind,   &QToolButton::triggered, ui->buttonColorBlind, &QToolButton::setDefaultAction);
-    connect(actionColorBlindNormal, &QAction::triggered,this, &ColorPickerColor::changeColorBlindness );
-    connect(actionColorBlindRed,    &QAction::triggered,this, &ColorPickerColor::changeColorBlindness );
-    connect(actionColorBlindGreen,  &QAction::triggered,this, &ColorPickerColor::changeColorBlindness );
-    connect(actionColorBlindBlue,   &QAction::triggered,this, &ColorPickerColor::changeColorBlindness );
-    connect(actionColorBlindFull,   &QAction::triggered,this, &ColorPickerColor::changeColorBlindness );
+    connect(ui->buttonColorBlind,   &ColorBlindnessButton::colorBlindnessDefect, this, &ColorPickerColor::changeColorBlindness);
 
     // Color Buttons
     connect(ui->buttonColorMain,    &QToolButton::pressed, this, &ColorPickerColor::changeHarmonyColor );
@@ -503,12 +498,7 @@ void ColorPickerColor::disconnectSlots()
     disconnect(actionHarmonyTriadic,               &QAction::triggered,this, &ColorPickerColor::changeHarmony );
 
     // Color Blindness
-    disconnect(ui->buttonColorBlind,   &QToolButton::triggered, ui->buttonColorBlind, &QToolButton::setDefaultAction);
-    disconnect(actionColorBlindNormal, &QAction::triggered,this, &ColorPickerColor::changeColorBlindness );
-    disconnect(actionColorBlindRed,    &QAction::triggered,this, &ColorPickerColor::changeColorBlindness );
-    disconnect(actionColorBlindGreen,  &QAction::triggered,this, &ColorPickerColor::changeColorBlindness );
-    disconnect(actionColorBlindBlue,   &QAction::triggered,this, &ColorPickerColor::changeColorBlindness );
-    disconnect(actionColorBlindFull,   &QAction::triggered,this, &ColorPickerColor::changeColorBlindness );
+    disconnect(ui->buttonColorBlind,   &ColorBlindnessButton::colorBlindnessDefect, this, &ColorPickerColor::changeColorBlindness);
 
     // Color Buttons
     disconnect(ui->buttonColorMain,    &QToolButton::pressed, this, &ColorPickerColor::changeHarmonyColor );
@@ -888,12 +878,10 @@ void ColorPickerColor::changeColor(ScColor color)
 }
 
 
-void ColorPickerColor::changeColorBlindness()
+void ColorPickerColor::changeColorBlindness(VisionDefectColor::defectMode mode)
 {
 
-    QAction *action = qobject_cast<QAction *>(sender());
-
-    if(action != nullptr) m_defectMode = static_cast<VisionDefectColor::defectMode>(action->data().toInt());
+    m_defectMode = mode;
 
     switch(m_defectMode){
     case VisionDefectColor::normalVision:

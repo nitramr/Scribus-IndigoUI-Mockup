@@ -5,6 +5,7 @@
 #include <QObject>
 #include <QToolBar>
 
+#include "toolbar_quicktools.h"
 #include "toolbarproperty_arc.h"
 #include "toolbarproperty_bezier.h"
 #include "toolbarproperty_calligraphy.h"
@@ -40,7 +41,7 @@ public:
     void setup(MainWindow * mainWindow);
 
     QToolBar * toolbarTools();
-    QToolBar * toolbarQuickTools();
+    ToolBarQuickTools * toolbarQuickTools();
     ToolBarPropertyEmpty * toolbarEmptyProperties();
     ToolBarPropertyArc * toolbarArcProperties();
     ToolBarPropertyBezier * toolbarBezierProperties();
@@ -60,7 +61,7 @@ private:
 
     MainWindow * m_mainWindow;
     QToolBar * m_toolTools;
-    QToolBar * m_toolQuickTools;
+    ToolBarQuickTools * m_toolQuickTools;
     ToolBarPropertyEmpty * m_toolEmptyProperties;
     ToolBarPropertyArc * m_toolArcProperties;
     ToolBarPropertyBezier * m_toolBezierProperties;

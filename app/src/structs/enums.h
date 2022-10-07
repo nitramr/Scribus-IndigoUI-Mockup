@@ -103,6 +103,12 @@ enum class ImageEffects {
     Sharpen = 11
 };
 
+enum class ImageRenderQuality {
+    Low = 0,
+    Normal = 1,
+    High = 2
+};
+
 /************************
  *
  * Line

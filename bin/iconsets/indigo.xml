@@ -135,14 +135,14 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="image-effects" file="24/tune.svg" />
 		<icon id="import" file="24/download.svg" />
 		<icon id="invert" file="24/invert.svg" />		
-		<icon id="layer-bottom" file="24/format-vertical-align-bottom.svg" />
-		<icon id="layer-down" file="24/arrow-down-thin.svg" />
+		<icon id="layer-bottom" file="24/level-background.svg" />
+		<icon id="layer-down" file="24/level-down.svg" />
 		<icon id="layer-lock" file="24/lock.svg" />
 		<icon id="layer-outline" file="24/shape-outline.svg" />
 		<icon id="layer-print" file="24/printer.svg" />
 		<icon id="layer-selection" file="tools/cursor-default.svg" />
-		<icon id="layer-top" file="24/format-vertical-align-top.svg" />		
-		<icon id="layer-up" file="24/arrow-up-thin.svg" />		
+		<icon id="layer-top" file="24/level-foreground.svg" />		
+		<icon id="layer-up" file="24/level-up.svg" />		
 		<icon id="layer-visible" file="24/eye.svg" />
 		<icon id="layer-wrap" file="24/format-wrap-tight.svg" />	
 		<icon id="load" file="24/folder-open.svg" />
@@ -176,6 +176,9 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="paragraph-offset-maxascent" file="24/paragraph-offset-max.svg" />		
 		<icon id="paragraph-space-above" file="24/paragraph-space-above.svg" />
 		<icon id="paragraph-space-below" file="24/paragraph-space-below.svg" />
+		<icon id="preview-colormanagement" file="24/preview-colormanagement.svg" />
+		<icon id="preview-document" file="24/monitor-eye.svg" />
+		<icon id="preview-edit" file="24/square-edit-outline.svg" />
 		<icon id="remove" file="24/minus.svg" />
 		<icon id="remove-unused" file="24/eye-remove.svg" />
 		<icon id="reset" file="24/restore.svg" />
@@ -241,6 +244,9 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<!-- Cursors -->
 		<icon id="cursor-point-add" file="cursors/AddPoint.png" />
 		<icon id="cursor-point-delete" file="cursors/DelPoint.png" />
+		
+		<!-- Illustrations -->
+		<icon onLight="#3DA6CC" onDark="#5CC1E5" id="scribus-logo" file="illustrations/scribus-icon-symbolic-variant.svg" />
 		
 		<!-- Test -->
 		<icon id="test" file="test/test.svg" />

@@ -45,6 +45,7 @@ INCLUDEPATH += \
     $$PWD/src/ui/docks \
     $$PWD/src/ui/imageeffects \
     $$PWD/src/ui/panels \
+    $$PWD/src/ui/quicktools \
     $$PWD/src/ui/toolbars \
     $$PWD/src/ui/widgets \
     $$PWD/src/ui/widgets/_combobox \
@@ -143,7 +144,10 @@ SOURCES += \
     src/ui/panels/panel_outliner.cpp \
     src/ui/panels/panel_pages.cpp \
     src/ui/panels/panel_toolproperties.cpp \
+    src/ui/quicktools/quicktool_layer.cpp \
+    src/ui/quicktools/quicktool_preview.cpp \
     src/ui/splashscreen.cpp \
+    src/ui/toolbars/toolbar_quicktools.cpp \
     src/ui/toolbars/toolbarproperty.cpp \
     src/ui/toolbars/toolbarproperty_arc.cpp \
     src/ui/toolbars/toolbarproperty_bezier.cpp \
@@ -163,6 +167,7 @@ SOURCES += \
     src/ui/widgets/_combobox/blendmode_combobox.cpp \
     src/ui/widgets/_combobox/firstpage_combobox.cpp \
     src/ui/widgets/_combobox/linetype_combobox.cpp \
+    src/ui/widgets/colorblindness_button/colorblindness_button.cpp \
     src/ui/widgets/curveedit_widget/curveedit_widget.cpp \
     src/ui/widgets/headline_widget/headline_widget.cpp \
     src/ui/widgets/imageeffect_list/imageeffect_list.cpp \
@@ -293,7 +298,10 @@ HEADERS += \
     src/ui/panels/panel_outliner.h \
     src/ui/panels/panel_pages.h \
     src/ui/panels/panel_toolproperties.h \
+    src/ui/quicktools/quicktool_layer.h \
+    src/ui/quicktools/quicktool_preview.h \
     src/ui/splashscreen.h \
+    src/ui/toolbars/toolbar_quicktools.h \
     src/ui/toolbars/toolbarproperty.h \
     src/ui/toolbars/toolbarproperty_arc.h \
     src/ui/toolbars/toolbarproperty_bezier.h \
@@ -313,6 +321,7 @@ HEADERS += \
     src/ui/widgets/_combobox/blendmode_combobox.h \
     src/ui/widgets/_combobox/firstpage_combobox.h \
     src/ui/widgets/_combobox/linetype_combobox.h \
+    src/ui/widgets/colorblindness_button/colorblindness_button.h \
     src/ui/widgets/curveedit_widget/curveedit_widget.h \
     src/ui/widgets/headline_widget/headline_widget.h \
     src/ui/widgets/imageeffect_list/imageeffect_list.h \
@@ -406,7 +415,9 @@ FORMS += \
     src/ui/panels/panel_layers.ui \
     src/ui/panels/panel_outliner.ui \
     src/ui/panels/panel_pages.ui \
-    src/ui/panels/panel_toolproperties.ui
+    src/ui/panels/panel_toolproperties.ui \
+    src/ui/quicktools/quicktool_layer.ui \
+    src/ui/quicktools/quicktool_preview.ui
 
 TRANSLATIONS += \
     Scribus-IndigoUI_en_US.ts

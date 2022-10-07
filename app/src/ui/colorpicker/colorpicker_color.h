@@ -45,13 +45,6 @@ private:
     QComboBox * comboColorSpace;
     EyeDropperScreenWidget * eyeDropper;
 
-    QMenu *menuColorBlind;
-    QAction *actionColorBlindNormal;
-    QAction *actionColorBlindRed;
-    QAction *actionColorBlindGreen;
-    QAction *actionColorBlindBlue;
-    QAction *actionColorBlindFull;
-
     QMenu *menuSettings;
     QAction *actionColorBlind;
     QAction *actionSliderScale;
@@ -108,7 +101,7 @@ private slots:
     void setSpotFlag(bool isSpot);
 
     void changeColor(ScColor color);
-    void changeColorBlindness();
+    void changeColorBlindness(VisionDefectColor::defectMode mode);
     void changeColorButtons(ColorHarmonyWheel::Harmony harmony);
     void changeColorSpace();
     void changeHarmony();

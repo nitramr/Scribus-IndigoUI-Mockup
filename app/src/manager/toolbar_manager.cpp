@@ -28,7 +28,7 @@ void ToolbarManager::setup(MainWindow *mainWindow)
     m_mainWindow = mainWindow;
 
     m_toolTools = new QToolBar();
-    m_toolQuickTools = new QToolBar();
+    m_toolQuickTools = new ToolBarQuickTools();
     m_toolArcProperties = new ToolBarPropertyArc();
     m_toolEmptyProperties = new ToolBarPropertyEmpty();
     m_toolBezierProperties = new ToolBarPropertyBezier();
@@ -177,7 +177,7 @@ QToolBar *ToolbarManager::toolbarTools()
     return m_toolTools;
 }
 
-QToolBar *ToolbarManager::toolbarQuickTools()
+ToolBarQuickTools *ToolbarManager::toolbarQuickTools()
 {
     return m_toolQuickTools;
 }

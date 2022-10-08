@@ -151,6 +151,8 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="lock" file="24/lock.svg" />
 		<icon id="lock-open" file="24/lock-open.svg" />
 		<icon id="menu-down" file="24/menu-down.svg" />
+		<icon id="mesh-reset" file="24/mesh-reset.svg" />
+		<icon id="mesh-to-shape" file="24/mesh-to-shape.svg" />
 		<icon id="more" file="24/dots-vertical.svg" />
 		<icon id="move-down" file="24/arrow-down-thin.svg" />
 		<icon id="move-up" file="24/arrow-up-thin.svg" />
@@ -176,6 +178,8 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="paragraph-offset-maxascent" file="24/paragraph-offset-max.svg" />		
 		<icon id="paragraph-space-above" file="24/paragraph-space-above.svg" />
 		<icon id="paragraph-space-below" file="24/paragraph-space-below.svg" />
+		<icon id="patchmesh-add" file="24/patch-add.svg" />
+		<icon id="patchmesh-remove" file="24/patch-remove.svg" />
 		<icon id="preview-colormanagement" file="24/preview-colormanagement.svg" />
 		<icon id="preview-document" file="24/monitor-eye.svg" />
 		<icon id="preview-edit" file="24/square-edit-outline.svg" />
@@ -227,6 +231,7 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon onLight="#68B259" onDark="#88CC7A" id="tool-star" file="tools/star.svg" />
 		<icon onLight="#68B259" onDark="#88CC7A" id="tool-arc" file="tools/tool-arc.svg" />
 		<icon onLight="#68B259" onDark="#88CC7A" id="tool-spiral" file="tools/tool-spiral.svg" />
+		<icon onLight="#68B259" onDark="#88CC7A" id="tool-line" file="tools/vector-line.svg" />
 		<icon onLight="#68B259" onDark="#88CC7A" id="tool-bezier" file="tools/fountain-pen-tip.svg" />
 		<icon onLight="#68B259" onDark="#88CC7A" id="tool-pencil" file="tools/lead-pencil.svg" />
 		<icon onLight="#68B259" onDark="#88CC7A" id="tool-calligraphy" file="tools/brush.svg" />
@@ -235,6 +240,7 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon onLight="#D6922B" onDark="#FFC266" id="tool-gradient" file="tools/gradient-vertical.svg" />
 		<icon onLight="#D6922B" onDark="#FFC266" id="tool-measure" file="tools/ruler.svg" />		
 		<icon onLight="#D6922B" onDark="#FFC266" id="tool-property-copy" file="tools/format-paint.svg" />
+		<icon onLight="#D6922B" onDark="#FFC266" id="tool-rotate" file="tools/sync.svg" />	
 		<icon onLight="#D6922B" onDark="#FFC266" id="tool-text-link" file="tools/link-box.svg" />
 		<icon onLight="#D6922B" onDark="#FFC266" id="tool-text-unlink" file="tools/link-box-outline.svg" />
 		<icon onLight="#D6922B" onDark="#FFC266" id="tool-zoom" file="tools/magnify.svg" />		

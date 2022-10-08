@@ -9,6 +9,7 @@ ToolBarProperty::ToolBarProperty(QWidget * parent) : QToolBar(parent)
 {
 
     m_icon = new QLabel();
+    m_formWidgets = new QMap<QString,QAction*>();
 
     this->setMovable(false);
     this->setFloatable(false);
@@ -19,7 +20,6 @@ ToolBarProperty::ToolBarProperty(QWidget * parent) : QToolBar(parent)
     this->addSpacing(8);
     this->addWidget(m_icon);
     this->addSpacing(8);
-
 }
 
 void ToolBarProperty::setIcon(QPixmap icon)
@@ -34,24 +34,87 @@ void ToolBarProperty::addSpacing(int spacing)
     label->setFixedWidth(spacing);
 }
 
+FormWidget *ToolBarProperty::addFormWidget(QString key, QString label, QList<QWidget *> widgets)
+{
+    QHBoxLayout *m_layout = new QHBoxLayout();
+    m_layout->setContentsMargins(0,0,8,0);
+    m_layout->setSpacing(4);
+    FormWidget *frm = nullptr;
+
+    if(m_formWidgets->contains(key)){
+
+        QAction *action = m_formWidgets->value(key);
+
+        if(action){
+
+            QWidget * widget = this->widgetForAction(action);
+            frm = qobject_cast<FormWidget*>(widget);
+
+            if(frm){
+
+                frm->setDirection(FormWidget::Left);
+                frm->setLayout(m_layout);
+                frm->setLabel(label);
+
+                foreach( QWidget* widget, widgets )
+                {
+                    m_layout->addWidget(widget);
+
+                }
+            }
+        }
+
+    }else{
+        frm = new FormWidget();
+        frm->setDirection(FormWidget::Left);
+        frm->setLayout(m_layout);
+        frm->setLabel(label);
+
+        foreach( QWidget* widget, widgets )
+        {
+            m_layout->addWidget(widget);
+
+        }
+
+        QAction * action = addWidget(frm);
+        m_formWidgets->insert(key, action);
+
+    }
+
+    return frm;
+}
+
+void ToolBarProperty::formWidgetVisibility(QString key, bool visible)
+{
+    if(m_formWidgets->contains(key)){
+
+        QAction * action = m_formWidgets->value(key);
+
+        if(action){
+            action->setVisible(visible);
+        }
+
+    }
+}
+
 int ToolBarProperty::minHeight()
 {
-//    QFont fontLabel = this->font();
-//    fontLabel.setPointSize(8);
+    //    QFont fontLabel = this->font();
+    //    fontLabel.setPointSize(8);
 
-//    QDoubleSpinBox *spinBox = new QDoubleSpinBox();
+    //    QDoubleSpinBox *spinBox = new QDoubleSpinBox();
 
-//    QHBoxLayout *layout = new QHBoxLayout;
-//    layout->addWidget(spinBox);
-//    layout->setContentsMargins(0,0,0,0);
+    //    QHBoxLayout *layout = new QHBoxLayout;
+    //    layout->addWidget(spinBox);
+    //    layout->setContentsMargins(0,0,0,0);
 
-//    FormWidget * form = new FormWidget();
-//    form->setLabel(tr("Start Angle"));
-//    form->setLayout(layout);
-//    form->setFont(fontLabel);
-//    form->adjustSize();
+    //    FormWidget * form = new FormWidget();
+    //    form->setLabel(tr("Start Angle"));
+    //    form->setLayout(layout);
+    //    form->setFont(fontLabel);
+    //    form->adjustSize();
 
-//    return form->height();
+    //    return form->height();
 
     return 40;
 

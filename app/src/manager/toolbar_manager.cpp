@@ -37,6 +37,7 @@ void ToolbarManager::setup(MainWindow *mainWindow)
     m_toolSpiralProperties = new ToolBarPropertySpiral();
     m_toolMeasurementProperties = new ToolBarPropertyMeasurement();
     m_toolCalligraphyProperties = new ToolBarPropertyCalligraphy();
+    m_toolGradientProperties = new ToolBarPropertyGradient();
 
     initTools();
     initQuickTools();
@@ -48,6 +49,7 @@ void ToolbarManager::setup(MainWindow *mainWindow)
     initToolSpiralProperties();
     initToolMeasurementProperties();
     initToolCalligraphyProperties();
+    initToolGradientProperties();
 
 }
 
@@ -76,12 +78,14 @@ void ToolbarManager::initTools()
     m_toolTools->addAction( actionTool("tool-star",                 tr("Star"), Tool::Polygon) );
     m_toolTools->addAction( actionTool("tool-arc",                  tr("Arc"), Tool::Arc) );
     m_toolTools->addAction( actionTool("tool-spiral",               tr("Spiral"), Tool::Spiral) );
+    m_toolTools->addAction( actionTool("tool-line",                 tr("Line"), Tool::None) );
     m_toolTools->addAction( actionTool("tool-bezier",               tr("Bezier"), Tool::None) );
     m_toolTools->addAction( actionTool("tool-pencil",               tr("Pen"), Tool::None) );
     m_toolTools->addAction( actionTool("tool-calligraphy",          tr("Calligraphy"), Tool::Calligraphy) );
     m_toolTools->addSeparator();
     // Tools
-    m_toolTools->addAction( actionTool("tool-gradient",             tr("Gradient Edit"), Tool::None) );
+    m_toolTools->addAction( actionTool("tool-gradient",             tr("Gradient Edit"), Tool::Gradient) );
+    m_toolTools->addAction( actionTool("tool-rotate",               tr("Rotate"), Tool::None) );
     m_toolTools->addAction( actionTool("tool-zoom",                 tr("Zoom"), Tool::None) );
     m_toolTools->addAction( actionTool("tool-text-link",            tr("Link Text Frames"), Tool::None) );
     m_toolTools->addAction( actionTool("tool-text-unlink",          tr("Unlink Text Frames"), Tool::None) );
@@ -142,6 +146,11 @@ void ToolbarManager::initToolMeasurementProperties()
 void ToolbarManager::initToolCalligraphyProperties()
 {
     m_toolCalligraphyProperties->setVisible(false);
+}
+
+void ToolbarManager::initToolGradientProperties()
+{
+    m_toolGradientProperties->setVisible(false);
 }
 
 /* ********************************************************************************* *
@@ -222,6 +231,11 @@ ToolBarPropertyCalligraphy *ToolbarManager::toolbarCalligraphyProperties()
     return m_toolCalligraphyProperties;
 }
 
+ToolBarPropertyGradient *ToolbarManager::toolbarGradientProperties()
+{
+    return m_toolGradientProperties;
+}
+
 
 /* ********************************************************************************* *
  *
@@ -244,6 +258,7 @@ void ToolbarManager::togglePropertyToolBar()
         m_toolSpiralProperties->setVisible(false);
         m_toolMeasurementProperties->setVisible(false);
         m_toolCalligraphyProperties->setVisible(false);
+        m_toolGradientProperties->setVisible(false);
 
         Tool m_tool = static_cast<ToolbarManager::Tool>(action->data().toInt());
 
@@ -274,6 +289,9 @@ void ToolbarManager::togglePropertyToolBar()
             break;
         case Tool::Calligraphy:
             m_toolCalligraphyProperties->setVisible(true);
+            break;
+        case Tool::Gradient:
+            m_toolGradientProperties->setVisible(true);
             break;
         }
 

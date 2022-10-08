@@ -183,6 +183,7 @@ void MainWindow::initToolBars()
     this->addToolBar(Qt::TopToolBarArea, toolbarManager.toolbarSpiralProperties());
     this->addToolBar(Qt::TopToolBarArea, toolbarManager.toolbarMeasurementProperties());
     this->addToolBar(Qt::TopToolBarArea, toolbarManager.toolbarCalligraphyProperties());
+    this->addToolBar(Qt::TopToolBarArea, toolbarManager.toolbarGradientProperties());
 
 }
 

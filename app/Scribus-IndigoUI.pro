@@ -153,6 +153,7 @@ SOURCES += \
     src/ui/toolbars/toolbarproperty_bezier.cpp \
     src/ui/toolbars/toolbarproperty_calligraphy.cpp \
     src/ui/toolbars/toolbarproperty_empty.cpp \
+    src/ui/toolbars/toolbarproperty_gradient.cpp \
     src/ui/toolbars/toolbarproperty_measurement.cpp \
     src/ui/toolbars/toolbarproperty_polygon.cpp \
     src/ui/toolbars/toolbarproperty_spiral.cpp \
@@ -307,6 +308,7 @@ HEADERS += \
     src/ui/toolbars/toolbarproperty_bezier.h \
     src/ui/toolbars/toolbarproperty_calligraphy.h \
     src/ui/toolbars/toolbarproperty_empty.h \
+    src/ui/toolbars/toolbarproperty_gradient.h \
     src/ui/toolbars/toolbarproperty_measurement.h \
     src/ui/toolbars/toolbarproperty_polygon.h \
     src/ui/toolbars/toolbarproperty_spiral.h \

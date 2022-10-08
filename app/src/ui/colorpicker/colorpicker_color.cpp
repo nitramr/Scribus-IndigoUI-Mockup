@@ -203,29 +203,6 @@ void ColorPickerColor::setup()
     ui->numberShade->setValue(ui->sliderShade->value());
 
 
-    // Color Blindness
-//    actionColorBlindNormal  = new QAction(iconManager.icon("colorblind-normal"), "Normal Vision", this);
-//    actionColorBlindRed     = new QAction(iconManager.icon("colorblind-red"), "Protanopia (Red)", this);
-//    actionColorBlindGreen   = new QAction(iconManager.icon("colorblind-green"), "Deuteranopia (Green)", this);
-//    actionColorBlindBlue    = new QAction(iconManager.icon("colorblind-blue"), "Tritanopia (Blue)", this);
-//    actionColorBlindFull    = new QAction(iconManager.icon("colorblind-full"), "Full Color Blindness", this);
-
-//    actionColorBlindNormal->setData( QVariant::fromValue(VisionDefectColor::normalVision) );
-//    actionColorBlindRed->setData( QVariant::fromValue(VisionDefectColor::protanopeVision) );
-//    actionColorBlindGreen->setData( QVariant::fromValue(VisionDefectColor::deuteranopeVision) );
-//    actionColorBlindBlue->setData( QVariant::fromValue(VisionDefectColor::tritanopeVision) );
-//    actionColorBlindFull->setData( QVariant::fromValue(VisionDefectColor::colorBlindnessVision) );
-
-//    menuColorBlind = new QMenu;
-//    menuColorBlind->addAction(actionColorBlindNormal);
-//    menuColorBlind->addAction(actionColorBlindRed);
-//    menuColorBlind->addAction(actionColorBlindGreen);
-//    menuColorBlind->addAction(actionColorBlindBlue);
-//    menuColorBlind->addAction(actionColorBlindFull);
-
-//    ui->buttonColorBlind->setMenu(menuColorBlind);
-//    ui->buttonColorBlind->setDefaultAction(actionColorBlindNormal);
-
     // Color Map
     ui->colorMap->setMode(ColorMap::HSVHue);
     ui->sliderUniversal->setMode(ColorSlider::HSVValue);

@@ -1,5 +1,6 @@
 #include <QPainter>
 #include <QStyleOption>
+#include <QHBoxLayout>
 
 #include "form_widget.h"
 

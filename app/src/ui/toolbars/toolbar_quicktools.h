@@ -3,7 +3,7 @@
 
 #include "quicktool_document.h"
 #include "quicktool_edit.h"
-#include "quicktool_layer.h"
+#include "quicktool_level.h"
 #include "quicktool_pdftools.h"
 #include "quicktool_preview.h"
 #include "toolbarproperty.h"
@@ -18,7 +18,7 @@ private:
 
     // Widgets
     QuickToolPreview * quickToolPreview;
-    QuickToolLayer * quickToolLayer;
+    QuickToolLevel * quickToolLevel;
     QuickToolPDFTools * quickToolPDFTools;
     QuickToolEdit * quickToolEdit;
     QuickToolDocument * quickToolDocument;

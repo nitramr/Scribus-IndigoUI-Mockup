@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>QuickToolLayer</class>
- <widget class="FormWidget" name="QuickToolLayer">
+ <class>QuickToolLevel</class>
+ <widget class="FormWidget" name="QuickToolLevel">
   <property name="geometry">
    <rect>
     <x>0</x>

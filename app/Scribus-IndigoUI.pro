@@ -146,7 +146,7 @@ SOURCES += \
     src/ui/panels/panel_toolproperties.cpp \
     src/ui/quicktools/quicktool_document.cpp \
     src/ui/quicktools/quicktool_edit.cpp \
-    src/ui/quicktools/quicktool_layer.cpp \
+    src/ui/quicktools/quicktool_level.cpp \
     src/ui/quicktools/quicktool_pdftools.cpp \
     src/ui/quicktools/quicktool_preview.cpp \
     src/ui/splashscreen.cpp \
@@ -304,7 +304,7 @@ HEADERS += \
     src/ui/panels/panel_toolproperties.h \
     src/ui/quicktools/quicktool_document.h \
     src/ui/quicktools/quicktool_edit.h \
-    src/ui/quicktools/quicktool_layer.h \
+    src/ui/quicktools/quicktool_level.h \
     src/ui/quicktools/quicktool_pdftools.h \
     src/ui/quicktools/quicktool_preview.h \
     src/ui/splashscreen.h \
@@ -426,7 +426,7 @@ FORMS += \
     src/ui/panels/panel_toolproperties.ui \
     src/ui/quicktools/quicktool_document.ui \
     src/ui/quicktools/quicktool_edit.ui \
-    src/ui/quicktools/quicktool_layer.ui \
+    src/ui/quicktools/quicktool_level.ui \
     src/ui/quicktools/quicktool_pdftools.ui \
     src/ui/quicktools/quicktool_preview.ui
 

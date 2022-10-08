@@ -36,10 +36,10 @@ void BlockXYZLocation::setup()
     ui->buttonLockSize->setIcon(iconManager.icon("lock-open"));
     ui->buttonFlipHorizontal->setIcon(iconManager.icon("flip-horizontal"));
     ui->buttonFlipVertical->setIcon(iconManager.icon("flip-vertical"));
-    ui->buttonMoveTop->setIcon(iconManager.icon("layer-top"));
-    ui->buttonMoveUp->setIcon(iconManager.icon("layer-up"));
-    ui->buttonMoveDown->setIcon(iconManager.icon("layer-down"));
-    ui->buttonMoveBottom->setIcon(iconManager.icon("layer-bottom"));
+    ui->buttonMoveTop->setIcon(iconManager.icon("level-foreground"));
+    ui->buttonMoveUp->setIcon(iconManager.icon("level-up"));
+    ui->buttonMoveDown->setIcon(iconManager.icon("level-down"));
+    ui->buttonMoveBottom->setIcon(iconManager.icon("level-background"));
 }
 
 void BlockXYZLocation::connectSlots()

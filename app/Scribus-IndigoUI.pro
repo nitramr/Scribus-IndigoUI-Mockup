@@ -144,7 +144,10 @@ SOURCES += \
     src/ui/panels/panel_outliner.cpp \
     src/ui/panels/panel_pages.cpp \
     src/ui/panels/panel_toolproperties.cpp \
+    src/ui/quicktools/quicktool_document.cpp \
+    src/ui/quicktools/quicktool_edit.cpp \
     src/ui/quicktools/quicktool_layer.cpp \
+    src/ui/quicktools/quicktool_pdftools.cpp \
     src/ui/quicktools/quicktool_preview.cpp \
     src/ui/splashscreen.cpp \
     src/ui/toolbars/toolbar_quicktools.cpp \
@@ -299,7 +302,10 @@ HEADERS += \
     src/ui/panels/panel_outliner.h \
     src/ui/panels/panel_pages.h \
     src/ui/panels/panel_toolproperties.h \
+    src/ui/quicktools/quicktool_document.h \
+    src/ui/quicktools/quicktool_edit.h \
     src/ui/quicktools/quicktool_layer.h \
+    src/ui/quicktools/quicktool_pdftools.h \
     src/ui/quicktools/quicktool_preview.h \
     src/ui/splashscreen.h \
     src/ui/toolbars/toolbar_quicktools.h \
@@ -418,7 +424,10 @@ FORMS += \
     src/ui/panels/panel_outliner.ui \
     src/ui/panels/panel_pages.ui \
     src/ui/panels/panel_toolproperties.ui \
+    src/ui/quicktools/quicktool_document.ui \
+    src/ui/quicktools/quicktool_edit.ui \
     src/ui/quicktools/quicktool_layer.ui \
+    src/ui/quicktools/quicktool_pdftools.ui \
     src/ui/quicktools/quicktool_preview.ui
 
 TRANSLATIONS += \

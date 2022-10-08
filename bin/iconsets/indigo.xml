@@ -89,9 +89,10 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="colorpicker-harmony" file="24/circle.svg" />
 		<icon id="colorpicker-map" file="24/rectangle.svg" />
 		<icon id="colorpicker-solid" file="24/solid-square.svg" />
-		<icon id="colorpicker-gradient" file="24/gradient-horizontal.svg" />
+		<icon id="colorpicker-gradient" file="24/gradient-horizontal.svg" />		
 		<icon id="copy" file="24/content-copy.svg" />
 		<icon id="curves" file="24/chart-bell-curve-cumulative.svg" />
+		<icon id="cut" file="24/content-cut.svg" />
 		<icon id="delete" file="24/delete.svg" />
 		<icon id="distribute-bottom" file="24/distribute-vertical-bottom.svg" />
 		<icon id="distribute-center" file="24/distribute-horizontal-center.svg" />		
@@ -118,6 +119,7 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="document-template-fourfold" file="32/page-4fold.svg" />				
 		<icon id="eyedropper" file="tools/eyedropper.svg" />
 		<icon id="file-document" file="24/file-outline.svg" />
+		<icon id="file-new" file="24/file-outline.svg" />						
 		<icon id="flip-horizontal" file="24/flip-horizontal.svg" />
 		<icon id="flip-vertical" file="24/flip-vertical.svg" />
 		<icon id="flow-bounding" file="flow-bounding.png" />
@@ -156,6 +158,7 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="more" file="24/dots-vertical.svg" />
 		<icon id="move-down" file="24/arrow-down-thin.svg" />
 		<icon id="move-up" file="24/arrow-up-thin.svg" />
+		<icon id="open" file="24/folder-open.svg" />
 		<icon id="page-add" file="24/file-outline.svg" />
 		<icon id="page-delete-close" file="24/delete.svg" />
 		<icon id="page-delete-open" file="24/delete-empty.svg" />
@@ -178,15 +181,20 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="paragraph-offset-maxascent" file="24/paragraph-offset-max.svg" />		
 		<icon id="paragraph-space-above" file="24/paragraph-space-above.svg" />
 		<icon id="paragraph-space-below" file="24/paragraph-space-below.svg" />
+		<icon id="paste" file="24/content-paste.svg" />
 		<icon id="patchmesh-add" file="24/patch-add.svg" />
 		<icon id="patchmesh-remove" file="24/patch-remove.svg" />
+		<icon id="preflight" file="24/notebook-check.svg" />
 		<icon id="preview-colormanagement" file="24/preview-colormanagement.svg" />
 		<icon id="preview-document" file="24/monitor-eye.svg" />
 		<icon id="preview-edit" file="24/square-edit-outline.svg" />
+		<icon id="print" file="24/printer.svg" />
+		<icon id="redo" file="24/redo.svg" />
 		<icon id="remove" file="24/minus.svg" />
 		<icon id="remove-unused" file="24/eye-remove.svg" />
 		<icon id="reset" file="24/restore.svg" />
 		<icon id="save" file="24/content-save.svg" />
+		<icon id="save-pdf" file="24/file-pdf-box.svg" />
 		<icon id="setting" file="24/tune.svg" />
 		<icon id="setting-edit" file="24/cog.svg" />
 		<icon id="space-bottom" file="24/border-bottom-variant.svg" />
@@ -216,7 +224,17 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="text-format-superscript" file="24/format-superscript.svg" />
 		<icon id="text-format-strikeout" file="24/format-strikethrough.svg" />
 		<icon id="text-format-underline" file="24/format-underline.svg" />
+		<icon id="undo" file="24/undo.svg" />
 		
+		<!-- PDF Tools -->		
+		<icon onLight="#3DA6CC" onDark="#5CC1E5" id="pdf-button" file="pdf-tools/button-cursor.svg" />
+		<icon onLight="#3DA6CC" onDark="#5CC1E5" id="pdf-checkbox" file="pdf-tools/checkbox-marked.svg" />
+		<icon onLight="#3DA6CC" onDark="#5CC1E5" id="pdf-radiobox" file="pdf-tools/radiobox-marked.svg" />
+		<icon onLight="#3DA6CC" onDark="#5CC1E5" id="pdf-textbox" file="pdf-tools/form-textbox.svg" />
+		<icon onLight="#3DA6CC" onDark="#5CC1E5" id="pdf-combobox" file="pdf-tools/form-dropdown.svg" />
+		<icon onLight="#3DA6CC" onDark="#5CC1E5" id="pdf-listbox" file="pdf-tools/list-box-outline.svg" />
+		<icon onLight="#3DA6CC" onDark="#5CC1E5" id="pdf-text-annotation" file="pdf-tools/comment.svg" />
+		<icon onLight="#3DA6CC" onDark="#5CC1E5" id="pdf-link-annotation" file="pdf-tools/link.svg" />
 		
 		<!-- Tools -->		
 		<icon id="tool-selection" file="tools/cursor-default.svg" />

@@ -1,4 +1,5 @@
 #include "block_fill.h"
+#include "icon_manager.h"
 #include "ui_block_fill.h"
 
 #include "colorpicker.h"
@@ -28,13 +29,18 @@ BlockFill::~BlockFill()
 
 void BlockFill::setup()
 {
+    IconManager &iconManager = IconManager::instance();
+
     // Color Buttons
     ui->buttonMask->setConfiguration(ColorPickerConfig::FillMask);
     ui->buttonFill->setConfiguration(ColorPickerConfig::Fill);
 
+    ui->buttonEvenodd->setIcon( iconManager.icon("fill-evenodd") );
+    ui->buttonNonzero->setIcon( iconManager.icon("fill-nonzero") );
+
     QButtonGroup * fillRuleGroup = new QButtonGroup();
     fillRuleGroup->addButton(ui->buttonEvenodd);
-    fillRuleGroup->addButton(ui->buttonNonezero);
+    fillRuleGroup->addButton(ui->buttonNonzero);
 
 }
 

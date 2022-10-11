@@ -40,8 +40,38 @@
      <property name="spacing">
       <number>4</number>
      </property>
-     <item row="0" column="6">
-      <widget class="QToolButton" name="buttonHorizontalSpace">
+     <item row="0" column="1">
+      <widget class="QToolButton" name="buttonCenter">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>8</width>
+         <height>0</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="1" column="6">
+      <widget class="QToolButton" name="buttonVerticalSpace">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QToolButton" name="buttonBottom">
        <property name="text">
         <string/>
        </property>
@@ -54,8 +84,42 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="4">
-      <widget class="QToolButton" name="buttonPageHorizontalSpace">
+     <item row="0" column="9">
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="1" column="1">
+      <widget class="QToolButton" name="buttonMiddle">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <widget class="QToolButton" name="buttonMarginHorizontalSpace">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QToolButton" name="buttonRight">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="6">
+      <widget class="QToolButton" name="buttonHorizontalSpace">
        <property name="text">
         <string/>
        </property>
@@ -63,13 +127,6 @@
      </item>
      <item row="1" column="5">
       <widget class="QToolButton" name="buttonMarginVerticalSpace">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QToolButton" name="buttonLeft">
        <property name="text">
         <string/>
        </property>
@@ -97,64 +154,6 @@
         </size>
        </property>
       </spacer>
-     </item>
-     <item row="0" column="3">
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>8</width>
-         <height>0</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="1" column="1">
-      <widget class="QToolButton" name="buttonMiddle">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="5">
-      <widget class="QToolButton" name="buttonMarginHorizontalSpace">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="2">
-      <widget class="QToolButton" name="buttonRight">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QToolButton" name="buttonCenter">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="6">
-      <widget class="QToolButton" name="buttonVerticalSpace">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QToolButton" name="buttonBottom">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
      </item>
      <item row="0" column="8" rowspan="2">
       <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -222,18 +221,19 @@
        </item>
       </layout>
      </item>
-     <item row="0" column="9">
-      <spacer name="horizontalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+     <item row="0" column="4">
+      <widget class="QToolButton" name="buttonPageHorizontalSpace">
+       <property name="text">
+        <string/>
        </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QToolButton" name="buttonLeft">
+       <property name="text">
+        <string/>
        </property>
-      </spacer>
+      </widget>
      </item>
     </layout>
    </item>

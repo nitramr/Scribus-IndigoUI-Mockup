@@ -37,7 +37,7 @@
       </font>
      </property>
      <property name="title" stdset="0">
-      <string>Aligment</string>
+      <string>Alignment</string>
      </property>
      <widget class="QWidget" name="layoutAlignment">
       <layout class="QVBoxLayout" name="verticalLayout_4"/>

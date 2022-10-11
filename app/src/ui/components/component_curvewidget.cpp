@@ -26,6 +26,7 @@ void ComponentCurveWidget::setup()
     ui->buttonReset->setIcon(iconManager.icon("reset"));
     ui->buttonLoad->setIcon(iconManager.icon("load"));
     ui->buttonSave->setIcon(iconManager.icon("save"));
+    ui->buttonToggleBezier->setIcon(iconManager.icon("bezier-curve"));
 
 
 }
@@ -38,10 +39,14 @@ void ComponentCurveWidget::connectSlots()
 
 void ComponentCurveWidget::toggleCurveBezier()
 {
+    IconManager &iconManager = IconManager::instance();
+
     if(ui->curveEditWidget->isLinear()){
         ui->curveEditWidget->setLinear(false);
+        ui->buttonToggleBezier->setIcon(iconManager.icon("bezier-curve"));
 
     }else{
         ui->curveEditWidget->setLinear(true);
+        ui->buttonToggleBezier->setIcon(iconManager.icon("bezier-line"));
     }
 }

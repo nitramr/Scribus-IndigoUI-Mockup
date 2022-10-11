@@ -247,7 +247,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QToolButton" name="buttonNonezero">
+         <widget class="QToolButton" name="buttonNonzero">
           <property name="text">
            <string/>
           </property>

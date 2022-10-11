@@ -12,9 +12,7 @@ public:
 
 private:
 
-    QLabel * labelAngle;
     QDoubleSpinBox * numberAngle;
-    QLabel * labelWidth;
     QDoubleSpinBox * numberWidth;
 
 };

@@ -15,9 +15,6 @@ private:
     QDoubleSpinBox * numberEndAngle;
     QSpinBox * numberFactor;
 
-    QLabel * labelStartAngle;
-    QLabel * labelEndAngle;
-    QLabel * labelFactor;
 };
 
 #endif // TOOLBARPROPERTYSPIRAL_H

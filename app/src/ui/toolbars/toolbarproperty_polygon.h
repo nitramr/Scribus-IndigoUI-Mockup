@@ -20,12 +20,6 @@ private:
     QSpinBox * numberInnerCurvation;
     QSpinBox * numberOuterCurvation;
     QCheckBox * checkboxApplyFactor;
-    QLabel * labelCorners;
-    QLabel * labelRotation;
-    QLabel * labelFactor;
-    QLabel * labelInnerRotation;
-    QLabel * labelInnerCurvation;
-    QLabel * labelOuterCurvation;
 
 private slots:
     void enableControls(bool enabled);

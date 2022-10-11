@@ -20,17 +20,9 @@ ToolBarPropertySpiral::ToolBarPropertySpiral(QWidget *parent) : ToolBarProperty(
     numberFactor = new QSpinBox();
     numberFactor->setSuffix("%");
 
-    labelStartAngle = new QLabel( tr("Start Angle:") );
-    labelEndAngle = new QLabel( tr("End Angle:") );
-    labelFactor = new QLabel( tr("Factor:") );
 
-    this->addWidget( labelStartAngle );
-    this->addWidget(numberStartAngle);
-    this->addSpacing(4);
-    this->addWidget( labelEndAngle );
-    this->addWidget(numberEndAngle);
-    this->addSpacing(4);
-    this->addWidget( labelFactor );
-    this->addWidget(numberFactor);
+    this->addFormWidget("start", tr("Start Angle:"), QList<QWidget*>() << numberStartAngle );
+    this->addFormWidget("end", tr("End Angle:"), QList<QWidget*>() << numberEndAngle );
+    this->addFormWidget("factor", tr("Factor"), QList<QWidget*>() << numberFactor );
 
 }

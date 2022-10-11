@@ -20,40 +20,15 @@ ToolBarPropertyArc::ToolBarPropertyArc(QWidget *parent) : ToolBarProperty(parent
     numberStartAngle->setMaximum(max);
     numberStartAngle->setSuffix(suffix);
 
-//    QHBoxLayout *layoutStartAngle = new QHBoxLayout;
-//    layoutStartAngle->addWidget(numberStartAngle);
-//    layoutStartAngle->setContentsMargins(0,0,0,0);
-
-//    FormWidget * formStartAngle = new FormWidget();
-//    formStartAngle->setLabel(tr("Start Angle"));
-//    formStartAngle->setLayout(layoutStartAngle);
-//    formStartAngle->setFont(fontLabel);
-
-//    this->addWidget(formStartAngle);
-//    this->addSpacing(4);
-
     // End Angle
     numberEndAngle = new QDoubleSpinBox();
     numberEndAngle->setMinimum(min);
     numberEndAngle->setMaximum(max);
     numberEndAngle->setSuffix(suffix);
 
-//    QHBoxLayout *layoutEndAngle = new QHBoxLayout;
-//    layoutEndAngle->addWidget(numberEndAngle);
-//    layoutEndAngle->setContentsMargins(0,0,0,0);
 
-//    FormWidget * formEndAngle = new FormWidget();
-//    formEndAngle->setLabel(tr("End Angle"));
-//    formEndAngle->setLayout(layoutEndAngle);
-//    formEndAngle->setFont(fontLabel);
-
-//    this->addWidget(formEndAngle);
-
-    this->addWidget(new QLabel(tr("Start Angle:")));
-    this->addWidget(numberStartAngle);
-    this->addSpacing(4);
-    this->addWidget(new QLabel(tr("End Angle:")));
-    this->addWidget(numberEndAngle);
+    this->addFormWidget("start", tr("Start Angle:"), QList<QWidget*>() << numberStartAngle );
+    this->addFormWidget("end", tr("End Angle:"), QList<QWidget*>() << numberEndAngle );
 
 
 }

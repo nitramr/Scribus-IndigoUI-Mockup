@@ -12,85 +12,60 @@ ToolBarPropertyMeasurement::ToolBarPropertyMeasurement(QWidget *parent) : ToolBa
 
     m_unit = QString(tr("mm"));
 
-    labelX1 = new QLabel(tr("X1:"));
     numberX1 = new QDoubleSpinBox();
     numberX1->setSuffix(m_unit);
     numberX1->setReadOnly(true);
     numberX1->setButtonSymbols(QAbstractSpinBox::NoButtons);
 
-    labelY1 = new QLabel(tr("Y1:"));
     numberY1 = new QDoubleSpinBox();
     numberY1->setSuffix(m_unit);
     numberY1->setReadOnly(true);
     numberY1->setButtonSymbols(QAbstractSpinBox::NoButtons);
 
-    labelX2 = new QLabel(tr("X2:"));
     numberX2 = new QDoubleSpinBox();
     numberX2->setSuffix(m_unit);
     numberX2->setReadOnly(true);
     numberX2->setButtonSymbols(QAbstractSpinBox::NoButtons);
 
-    labelY2 = new QLabel(tr("Y2:"));
     numberY2 = new QDoubleSpinBox();
     numberY2->setSuffix(m_unit);
     numberY2->setReadOnly(true);
     numberY2->setButtonSymbols(QAbstractSpinBox::NoButtons);
 
-    labelLength = new QLabel(tr("Length:"));
     numberLength = new QDoubleSpinBox();
     numberLength->setSuffix(m_unit);
     numberLength->setReadOnly(true);
     numberLength->setButtonSymbols(QAbstractSpinBox::NoButtons);
 
-    labelDX = new QLabel(tr("DX:"));
     numberDX = new QDoubleSpinBox();
     numberDX->setSuffix(m_unit);
     numberDX->setReadOnly(true);
     numberDX->setButtonSymbols(QAbstractSpinBox::NoButtons);
 
-    labelDY = new QLabel(tr("DY:"));
     numberDY = new QDoubleSpinBox();
     numberDY->setSuffix(m_unit);
     numberDY->setReadOnly(true);
     numberDY->setButtonSymbols(QAbstractSpinBox::NoButtons);
 
-    labelAngle = new QLabel(tr("Angle:"));
     numberAngle = new QDoubleSpinBox();
     numberAngle->setSuffix(tr("°"));
     numberAngle->setReadOnly(true);
     numberAngle->setButtonSymbols(QAbstractSpinBox::NoButtons);
 
-    labelUnit = new QLabel(tr("Unit:"));
     comboboxUnit = new UnitComboBox();
 
     connect(comboboxUnit, &UnitComboBox::currentIndexChanged, this, &ToolBarPropertyMeasurement::changeUnit);
 
-    this->addWidget(labelUnit);
-    this->addWidget(comboboxUnit);
-    this->addSpacing(4);
-    this->addWidget(labelX1);
-    this->addWidget(numberX1);
-    this->addSpacing(4);
-    this->addWidget(labelY1);
-    this->addWidget(numberY1);
-    this->addSpacing(4);
-    this->addWidget(labelX2);
-    this->addWidget(numberX2);
-    this->addSpacing(4);
-    this->addWidget(labelY2);
-    this->addWidget(numberY2);
-    this->addSpacing(4);
-    this->addWidget(labelLength);
-    this->addWidget(numberLength);
-    this->addSpacing(4);
-    this->addWidget(labelDX);
-    this->addWidget(numberDX);
-    this->addSpacing(4);
-    this->addWidget(labelDY);
-    this->addWidget(numberDY);
-    this->addSpacing(4);
-    this->addWidget(labelAngle);
-    this->addWidget(numberAngle);
+
+    this->addFormWidget("unit", tr("Unit:"), QList<QWidget*>() << comboboxUnit );
+    this->addFormWidget("x1", tr("X1:"), QList<QWidget*>() << numberX1 );
+    this->addFormWidget("y1", tr("Y1:"), QList<QWidget*>() << numberY1 );
+    this->addFormWidget("x2", tr("X2:"), QList<QWidget*>() << numberX2 );
+    this->addFormWidget("y2", tr("Y2:"), QList<QWidget*>() << numberY2 );
+    this->addFormWidget("length", tr("Length:"), QList<QWidget*>() << numberLength );
+    this->addFormWidget("dx", tr("DX:"), QList<QWidget*>() << numberDX );
+    this->addFormWidget("dy", tr("DY:"), QList<QWidget*>() << numberDY );
+    this->addFormWidget("angle", tr("Angle:"), QList<QWidget*>() << numberAngle );
 
 
 }

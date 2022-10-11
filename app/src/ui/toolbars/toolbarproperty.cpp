@@ -84,7 +84,25 @@ FormWidget *ToolBarProperty::addFormWidget(QString key, QString label, QList<QWi
     return frm;
 }
 
-void ToolBarProperty::formWidgetVisibility(QString key, bool visible)
+FormWidget *ToolBarProperty::formWidget(QString key)
+{
+    FormWidget *frm = nullptr;
+
+    if(m_formWidgets->contains(key)){
+
+        QAction * action = m_formWidgets->value(key);
+
+        if(action){
+            QWidget * widget = this->widgetForAction(action);
+            frm = qobject_cast<FormWidget*>(widget);
+            return frm;
+        }
+    }
+
+    return frm;
+}
+
+void ToolBarProperty::setFormWidgetVisibility(QString key, bool visible)
 {
     if(m_formWidgets->contains(key)){
 
@@ -95,6 +113,16 @@ void ToolBarProperty::formWidgetVisibility(QString key, bool visible)
         }
 
     }
+}
+
+void ToolBarProperty::setFormWidgetLabel(QString key, QString label)
+{
+    FormWidget * frm = formWidget(key);
+
+    if(frm){
+        frm->setLabel(label);
+    }
+
 }
 
 int ToolBarProperty::minHeight()

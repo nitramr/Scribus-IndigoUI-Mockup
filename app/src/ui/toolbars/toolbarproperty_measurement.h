@@ -13,23 +13,14 @@ public:
 
 private:
 
-    QLabel * labelX1;
     QDoubleSpinBox * numberX1;
-    QLabel * labelY1;
     QDoubleSpinBox * numberY1;
-    QLabel * labelX2;
     QDoubleSpinBox * numberX2;
-    QLabel * labelY2;
     QDoubleSpinBox * numberY2;
-    QLabel * labelLength;
     QDoubleSpinBox * numberLength;
-    QLabel * labelDX;
     QDoubleSpinBox * numberDX;
-    QLabel * labelDY;
     QDoubleSpinBox * numberDY;
-    QLabel * labelAngle;
     QDoubleSpinBox * numberAngle;
-    QLabel * labelUnit;
     UnitComboBox * comboboxUnit;
 
     QString m_unit;

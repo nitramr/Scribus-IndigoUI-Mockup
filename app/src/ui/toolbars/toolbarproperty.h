@@ -15,7 +15,9 @@ public:
     void addSpacing(int spacing);
     FormWidget * addFormWidget(QString key, QString label, QList<QWidget*> widgets);
 
-    void formWidgetVisibility(QString key, bool visible);
+    FormWidget * formWidget(QString key);
+    void setFormWidgetVisibility(QString key, bool visible);
+    void setFormWidgetLabel(QString key, QString label);
 
 private:
     QLabel* m_icon;

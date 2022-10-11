@@ -15,10 +15,7 @@ ToolBarPropertyTable::ToolBarPropertyTable(QWidget *parent) : ToolBarProperty(pa
     numberColumns = new QSpinBox;
     numberColumns->setMinimum(1);
 
-    this->addWidget( new QLabel(tr("Rows:")) );
-    this->addWidget(numberRows);
-    this->addSpacing(4);
-    this->addWidget( new QLabel(tr("Columns:")) );
-    this->addWidget(numberColumns);
+    this->addFormWidget("row", tr("Rows:"), QList<QWidget*>() << numberRows );
+    this->addFormWidget("columns", tr("Columns:"), QList<QWidget*>() << numberColumns );
 
 }

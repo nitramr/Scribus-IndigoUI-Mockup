@@ -102,11 +102,8 @@ ToolBarPropertyBezier::ToolBarPropertyBezier(QWidget *parent) : ToolBarProperty(
     this->addWidget(buttonExtentPath);
     this->addWidget(buttonShrinkPath);
     this->addSeparator();
-    this->addWidget(new QLabel(tr("X:")));
-    this->addWidget(numberXPos);
-    this->addSpacing(4);
-    this->addWidget(new QLabel(tr("Y:")));
-    this->addWidget(numberYPos);
+    this->addFormWidget("x", tr("X:"), QList<QWidget*>() << numberXPos );
+    this->addFormWidget("y", tr("Y:"), QList<QWidget*>() << numberYPos );
     this->addSeparator();
     this->addWidget(checkboxEditContour);
     this->addSpacing(4);

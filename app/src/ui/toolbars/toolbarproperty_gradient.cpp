@@ -115,63 +115,63 @@ void ToolBarPropertyGradient::setGradientType(GradientType type)
 {
     m_gradientType = type;
 
-    formWidgetVisibility("start", false);
-    formWidgetVisibility("end", false);
-    formWidgetVisibility("focal", false);
-    formWidgetVisibility("skew", false);
-    formWidgetVisibility("scale", false);
-    formWidgetVisibility("point1", false);
-    formWidgetVisibility("point2", false);
-    formWidgetVisibility("point3", false);
-    formWidgetVisibility("point4", false);
-    formWidgetVisibility("point5", false);
-    formWidgetVisibility("controls", false);
-    formWidgetVisibility("rows", false);
-    formWidgetVisibility("colum", false);
-    formWidgetVisibility("mesh", false);
-    formWidgetVisibility("patch", false);
+    setFormWidgetVisibility("start", false);
+    setFormWidgetVisibility("end", false);
+    setFormWidgetVisibility("focal", false);
+    setFormWidgetVisibility("skew", false);
+    setFormWidgetVisibility("scale", false);
+    setFormWidgetVisibility("point1", false);
+    setFormWidgetVisibility("point2", false);
+    setFormWidgetVisibility("point3", false);
+    setFormWidgetVisibility("point4", false);
+    setFormWidgetVisibility("point5", false);
+    setFormWidgetVisibility("controls", false);
+    setFormWidgetVisibility("rows", false);
+    setFormWidgetVisibility("colum", false);
+    setFormWidgetVisibility("mesh", false);
+    setFormWidgetVisibility("patch", false);
 
     switch(m_gradientType){
     case GradientType::Linear:
-        formWidgetVisibility("start", true);
-        formWidgetVisibility("end", true);
-        formWidgetVisibility("skew", true);
+        setFormWidgetVisibility("start", true);
+        setFormWidgetVisibility("end", true);
+        setFormWidgetVisibility("skew", true);
         break;
     case GradientType::Radial:
-        formWidgetVisibility("start", true);
-        formWidgetVisibility("end", true);
-        formWidgetVisibility("focal", true);
-        formWidgetVisibility("skew", true);
-        formWidgetVisibility("scale", true);
+        setFormWidgetVisibility("start", true);
+        setFormWidgetVisibility("end", true);
+        setFormWidgetVisibility("focal", true);
+        setFormWidgetVisibility("skew", true);
+        setFormWidgetVisibility("scale", true);
         break;
     case GradientType::Conical:
-        formWidgetVisibility("start", true);
-        formWidgetVisibility("end", true);
-        formWidgetVisibility("focal", true);
-        formWidgetVisibility("scale", true);
+        setFormWidgetVisibility("start", true);
+        setFormWidgetVisibility("end", true);
+        setFormWidgetVisibility("focal", true);
+        setFormWidgetVisibility("scale", true);
         break;
     case GradientType::Diamond:
-        formWidgetVisibility("point1", true);
-        formWidgetVisibility("point2", true);
-        formWidgetVisibility("point3", true);
-        formWidgetVisibility("point4", true);
-        formWidgetVisibility("point5", true);
+        setFormWidgetVisibility("point1", true);
+        setFormWidgetVisibility("point2", true);
+        setFormWidgetVisibility("point3", true);
+        setFormWidgetVisibility("point4", true);
+        setFormWidgetVisibility("point5", true);
         break;
     case GradientType::FourColors:
-        formWidgetVisibility("point1", true);
-        formWidgetVisibility("point2", true);
-        formWidgetVisibility("point3", true);
-        formWidgetVisibility("point4", true);
+        setFormWidgetVisibility("point1", true);
+        setFormWidgetVisibility("point2", true);
+        setFormWidgetVisibility("point3", true);
+        setFormWidgetVisibility("point4", true);
         break;
     case GradientType::Mesh:
-        formWidgetVisibility("controls", true);
-        formWidgetVisibility("rows", true);
-        formWidgetVisibility("colum", true);
-        formWidgetVisibility("mesh", true);
+        setFormWidgetVisibility("controls", true);
+        setFormWidgetVisibility("rows", true);
+        setFormWidgetVisibility("colum", true);
+        setFormWidgetVisibility("mesh", true);
         break;
     case GradientType::PatchMesh:
-        formWidgetVisibility("controls", true);
-        formWidgetVisibility("patch", true);
+        setFormWidgetVisibility("controls", true);
+        setFormWidgetVisibility("patch", true);
         break;
     }
 }

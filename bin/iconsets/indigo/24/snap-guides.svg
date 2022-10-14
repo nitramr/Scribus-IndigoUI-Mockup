@@ -1,0 +1,8 @@
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<style>@import '../highlights.css';</style>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M22 13.1429V4C22 2.89543 21.1046 2 20 2L4 2C2.89543 2 2 2.89543 2 4V20C2 21.1046 2.89543 22 4 22H13V20H4V4L20 4V12.1882C20.7424 12.3791 21.421 12.7081 22 13.1429Z"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8 8H4V10H8L8 20H10L10 10H20V8H10V4H8V8Z" class="info"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M22 17.1631V19H20.5V17.1631C20.5 16.9059 20.3443 16.4839 19.9724 16.1119C19.6173 15.7568 19.1147 15.5 18.5 15.5C17.8853 15.5 17.3827 15.7568 17.0276 16.1119C16.6557 16.4839 16.5 16.9059 16.5 17.1631V19H15V17.1631C15 16.4204 15.3824 15.6358 15.967 15.0512C16.5685 14.4497 17.4408 14 18.5 14C19.5592 14 20.4315 14.4497 21.033 15.0512C21.6176 15.6358 22 16.4204 22 17.1631Z" class="error"/>
+<path d="M22 20.5H20.5V22H22V20.5Z" class="error"/>
+<path d="M16.5 20.5H15V22H16.5V20.5Z" class="error"/>
+</svg>

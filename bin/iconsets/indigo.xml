@@ -201,6 +201,9 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="save-pdf" file="24/file-pdf-box.svg" />
 		<icon id="setting" file="24/tune.svg" />
 		<icon id="setting-edit" file="24/cog.svg" />
+		<icon id="snap-grid" file="24/snap-grid.svg" />
+		<icon id="snap-guides" file="24/snap-guides.svg" />
+		<icon id="snap-items" file="24/snap-items.svg" />
 		<icon id="space-bottom" file="24/border-bottom-variant.svg" />
 		<icon id="space-inside" file="24/border-inline.svg" />
 		<icon id="space-left" file="24/border-left-variant.svg" />

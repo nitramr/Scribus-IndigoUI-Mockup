@@ -149,6 +149,7 @@ SOURCES += \
     src/ui/quicktools/quicktool_level.cpp \
     src/ui/quicktools/quicktool_pdftools.cpp \
     src/ui/quicktools/quicktool_preview.cpp \
+    src/ui/quicktools/quicktool_snap.cpp \
     src/ui/splashscreen.cpp \
     src/ui/toolbars/toolbar_quicktools.cpp \
     src/ui/toolbars/toolbarproperty.cpp \
@@ -307,6 +308,7 @@ HEADERS += \
     src/ui/quicktools/quicktool_level.h \
     src/ui/quicktools/quicktool_pdftools.h \
     src/ui/quicktools/quicktool_preview.h \
+    src/ui/quicktools/quicktool_snap.h \
     src/ui/splashscreen.h \
     src/ui/toolbars/toolbar_quicktools.h \
     src/ui/toolbars/toolbarproperty.h \
@@ -428,7 +430,8 @@ FORMS += \
     src/ui/quicktools/quicktool_edit.ui \
     src/ui/quicktools/quicktool_level.ui \
     src/ui/quicktools/quicktool_pdftools.ui \
-    src/ui/quicktools/quicktool_preview.ui
+    src/ui/quicktools/quicktool_preview.ui \
+    src/ui/quicktools/quicktool_snap.ui
 
 TRANSLATIONS += \
     Scribus-IndigoUI_en_US.ts

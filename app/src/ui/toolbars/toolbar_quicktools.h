@@ -6,6 +6,7 @@
 #include "quicktool_level.h"
 #include "quicktool_pdftools.h"
 #include "quicktool_preview.h"
+#include "quicktool_snap.h"
 #include "toolbarproperty.h"
 #include <QWidget>
 
@@ -22,6 +23,7 @@ private:
     QuickToolPDFTools * quickToolPDFTools;
     QuickToolEdit * quickToolEdit;
     QuickToolDocument * quickToolDocument;
+    QuickToolSnap * quickToolSnap;
 
 
     void loadWidgets();

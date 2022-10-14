@@ -14,6 +14,7 @@ ToolBarQuickTools::ToolBarQuickTools(QWidget *parent) : ToolBarProperty(parent)
     quickToolPDFTools = new QuickToolPDFTools();
     quickToolEdit = new QuickToolEdit();
     quickToolDocument = new QuickToolDocument();
+    quickToolSnap = new QuickToolSnap();
 
     loadWidgets();
 
@@ -32,6 +33,8 @@ void ToolBarQuickTools::loadWidgets()
     this->addWidget(quickToolPDFTools);
     this->addSpacing(space);
     this->addWidget(quickToolLevel);
+    this->addSpacing(space);
+    this->addWidget(quickToolSnap);
     this->addSpacing(space);
 
 }

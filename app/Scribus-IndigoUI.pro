@@ -121,6 +121,7 @@ SOURCES += \
     src/ui/dialogs/newdocument_dialog.cpp \
     src/ui/dialogs/newpage_dialog.cpp \
     src/ui/dialogs/newparentpage_dialog.cpp \
+    src/ui/dialogs/stylemanager_dialog.cpp \
     src/ui/docks/dock_centralwidget.cpp \
     src/ui/docks/dock_documentbase.cpp \
     src/ui/docks/dock_panelbase.cpp \
@@ -280,6 +281,7 @@ HEADERS += \
     src/ui/dialogs/newdocument_dialog.h \
     src/ui/dialogs/newpage_dialog.h \
     src/ui/dialogs/newparentpage_dialog.h \
+    src/ui/dialogs/stylemanager_dialog.h \
     src/ui/docks/dock_centralwidget.h \
     src/ui/docks/dock_documentbase.h \
     src/ui/docks/dock_panelbase.h \
@@ -407,6 +409,7 @@ FORMS += \
     src/ui/dialogs/newdocument_dialog.ui \
     src/ui/dialogs/newpage_dialog.ui \
     src/ui/dialogs/newparentpage_dialog.ui \
+    src/ui/dialogs/stylemanager_dialog.ui \
     src/ui/imageeffects/imageeffect_blur.ui \
     src/ui/imageeffects/imageeffect_brightness.ui \
     src/ui/imageeffects/imageeffect_colorize.ui \

@@ -9,6 +9,7 @@ ToolBarProperty::ToolBarProperty(QWidget * parent) : QToolBar(parent)
 {
 
     m_icon = new QLabel();
+    m_pixmap = QPixmap();
     m_formWidgets = new QMap<QString,QAction*>();
 
     this->setMovable(false);
@@ -20,11 +21,19 @@ ToolBarProperty::ToolBarProperty(QWidget * parent) : QToolBar(parent)
     this->addSpacing(8);
     this->addWidget(m_icon);
     this->addSpacing(8);
+
+
 }
 
 void ToolBarProperty::setIcon(QPixmap icon)
 {
-    m_icon->setPixmap(icon);
+    m_pixmap = icon;
+
+    if(!icon.isNull()){
+        icon = icon.scaledToHeight( iconSize().height(), Qt::SmoothTransformation);
+    }
+
+    m_icon->setPixmap( icon );
 }
 
 void ToolBarProperty::addSpacing(int spacing)
@@ -125,6 +134,14 @@ void ToolBarProperty::setFormWidgetLabel(QString key, QString label)
 
 }
 
+void ToolBarProperty::setIconSize(const QSize &iconSize)
+{
+    QToolBar::setIconSize(iconSize);
+
+    setIcon(m_pixmap);
+    this->setMinimumHeight( minHeight() );
+}
+
 int ToolBarProperty::minHeight()
 {
     //    QFont fontLabel = this->font();
@@ -144,6 +161,8 @@ int ToolBarProperty::minHeight()
 
     //    return form->height();
 
-    return 40;
+   // return 40;
+
+    return iconSize().height() + 16;
 
 }

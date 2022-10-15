@@ -73,13 +73,19 @@ void MenuManager::initRootMenu(QMenuBar *menu)
     menu->addMenu(mHelp);
 
     initFileMenu();
+    initEditMenu();
 }
 
 void MenuManager::initFileMenu()
 {
 
-    menuList->value("file")->addAction(IconManager::instance().icon("file-document"), tr("New Document"), mainWindow, &MainWindow::newDocument, QKeySequence::New);
-    menuList->value("file")->addAction(tr("Open Document"), mainWindow, &MainWindow::openDocument, QKeySequence::Open);
+    menuList->value("file")->addAction(IconManager::instance().icon("file-document"), tr("New Document"), QKeySequence::New, mainWindow, &MainWindow::newDocument);
+    menuList->value("file")->addAction(tr("Open Document"), QKeySequence::Open, mainWindow, &MainWindow::openDocument);
 
 
+}
+
+void MenuManager::initEditMenu()
+{
+    menuList->value("edit")->addAction(tr("Styles..."), QKeySequence(Qt::Key_F4), mainWindow, &MainWindow::openStyles);
 }

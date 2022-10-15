@@ -1,5 +1,5 @@
 <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 <style>@import '../highlights.css';</style>
-<rect x="11" y="11" width="10" height="10"/>
-<rect x="3" y="3" width="12" height="12" class="warning"/>
+<rect x="2" y="2" width="12" height="12" class="warning"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M22 9H15.5L15.5 15.5H9V22H22L22 9Z"/>
 </svg>

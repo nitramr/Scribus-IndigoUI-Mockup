@@ -18,7 +18,7 @@ ToolbarManager::ToolbarManager(QObject *parent)
     : QObject(parent)
 {
 
-
+    m_iconSize = QSize(20,20);
 
 }
 
@@ -60,7 +60,7 @@ void ToolbarManager::initTools()
     // Toolbar settings
     m_toolTools->setOrientation(Qt::Vertical);
     m_toolTools->setToolButtonStyle(Qt::ToolButtonIconOnly);
-    m_toolTools->setIconSize(QSize(24,24));
+    m_toolTools->setIconSize(m_iconSize);
     m_toolTools->setAllowedAreas(Qt::LeftToolBarArea | Qt::RightToolBarArea | Qt::BottomToolBarArea);
 
     // Selection
@@ -104,6 +104,7 @@ void ToolbarManager::initQuickTools()
     m_toolQuickTools->setFloatable(false);
     m_toolQuickTools->setOrientation(Qt::Horizontal);
     m_toolQuickTools->setAllowedAreas(Qt::TopToolBarArea);
+    m_toolQuickTools->setIconSize(m_iconSize);
 
 
 }
@@ -111,46 +112,55 @@ void ToolbarManager::initQuickTools()
 void ToolbarManager::initToolEmptyProperties()
 {
     m_toolEmptyProperties->setVisible(true);
+    m_toolEmptyProperties->setIconSize(m_iconSize);
 }
 
 void ToolbarManager::initToolArcProperties()
 {
     m_toolArcProperties->setVisible(false);
+    m_toolArcProperties->setIconSize(m_iconSize);
 }
 
 void ToolbarManager::initToolBezierProperties()
 {
     m_toolBezierProperties->setVisible(false);
+    m_toolBezierProperties->setIconSize(m_iconSize);
 }
 
 void ToolbarManager::initToolTableProperties()
 {
     m_toolTableProperties->setVisible(false);
+    m_toolTableProperties->setIconSize(m_iconSize);
 }
 
 void ToolbarManager::initToolPolygonProperties()
 {
     m_toolPolygonProperties->setVisible(false);
+    m_toolPolygonProperties->setIconSize(m_iconSize);
 }
 
 void ToolbarManager::initToolSpiralProperties()
 {
     m_toolSpiralProperties->setVisible(false);
+    m_toolSpiralProperties->setIconSize(m_iconSize);
 }
 
 void ToolbarManager::initToolMeasurementProperties()
 {
     m_toolMeasurementProperties->setVisible(false);
+    m_toolMeasurementProperties->setIconSize(m_iconSize);
 }
 
 void ToolbarManager::initToolCalligraphyProperties()
 {
     m_toolCalligraphyProperties->setVisible(false);
+    m_toolCalligraphyProperties->setIconSize(m_iconSize);
 }
 
 void ToolbarManager::initToolGradientProperties()
 {
     m_toolGradientProperties->setVisible(false);
+    m_toolGradientProperties->setIconSize(m_iconSize);
 }
 
 /* ********************************************************************************* *

@@ -50,6 +50,7 @@ public slots:
 
     void newDocument();
     void openDocument();
+    void openStyles();
 
 
 

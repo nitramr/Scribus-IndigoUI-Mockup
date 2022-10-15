@@ -62,6 +62,8 @@ private:
 
     static ToolbarManager* m_instance;
 
+    QSize m_iconSize;
+
     MainWindow * m_mainWindow;
     QToolBar * m_toolTools;
     ToolBarQuickTools * m_toolQuickTools;

@@ -19,8 +19,12 @@ public:
     void setFormWidgetVisibility(QString key, bool visible);
     void setFormWidgetLabel(QString key, QString label);
 
+public slots:
+    void setIconSize(const QSize &iconSize);
+
 private:
     QLabel* m_icon;
+    QPixmap m_pixmap;
     QMap<QString,QAction*> *m_formWidgets;
 
     int minHeight();

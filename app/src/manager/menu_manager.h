@@ -36,6 +36,7 @@ private:
 
 
     void initFileMenu();
+    void initEditMenu();
 };
 
 #endif // MENU_MANAGER_H

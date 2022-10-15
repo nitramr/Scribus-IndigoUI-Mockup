@@ -16,8 +16,9 @@
 
 
 #include "configuration_manager.h"
-#include "dock_panelbase.h"
+#include "stylemanager_dialog.h"
 #include "newdocument_dialog.h"
+#include "dock_panelbase.h"
 #include "dock_manager.h"
 #include "icon_manager.h"
 #include "menu_manager.h"
@@ -214,4 +215,15 @@ void MainWindow::newDocument()
 void MainWindow::openDocument()
 {
     qDebug() << "open Doc";
+}
+
+void MainWindow::openStyles()
+{
+    qDebug() << "open Style Manager";
+
+    StyleManagerDialog * dialogStyles = new StyleManagerDialog(this);
+    if (dialogStyles->exec())
+    {
+
+    }
 }

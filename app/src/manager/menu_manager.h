@@ -33,10 +33,16 @@ private:
 
     MainWindow *mainWindow;
     QMap<QString, QMenu*> *menuList {nullptr};
+    QMap<QString, QMenu*> *menuFileImport {nullptr};
 
 
     void initFileMenu();
+    void initFileImportMenu();
+    void initFileExportMenu();
+    void initFileOutputPreviewMenu();
+
     void initEditMenu();
+
 };
 
 #endif // MENU_MANAGER_H

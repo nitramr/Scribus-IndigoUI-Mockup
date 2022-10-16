@@ -178,6 +178,7 @@ SOURCES += \
     src/ui/widgets/curveedit_widget/curveedit_widget.cpp \
     src/ui/widgets/headline_widget/headline_widget.cpp \
     src/ui/widgets/imageeffect_list/imageeffect_list.cpp \
+    src/ui/widgets/imagequality_button/imagequality_button.cpp \
     src/ui/widgets/stickypopup_widget/stickypopup.cpp \
     src/ui/widgets/colorharmony_wheel/colorharmony_wheel.cpp \
     src/ui/widgets/eyedropperscreen_widget/eyedropperscreen_widget.cpp \
@@ -339,6 +340,7 @@ HEADERS += \
     src/ui/widgets/curveedit_widget/curveedit_widget.h \
     src/ui/widgets/headline_widget/headline_widget.h \
     src/ui/widgets/imageeffect_list/imageeffect_list.h \
+    src/ui/widgets/imagequality_button/imagequality_button.h \
     src/ui/widgets/stickypopup_widget/stickypopup.h \
     src/ui/widgets/colorharmony_wheel/colorharmony_wheel.h \
     src/ui/widgets/eyedropperscreen_widget/eyedropperscreen_widget.h \

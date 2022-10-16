@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>191</width>
-    <height>43</height>
+    <width>136</width>
+    <height>40</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -38,7 +38,11 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QComboBox" name="comboImageQuality"/>
+    <widget class="ImageQualityButton" name="buttonImageQuality">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QToolButton" name="buttonColorManagement">
@@ -90,6 +94,11 @@
    <class>ColorBlindnessButton</class>
    <extends>QToolButton</extends>
    <header>colorblindness_button/colorblindness_button.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ImageQualityButton</class>
+   <extends>QToolButton</extends>
+   <header>imagequality_button/imagequality_button.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

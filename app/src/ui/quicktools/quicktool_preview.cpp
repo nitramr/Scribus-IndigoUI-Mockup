@@ -20,14 +20,7 @@ QuickToolPreview::~QuickToolPreview()
 
 void QuickToolPreview::setup()
 {
-
     IconManager &iconManager = IconManager::instance();
-
-    // Image Render Quality
-    ui->comboImageQuality->addItem( tr("High"), QVariant::fromValue(ImageRenderQuality::High) );
-    ui->comboImageQuality->addItem( tr("Normal"), QVariant::fromValue(ImageRenderQuality::Normal) );
-    ui->comboImageQuality->addItem( tr("Low"), QVariant::fromValue(ImageRenderQuality::Low) );
-    ui->comboImageQuality->setCurrentIndex(1);
 
     // Buttons
     ui->buttonColorManagement->setIcon( iconManager.icon("preview-colormanagement") );

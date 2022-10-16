@@ -192,6 +192,9 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="preview-colormanagement" file="24/preview-colormanagement.svg" />
 		<icon id="preview-document" file="24/monitor-eye.svg" />
 		<icon id="preview-edit" file="24/square-edit-outline.svg" />
+		<icon id="preview-image-high" file="24/quality-high.svg" />
+		<icon id="preview-image-low" file="24/quality-low.svg" />
+		<icon id="preview-image-normal" file="24/quality-medium.svg" />
 		<icon id="print" file="24/printer.svg" />
 		<icon id="redo" file="24/redo.svg" />
 		<icon id="remove" file="24/minus.svg" />

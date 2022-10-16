@@ -6,20 +6,23 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>136</width>
-    <height>40</height>
+    <width>156</width>
+    <height>27</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="label">
-   <string>Document Preview</string>
+   <string>Documentation Preview</string>
   </property>
   <property name="font">
    <font>
     <pointsize>8</pointsize>
    </font>
+  </property>
+  <property name="labelVisibility">
+   <bool>false</bool>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="spacing">
@@ -42,6 +45,15 @@
      <property name="text">
       <string/>
      </property>
+     <property name="iconSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="autoRaise">
+      <bool>true</bool>
+     </property>
     </widget>
    </item>
    <item>
@@ -49,7 +61,16 @@
      <property name="text">
       <string/>
      </property>
+     <property name="iconSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
      <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="autoRaise">
       <bool>true</bool>
      </property>
     </widget>
@@ -59,7 +80,16 @@
      <property name="text">
       <string/>
      </property>
+     <property name="iconSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
      <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="autoRaise">
       <bool>true</bool>
      </property>
     </widget>
@@ -69,7 +99,16 @@
      <property name="text">
       <string/>
      </property>
+     <property name="iconSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
      <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="autoRaise">
       <bool>true</bool>
      </property>
     </widget>
@@ -78,6 +117,15 @@
     <widget class="ColorBlindnessButton" name="buttonColorBlindness">
      <property name="text">
       <string/>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="autoRaise">
+      <bool>true</bool>
      </property>
     </widget>
    </item>

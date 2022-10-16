@@ -22,19 +22,30 @@ ToolBarQuickTools::ToolBarQuickTools(QWidget *parent) : ToolBarProperty(parent)
 
 void ToolBarQuickTools::loadWidgets()
 {
-    int space = 16;
+    int space = 8;
 
+    this->addSeparator();
+    this->addSpacing(space);
     this->addWidget(quickToolDocument);
+    this->addSpacing(space);
+    this->addSeparator();
     this->addSpacing(space);
     this->addWidget(quickToolEdit);
     this->addSpacing(space);
+    this->addSeparator();
+    this->addSpacing(space);
     this->addWidget(quickToolPreview);
+    this->addSpacing(space);
+    this->addSeparator();
     this->addSpacing(space);
     this->addWidget(quickToolPDFTools);
     this->addSpacing(space);
+    this->addSeparator();
+    this->addSpacing(space);
     this->addWidget(quickToolLevel);
     this->addSpacing(space);
-    this->addWidget(quickToolSnap);
+    this->addSeparator();
     this->addSpacing(space);
+    this->addWidget(quickToolSnap);
 
 }

@@ -16,6 +16,7 @@ FormWidget::FormWidget(QWidget *parent)
     m_pixmap = QPixmap();
     m_pixmapSize = QSize(16,16);
     m_preserveLabelSpace = false;
+    m_labelVisibility = true;
 
     setSizePolicy(policy);
     calculateFrame();
@@ -74,6 +75,8 @@ void FormWidget::calculateFrame()
 
 void FormWidget::paintEvent(QPaintEvent *)
 {
+    if(!labelVisibility()) return;
+
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing, true);
 
@@ -86,12 +89,14 @@ void FormWidget::paintEvent(QPaintEvent *)
     painter.setPen(pen);
     painter.setFont(m_font);
 
+
     QRect r = rect();
     QPixmap pix = m_pixmap;
     if(hasPixmap()) pix = pix.scaled(m_pixmapSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
 
     if (!isEnabled())
         pix = style->generatedIconPixmap(QIcon::Disabled, pix, &opt);
+
 
     switch(m_position){
     case Left:
@@ -139,7 +144,7 @@ void FormWidget::paintEvent(QPaintEvent *)
         break;
     }
 
-   // painter.drawRect(rect().adjusted(0,0,-1,-1));
+    // painter.drawRect(rect().adjusted(0,0,-1,-1));
 
 }
 
@@ -159,11 +164,11 @@ void FormWidget::labelSize(int &w, int &h) const
         h = m_pixmapSize.height() + m_space*2;
     }else{
 
-        if(m_label.isEmpty() && m_preserveLabelSpace == false){
+        if((m_label.isEmpty() && m_preserveLabelSpace == false) || m_labelVisibility == false){
             w = 0;
             h = 0;
         }else{
-             QFontMetrics metrics(m_font);
+            QFontMetrics metrics(m_font);
             w = metrics.horizontalAdvance(m_label) + metrics.horizontalAdvance(QLatin1Char(' ')) + m_space;
             h = metrics.height() + m_space;
         }
@@ -181,6 +186,17 @@ void FormWidget::setLabel(const QString &text)
 QString FormWidget::label()
 {
     return m_label;
+}
+
+void FormWidget::setLabelVisibility(bool visible)
+{
+    m_labelVisibility = visible;
+    calculateFrame();
+}
+
+bool FormWidget::labelVisibility()
+{
+    return m_labelVisibility;
 }
 
 void FormWidget::setPreserveLabelSpace(bool preserveSpace)

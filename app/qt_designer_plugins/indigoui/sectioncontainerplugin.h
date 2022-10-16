@@ -48,7 +48,6 @@
 **
 ****************************************************************************/
 
-//! [0]
 #ifndef SECTIONCONTAINERPLUGIN_H
 #define SECTIONCONTAINERPLUGIN_H
 
@@ -62,9 +61,7 @@ QT_END_NAMESPACE
 class SectionContainerPlugin: public QObject, public QDesignerCustomWidgetInterface
 {
     Q_OBJECT
-//! [1]
 //    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QDesignerCustomWidget")
-//! [1]
     Q_INTERFACES(QDesignerCustomWidgetInterface)
 public:
     explicit SectionContainerPlugin(QObject *parent = nullptr);
@@ -90,4 +87,3 @@ private:
 };
 
 #endif
-//! [0]

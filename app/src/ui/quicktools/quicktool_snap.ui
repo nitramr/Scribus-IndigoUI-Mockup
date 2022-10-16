@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>80</width>
-    <height>40</height>
+    <width>92</width>
+    <height>27</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,6 +20,9 @@
    <font>
     <pointsize>8</pointsize>
    </font>
+  </property>
+  <property name="labelVisibility">
+   <bool>false</bool>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="spacing">
@@ -42,7 +45,16 @@
      <property name="text">
       <string/>
      </property>
+     <property name="iconSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
      <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="autoRaise">
       <bool>true</bool>
      </property>
     </widget>
@@ -52,7 +64,16 @@
      <property name="text">
       <string/>
      </property>
+     <property name="iconSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
      <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="autoRaise">
       <bool>true</bool>
      </property>
     </widget>
@@ -62,7 +83,16 @@
      <property name="text">
       <string/>
      </property>
+     <property name="iconSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
      <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="autoRaise">
       <bool>true</bool>
      </property>
     </widget>

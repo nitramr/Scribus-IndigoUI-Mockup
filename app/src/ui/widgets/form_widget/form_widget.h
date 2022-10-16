@@ -16,6 +16,7 @@ class FormWidget : public QWidget
     Q_PROPERTY(QFont font READ font WRITE setFont STORED true)
     Q_PROPERTY(int space READ space WRITE setSpace)
     Q_PROPERTY(bool preserveLabelSpace READ preserveLabelSpace WRITE setPreserveLabelSpace)
+    Q_PROPERTY(bool labelVisibility READ labelVisibility WRITE setLabelVisibility)
 
 
 public:
@@ -29,6 +30,9 @@ public:
 
     void setLabel(QString const &text);
     QString label();
+
+    void setLabelVisibility(bool visible);
+    bool labelVisibility();
 
     void setPreserveLabelSpace(bool preserveSpace);
     bool preserveLabelSpace();
@@ -61,6 +65,7 @@ private:
     QFont m_font;
     QPixmap m_pixmap;
     bool m_preserveLabelSpace;
+    bool m_labelVisibility;
 
     void calculateFrame();
     void labelSize(int &w, int &h) const;

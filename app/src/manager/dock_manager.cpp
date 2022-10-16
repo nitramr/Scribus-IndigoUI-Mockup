@@ -76,6 +76,13 @@ void DockManager::setupDocks()
 void DockManager::setupMenus(QMenu *menu)
 {
 
+    // Set Shortcuts
+    dockFrame->toggleViewAction()->setShortcut( QKeySequence(Qt::Key_F2) );
+    dockContent->toggleViewAction()->setShortcut( QKeySequence(Qt::Key_F3) );
+    dockLayers->toggleViewAction()->setShortcut( QKeySequence(Qt::Key_F6) );
+
+
+
     // Add docks to menue
     windowMenu = menu;
     windowMenu->addAction(dockContent->toggleViewAction());

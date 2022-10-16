@@ -17,8 +17,20 @@ for which a new license (GPL+exception) is in place.
 //#include "scpainter.h"
 //#include "scribusapp.h"
 
-AutoFormsMenu::AutoFormsMenu( QWidget* parent ) : QMenu( parent )
+AutoFormsMenu::AutoFormsMenu(QWidget *parent) : AutoFormsMenu("", "", parent)
 {
+
+}
+
+AutoFormsMenu::AutoFormsMenu(const QString &title, QString icon, QWidget* parent ) : QMenu( parent )
+{
+    IconManager &iconManager = IconManager::instance();
+
+    if(!icon.isEmpty())
+        this->setIcon( iconManager.icon(icon));
+
+    this->setTitle(title);
+
     signalMapper = new QSignalMapper(this);
     menu1 = new QMenu( tr("Default Shapes"));
     addShape(menu1, 0);

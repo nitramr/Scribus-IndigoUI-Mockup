@@ -8,6 +8,11 @@
 #include "configuration_manager.h"
 #include "dirpaths_manager.h"
 
+/* ********************************************************************************* *
+ *
+ * Constructor + Setup
+ *
+ * ********************************************************************************* */
 
 ShortcutManager* ShortcutManager::m_instance = nullptr;
 
@@ -39,6 +44,12 @@ void ShortcutManager::setup()
 
 }
 
+/* ********************************************************************************* *
+ *
+ * Public Members
+ *
+ * ********************************************************************************* */
+
 QStringList ShortcutManager::keySets()
 {
     return m_keySets;
@@ -52,6 +63,11 @@ QKeySequence ShortcutManager::keySequence(QString name)
     return QKeySequence();
 }
 
+/* ********************************************************************************* *
+ *
+ * Private Member
+ *
+ * ********************************************************************************* */
 
 QStringList ShortcutManager::readKeysetConfigFiles()
 {
@@ -82,6 +98,12 @@ QStringList ShortcutManager::readKeysetConfigFiles()
     }
     return QStringList(appNames);
 }
+
+/* ********************************************************************************* *
+ *
+ * Private Methods
+ *
+ * ********************************************************************************* */
 
 void ShortcutManager::importKeySet(const QString &filename)
 {

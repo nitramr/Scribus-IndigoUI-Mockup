@@ -20,7 +20,8 @@ class SCRIBUS_API AutoFormsMenu : public QMenu
     Q_OBJECT
 
 public:
-    AutoFormsMenu( QWidget* parent );
+    AutoFormsMenu( QWidget* parent = nullptr );
+    AutoFormsMenu( const QString &title, QString icon, QWidget* parent = nullptr );
     ~AutoFormsMenu() {};
 
     void addShape(QMenu* menu, int shapenum);

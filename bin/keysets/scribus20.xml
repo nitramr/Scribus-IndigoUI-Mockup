@@ -2,26 +2,26 @@
 <shortcutset name="Scribus 2.0.0">
     <function name="BarcodeGenerator" shortcut=""/>
     <function name="ColorWheel" shortcut=""/>
-    <function name="ExportAsImage" shortcut="Ctrl+Shift+E"/>
-    <function name="ExportAsSVG" shortcut=""/>
-    <function name="ExportAsXPS" shortcut=""/>
+    <function name="ExportAsImage" shortcut="Ctrl+Shift+E"/><!-- Used -->
+    <function name="ExportAsSVG" shortcut=""/><!-- Used -->
+    <function name="ExportAsXPS" shortcut=""/><!-- Used -->
     <function name="FlattenPath" shortcut=""/>
-    <function name="FontPreview" shortcut=""/>
-    <function name="HunspellPlugin" shortcut="Shift+F7"/>
+    <function name="FontPreview" shortcut=""/><!-- Used -->
+    <function name="HunspellPlugin" shortcut="Shift+F7"/><!-- Used -->
     <function name="LensEffects" shortcut=""/>
     <function name="MeshDistortion" shortcut=""/>
-    <function name="NewFromDocumentTemplate" shortcut="Ctrl+Alt+N"/>
-    <function name="OutputPreviewPDF" shortcut=""/>
-    <function name="OutputPreviewPS" shortcut=""/>
+    <function name="NewFromDocumentTemplate" shortcut="Ctrl+Alt+N"/><!-- Used -->
+    <function name="OutputPreviewPDF" shortcut=""/><!-- Used -->
+    <function name="OutputPreviewPS" shortcut=""/><!-- Used -->
     <function name="PathAlongPath" shortcut=""/>
     <function name="PathConnect" shortcut=""/>
     <function name="PathCutter" shortcut=""/>
     <function name="PathFinder" shortcut=""/>
     <function name="PathStroker" shortcut=""/>
-    <function name="Picture Browser" shortcut=""/>
-    <function name="PrintPreview" shortcut=""/>
-    <function name="SaveAsDocumentTemplate" shortcut="Ctrl+Alt+S"/>
-    <function name="ShortWords" shortcut=""/>
+    <function name="Picture Browser" shortcut=""/><!-- Used -->
+    <function name="PrintPreview" shortcut=""/><!-- Used -->
+    <function name="SaveAsDocumentTemplate" shortcut="Ctrl+Alt+S"/><!-- Used -->
+    <function name="ShortWords" shortcut=""/><!-- Used -->
     <function name="SmoothPath" shortcut=""/>
     <function name="Subdivide" shortcut=""/>
     <function name="alignBlock" shortcut=""/>
@@ -30,56 +30,56 @@
     <function name="alignLeft" shortcut=""/>
     <function name="alignRight" shortcut=""/>
     <function name="editActionMode" shortcut=""/>
-    <function name="editClearContents" shortcut="Ctrl+Shift+Del"/>
-    <function name="editColorsAndFills" shortcut=""/>
-    <function name="editCopy" shortcut="Ctrl+C"/>
-    <function name="editCopyContents" shortcut="Ctrl+Shift+C"/>
-    <function name="editCut" shortcut="Ctrl+X"/>
-    <function name="editDeselectAll" shortcut="Ctrl+Shift+A"/>
+    <function name="editClearContents" shortcut="Ctrl+Shift+Del"/><!-- Used -->
+    <function name="editColorsAndFills" shortcut=""/><!-- Used -->
+    <function name="editCopy" shortcut="Ctrl+C"/><!-- Used -->
+    <function name="editCopyContents" shortcut="Ctrl+Shift+C"/><!-- Used -->
+    <function name="editCut" shortcut="Ctrl+X"/><!-- Used -->
+    <function name="editDeselectAll" shortcut="Ctrl+Shift+A"/><!-- Used -->
     <function name="editEditRenderSource" shortcut=""/>
     <function name="editEditWithImageEditor" shortcut=""/>
-    <function name="editJavascripts" shortcut=""/>
+    <function name="editJavascripts" shortcut=""/><!-- Used -->
     <function name="editMark" shortcut=""/>
-    <function name="editMarks" shortcut=""/>
-    <function name="editMasterPages" shortcut=""/>
+    <function name="editMarks" shortcut=""/><!-- Used -->
+    <function name="editMasterPages" shortcut=""/><!-- Used -->
     <function name="editNotesStyles" shortcut=""/>
-    <function name="editPaste" shortcut="Ctrl+V"/>
-    <function name="editPasteContents" shortcut="Ctrl+Shift+V"/>
-    <function name="editPasteContentsAbs" shortcut="Ctrl+Alt+Shift+V"/>
+    <function name="editPaste" shortcut="Ctrl+V"/><!-- Used -->
+    <function name="editPasteContents" shortcut="Ctrl+Shift+V"/><!-- Used -->
+    <function name="editPasteContentsAbs" shortcut="Ctrl+Alt+Shift+V"/><!-- Used -->
     <function name="editPasteImageFromClipboard" shortcut=""/>
-    <function name="editRedoAction" shortcut="Ctrl+Shift+Z"/>
-    <function name="editReplaceColors" shortcut=""/>
-    <function name="editSearchReplace" shortcut="Ctrl+F"/>
-    <function name="editSelectAll" shortcut="Ctrl+A"/>
-    <function name="editSelectAllOnLayer" shortcut="Ctrl+Alt+A"/>
-    <function name="editStyles" shortcut="F4"/>
-    <function name="editTruncateContents" shortcut=""/>
-    <function name="editUndoAction" shortcut="Ctrl+Z"/>
-    <function name="extrasDeHyphenateText" shortcut=""/>
-    <function name="extrasGenerateTableOfContents" shortcut=""/>
-    <function name="extrasHyphenateText" shortcut=""/>
-    <function name="extrasManageImages" shortcut=""/>
-    <function name="extrasUpdateDocument" shortcut=""/>
+    <function name="editRedoAction" shortcut="Ctrl+Shift+Z"/><!-- Used -->
+    <function name="editReplaceColors" shortcut=""/><!-- Used -->
+    <function name="editSearchReplace" shortcut="Ctrl+F"/><!-- Used -->
+    <function name="editSelectAll" shortcut="Ctrl+A"/><!-- Used -->
+    <function name="editSelectAllOnLayer" shortcut="Ctrl+Alt+A"/><!-- Used -->
+    <function name="editStyles" shortcut="F4"/><!-- Used -->
+    <function name="editTruncateContents" shortcut=""/><!-- Used -->
+    <function name="editUndoAction" shortcut="Ctrl+Z"/><!-- Used -->
+    <function name="extrasDeHyphenateText" shortcut=""/><!-- Used -->
+    <function name="extrasGenerateTableOfContents" shortcut=""/><!-- Used -->
+    <function name="extrasHyphenateText" shortcut=""/><!-- Used -->
+    <function name="extrasManageImages" shortcut=""/><!-- Used -->
+    <function name="extrasUpdateDocument" shortcut=""/><!-- Used -->
     <function name="fileClose" shortcut="Ctrl+W"/>
-    <function name="fileCollect" shortcut=""/>
-    <function name="fileDocSetup150" shortcut=""/>
-    <function name="fileExportAsEPS" shortcut=""/>
-    <function name="fileExportAsPDF" shortcut="Ctrl+Shift+P"/>
-    <function name="fileExportText" shortcut=""/>
-    <function name="fileImportAppendText" shortcut=""/>
-    <function name="fileImportImage" shortcut="Ctrl+I"/>
-    <function name="fileImportText" shortcut="Ctrl+I"/>
+    <function name="fileCollect" shortcut=""/><!-- Used -->
+    <function name="fileDocSetup150" shortcut=""/><!-- Used -->
+    <function name="fileExportAsEPS" shortcut=""/><!-- Used -->
+    <function name="fileExportAsPDF" shortcut="Ctrl+Shift+P"/><!-- Used -->
+    <function name="fileExportText" shortcut=""/><!-- Used -->
+    <function name="fileImportAppendText" shortcut=""/><!-- Used -->
+    <function name="fileImportImage" shortcut="Ctrl+I"/><!-- Used -->
+    <function name="fileImportText" shortcut="Ctrl+I"/><!-- Used -->
     <function name="fileImportText2" shortcut=""/>
-    <function name="fileImportVector" shortcut=""/>
-    <function name="fileNew" shortcut="Ctrl+N"/>
-    <function name="fileNewFromTemplate" shortcut="Ctrl+Alt+N"/>
-    <function name="fileOpen" shortcut="Ctrl+O"/>
-    <function name="filePreferences150" shortcut=""/>
-    <function name="filePrint" shortcut="Ctrl+P"/>
-    <function name="fileQuit" shortcut="Ctrl+Q"/>
-    <function name="fileRevert" shortcut=""/>
-    <function name="fileSave" shortcut="Ctrl+S"/>
-    <function name="fileSaveAs" shortcut="Ctrl+Shift+S"/>
+    <function name="fileImportVector" shortcut=""/><!-- Used -->
+    <function name="fileNew" shortcut="Ctrl+N"/><!-- Used -->
+    <function name="fileNewFromTemplate" shortcut="Ctrl+Alt+N"/><!-- Used -->
+    <function name="fileOpen" shortcut="Ctrl+O"/><!-- Used -->
+    <function name="filePreferences150" shortcut=""/><!-- Used -->
+    <function name="filePrint" shortcut="Ctrl+P"/><!-- Used -->
+    <function name="fileQuit" shortcut="Ctrl+Q"/><!-- Used -->
+    <function name="fileRevert" shortcut=""/><!-- Used -->
+    <function name="fileSave" shortcut="Ctrl+S"/><!-- Used -->
+    <function name="fileSaveAs" shortcut="Ctrl+Shift+S"/><!-- Used -->
     <function name="fontSize10" shortcut=""/>
     <function name="fontSize11" shortcut=""/>
     <function name="fontSize12" shortcut=""/>
@@ -93,18 +93,18 @@
     <function name="fontSize72" shortcut=""/>
     <function name="fontSize9" shortcut=""/>
     <function name="fontSizeOther" shortcut=""/>
-    <function name="helpAboutPlugins" shortcut=""/>
-    <function name="helpAboutQt" shortcut=""/>
-    <function name="helpAboutScribus" shortcut=""/>
-    <function name="helpActionSearch" shortcut="Ctrl+/"/>
-    <function name="helpChat" shortcut=""/>
-    <function name="helpCheckUpdates" shortcut=""/>
-    <function name="helpManual" shortcut="F1"/>
-    <function name="helpOnlineDocs" shortcut=""/>
-    <function name="helpOnlineTutorial1" shortcut=""/>
-    <function name="helpOnlineWWW" shortcut=""/>
-    <function name="helpOnlineWiki" shortcut=""/>
-    <function name="helpTooltips" shortcut=""/>
+    <function name="helpAboutPlugins" shortcut=""/><!-- Used -->
+    <function name="helpAboutQt" shortcut=""/><!-- Used -->
+    <function name="helpAboutScribus" shortcut=""/><!-- Used -->
+    <function name="helpActionSearch" shortcut="Ctrl+/"/><!-- Used -->
+    <function name="helpChat" shortcut=""/><!-- Used -->
+    <function name="helpCheckUpdates" shortcut=""/><!-- Used -->
+    <function name="helpManual" shortcut="F1"/><!-- Used -->
+    <function name="helpOnlineDocs" shortcut=""/><!-- Used -->
+    <function name="helpOnlineTutorial1" shortcut=""/><!-- Used -->
+    <function name="helpOnlineWWW" shortcut=""/><!-- Used -->
+    <function name="helpOnlineWiki" shortcut=""/><!-- Used -->
+    <function name="helpTooltips" shortcut=""/><!-- Used -->
     <function name="insertFrame" shortcut=""/>
     <function name="insertGlyph" shortcut=""/>
     <function name="insertMark2Mark" shortcut=""/>
@@ -125,7 +125,7 @@
     <function name="itemConvertToPolygon" shortcut=""/>
     <function name="itemConvertToSymbolFrame" shortcut=""/>
     <function name="itemConvertToTextFrame" shortcut=""/>
-    <function name="itemDelete" shortcut="Del"/>
+    <function name="itemDelete" shortcut="Del"/><!-- Used -->
     <function name="itemDetachTextFromPath" shortcut=""/>
     <function name="itemDuplicate" shortcut="Ctrl+D"/>
     <function name="itemEditWeld" shortcut=""/>
@@ -159,18 +159,18 @@
     <function name="itemTransform" shortcut=""/>
     <function name="itemUngroup" shortcut="Ctrl+Shift+G"/>
     <function name="itemUpdateImage" shortcut=""/>
-    <function name="itemUpdateMarks" shortcut=""/>
+    <function name="itemUpdateMarks" shortcut=""/><!-- Used -->
     <function name="itemWeld" shortcut=""/>
     <function name="itemsUnWeld" shortcut=""/>
-    <function name="pageApplyMasterPage" shortcut=""/>
-    <function name="pageCopy" shortcut=""/>
-    <function name="pageCopyToMasterPage" shortcut=""/>
-    <function name="pageDelete" shortcut=""/>
-    <function name="pageImport" shortcut=""/>
-    <function name="pageInsert" shortcut=""/>
-    <function name="pageManageGuides" shortcut=""/>
-    <function name="pageManageProperties" shortcut=""/>
-    <function name="pageMove" shortcut=""/>
+    <function name="pageApplyMasterPage" shortcut=""/><!-- Used -->
+    <function name="pageCopy" shortcut=""/><!-- Used -->
+    <function name="pageCopyToMasterPage" shortcut=""/><!-- Used -->
+    <function name="pageDelete" shortcut=""/><!-- Used -->
+    <function name="pageImport" shortcut=""/><!-- Used -->
+    <function name="pageInsert" shortcut=""/><!-- Used -->
+    <function name="pageManageGuides" shortcut=""/><!-- Used -->
+    <function name="pageManageProperties" shortcut=""/><!-- Used -->
+    <function name="pageMove" shortcut=""/><!-- Used -->
     <function name="showMouseCoordinates" shortcut=""/>
     <function name="specialToggleAllGuides" shortcut="F11"/>
     <function name="specialToggleAllPalettes" shortcut="F12"/>
@@ -178,18 +178,18 @@
     <function name="stickyTools" shortcut=""/>
     <function name="styleImageEffects" shortcut="Ctrl+E"/>
     <function name="styleTabulators" shortcut=""/>
-    <function name="tableAdjustFrameToTable" shortcut=""/>
-    <function name="tableAdjustTableToFrame" shortcut=""/>
-    <function name="tableDeleteColumns" shortcut=""/>
-    <function name="tableDeleteRows" shortcut=""/>
-    <function name="tableDistributeColumnsEvenly" shortcut=""/>
-    <function name="tableDistributeRowsEvenly" shortcut=""/>
-    <function name="tableInsertColumns" shortcut=""/>
-    <function name="tableInsertRows" shortcut=""/>
-    <function name="tableMergeCells" shortcut=""/>
-    <function name="tableSetColumnWidths" shortcut=""/>
-    <function name="tableSetRowHeights" shortcut=""/>
-    <function name="tableSplitCells" shortcut=""/>
+    <function name="tableAdjustFrameToTable" shortcut=""/><!-- Used -->
+    <function name="tableAdjustTableToFrame" shortcut=""/><!-- Used -->
+    <function name="tableDeleteColumns" shortcut=""/><!-- Used -->
+    <function name="tableDeleteRows" shortcut=""/><!-- Used -->
+    <function name="tableDistributeColumnsEvenly" shortcut=""/><!-- Used -->
+    <function name="tableDistributeRowsEvenly" shortcut=""/><!-- Used -->
+    <function name="tableInsertColumns" shortcut=""/><!-- Used -->
+    <function name="tableInsertRows" shortcut=""/><!-- Used -->
+    <function name="tableMergeCells" shortcut=""/><!-- Used -->
+    <function name="tableSetColumnWidths" shortcut=""/><!-- Used -->
+    <function name="tableSetRowHeights" shortcut=""/><!-- Used -->
+    <function name="tableSplitCells" shortcut=""/><!-- Used -->
     <function name="toolsActionHistory" shortcut=""/>
     <function name="toolsAlignDistribute" shortcut=""/>
     <function name="toolsBookmarks" shortcut=""/>
@@ -200,18 +200,18 @@
     <function name="toolsEditWithStoryEditor" shortcut="Ctrl+T"/>
     <function name="toolsEyeDropper" shortcut="Y"/>
     <function name="toolsInline" shortcut=""/>
-    <function name="toolsInsertArc" shortcut=""/>
-    <function name="toolsInsertBezier" shortcut="B"/>
-    <function name="toolsInsertCalligraphicLine" shortcut=""/>
-    <function name="toolsInsertFreehandLine" shortcut="F"/>
-    <function name="toolsInsertImageFrame" shortcut="I"/>
-    <function name="toolsInsertLine" shortcut="L"/>
-    <function name="toolsInsertPolygon" shortcut="P"/>
-    <function name="toolsInsertRenderFrame" shortcut="D"/>
-    <function name="toolsInsertShape" shortcut="S"/>
-    <function name="toolsInsertSpiral" shortcut=""/>
-    <function name="toolsInsertTable" shortcut="A"/>
-    <function name="toolsInsertTextFrame" shortcut="T"/>
+    <function name="toolsInsertArc" shortcut=""/><!-- Used -->
+    <function name="toolsInsertBezier" shortcut="B"/><!-- Used -->
+    <function name="toolsInsertCalligraphicLine" shortcut=""/><!-- Used -->
+    <function name="toolsInsertFreehandLine" shortcut="F"/><!-- Used -->
+    <function name="toolsInsertImageFrame" shortcut="I"/><!-- Used -->
+    <function name="toolsInsertLine" shortcut="L"/><!-- Used -->
+    <function name="toolsInsertPolygon" shortcut="P"/><!-- Used -->
+    <function name="toolsInsertRenderFrame" shortcut="D"/><!-- Used -->
+    <function name="toolsInsertShape" shortcut="S"/><!-- Used -->
+    <function name="toolsInsertSpiral" shortcut=""/><!-- Used -->
+    <function name="toolsInsertTable" shortcut="A"/><!-- Used -->
+    <function name="toolsInsertTextFrame" shortcut="T"/><!-- Used -->
     <function name="toolsLayers" shortcut="F6"/>
     <function name="toolsLinkTextFrame" shortcut="N"/>
     <function name="toolsMeasurements" shortcut=""/>
@@ -306,31 +306,31 @@
     <function name="unicodeZerowidthNonBreakingSpace" shortcut=""/>
     <function name="unicodeZerowidthSpace" shortcut=""/>
     <function name="viewEditInPreview" shortcut=""/>
-    <function name="viewFit100" shortcut="Ctrl+1"/>
-    <function name="viewFit200" shortcut=""/>
-    <function name="viewFit400" shortcut=""/>
-    <function name="viewFit50" shortcut=""/>
-    <function name="viewFit75" shortcut=""/>
-    <function name="viewFitInWindow" shortcut="Ctrl+0"/>
-    <function name="viewFitWidth" shortcut=""/>
-    <function name="viewPreviewMode" shortcut="Ctrl+Alt+P"/>
+    <function name="viewFit100" shortcut="Ctrl+1"/><!-- Used -->
+    <function name="viewFit200" shortcut=""/><!-- Used -->
+    <function name="viewFit400" shortcut=""/><!-- Used -->
+    <function name="viewFit50" shortcut=""/><!-- Used -->
+    <function name="viewFit75" shortcut=""/><!-- Used -->
+    <function name="viewFitInWindow" shortcut="Ctrl+0"/><!-- Used -->
+    <function name="viewFitWidth" shortcut=""/><!-- Used -->
+    <function name="viewPreviewMode" shortcut="Ctrl+Alt+P"/><!-- Used -->
     <function name="viewRulerMode" shortcut=""/>
-    <function name="viewShowBaseline" shortcut=""/>
-    <function name="viewShowBleeds" shortcut=""/>
-    <function name="viewShowColumnBorders" shortcut=""/>
+    <function name="viewShowBaseline" shortcut=""/><!-- Used -->
+    <function name="viewShowBleeds" shortcut=""/><!-- Used -->
+    <function name="viewShowColumnBorders" shortcut=""/><!-- Used -->
     <function name="viewShowContextMenu" shortcut="Menu"/>
-    <function name="viewShowFrames" shortcut=""/>
-    <function name="viewShowGrid" shortcut=""/>
-    <function name="viewShowGuides" shortcut=""/>
-    <function name="viewShowImages" shortcut=""/>
-    <function name="viewShowLayerMarkers" shortcut=""/>
-    <function name="viewShowMargins" shortcut=""/>
-    <function name="viewShowRulers" shortcut="Ctrl+Shift+R"/>
-    <function name="viewShowTextChain" shortcut=""/>
-    <function name="viewShowTextControls" shortcut=""/>
-    <function name="viewSnapToElements" shortcut=""/>
-    <function name="viewSnapToGrid" shortcut=""/>
-    <function name="viewSnapToGuides" shortcut=""/>
+    <function name="viewShowFrames" shortcut=""/><!-- Used -->
+    <function name="viewShowGrid" shortcut=""/><!-- Used -->
+    <function name="viewShowGuides" shortcut=""/><!-- Used -->
+    <function name="viewShowImages" shortcut=""/><!-- Used -->
+    <function name="viewShowLayerMarkers" shortcut=""/><!-- Used -->
+    <function name="viewShowMargins" shortcut=""/><!-- Used -->
+    <function name="viewShowRulers" shortcut="Ctrl+Shift+R"/><!-- Used -->
+    <function name="viewShowTextChain" shortcut=""/><!-- Used -->
+    <function name="viewShowTextControls" shortcut=""/><!-- Used -->
+    <function name="viewSnapToElements" shortcut=""/><!-- Used -->
+    <function name="viewSnapToGrid" shortcut=""/><!-- Used -->
+    <function name="viewSnapToGuides" shortcut=""/><!-- Used -->
     <function name="viewToggleCM" shortcut=""/>
     <function name="viewToggleCMS" shortcut=""/>
     <function name="windowsCascade" shortcut=""/>

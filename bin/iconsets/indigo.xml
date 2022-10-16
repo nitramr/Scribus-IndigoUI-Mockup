@@ -199,6 +199,7 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="reset" file="24/restore.svg" />
 		<icon id="save" file="24/content-save.svg" />
 		<icon id="save-pdf" file="24/file-pdf-box.svg" />
+		<icon id="search" file="24/magnify.svg" />
 		<icon id="setting" file="24/tune.svg" />
 		<icon id="setting-edit" file="24/cog.svg" />
 		<icon id="snap-grid" file="24/snap-grid.svg" />
@@ -216,6 +217,14 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="stroke-join-bevel" file="16/stroke-join-bevel.svg" />
 		<icon id="stroke-join-miter" file="16/stroke-join-miter.svg" />
 		<icon id="stroke-join-round" file="16/stroke-join-round.svg" />
+		<icon id="table-column-width" file="24/table-column-width.svg" />
+		<icon id="table-delete-column" file="24/table-column-remove.svg" />
+		<icon id="table-delete-row" file="24/table-row-remove.svg" />
+		<icon id="table-insert-column" file="24/table-column-plus-after.svg" />
+		<icon id="table-insert-row" file="24/table-row-plus-after.svg" />
+		<icon id="table-merge-cells" file="24/table-merge-cells.svg" />
+		<icon id="table-row-height" file="24/table-row-height.svg" />
+		<icon id="table-split-cells" file="24/table-split-cell.svg" />
 		<icon id="text-align-bottom" file="24/format-vertical-align-bottom.svg" />
 		<icon id="text-align-center" file="24/format-align-center.svg" />
 		<icon id="text-align-forcedjustified" file="24/format-align-justify-forced.svg" />

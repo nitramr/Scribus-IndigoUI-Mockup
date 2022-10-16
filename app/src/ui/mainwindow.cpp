@@ -25,6 +25,7 @@
 #include "theme_manager.h"
 #include "widget_manager.h"
 #include "toolbar_manager.h"
+#include "shortcut_manager.h"
 
 /* ********************************************************************************* *
  *
@@ -36,10 +37,12 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , iconManager(IconManager::instance())
+    , shortcutManager(ShortcutManager::instance())
     , menuManager(MenuManager::instance())
     , themeManager(ThemeManager::instance())
     , widgetManager(WidgetManager::instance())
     , toolbarManager(ToolbarManager::instance())
+
 {
 
     /* -------------------------------
@@ -50,6 +53,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // themeManager.setup(); // <-- setup is execute on SplashScreen, if you remove it there, enable it here!
     iconManager.setup(themeManager.isDark());
+    shortcutManager.setup();
     menuManager.setup(this);
     widgetManager.setup();
     toolbarManager.setup(this);

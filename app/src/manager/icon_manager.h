@@ -49,8 +49,14 @@ public:
 
     void addIcon(const QString & name, QPainterPath path);
 
+protected:
+    const QString classDark = "onDark";
+    const QString tagIcon = "icon";
+    const QString colorOnDark = "onDark";
+    const QString colorOnLight = "onLight";
 
 private:
+
     IconManager(QObject *parent = nullptr);
     ~IconManager() = default;
 

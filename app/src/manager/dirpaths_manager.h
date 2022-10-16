@@ -14,7 +14,7 @@ class DirPathsManager
 {
 public:
 
-    typedef enum {App, Icon, Settings, Theme} Directory;
+    typedef enum {App, Icon, Settings, Theme, Keysets} Directory;
 
         /**
          * @brief Get a reference to the ScPaths instance
@@ -45,6 +45,9 @@ public:
 
         /** @brief Return path to theme directory*/
         const QString themeDir() const;
+
+        /** @brief Return path to keyset directory*/
+        const QString keysetsDir() const;
 
 
     protected:

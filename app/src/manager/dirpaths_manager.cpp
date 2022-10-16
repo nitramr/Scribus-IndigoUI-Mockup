@@ -64,6 +64,11 @@ const QString DirPathsManager::themeDir() const
     return directory(Directory::Theme);
 }
 
+const QString DirPathsManager::keysetsDir() const
+{
+    return directory(Directory::Keysets);
+}
+
 
 const QString DirPathsManager::directory(Directory name) const
 {
@@ -82,6 +87,9 @@ const QString DirPathsManager::directory(Directory name) const
         break;
     case Directory::Theme:
         dir = appPath + pathSeparator + "themes";
+        break;
+    case Directory::Keysets:
+        dir = appPath + pathSeparator + "keysets";
         break;
     }
 

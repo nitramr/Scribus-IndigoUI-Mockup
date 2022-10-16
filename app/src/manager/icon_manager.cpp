@@ -21,11 +21,6 @@
 
 IconManager* IconManager::m_instance = nullptr;
 
-const QString classDark = "onDark";
-const QString tagIcon = "icon";
-const QString colorOnDark = "onDark";
-const QString colorOnLight = "onLight";
-
 IconManager::IconManager(QObject *parent)
     : QObject(parent)
 {

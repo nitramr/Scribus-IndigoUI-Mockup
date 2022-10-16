@@ -66,6 +66,7 @@ SOURCES += \
     src/manager/icon_manager.cpp \
     src/manager/locale_manager.cpp \
     src/manager/menu_manager.cpp \
+    src/manager/shortcut_manager.cpp \
     src/manager/theme_manager.cpp \
     src/manager/toolbar_manager.cpp \
     src/manager/widget_manager.cpp \
@@ -219,6 +220,7 @@ HEADERS += \
     src/manager/icon_manager.h \
     src/manager/locale_manager.h \
     src/manager/menu_manager.h \
+    src/manager/shortcut_manager.h \
     src/manager/theme_manager.h \
     src/manager/toolbar_manager.h \
     src/manager/widget_manager.h \

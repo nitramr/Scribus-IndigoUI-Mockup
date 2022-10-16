@@ -1,8 +1,9 @@
 #include "menu_manager.h"
 #include "block_fill.h"
 #include "block_stroke.h"
-#include "icon_manager.h"
 #include "mainwindow.h"
+#include "icon_manager.h"
+#include "shortcut_manager.h"
 
 #include <QPainterPath>
 
@@ -84,6 +85,7 @@ void MenuManager::initFileMenu()
 {
 
     IconManager &iconManager = IconManager::instance();
+    ShortcutManager & shortcutManager = ShortcutManager::instance();
 
     QMenu * mFileImport = new QMenu(tr("Import"));
     QMenu * mFileExport = new QMenu(tr("Export"));
@@ -93,30 +95,30 @@ void MenuManager::initFileMenu()
     menuList->insert(MENU_FILE_EXPORT, mFileExport);
     menuList->insert(MENU_FILE_OUTPUTPREVIEW, mFileOutputPreview);
 
-    menuList->value(MENU_FILE)->addAction( iconManager.icon("file-document"), tr("&New Document"), QKeySequence::New, mainWindow, &MainWindow::newDocument );
-    menuList->value(MENU_FILE)->addAction( tr("New from Template"), QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_N) );
-    menuList->value(MENU_FILE)->addAction( iconManager.icon("open"), tr("&Open Document"), QKeySequence::Open, mainWindow, &MainWindow::openDocument );
-    menuList->value(MENU_FILE)->addAction( tr("Open Recent") );
+    menuList->value(MENU_FILE)->addAction( iconManager.icon("file-document"),   tr("&New Document"),        shortcutManager.keySequence("fileNew"),             mainWindow, &MainWindow::newDocument );
+    menuList->value(MENU_FILE)->addAction(                                      tr("New from Template"),    shortcutManager.keySequence("fileNewFromTemplate") );
+    menuList->value(MENU_FILE)->addAction( iconManager.icon("open"),            tr("&Open Document"),       shortcutManager.keySequence("fileOpen"),            mainWindow, &MainWindow::openDocument );
+    menuList->value(MENU_FILE)->addAction(                                      tr("Open Recent") );
     menuList->value(MENU_FILE)->addSeparator();
-    menuList->value(MENU_FILE)->addAction( tr("&Close"), QKeySequence::Close );
-    menuList->value(MENU_FILE)->addAction( iconManager.icon("save"), tr("&Save"), QKeySequence::Save );
-    menuList->value(MENU_FILE)->addAction( iconManager.icon("save"), tr("Save &As"), QKeySequence::SaveAs );
-    menuList->value(MENU_FILE)->addAction( tr("Save as &Template"), QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_S) );
-    menuList->value(MENU_FILE)->addAction( tr("Re&vert to Saved") );
-    menuList->value(MENU_FILE)->addAction( tr("Collect from O&utput") );
+    menuList->value(MENU_FILE)->addAction(                                      tr("&Close"),               shortcutManager.keySequence("fileQuit") );
+    menuList->value(MENU_FILE)->addAction( iconManager.icon("save"),            tr("&Save"),                shortcutManager.keySequence("fileSave") );
+    menuList->value(MENU_FILE)->addAction( iconManager.icon("save"),            tr("Save &As"),             shortcutManager.keySequence("fileSaveAs") );
+    menuList->value(MENU_FILE)->addAction(                                      tr("Save as &Template"),    shortcutManager.keySequence("SaveAsDocumentTemplate") );
+    menuList->value(MENU_FILE)->addAction(                                      tr("Re&vert to Saved") );
+    menuList->value(MENU_FILE)->addAction(                                      tr("Collect from O&utput") );
     menuList->value(MENU_FILE)->addSeparator();
     menuList->value(MENU_FILE)->addMenu( mFileImport );
     menuList->value(MENU_FILE)->addMenu( mFileExport );
     menuList->value(MENU_FILE)->addSeparator();
-    menuList->value(MENU_FILE)->addAction( tr("Document Setup") );
-    menuList->value(MENU_FILE)->addAction( tr("Preferences") );
+    menuList->value(MENU_FILE)->addAction(                                      tr("Document Setup") );
+    menuList->value(MENU_FILE)->addAction(                                      tr("Preferences") );
     menuList->value(MENU_FILE)->addSeparator();
-    menuList->value(MENU_FILE)->addAction( iconManager.icon("print"), tr("&Print"), QKeySequence::Print );
-    menuList->value(MENU_FILE)->addAction( tr("Print Previe&w") );
+    menuList->value(MENU_FILE)->addAction( iconManager.icon("print"),           tr("&Print"),               shortcutManager.keySequence("filePrint") );
+    menuList->value(MENU_FILE)->addAction(                                      tr("Print Previe&w") );
     menuList->value(MENU_FILE)->addSeparator();
     menuList->value(MENU_FILE)->addMenu( mFileOutputPreview );
     menuList->value(MENU_FILE)->addSeparator();
-    menuList->value(MENU_FILE)->addAction( tr("Quit"), QKeySequence::Quit );
+    menuList->value(MENU_FILE)->addAction(                                      tr("Quit"),                 shortcutManager.keySequence("fileQuit") );
 
     initFileImportMenu();
     initFileExportMenu();
@@ -126,18 +128,22 @@ void MenuManager::initFileMenu()
 
 void MenuManager::initFileImportMenu()
 {
-    menuList->value(MENU_FILE_IMPORT)->addAction( tr("Get Text"), QKeySequence(Qt::CTRL | Qt::Key_I) );
+    ShortcutManager & shortcutManager = ShortcutManager::instance();
+
+    menuList->value(MENU_FILE_IMPORT)->addAction( tr("Get Text"),       shortcutManager.keySequence("fileImportText") );
     menuList->value(MENU_FILE_IMPORT)->addAction( tr("Append Text") );
-    menuList->value(MENU_FILE_IMPORT)->addAction( tr("Get Image"), QKeySequence(Qt::CTRL | Qt::Key_I) );
+    menuList->value(MENU_FILE_IMPORT)->addAction( tr("Get Image"),      shortcutManager.keySequence("fileImportImage") );
     menuList->value(MENU_FILE_IMPORT)->addAction( tr("Get Vector File") );
 }
 
 void MenuManager::initFileExportMenu()
 {
+    ShortcutManager & shortcutManager = ShortcutManager::instance();
+
     menuList->value(MENU_FILE_EXPORT)->addAction( tr("Save Text") );
     menuList->value(MENU_FILE_EXPORT)->addAction( tr("Save as EPS") );
-    menuList->value(MENU_FILE_EXPORT)->addAction( tr("Save as PDF"), QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_P) );
-    menuList->value(MENU_FILE_EXPORT)->addAction( tr("Save as Image"), QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_E) );
+    menuList->value(MENU_FILE_EXPORT)->addAction( tr("Save as PDF"),    shortcutManager.keySequence("fileExportAsPDF") );
+    menuList->value(MENU_FILE_EXPORT)->addAction( tr("Save as Image"),  shortcutManager.keySequence("ExportAsImage") );
     menuList->value(MENU_FILE_EXPORT)->addAction( tr("Save as SVG") );
     menuList->value(MENU_FILE_EXPORT)->addAction( tr("Save as XPS") );
 }
@@ -150,7 +156,9 @@ void MenuManager::initFileOutputPreviewMenu()
 
 void MenuManager::initEditMenu()
 {
-    menuList->value(MENU_EDIT)->addAction( tr("Styles"), QKeySequence(Qt::Key_F4), mainWindow, &MainWindow::openStyles );
+    ShortcutManager & shortcutManager = ShortcutManager::instance();
+
+    menuList->value(MENU_EDIT)->addAction( tr("Styles"), shortcutManager.keySequence("editStyles"), mainWindow, &MainWindow::openStyles );
 }
 
 void MenuManager::initPageMenu()

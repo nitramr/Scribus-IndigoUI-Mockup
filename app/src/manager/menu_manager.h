@@ -1,8 +1,6 @@
 #ifndef MENU_MANAGER_H
 #define MENU_MANAGER_H
 
-#include "icon_manager.h"
-#include "shortcut_manager.h"
 #include <QMenu>
 #include <QMenuBar>
 #include <QPointer>

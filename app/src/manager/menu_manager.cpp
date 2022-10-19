@@ -64,7 +64,7 @@ void MenuManager::setup(MainWindow *window)
 
 QMenu *MenuManager::menuWindow()
 {
-    return menuList->value("window");
+    return menuList->value(MENU_WINDOW);
 }
 
 /* ********************************************************************************* *
@@ -76,17 +76,17 @@ QMenu *MenuManager::menuWindow()
 void MenuManager::initRootMenu(QMenuBar *menu)
 {
     // Root Menu
-    QMenu * mFile = new QMenu( tr("File") );
-    QMenu * mEdit = new QMenu( tr("Edit") );
-    QMenu * mItem = new QMenu( tr("Item") );
+    QMenu * mFile   = new QMenu( tr("File") );
+    QMenu * mEdit   = new QMenu( tr("Edit") );
+    QMenu * mItem   = new QMenu( tr("Item") );
     QMenu * mInsert = new QMenu( tr("Insert") );
-    QMenu * mPage = new QMenu( tr("Page") );
-    QMenu * mTable = new QMenu( tr("Table") );
-    QMenu * mExtras = new QMenu (tr("Extras") );
-    QMenu * mView = new QMenu( tr("View") );
+    QMenu * mPage   = new QMenu( tr("Page") );
+    QMenu * mTable  = new QMenu( tr("Table") );
+    QMenu * mExtras = new QMenu( tr("Extras") );
+    QMenu * mView   = new QMenu( tr("View") );
     QMenu * mScript = new QMenu( tr("Script") );
     QMenu * mWindow = new QMenu( tr("Window") );
-    QMenu * mHelp = new QMenu( tr("Help") );
+    QMenu * mHelp   = new QMenu( tr("Help") );
 
     menuList->insert(MENU_FILE, mFile);
     menuList->insert(MENU_EDIT, mEdit);

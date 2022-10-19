@@ -1,7 +1,5 @@
 #include "menu_manager.h"
 #include "autoforms_menu/autoforms_menu.h"
-#include "block_fill.h"
-#include "block_stroke.h"
 #include "mainwindow.h"
 #include "icon_manager.h"
 #include "shortcut_manager.h"
@@ -126,9 +124,20 @@ void MenuManager::initRootMenu(QMenuBar *menu)
     initEditContentsMenu();
 
     // Item
+    initItemMenu();
+    initItemDuplicateTransformMenu();
+    initItemGroupingMenu();
+    initItemLockingMenu();
+    initItemSendToLayerMenu();
+    initItemLevelMenu();
 
     // Insert
     initInsertMenu();
+    initInsertCharacterMenu();
+    initInsertQuoteMenu();
+    initInsertSpacesBreaksMenu();
+    initInsertLigatureMenu();
+    initInsertMarksMenu();
 
     // Page
     initPageMenu();
@@ -182,7 +191,7 @@ void MenuManager::initFileMenu()
     menuList->value(MENU_FILE)->addAction( getAction( tr("&Open Document"),         "open",             "fileOpen",             false, mainWindow, &MainWindow::openDocument) );
     menuList->value(MENU_FILE)->addMenu( mFileRecentFiles );
     menuList->value(MENU_FILE)->addSeparator();
-    menuList->value(MENU_FILE)->addAction( getAction( tr("&Close"),                 "",                 "fileQuit") );
+    menuList->value(MENU_FILE)->addAction( getAction( tr("&Close"),                 "",                 "fileClose") );
     menuList->value(MENU_FILE)->addAction( getAction( tr("&Save"),                  "save",             "fileSave") );
     menuList->value(MENU_FILE)->addAction( getAction( tr("Save &As"),               "save",             "fileSaveAs") );
     menuList->value(MENU_FILE)->addAction( getAction( tr("Save as &Template"),      "",                 "SaveAsDocumentTemplate") );
@@ -317,6 +326,100 @@ void MenuManager::initPageMenu()
 
 /* ********************************************************************************* *
  *
+ * ITEM Menu
+ *
+ * ********************************************************************************* */
+
+void MenuManager::initItemMenu()
+{
+    QMenu * mItemDuplicateTransform = new QMenu(tr("Duplicate/Transform"));
+    QMenu * mItemGrouping           = new QMenu(tr("Grouping"));
+    QMenu * mItemLocking            = new QMenu(tr("Locking"));
+    QMenu * mItemLevel              = new QMenu(tr("Level"));
+    QMenu * mItemSendToLayer        = new QMenu(tr("Send to Layer"));
+    QMenu * mItemSendTo             = new QMenu(tr("Send to"));
+    QMenu * mItemAdjust             = new QMenu(tr("Adjust"));
+    QMenu * mItemImage              = new QMenu(tr("Image"));
+    QMenu * mItemPDFOptions         = new QMenu(tr("PDF Options"));
+    QMenu * mItemConvertTo          = new QMenu(tr("Convert to"));
+    QMenu * mItemTextFrameLinks     = new QMenu(tr("Text Frame Links"));
+    QMenu * mItemPathTool           = new QMenu(tr("Path Tools"));
+    QMenu * mItemWelding            = new QMenu(tr("Welding"));
+    QMenu * mItemMarks              = new QMenu(tr("Marks"));
+    QMenu * mItemTextFeatures       = new QMenu(tr("Text Features"));
+
+    menuList->insert(MENU_ITEM_DUPLICATETRANSFORM, mItemDuplicateTransform);
+    menuList->insert(MENU_ITEM_GROUPING, mItemGrouping);
+    menuList->insert(MENU_ITEM_LOCKING, mItemLocking);
+    menuList->insert(MENU_ITEM_LEVEL, mItemLevel);
+    menuList->insert(MENU_ITEM_SENDTOLAYER, mItemSendToLayer);
+    menuList->insert(MENU_ITEM_SENDTO, mItemSendTo);
+    menuList->insert(MENU_ITEM_ADJUST, mItemAdjust);
+    menuList->insert(MENU_ITEM_IMAGE, mItemImage);
+    menuList->insert(MENU_ITEM_PDFOPTIONS, mItemPDFOptions);
+    menuList->insert(MENU_ITEM_CONVERTTO, mItemConvertTo);
+    menuList->insert(MENU_ITEM_TEXTFRAMELINKS, mItemTextFrameLinks);
+    menuList->insert(MENU_ITEM_PATHTOOLS, mItemPathTool);
+    menuList->insert(MENU_ITEM_WELDING, mItemWelding);
+    menuList->insert(MENU_ITEM_MARKS, mItemMarks);
+    menuList->insert(MENU_ITEM_TEXTFEATURE, mItemTextFeatures);
+
+    menuList->value(MENU_ITEM)->addMenu( mItemDuplicateTransform );
+    menuList->value(MENU_ITEM)->addMenu( mItemGrouping );
+    menuList->value(MENU_ITEM)->addMenu( mItemLocking );
+    menuList->value(MENU_ITEM)->addMenu( mItemLevel );
+    menuList->value(MENU_ITEM)->addMenu( mItemSendToLayer );
+    menuList->value(MENU_ITEM)->addMenu( mItemSendTo );
+    menuList->value(MENU_ITEM)->addMenu( mItemAdjust );
+    menuList->value(MENU_ITEM)->addMenu( mItemImage );
+    menuList->value(MENU_ITEM)->addMenu( mItemPDFOptions );
+    menuList->value(MENU_ITEM)->addMenu( mItemConvertTo );
+    menuList->value(MENU_ITEM)->addMenu( mItemTextFrameLinks );
+    menuList->value(MENU_ITEM)->addMenu( mItemPathTool );
+    menuList->value(MENU_ITEM)->addMenu( mItemWelding );
+    menuList->value(MENU_ITEM)->addMenu( mItemMarks );
+    menuList->value(MENU_ITEM)->addMenu( mItemTextFeatures );
+
+}
+
+void MenuManager::initItemDuplicateTransformMenu()
+{
+    menuList->value(MENU_ITEM_DUPLICATETRANSFORM)->addAction( getAction( tr("&Duplicate"),           "", "itemDuplicate") );
+    menuList->value(MENU_ITEM_DUPLICATETRANSFORM)->addAction( getAction( tr("&Multiple Duplicate"),  "", "itemMulDuplicate") );
+    menuList->value(MENU_ITEM_DUPLICATETRANSFORM)->addAction( getAction( tr("&Transform"),           "", "itemTransform") );
+}
+
+void MenuManager::initItemGroupingMenu()
+{
+    menuList->value(MENU_ITEM_GROUPING)->addAction( getAction( tr("&Group"),        "", "itemGroup") );
+    menuList->value(MENU_ITEM_GROUPING)->addAction( getAction( tr("&Ungroup"),      "", "itemUngroup") );
+    menuList->value(MENU_ITEM_GROUPING)->addAction( getAction( tr("&Adjust Group"), "", "itemGroupAdjust") );
+}
+
+void MenuManager::initItemLockingMenu()
+{
+    menuList->value(MENU_ITEM_LOCKING)->addAction( getAction( tr("Is &Locked"),      "", "itemLock",     true) );
+    menuList->value(MENU_ITEM_LOCKING)->addAction( getAction( tr("&Size is Locked"), "", "itemLockSize", true) );
+}
+
+void MenuManager::initItemLevelMenu()
+{
+    menuList->value(MENU_ITEM_LEVEL)->addAction( getAction( tr("To &Foreground"),    "level-foreground", "itemRaiseToTop") );
+    menuList->value(MENU_ITEM_LEVEL)->addAction( getAction( tr("&Raise"),            "level-up",         "itemRaise") );
+    menuList->value(MENU_ITEM_LEVEL)->addAction( getAction( tr("&Lower"),            "level-down",       "itemLower") );
+    menuList->value(MENU_ITEM_LEVEL)->addAction( getAction( tr("To &Background"),    "level-background", "itemLowerToBottom") );
+}
+
+void MenuManager::initItemSendToLayerMenu()
+{
+    menuList->value(MENU_ITEM_SENDTOLAYER)->clear();
+    menuList->value(MENU_ITEM_SENDTOLAYER)->addAction( getAction( tr("Background"), "", "") );
+
+    // TODO: add logic to load recent files
+}
+
+/* ********************************************************************************* *
+ *
  * INSERT Menu
  *
  * ********************************************************************************* */
@@ -366,6 +469,94 @@ void MenuManager::initInsertMenu()
     menuList->value(MENU_INSERT)->addMenu(mInsertMarks);
 }
 
+void MenuManager::initInsertCharacterMenu()
+{
+    menuList->value(MENU_INSERT_CHARACTER)->addAction( getAction( tr("Page &Number"),           "", "unicodePageNumber") );
+    menuList->value(MENU_INSERT_CHARACTER)->addAction( getAction( tr("Number of &Pages"),       "", "unicodePageCount") );
+    menuList->value(MENU_INSERT_CHARACTER)->addAction( getAction( tr("Soft &Hyphen"),           "", "unicodeSoftHyphen") );
+    menuList->value(MENU_INSERT_CHARACTER)->addAction( getAction( tr("Non &Breaking Hyphen"),   "", "unicodeNonBreakingHyphen") );
+    menuList->value(MENU_INSERT_CHARACTER)->addAction( getAction( tr("Zero Width &Joiner"),     "", "unicodeZWJ") );
+    menuList->value(MENU_INSERT_CHARACTER)->addAction( getAction( tr("Zero &Width Non-Joiner"), "", "unicodeZWNJ") );
+    menuList->value(MENU_INSERT_CHARACTER)->addSeparator();
+    menuList->value(MENU_INSERT_CHARACTER)->addAction( getAction( tr("&Copyright"),             "", "unicodeCopyRight") );
+    menuList->value(MENU_INSERT_CHARACTER)->addAction( getAction( tr("&Registered Trademark"),  "", "unicodeRegdTM") );
+    menuList->value(MENU_INSERT_CHARACTER)->addAction( getAction( tr("&Trademark"),             "", "unicodeTM") );
+    menuList->value(MENU_INSERT_CHARACTER)->addAction( getAction( tr("&Solidus"),               "", "unicodeSolidus") );
+    menuList->value(MENU_INSERT_CHARACTER)->addAction( getAction( tr("&Bullet"),                "", "unicodeBullet") );
+    menuList->value(MENU_INSERT_CHARACTER)->addAction( getAction( tr("&Middle Dot"),            "", "unicodeMidpoint") );
+    menuList->value(MENU_INSERT_CHARACTER)->addSeparator();
+    menuList->value(MENU_INSERT_CHARACTER)->addAction( getAction( tr("Em &Dash"),               "", "unicodeDashEm") );
+    menuList->value(MENU_INSERT_CHARACTER)->addAction( getAction( tr("&En Dash"),               "", "unicodeDashEn") );
+    menuList->value(MENU_INSERT_CHARACTER)->addAction( getAction( tr("&Figure Dash"),           "", "unicodeDashFigure") );
+    menuList->value(MENU_INSERT_CHARACTER)->addAction( getAction( tr("&Quotation Dash"),        "", "unicodeDashQuotation") );
+}
+
+void MenuManager::initInsertQuoteMenu()
+{
+    menuList->value(MENU_INSERT_QUOTE)->addAction( getAction( tr("Apostrophe"),             "", "unicodeQuoteApostrophe") );
+    menuList->value(MENU_INSERT_QUOTE)->addAction( getAction( tr("Straight Double"),        "", "unicodeQuoteStraight") );
+    menuList->value(MENU_INSERT_QUOTE)->addSeparator();
+    menuList->value(MENU_INSERT_QUOTE)->addAction( getAction( tr("Single Left"),            "", "unicodeQuoteSingleLeft") );
+    menuList->value(MENU_INSERT_QUOTE)->addAction( getAction( tr("Single Right"),           "", "unicodeQuoteSingleRight") );
+    menuList->value(MENU_INSERT_QUOTE)->addAction( getAction( tr("Double Left"),            "", "unicodeQuoteDoubleLeft") );
+    menuList->value(MENU_INSERT_QUOTE)->addAction( getAction( tr("Double Right"),           "", "unicodeQuoteDoubleRight") );
+    menuList->value(MENU_INSERT_QUOTE)->addSeparator();
+    menuList->value(MENU_INSERT_QUOTE)->addAction( getAction( tr("Single Reverse"),         "", "unicodeQuoteSingleReversed") );
+    menuList->value(MENU_INSERT_QUOTE)->addAction( getAction( tr("Double Reverse"),         "", "unicodeQuoteDoubleReversed") );
+    menuList->value(MENU_INSERT_QUOTE)->addSeparator();
+    menuList->value(MENU_INSERT_QUOTE)->addAction( getAction( tr("Low Single Comma"),       "", "unicodeQuoteLowSingleComma") );
+    menuList->value(MENU_INSERT_QUOTE)->addAction( getAction( tr("Low Double Comma"),       "", "unicodeQuoteLowDoubleComma") );
+    menuList->value(MENU_INSERT_QUOTE)->addSeparator();
+    menuList->value(MENU_INSERT_QUOTE)->addAction( getAction( tr("Single Left Guillemet"),  "", "unicodeQuoteSingleLeftGuillemet") );
+    menuList->value(MENU_INSERT_QUOTE)->addAction( getAction( tr("Single Right Guillemet"), "", "unicodeQuoteSingleRightGuillemet") );
+    menuList->value(MENU_INSERT_QUOTE)->addAction( getAction( tr("Double Left Guillemet"),  "", "unicodeQuoteDoubleLeftGuillemet") );
+    menuList->value(MENU_INSERT_QUOTE)->addAction( getAction( tr("Double Right Guillemet"), "", "unicodeQuoteDoubleRightGuillemet") );
+    menuList->value(MENU_INSERT_QUOTE)->addSeparator();
+    menuList->value(MENU_INSERT_QUOTE)->addAction( getAction( tr("CJK Single Left"),        "", "unicodeQuoteCJKSingleLeft") );
+    menuList->value(MENU_INSERT_QUOTE)->addAction( getAction( tr("CJK Single Right"),       "", "unicodeQuoteCJKSingleRight") );
+    menuList->value(MENU_INSERT_QUOTE)->addAction( getAction( tr("CJK Double Left"),        "", "unicodeQuoteCJKDoubleLeft") );
+    menuList->value(MENU_INSERT_QUOTE)->addAction( getAction( tr("CJK Double Right"),       "", "unicodeQuoteCJKDoubleRight") );
+
+}
+
+void MenuManager::initInsertSpacesBreaksMenu()
+{
+    menuList->value(MENU_INSERT_SPACESBREAKS)->addAction( getAction( tr("Non &Breaking Space"),      "", "unicodeNonBreakingSpace") );
+    menuList->value(MENU_INSERT_SPACESBREAKS)->addAction( getAction( tr("Narrow No-Break &Space"),   "", "unicodeNarrowNoBreakSpace") );
+    menuList->value(MENU_INSERT_SPACESBREAKS)->addAction( getAction( tr("E&m Space"),                "", "unicodeSpaceEM") );
+    menuList->value(MENU_INSERT_SPACESBREAKS)->addAction( getAction( tr("E&n Space"),                "", "unicodeSpaceEN") );
+    menuList->value(MENU_INSERT_SPACESBREAKS)->addAction( getAction( tr("&Thin Space"),              "", "unicodeSpaceThin") );
+    menuList->value(MENU_INSERT_SPACESBREAKS)->addAction( getAction( tr("Thick Space"),             "", "unicodeSpaceThick") );
+    menuList->value(MENU_INSERT_SPACESBREAKS)->addAction( getAction( tr("&Mid Space"),               "", "unicodeSpaceMid") );
+    menuList->value(MENU_INSERT_SPACESBREAKS)->addAction( getAction( tr("&Hair Space"),              "", "unicodeSpaceHair") );
+    menuList->value(MENU_INSERT_SPACESBREAKS)->addSeparator();
+    menuList->value(MENU_INSERT_SPACESBREAKS)->addAction( getAction( tr("&Zero Width Space"),        "", "unicodeZerowidthSpace") );
+    menuList->value(MENU_INSERT_SPACESBREAKS)->addAction( getAction( tr("Ne&w Line"),                "", "unicodeNewLine") );
+    menuList->value(MENU_INSERT_SPACESBREAKS)->addAction( getAction( tr("&Column Break"),            "", "unicodeColumnBreak") );
+    menuList->value(MENU_INSERT_SPACESBREAKS)->addAction( getAction( tr("&Frame Break"),             "", "unicodeFrameBreak") );
+
+}
+
+void MenuManager::initInsertLigatureMenu()
+{
+    menuList->value(MENU_INSERT_LIGATURE)->addAction( getAction( tr("ff"),  "", "unicodeLigature_ff") );
+    menuList->value(MENU_INSERT_LIGATURE)->addAction( getAction( tr("fi"),  "", "unicodeLigature_fi") );
+    menuList->value(MENU_INSERT_LIGATURE)->addAction( getAction( tr("fl"),  "", "unicodeLigature_fl") );
+    menuList->value(MENU_INSERT_LIGATURE)->addAction( getAction( tr("ffi"), "", "unicodeLigature_ffi") );
+    menuList->value(MENU_INSERT_LIGATURE)->addAction( getAction( tr("ffl"), "", "unicodeLigature_ffl") );
+    menuList->value(MENU_INSERT_LIGATURE)->addAction( getAction( tr("ft"),  "", "unicodeLigature_ft") );
+    menuList->value(MENU_INSERT_LIGATURE)->addAction( getAction( tr("st"),  "", "unicodeLigature_st") );
+}
+
+void MenuManager::initInsertMarksMenu()
+{
+    menuList->value(MENU_INSERT_MARKS)->addAction( getAction( tr("Anchor Mark"),        "", "insertMarkAnchor") );
+    menuList->value(MENU_INSERT_MARKS)->addAction( getAction( tr("Foot/Endnote"),       "", "insertMarkNote") );
+    menuList->value(MENU_INSERT_MARKS)->addAction( getAction( tr("Reference to Item"),  "", "insertMarkItem") );
+    menuList->value(MENU_INSERT_MARKS)->addAction( getAction( tr("Reference to Mark"),  "", "insertMark2Mark") );
+    menuList->value(MENU_INSERT_MARKS)->addAction( getAction( tr("Variable Text"),      "", "insertMarkVariableText") );
+}
+
 /* ********************************************************************************* *
  *
  * TABLE Menu
@@ -374,21 +565,21 @@ void MenuManager::initInsertMenu()
 
 void MenuManager::initTableMenu()
 {
-     menuList->value(MENU_TABLE)->addAction( getAction( tr("Insert Rows"),                  "table-insert-row",     "tableInsertRows") );
-     menuList->value(MENU_TABLE)->addAction( getAction( tr("Insert Columns"),               "table-insert-column",  "tableInsertColumns") );
-     menuList->value(MENU_TABLE)->addAction( getAction( tr("Delete Rows"),                  "table-delete-row",     "tableDeleteRows") );
-     menuList->value(MENU_TABLE)->addAction( getAction( tr("Delete Columns"),               "table-delete-column",  "tableDeleteColumns") );
+     menuList->value(MENU_TABLE)->addAction( getAction( tr("Insert &Rows"),                  "table-insert-row",     "tableInsertRows") );
+     menuList->value(MENU_TABLE)->addAction( getAction( tr("Insert &Columns"),               "table-insert-column",  "tableInsertColumns") );
+     menuList->value(MENU_TABLE)->addAction( getAction( tr("Delete Ro&ws"),                  "table-delete-row",     "tableDeleteRows") );
+     menuList->value(MENU_TABLE)->addAction( getAction( tr("Delete Co&lumns"),               "table-delete-column",  "tableDeleteColumns") );
      menuList->value(MENU_TABLE)->addSeparator();
-     menuList->value(MENU_TABLE)->addAction( getAction( tr("Merge Cells"),                  "table-merge-cells",    "tableMergeCells") );
-     menuList->value(MENU_TABLE)->addAction( getAction( tr("Split Cells"),                  "table-split-cells",    "tableSplitCells") );
+     menuList->value(MENU_TABLE)->addAction( getAction( tr("&Merge Cells"),                  "table-merge-cells",    "tableMergeCells") );
+     menuList->value(MENU_TABLE)->addAction( getAction( tr("&Split Cells"),                  "table-split-cells",    "tableSplitCells") );
      menuList->value(MENU_TABLE)->addSeparator();
-     menuList->value(MENU_TABLE)->addAction( getAction( tr("Set Row Heights"),              "table-row-height",     "tableSetRowHeights") );
-     menuList->value(MENU_TABLE)->addAction( getAction( tr("Set Columns Widths"),           "table-column-width",   "tableSetColumnWidths") );
-     menuList->value(MENU_TABLE)->addAction( getAction( tr("Distribute Rows Evenly"),       "",                     "tableDistributeRowsEvenly") );
-     menuList->value(MENU_TABLE)->addAction( getAction( tr("Distribute Columns Evenly"),    "",                     "tableDistributeColumnsEvenly") );
+     menuList->value(MENU_TABLE)->addAction( getAction( tr("Set Row &Heights"),              "table-row-height",     "tableSetRowHeights") );
+     menuList->value(MENU_TABLE)->addAction( getAction( tr("Set Columns &Widths"),           "table-column-width",   "tableSetColumnWidths") );
+     menuList->value(MENU_TABLE)->addAction( getAction( tr("Distribute Rows &Evenly"),       "",                     "tableDistributeRowsEvenly") );
+     menuList->value(MENU_TABLE)->addAction( getAction( tr("Distribute Columns E&venly"),    "",                     "tableDistributeColumnsEvenly") );
      menuList->value(MENU_TABLE)->addSeparator();
-     menuList->value(MENU_TABLE)->addAction( getAction( tr("Adjust Frame to Table"),        "",                     "tableAdjustFrameToTable") );
-     menuList->value(MENU_TABLE)->addAction( getAction( tr("Adjust Table to Frame"),        "",                     "tableAdjustTableToFrame") );
+     menuList->value(MENU_TABLE)->addAction( getAction( tr("Adjust &Frame to Table"),        "",                     "tableAdjustFrameToTable") );
+     menuList->value(MENU_TABLE)->addAction( getAction( tr("Adjust &Table to Frame"),        "",                     "tableAdjustTableToFrame") );
 
 }
 

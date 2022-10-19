@@ -60,7 +60,7 @@
     <function name="extrasHyphenateText" shortcut=""/><!-- Used -->
     <function name="extrasManageImages" shortcut=""/><!-- Used -->
     <function name="extrasUpdateDocument" shortcut=""/><!-- Used -->
-    <function name="fileClose" shortcut="Ctrl+W"/>
+    <function name="fileClose" shortcut="Ctrl+W"/><!-- Used -->
     <function name="fileCollect" shortcut=""/><!-- Used -->
     <function name="fileDocSetup150" shortcut=""/><!-- Used -->
     <function name="fileExportAsEPS" shortcut=""/><!-- Used -->
@@ -107,11 +107,11 @@
     <function name="helpTooltips" shortcut=""/><!-- Used -->
     <function name="insertFrame" shortcut=""/>
     <function name="insertGlyph" shortcut=""/>
-    <function name="insertMark2Mark" shortcut=""/>
-    <function name="insertMarkAnchor" shortcut=""/>
-    <function name="insertMarkItem" shortcut=""/>
-    <function name="insertMarkNote" shortcut=""/>
-    <function name="insertMarkVariableText" shortcut=""/>
+    <function name="insertMark2Mark" shortcut=""/><!-- Used -->
+    <function name="insertMarkAnchor" shortcut=""/><!-- Used -->
+    <function name="insertMarkItem" shortcut=""/><!-- Used -->
+    <function name="insertMarkNote" shortcut=""/><!-- Used -->
+    <function name="insertMarkVariableText" shortcut=""/><!-- Used -->
     <function name="insertSampleText" shortcut=""/>
     <function name="itemAdjustFrameHeightToText" shortcut=""/>
     <function name="itemAdjustFrameToImage" shortcut=""/>
@@ -127,20 +127,20 @@
     <function name="itemConvertToTextFrame" shortcut=""/>
     <function name="itemDelete" shortcut="Del"/><!-- Used -->
     <function name="itemDetachTextFromPath" shortcut=""/>
-    <function name="itemDuplicate" shortcut="Ctrl+D"/>
+    <function name="itemDuplicate" shortcut="Ctrl+D"/><!-- Used -->
     <function name="itemEditWeld" shortcut=""/>
     <function name="itemExtendedImageProperties" shortcut=""/>
     <function name="itemFlipH" shortcut=""/>
     <function name="itemFlipV" shortcut=""/>
-    <function name="itemGroup" shortcut="Ctrl+G"/>
-    <function name="itemGroupAdjust" shortcut=""/>
+    <function name="itemGroup" shortcut="Ctrl+G"/><!-- Used -->
+    <function name="itemGroupAdjust" shortcut=""/><!-- Used -->
     <function name="itemImageInfo" shortcut=""/>
     <function name="itemImageIsVisible" shortcut=""/>
-    <function name="itemLock" shortcut="Ctrl+L"/>
-    <function name="itemLockSize" shortcut="Ctrl+Shift+L"/>
-    <function name="itemLower" shortcut="Ctrl+End"/>
-    <function name="itemLowerToBottom" shortcut="End"/>
-    <function name="itemMulDuplicate" shortcut="Ctrl+Shift+D"/>
+    <function name="itemLock" shortcut="Ctrl+L"/><!-- Used -->
+    <function name="itemLockSize" shortcut="Ctrl+Shift+L"/><!-- Used -->
+    <function name="itemLower" shortcut="Ctrl+End"/><!-- Used -->
+    <function name="itemLowerToBottom" shortcut="End"/><!-- Used -->
+    <function name="itemMulDuplicate" shortcut="Ctrl+Shift+D"/><!-- Used -->
     <function name="itemPDFAnnotationProps" shortcut=""/>
     <function name="itemPDFFieldProps" shortcut=""/>
     <function name="itemPDFIsAnnotation" shortcut=""/>
@@ -149,15 +149,15 @@
     <function name="itemPreviewLow" shortcut=""/>
     <function name="itemPreviewNormal" shortcut=""/>
     <function name="itemPrintingEnabled" shortcut=""/>
-    <function name="itemRaise" shortcut="Ctrl+Home"/>
-    <function name="itemRaiseToTop" shortcut="Home"/>
+    <function name="itemRaise" shortcut="Ctrl+Home"/><!-- Used -->
+    <function name="itemRaiseToTop" shortcut="Home"/><!-- Used -->
     <function name="itemSendToInline" shortcut=""/>
     <function name="itemSendToPattern" shortcut=""/>
     <function name="itemShapeEdit" shortcut=""/>
     <function name="itemSplitPolygons" shortcut=""/>
     <function name="itemToggleInlineImage" shortcut=""/>
-    <function name="itemTransform" shortcut=""/>
-    <function name="itemUngroup" shortcut="Ctrl+Shift+G"/>
+    <function name="itemTransform" shortcut=""/><!-- Used -->
+    <function name="itemUngroup" shortcut="Ctrl+Shift+G"/><!-- Used -->
     <function name="itemUpdateImage" shortcut=""/>
     <function name="itemUpdateMarks" shortcut=""/><!-- Used -->
     <function name="itemWeld" shortcut=""/>
@@ -251,60 +251,60 @@
     <function name="typeEffectSuperscript" shortcut=""/>
     <function name="typeEffectUnderline" shortcut=""/>
     <function name="typeEffectUnderlineWords" shortcut=""/>
-    <function name="unicodeBullet" shortcut=""/>
-    <function name="unicodeColumnBreak" shortcut="Ctrl+Shift+Return"/>
-    <function name="unicodeCopyRight" shortcut=""/>
-    <function name="unicodeDashEm" shortcut=""/>
-    <function name="unicodeDashEn" shortcut=""/>
-    <function name="unicodeDashFigure" shortcut=""/>
-    <function name="unicodeDashQuotation" shortcut=""/>
-    <function name="unicodeFrameBreak" shortcut="Ctrl+Return"/>
-    <function name="unicodeLigature_ff" shortcut=""/>
-    <function name="unicodeLigature_ffi" shortcut=""/>
-    <function name="unicodeLigature_ffl" shortcut=""/>
-    <function name="unicodeLigature_fi" shortcut=""/>
-    <function name="unicodeLigature_fl" shortcut=""/>
-    <function name="unicodeLigature_ft" shortcut=""/>
-    <function name="unicodeLigature_st" shortcut=""/>
-    <function name="unicodeMidpoint" shortcut=""/>
-    <function name="unicodeNarrowNoBreakSpace" shortcut="Ctrl+Alt+Space"/>
-    <function name="unicodeNewLine" shortcut="Shift+Return"/>
-    <function name="unicodeNonBreakingHyphen" shortcut="Ctrl+Alt+-"/>
-    <function name="unicodeNonBreakingSpace" shortcut="Ctrl+Space"/>
-    <function name="unicodePageCount" shortcut=""/>
-    <function name="unicodePageNumber" shortcut="Ctrl+Alt+Shift+P"/>
-    <function name="unicodeQuoteApostrophe" shortcut=""/>
-    <function name="unicodeQuoteCJKDoubleLeft" shortcut=""/>
-    <function name="unicodeQuoteCJKDoubleRight" shortcut=""/>
-    <function name="unicodeQuoteCJKSingleLeft" shortcut=""/>
-    <function name="unicodeQuoteCJKSingleRight" shortcut=""/>
-    <function name="unicodeQuoteDoubleLeft" shortcut=""/>
-    <function name="unicodeQuoteDoubleLeftGuillemet" shortcut=""/>
-    <function name="unicodeQuoteDoubleReversed" shortcut=""/>
-    <function name="unicodeQuoteDoubleRight" shortcut=""/>
-    <function name="unicodeQuoteDoubleRightGuillemet" shortcut=""/>
-    <function name="unicodeQuoteLowDoubleComma" shortcut=""/>
-    <function name="unicodeQuoteLowSingleComma" shortcut=""/>
-    <function name="unicodeQuoteSingleLeft" shortcut=""/>
-    <function name="unicodeQuoteSingleLeftGuillemet" shortcut=""/>
-    <function name="unicodeQuoteSingleReversed" shortcut=""/>
-    <function name="unicodeQuoteSingleRight" shortcut=""/>
-    <function name="unicodeQuoteSingleRightGuillemet" shortcut=""/>
-    <function name="unicodeQuoteStraight" shortcut=""/>
-    <function name="unicodeRegdTM" shortcut=""/>
-    <function name="unicodeSoftHyphen" shortcut="Ctrl+Shift+-"/>
-    <function name="unicodeSolidus" shortcut=""/>
-    <function name="unicodeSpaceEM" shortcut=""/>
-    <function name="unicodeSpaceEN" shortcut=""/>
-    <function name="unicodeSpaceHair" shortcut=""/>
-    <function name="unicodeSpaceMid" shortcut=""/>
-    <function name="unicodeSpaceThick" shortcut=""/>
-    <function name="unicodeSpaceThin" shortcut=""/>
-    <function name="unicodeTM" shortcut=""/>
-    <function name="unicodeZWJ" shortcut=""/>
-    <function name="unicodeZWNJ" shortcut=""/>
+    <function name="unicodeBullet" shortcut=""/><!-- Used -->
+    <function name="unicodeColumnBreak" shortcut="Ctrl+Shift+Return"/><!-- Used -->
+    <function name="unicodeCopyRight" shortcut=""/><!-- Used -->
+    <function name="unicodeDashEm" shortcut=""/><!-- Used -->
+    <function name="unicodeDashEn" shortcut=""/><!-- Used -->
+    <function name="unicodeDashFigure" shortcut=""/><!-- Used -->
+    <function name="unicodeDashQuotation" shortcut=""/><!-- Used -->
+    <function name="unicodeFrameBreak" shortcut="Ctrl+Return"/><!-- Used -->
+    <function name="unicodeLigature_ff" shortcut=""/><!-- Used -->
+    <function name="unicodeLigature_ffi" shortcut=""/><!-- Used -->
+    <function name="unicodeLigature_ffl" shortcut=""/><!-- Used -->
+    <function name="unicodeLigature_fi" shortcut=""/><!-- Used -->
+    <function name="unicodeLigature_fl" shortcut=""/><!-- Used -->
+    <function name="unicodeLigature_ft" shortcut=""/><!-- Used -->
+    <function name="unicodeLigature_st" shortcut=""/><!-- Used -->
+    <function name="unicodeMidpoint" shortcut=""/><!-- Used -->
+    <function name="unicodeNarrowNoBreakSpace" shortcut="Ctrl+Alt+Space"/><!-- Used -->
+    <function name="unicodeNewLine" shortcut="Shift+Return"/><!-- Used -->
+    <function name="unicodeNonBreakingHyphen" shortcut="Ctrl+Alt+-"/><!-- Used -->
+    <function name="unicodeNonBreakingSpace" shortcut="Ctrl+Space"/><!-- Used -->
+    <function name="unicodePageCount" shortcut=""/><!-- Used -->
+    <function name="unicodePageNumber" shortcut="Ctrl+Alt+Shift+P"/><!-- Used -->
+    <function name="unicodeQuoteApostrophe" shortcut=""/><!-- Used -->
+    <function name="unicodeQuoteCJKDoubleLeft" shortcut=""/><!-- Used -->
+    <function name="unicodeQuoteCJKDoubleRight" shortcut=""/><!-- Used -->
+    <function name="unicodeQuoteCJKSingleLeft" shortcut=""/><!-- Used -->
+    <function name="unicodeQuoteCJKSingleRight" shortcut=""/><!-- Used -->
+    <function name="unicodeQuoteDoubleLeft" shortcut=""/><!-- Used -->
+    <function name="unicodeQuoteDoubleLeftGuillemet" shortcut=""/><!-- Used -->
+    <function name="unicodeQuoteDoubleReversed" shortcut=""/><!-- Used -->
+    <function name="unicodeQuoteDoubleRight" shortcut=""/><!-- Used -->
+    <function name="unicodeQuoteDoubleRightGuillemet" shortcut=""/><!-- Used -->
+    <function name="unicodeQuoteLowDoubleComma" shortcut=""/><!-- Used -->
+    <function name="unicodeQuoteLowSingleComma" shortcut=""/><!-- Used -->
+    <function name="unicodeQuoteSingleLeft" shortcut=""/><!-- Used -->
+    <function name="unicodeQuoteSingleLeftGuillemet" shortcut=""/><!-- Used -->
+    <function name="unicodeQuoteSingleReversed" shortcut=""/><!-- Used -->
+    <function name="unicodeQuoteSingleRight" shortcut=""/><!-- Used -->
+    <function name="unicodeQuoteSingleRightGuillemet" shortcut=""/><!-- Used -->
+    <function name="unicodeQuoteStraight" shortcut=""/><!-- Used -->
+    <function name="unicodeRegdTM" shortcut=""/><!-- Used -->
+    <function name="unicodeSoftHyphen" shortcut="Ctrl+Shift+-"/><!-- Used -->
+    <function name="unicodeSolidus" shortcut=""/><!-- Used -->
+    <function name="unicodeSpaceEM" shortcut=""/><!-- Used -->
+    <function name="unicodeSpaceEN" shortcut=""/><!-- Used -->
+    <function name="unicodeSpaceHair" shortcut=""/><!-- Used -->
+    <function name="unicodeSpaceMid" shortcut=""/><!-- Used -->
+    <function name="unicodeSpaceThick" shortcut=""/><!-- Used -->
+    <function name="unicodeSpaceThin" shortcut=""/><!-- Used -->
+    <function name="unicodeTM" shortcut=""/><!-- Used -->
+    <function name="unicodeZWJ" shortcut=""/><!-- Used -->
+    <function name="unicodeZWNJ" shortcut=""/><!-- Used -->
     <function name="unicodeZerowidthNonBreakingSpace" shortcut=""/>
-    <function name="unicodeZerowidthSpace" shortcut=""/>
+    <function name="unicodeZerowidthSpace" shortcut=""/><!-- Used -->
     <function name="viewEditInPreview" shortcut=""/>
     <function name="viewFit100" shortcut="Ctrl+1"/><!-- Used -->
     <function name="viewFit200" shortcut=""/><!-- Used -->

@@ -38,6 +38,21 @@ private:
     const QString MENU_EDIT = QStringLiteral("edit");
     const QString MENU_EDIT_CONTENTS = QStringLiteral("edit-contents");
     const QString MENU_ITEM = QStringLiteral("item");
+    const QString MENU_ITEM_DUPLICATETRANSFORM = QStringLiteral("item-duplicatetransform");
+    const QString MENU_ITEM_GROUPING = QStringLiteral("item-grouping");
+    const QString MENU_ITEM_LOCKING = QStringLiteral("item-locking");
+    const QString MENU_ITEM_LEVEL = QStringLiteral("item-level");
+    const QString MENU_ITEM_SENDTOLAYER = QStringLiteral("item-sendtolayer");
+    const QString MENU_ITEM_SENDTO = QStringLiteral("item-sendto");
+    const QString MENU_ITEM_ADJUST = QStringLiteral("item-adjust");
+    const QString MENU_ITEM_IMAGE = QStringLiteral("item-image");
+    const QString MENU_ITEM_PDFOPTIONS = QStringLiteral("item-pdfoptions");
+    const QString MENU_ITEM_CONVERTTO = QStringLiteral("item-convertto");
+    const QString MENU_ITEM_TEXTFRAMELINKS = QStringLiteral("item-textframelinks");
+    const QString MENU_ITEM_PATHTOOLS = QStringLiteral("item-pathtools");
+    const QString MENU_ITEM_WELDING = QStringLiteral("item-welding");
+    const QString MENU_ITEM_MARKS = QStringLiteral("item-marks");
+    const QString MENU_ITEM_TEXTFEATURE = QStringLiteral("item-textfeatures");
     const QString MENU_INSERT = QStringLiteral("insert");
     const QString MENU_INSERT_SHAPE = QStringLiteral("insert-shape");
     const QString MENU_INSERT_CHARACTER = QStringLiteral("insert-character");
@@ -61,6 +76,7 @@ private:
     const QString MENU_SCRIPT_RECENT = QStringLiteral("script-recent");
     const QString MENU_WINDOW = QStringLiteral("window");
     const QString MENU_HELP = QStringLiteral("help");
+
 
     MenuManager(QObject *parent = nullptr);
     ~MenuManager() = default;
@@ -101,7 +117,19 @@ private:
 
     void initPageMenu();
 
+    void initItemMenu();
+    void initItemDuplicateTransformMenu();
+    void initItemGroupingMenu();
+    void initItemLockingMenu();
+    void initItemLevelMenu();
+    void initItemSendToLayerMenu();
+
     void initInsertMenu();
+    void initInsertCharacterMenu();
+    void initInsertQuoteMenu();
+    void initInsertSpacesBreaksMenu();
+    void initInsertLigatureMenu();
+    void initInsertMarksMenu();
 
     void initTableMenu();
 

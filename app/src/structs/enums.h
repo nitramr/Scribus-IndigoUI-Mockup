@@ -106,7 +106,7 @@ enum class ImageEffects {
 enum class ImageRenderQuality {
     Low = 0,
     Normal = 1,
-    High = 2
+    Full = 2
 };
 
 /************************

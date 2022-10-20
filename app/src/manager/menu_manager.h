@@ -42,8 +42,10 @@ private:
     const QString MENU_ITEM_LEVEL = QStringLiteral("item-level");
     const QString MENU_ITEM_SENDTOLAYER = QStringLiteral("item-sendtolayer");
     const QString MENU_ITEM_SENDTO = QStringLiteral("item-sendto");
+    const QString MENU_ITEM_SENDTO_SCRAPBOOK = QStringLiteral("item-sendto-scrapbook");
     const QString MENU_ITEM_ADJUST = QStringLiteral("item-adjust");
     const QString MENU_ITEM_IMAGE = QStringLiteral("item-image");
+    const QString MENU_ITEM_IMAGE_PREVIEWSETTINGS = QStringLiteral("item-image-previewsettings");
     const QString MENU_ITEM_PDFOPTIONS = QStringLiteral("item-pdfoptions");
     const QString MENU_ITEM_CONVERTTO = QStringLiteral("item-convertto");
     const QString MENU_ITEM_TEXTFRAMELINKS = QStringLiteral("item-textframelinks");
@@ -121,13 +123,21 @@ private:
     void initItemLockingMenu();
     void initItemLevelMenu();
     void initItemSendToLayerMenu();
+    void initItemSendToMenu();
+    void initItemSendToScrapbookMenu();
+    void initItemAdjustMenu();
+    void initItemImageMenu();
+    void initItemImagePreviewSettingsMenu();
+    void initItemPDFOptionsMenu();
+    void initItemConvertToMenu();
+    void initItemTextFrameLinksMenu();
 
     void initInsertMenu();
     void initInsertCharacterMenu();
     void initInsertQuoteMenu();
     void initInsertSpacesBreaksMenu();
     void initInsertLigatureMenu();
-    void initInsertMarksMenu();
+    void initInsertMarksMenu();    
 
     void initTableMenu();
 

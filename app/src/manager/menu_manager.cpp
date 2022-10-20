@@ -128,8 +128,16 @@ void MenuManager::initRootMenu(QMenuBar *menu)
     initItemDuplicateTransformMenu();
     initItemGroupingMenu();
     initItemLockingMenu();
-    initItemSendToLayerMenu();
     initItemLevelMenu();
+    initItemSendToLayerMenu();    
+    initItemSendToMenu();
+    initItemSendToScrapbookMenu();
+    initItemAdjustMenu();
+    initItemImageMenu();
+    initItemImagePreviewSettingsMenu();
+    initItemPDFOptionsMenu();
+    initItemConvertToMenu();
+    initItemTextFrameLinksMenu();
 
     // Insert
     initInsertMenu();
@@ -418,6 +426,76 @@ void MenuManager::initItemSendToLayerMenu()
     // TODO: add logic to load recent files
 }
 
+void MenuManager::initItemSendToMenu()
+{
+    QMenu * mItemSendToScrapbook = new QMenu(tr("&Scrapbook"));
+
+    menuList->insert(MENU_ITEM_SENDTO_SCRAPBOOK, mItemSendToScrapbook);
+
+    menuList->value(MENU_ITEM_SENDTO)->addMenu( mItemSendToScrapbook );
+    menuList->value(MENU_ITEM_SENDTO)->addAction( getAction( tr("&Patterns"),        "", "itemSendToPattern") );
+    menuList->value(MENU_ITEM_SENDTO)->addAction( getAction( tr("&Inline-Items"),    "", "itemSendToInline") );
+}
+
+void MenuManager::initItemSendToScrapbookMenu()
+{
+    menuList->value(MENU_ITEM_SENDTO_SCRAPBOOK)->clear();
+    // TODO: add logic to load scrapbook files
+}
+
+void MenuManager::initItemAdjustMenu()
+{
+    menuList->value(MENU_ITEM_ADJUST)->addAction( getAction( tr("Adjust Frame &Height to Text"), "", "itemAdjustFrameHeightToText") );
+    menuList->value(MENU_ITEM_ADJUST)->addAction( getAction( tr("Adjust &Frame to Image"),       "", "itemAdjustFrameToImage") );
+    menuList->value(MENU_ITEM_ADJUST)->addAction( getAction( tr("Adjust &Image to Frame"),       "", "itemAdjustImageToFrame") );
+}
+
+void MenuManager::initItemImageMenu()
+{
+    QMenu * mItemImagePreviewSettings = new QMenu(tr("Preview &Settings"));
+
+    menuList->insert(MENU_ITEM_IMAGE_PREVIEWSETTINGS, mItemImagePreviewSettings);
+
+    menuList->value(MENU_ITEM_IMAGE)->addAction( getAction( tr("&Update Image"),                 "", "itemUpdateImage") );
+    menuList->value(MENU_ITEM_IMAGE)->addAction( getAction( tr("Extended Image &Properties"),    "", "itemExtendedImageProperties") );
+    menuList->value(MENU_ITEM_IMAGE)->addAction( getAction( tr("&Embed Image"),               "", "", true) );
+    menuList->value(MENU_ITEM_IMAGE)->addMenu( mItemImagePreviewSettings );
+}
+
+void MenuManager::initItemImagePreviewSettingsMenu()
+{
+    menuList->value(MENU_ITEM_IMAGE_PREVIEWSETTINGS)->addAction( getAction( tr("Image &Visible"),       "", "itemImageIsVisible", true) );
+    menuList->value(MENU_ITEM_IMAGE_PREVIEWSETTINGS)->addSeparator();
+    menuList->value(MENU_ITEM_IMAGE_PREVIEWSETTINGS)->addAction( getAction( tr("&Full Resolution"),     "", "itemPreviewFull") );
+    menuList->value(MENU_ITEM_IMAGE_PREVIEWSETTINGS)->addAction( getAction( tr("&Normal Resolution"),   "", "itemPreviewNormal") );
+    menuList->value(MENU_ITEM_IMAGE_PREVIEWSETTINGS)->addAction( getAction( tr("&Low Resolution"),      "", "itemPreviewLow") );
+}
+
+void MenuManager::initItemPDFOptionsMenu()
+{
+    menuList->value(MENU_ITEM_PDFOPTIONS)->addAction( getAction( tr("Is PDF &Annotation"),       "", "itemPDFIsAnnotation", true) );
+    menuList->value(MENU_ITEM_PDFOPTIONS)->addAction( getAction( tr("Is PDF &Bookmark"),         "", "itemPDFIsBookmark", true) );
+    menuList->value(MENU_ITEM_PDFOPTIONS)->addAction( getAction( tr("A&nnotation Properties"),   "", "itemPDFAnnotationProps") );
+    menuList->value(MENU_ITEM_PDFOPTIONS)->addAction( getAction( tr("&Field Properties"),        "", "itemPDFFieldProps") );
+}
+
+void MenuManager::initItemConvertToMenu()
+{
+    menuList->value(MENU_ITEM_CONVERTTO)->addAction( getAction( tr("&Text Frame"),   "", "itemConvertToTextFrame") );
+    menuList->value(MENU_ITEM_CONVERTTO)->addAction( getAction( tr("&Image Frame"),  "", "itemConvertToImageFrame") );
+    menuList->value(MENU_ITEM_CONVERTTO)->addAction( getAction( tr("&Polygon"),      "", "itemConvertToPolygon") );
+    menuList->value(MENU_ITEM_CONVERTTO)->addAction( getAction( tr("&Bezier Curve"), "", "itemConvertToBezierCurve") );
+    menuList->value(MENU_ITEM_CONVERTTO)->addAction( getAction( tr("&Outlines"),     "", "itemConvertToOutlines") );
+    menuList->value(MENU_ITEM_CONVERTTO)->addAction( getAction( tr("&Symbol"),       "", "itemConvertToSymbolFrame") );
+}
+
+void MenuManager::initItemTextFrameLinksMenu()
+{
+    menuList->value(MENU_ITEM_TEXTFRAMELINKS)->addAction( getAction( tr("&Link Text Frame"),                "tool-text-link",   "toolsLinkTextFrame") );
+    menuList->value(MENU_ITEM_TEXTFRAMELINKS)->addAction( getAction( tr("&Unlink Text Frame"),              "tool-text-unlink", "toolsUnlinkTextFrame") );
+    menuList->value(MENU_ITEM_TEXTFRAMELINKS)->addAction( getAction( tr("Unlink Text Frame and &Cut Text"), "",                 "toolsUnlinkTextFrameAndCutText") );
+}
+
 /* ********************************************************************************* *
  *
  * INSERT Menu
@@ -556,6 +634,7 @@ void MenuManager::initInsertMarksMenu()
     menuList->value(MENU_INSERT_MARKS)->addAction( getAction( tr("Reference to Mark"),  "", "insertMark2Mark") );
     menuList->value(MENU_INSERT_MARKS)->addAction( getAction( tr("Variable Text"),      "", "insertMarkVariableText") );
 }
+
 
 /* ********************************************************************************* *
  *

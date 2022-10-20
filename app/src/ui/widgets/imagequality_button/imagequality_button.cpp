@@ -7,13 +7,13 @@ ImageQualityButton::ImageQualityButton(QWidget *parent) : QToolButton(parent)
     IconManager & iconManager = IconManager::instance();
 
     // Color Blindness
-    actionQualityLow    = new QAction(iconManager.icon("preview-image-low"), tr("Image Render Quality Low"), this);
-    actionQualityNormal = new QAction(iconManager.icon("preview-image-normal"), tr("Image Render Quality Normal"), this);
-    actionQualityHigh   = new QAction(iconManager.icon("preview-image-high"), tr("Image Render Quality High"), this);
+    actionQualityLow    = new QAction(iconManager.icon("preview-image-low"), tr("Low Image Resolution"), this);
+    actionQualityNormal = new QAction(iconManager.icon("preview-image-normal"), tr("Normal Image Resolution"), this);
+    actionQualityHigh   = new QAction(iconManager.icon("preview-image-high"), tr("Full Image Resolution"), this);
 
     actionQualityLow->setData( QVariant::fromValue(ImageRenderQuality::Low) );
     actionQualityNormal->setData( QVariant::fromValue(ImageRenderQuality::Normal) );
-    actionQualityHigh->setData( QVariant::fromValue(ImageRenderQuality::High) );
+    actionQualityHigh->setData( QVariant::fromValue(ImageRenderQuality::Full) );
 
 
     menuQuality = new QMenu;

@@ -113,52 +113,52 @@
     <function name="insertMarkNote" shortcut=""/><!-- Used -->
     <function name="insertMarkVariableText" shortcut=""/><!-- Used -->
     <function name="insertSampleText" shortcut=""/>
-    <function name="itemAdjustFrameHeightToText" shortcut=""/>
-    <function name="itemAdjustFrameToImage" shortcut=""/>
-    <function name="itemAdjustImageToFrame" shortcut=""/>
+    <function name="itemAdjustFrameHeightToText" shortcut=""/><!-- Used -->
+    <function name="itemAdjustFrameToImage" shortcut=""/><!-- Used -->
+    <function name="itemAdjustImageToFrame" shortcut=""/><!-- Used -->
     <function name="itemAttachTextToPath" shortcut=""/>
     <function name="itemAttributes" shortcut=""/>
     <function name="itemCombinePolygons" shortcut=""/>
-    <function name="itemConvertToBezierCurve" shortcut=""/>
-    <function name="itemConvertToImageFrame" shortcut=""/>
-    <function name="itemConvertToOutlines" shortcut=""/>
-    <function name="itemConvertToPolygon" shortcut=""/>
-    <function name="itemConvertToSymbolFrame" shortcut=""/>
-    <function name="itemConvertToTextFrame" shortcut=""/>
+    <function name="itemConvertToBezierCurve" shortcut=""/><!-- Used -->
+    <function name="itemConvertToImageFrame" shortcut=""/><!-- Used -->
+    <function name="itemConvertToOutlines" shortcut=""/><!-- Used -->
+    <function name="itemConvertToPolygon" shortcut=""/><!-- Used -->
+    <function name="itemConvertToSymbolFrame" shortcut=""/><!-- Used -->
+    <function name="itemConvertToTextFrame" shortcut=""/><!-- Used -->
     <function name="itemDelete" shortcut="Del"/><!-- Used -->
     <function name="itemDetachTextFromPath" shortcut=""/>
     <function name="itemDuplicate" shortcut="Ctrl+D"/><!-- Used -->
     <function name="itemEditWeld" shortcut=""/>
-    <function name="itemExtendedImageProperties" shortcut=""/>
+    <function name="itemExtendedImageProperties" shortcut=""/><!-- Used -->
     <function name="itemFlipH" shortcut=""/>
     <function name="itemFlipV" shortcut=""/>
     <function name="itemGroup" shortcut="Ctrl+G"/><!-- Used -->
     <function name="itemGroupAdjust" shortcut=""/><!-- Used -->
     <function name="itemImageInfo" shortcut=""/>
-    <function name="itemImageIsVisible" shortcut=""/>
+    <function name="itemImageIsVisible" shortcut=""/><!-- Used -->
     <function name="itemLock" shortcut="Ctrl+L"/><!-- Used -->
     <function name="itemLockSize" shortcut="Ctrl+Shift+L"/><!-- Used -->
     <function name="itemLower" shortcut="Ctrl+End"/><!-- Used -->
     <function name="itemLowerToBottom" shortcut="End"/><!-- Used -->
     <function name="itemMulDuplicate" shortcut="Ctrl+Shift+D"/><!-- Used -->
-    <function name="itemPDFAnnotationProps" shortcut=""/>
-    <function name="itemPDFFieldProps" shortcut=""/>
-    <function name="itemPDFIsAnnotation" shortcut=""/>
-    <function name="itemPDFIsBookmark" shortcut=""/>
-    <function name="itemPreviewFull" shortcut=""/>
-    <function name="itemPreviewLow" shortcut=""/>
-    <function name="itemPreviewNormal" shortcut=""/>
+    <function name="itemPDFAnnotationProps" shortcut=""/><!-- Used -->
+    <function name="itemPDFFieldProps" shortcut=""/><!-- Used -->
+    <function name="itemPDFIsAnnotation" shortcut=""/><!-- Used -->
+    <function name="itemPDFIsBookmark" shortcut=""/><!-- Used -->
+    <function name="itemPreviewFull" shortcut=""/><!-- Used -->
+    <function name="itemPreviewLow" shortcut=""/><!-- Used -->
+    <function name="itemPreviewNormal" shortcut=""/><!-- Used -->
     <function name="itemPrintingEnabled" shortcut=""/>
     <function name="itemRaise" shortcut="Ctrl+Home"/><!-- Used -->
     <function name="itemRaiseToTop" shortcut="Home"/><!-- Used -->
-    <function name="itemSendToInline" shortcut=""/>
-    <function name="itemSendToPattern" shortcut=""/>
+    <function name="itemSendToInline" shortcut=""/><!-- Used -->
+    <function name="itemSendToPattern" shortcut=""/><!-- Used -->
     <function name="itemShapeEdit" shortcut=""/>
     <function name="itemSplitPolygons" shortcut=""/>
     <function name="itemToggleInlineImage" shortcut=""/>
     <function name="itemTransform" shortcut=""/><!-- Used -->
     <function name="itemUngroup" shortcut="Ctrl+Shift+G"/><!-- Used -->
-    <function name="itemUpdateImage" shortcut=""/>
+    <function name="itemUpdateImage" shortcut=""/><!-- Used -->
     <function name="itemUpdateMarks" shortcut=""/><!-- Used -->
     <function name="itemWeld" shortcut=""/>
     <function name="itemsUnWeld" shortcut=""/>
@@ -213,7 +213,7 @@
     <function name="toolsInsertTable" shortcut="A"/><!-- Used -->
     <function name="toolsInsertTextFrame" shortcut="T"/><!-- Used -->
     <function name="toolsLayers" shortcut="F6"/>
-    <function name="toolsLinkTextFrame" shortcut="N"/>
+    <function name="toolsLinkTextFrame" shortcut="N"/><!-- Used -->
     <function name="toolsMeasurements" shortcut=""/>
     <function name="toolsOutline" shortcut=""/>
     <function name="toolsPDFAnnot3D" shortcut=""/>
@@ -236,8 +236,8 @@
     <function name="toolsToolbarPDF" shortcut=""/>
     <function name="toolsToolbarTools" shortcut=""/>
     <function name="toolsToolbarView" shortcut=""/>
-    <function name="toolsUnlinkTextFrame" shortcut="U"/>
-    <function name="toolsUnlinkTextFrameAndCutText" shortcut=""/>
+    <function name="toolsUnlinkTextFrame" shortcut="U"/><!-- Used -->
+    <function name="toolsUnlinkTextFrameAndCutText" shortcut=""/><!-- Used -->
     <function name="toolsZoom" shortcut="Z"/>
     <function name="toolsZoomIn" shortcut="Ctrl++"/>
     <function name="toolsZoomOut" shortcut="Ctrl+-"/>

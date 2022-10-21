@@ -138,6 +138,10 @@ void MenuManager::initRootMenu(QMenuBar *menu)
     initItemPDFOptionsMenu();
     initItemConvertToMenu();
     initItemTextFrameLinksMenu();
+    initItemPathToolsMenu();
+    initItemWeldingMenu();
+    initItemMarksMenu();
+    initItemTextFeaturesMenu();
 
     // Insert
     initInsertMenu();
@@ -494,6 +498,56 @@ void MenuManager::initItemTextFrameLinksMenu()
     menuList->value(MENU_ITEM_TEXTFRAMELINKS)->addAction( getAction( tr("&Link Text Frame"),                "tool-text-link",   "toolsLinkTextFrame") );
     menuList->value(MENU_ITEM_TEXTFRAMELINKS)->addAction( getAction( tr("&Unlink Text Frame"),              "tool-text-unlink", "toolsUnlinkTextFrame") );
     menuList->value(MENU_ITEM_TEXTFRAMELINKS)->addAction( getAction( tr("Unlink Text Frame and &Cut Text"), "",                 "toolsUnlinkTextFrameAndCutText") );
+}
+
+void MenuManager::initItemPathToolsMenu()
+{
+    menuList->value(MENU_ITEM_PATHTOOLS)->addAction( getAction( tr("&Combine Polygons"),         "", "itemCombinePolygons") );
+    menuList->value(MENU_ITEM_PATHTOOLS)->addAction( getAction( tr("&Split Polygons"),           "", "itemSplitPolygons") );
+    menuList->value(MENU_ITEM_PATHTOOLS)->addAction( getAction( tr("&Attach Text to Path"),      "", "itemAttachTextToPath") );
+    menuList->value(MENU_ITEM_PATHTOOLS)->addAction( getAction( tr("&Detach Text from Path"),    "", "itemDetachTextFromPath") );
+    menuList->value(MENU_ITEM_PATHTOOLS)->addAction( getAction( tr("&Flatten Path"),             "", "FlattenPath") );
+    menuList->value(MENU_ITEM_PATHTOOLS)->addAction( getAction( tr("&Lens Effects"),             "", "LensEffects") );
+    menuList->value(MENU_ITEM_PATHTOOLS)->addAction( getAction( tr("&Mesh Distortion"),          "", "MeshDistortion") );
+    menuList->value(MENU_ITEM_PATHTOOLS)->addAction( getAction( tr("&Path along Path"),          "", "PathAlongPath") );
+    menuList->value(MENU_ITEM_PATHTOOLS)->addAction( getAction( tr("C&onnect Paths"),            "", "PathConnect") );
+    menuList->value(MENU_ITEM_PATHTOOLS)->addAction( getAction( tr("C&ut Polygon"),              "", "PathCutter") );
+    menuList->value(MENU_ITEM_PATHTOOLS)->addAction( getAction( tr("P&ath Operations"),          "", "") );
+    menuList->value(MENU_ITEM_PATHTOOLS)->addAction( getAction( tr("C&reate Path from Stroke"),  "", "PathStroker") );
+    menuList->value(MENU_ITEM_PATHTOOLS)->addAction( getAction( tr("Smoo&th Path"),              "", "SmoothPath") );
+    menuList->value(MENU_ITEM_PATHTOOLS)->addAction( getAction( tr("Su&bdivide Path"),           "", "Subdivide") );
+}
+
+void MenuManager::initItemWeldingMenu()
+{
+    menuList->value(MENU_ITEM_WELDING)->addAction( getAction( tr("&Weld Items"),    "", "itemWeld") );
+    menuList->value(MENU_ITEM_WELDING)->addAction( getAction( tr("&Unweld Items"),  "", "itemsUnWeld") );
+    menuList->value(MENU_ITEM_WELDING)->addAction( getAction( tr("&Edit Weld"),     "", "itemEditWeld") );
+}
+
+void MenuManager::initItemMarksMenu()
+{
+    menuList->value(MENU_ITEM_MARKS)->addAction( getAction( tr("&Edit Mark"), "", "editMark") );
+}
+
+void MenuManager::initItemTextFeaturesMenu()
+{
+    menuList->value(MENU_ITEM_TEXTFEATURE)->addAction( getAction( tr("&Left"),               "text-align-left",              "alignLeft") );
+    menuList->value(MENU_ITEM_TEXTFEATURE)->addAction( getAction( tr("&Center"),             "text-align-center",            "alignCenter") );
+    menuList->value(MENU_ITEM_TEXTFEATURE)->addAction( getAction( tr("&Right"),              "text-align-right",             "alignRight") );
+    menuList->value(MENU_ITEM_TEXTFEATURE)->addAction( getAction( tr("&Block"),              "text-align-justified",         "alignBlock") );
+    menuList->value(MENU_ITEM_TEXTFEATURE)->addAction( getAction( tr("&Forced"),             "text-align-forcedjustified",   "alignForced") );
+    menuList->value(MENU_ITEM_TEXTFEATURE)->addSeparator();
+    menuList->value(MENU_ITEM_TEXTFEATURE)->addAction( getAction( tr("&Normal"),             "",                             "typeEffectNormal") );
+    menuList->value(MENU_ITEM_TEXTFEATURE)->addAction( getAction( tr("&Underline"),          "text-format-underline",        "typeEffectUnderline") );
+    menuList->value(MENU_ITEM_TEXTFEATURE)->addAction( getAction( tr("Underline &Words"),    "",                             "typeEffectUnderlineWords") );
+    menuList->value(MENU_ITEM_TEXTFEATURE)->addAction( getAction( tr("&Strike Through"),     "text-format-strikeout",        "typeEffectStrikeThrough") );
+    menuList->value(MENU_ITEM_TEXTFEATURE)->addAction( getAction( tr("&All Caps"),           "",                             "typeEffectAllCaps") );
+    menuList->value(MENU_ITEM_TEXTFEATURE)->addAction( getAction( tr("S&mall Caps"),         "",                             "typeEffectSmallCaps") );
+    menuList->value(MENU_ITEM_TEXTFEATURE)->addAction( getAction( tr("Su&perscript"),        "text-format-superscript",      "typeEffectSuperscript") );
+    menuList->value(MENU_ITEM_TEXTFEATURE)->addAction( getAction( tr("Subscr&ipt"),          "text-format-subscript",        "typeEffectSubscript") );
+    menuList->value(MENU_ITEM_TEXTFEATURE)->addAction( getAction( tr("&Outline"),            "text-format-outline",          "typeEffectOutline") );
+//    menuList->value(MENU_ITEM_TEXTFEATURE)->addAction( getAction( tr("Shadow"),           "",                             "typeEffectShadow") );
 }
 
 /* ********************************************************************************* *

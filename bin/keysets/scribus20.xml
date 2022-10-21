@@ -5,30 +5,30 @@
     <function name="ExportAsImage" shortcut="Ctrl+Shift+E"/><!-- Used -->
     <function name="ExportAsSVG" shortcut=""/><!-- Used -->
     <function name="ExportAsXPS" shortcut=""/><!-- Used -->
-    <function name="FlattenPath" shortcut=""/>
+    <function name="FlattenPath" shortcut=""/><!-- Used -->
     <function name="FontPreview" shortcut=""/><!-- Used -->
     <function name="HunspellPlugin" shortcut="Shift+F7"/><!-- Used -->
-    <function name="LensEffects" shortcut=""/>
-    <function name="MeshDistortion" shortcut=""/>
+    <function name="LensEffects" shortcut=""/><!-- Used -->
+    <function name="MeshDistortion" shortcut=""/><!-- Used -->
     <function name="NewFromDocumentTemplate" shortcut="Ctrl+Alt+N"/><!-- Used -->
     <function name="OutputPreviewPDF" shortcut=""/><!-- Used -->
     <function name="OutputPreviewPS" shortcut=""/><!-- Used -->
-    <function name="PathAlongPath" shortcut=""/>
-    <function name="PathConnect" shortcut=""/>
-    <function name="PathCutter" shortcut=""/>
+    <function name="PathAlongPath" shortcut=""/><!-- Used -->
+    <function name="PathConnect" shortcut=""/><!-- Used -->
+    <function name="PathCutter" shortcut=""/><!-- Used -->
     <function name="PathFinder" shortcut=""/>
-    <function name="PathStroker" shortcut=""/>
+    <function name="PathStroker" shortcut=""/><!-- Used -->
     <function name="Picture Browser" shortcut=""/><!-- Used -->
     <function name="PrintPreview" shortcut=""/><!-- Used -->
     <function name="SaveAsDocumentTemplate" shortcut="Ctrl+Alt+S"/><!-- Used -->
     <function name="ShortWords" shortcut=""/><!-- Used -->
-    <function name="SmoothPath" shortcut=""/>
-    <function name="Subdivide" shortcut=""/>
-    <function name="alignBlock" shortcut=""/>
-    <function name="alignCenter" shortcut=""/>
-    <function name="alignForced" shortcut=""/>
-    <function name="alignLeft" shortcut=""/>
-    <function name="alignRight" shortcut=""/>
+    <function name="SmoothPath" shortcut=""/><!-- Used -->
+    <function name="Subdivide" shortcut=""/><!-- Used -->
+    <function name="alignBlock" shortcut=""/><!-- Used -->
+    <function name="alignCenter" shortcut=""/><!-- Used -->
+    <function name="alignForced" shortcut=""/><!-- Used -->
+    <function name="alignLeft" shortcut=""/><!-- Used -->
+    <function name="alignRight" shortcut=""/><!-- Used -->
     <function name="editActionMode" shortcut=""/>
     <function name="editClearContents" shortcut="Ctrl+Shift+Del"/><!-- Used -->
     <function name="editColorsAndFills" shortcut=""/><!-- Used -->
@@ -39,7 +39,7 @@
     <function name="editEditRenderSource" shortcut=""/>
     <function name="editEditWithImageEditor" shortcut=""/>
     <function name="editJavascripts" shortcut=""/><!-- Used -->
-    <function name="editMark" shortcut=""/>
+    <function name="editMark" shortcut=""/><!-- Used -->
     <function name="editMarks" shortcut=""/><!-- Used -->
     <function name="editMasterPages" shortcut=""/><!-- Used -->
     <function name="editNotesStyles" shortcut=""/>
@@ -116,9 +116,9 @@
     <function name="itemAdjustFrameHeightToText" shortcut=""/><!-- Used -->
     <function name="itemAdjustFrameToImage" shortcut=""/><!-- Used -->
     <function name="itemAdjustImageToFrame" shortcut=""/><!-- Used -->
-    <function name="itemAttachTextToPath" shortcut=""/>
+    <function name="itemAttachTextToPath" shortcut=""/><!-- Used -->
     <function name="itemAttributes" shortcut=""/>
-    <function name="itemCombinePolygons" shortcut=""/>
+    <function name="itemCombinePolygons" shortcut=""/><!-- Used -->
     <function name="itemConvertToBezierCurve" shortcut=""/><!-- Used -->
     <function name="itemConvertToImageFrame" shortcut=""/><!-- Used -->
     <function name="itemConvertToOutlines" shortcut=""/><!-- Used -->
@@ -126,9 +126,9 @@
     <function name="itemConvertToSymbolFrame" shortcut=""/><!-- Used -->
     <function name="itemConvertToTextFrame" shortcut=""/><!-- Used -->
     <function name="itemDelete" shortcut="Del"/><!-- Used -->
-    <function name="itemDetachTextFromPath" shortcut=""/>
+    <function name="itemDetachTextFromPath" shortcut=""/><!-- Used -->
     <function name="itemDuplicate" shortcut="Ctrl+D"/><!-- Used -->
-    <function name="itemEditWeld" shortcut=""/>
+    <function name="itemEditWeld" shortcut=""/><!-- Used -->
     <function name="itemExtendedImageProperties" shortcut=""/><!-- Used -->
     <function name="itemFlipH" shortcut=""/>
     <function name="itemFlipV" shortcut=""/>
@@ -154,14 +154,14 @@
     <function name="itemSendToInline" shortcut=""/><!-- Used -->
     <function name="itemSendToPattern" shortcut=""/><!-- Used -->
     <function name="itemShapeEdit" shortcut=""/>
-    <function name="itemSplitPolygons" shortcut=""/>
+    <function name="itemSplitPolygons" shortcut=""/><!-- Used -->
     <function name="itemToggleInlineImage" shortcut=""/>
     <function name="itemTransform" shortcut=""/><!-- Used -->
     <function name="itemUngroup" shortcut="Ctrl+Shift+G"/><!-- Used -->
     <function name="itemUpdateImage" shortcut=""/><!-- Used -->
     <function name="itemUpdateMarks" shortcut=""/><!-- Used -->
-    <function name="itemWeld" shortcut=""/>
-    <function name="itemsUnWeld" shortcut=""/>
+    <function name="itemWeld" shortcut=""/><!-- Used -->
+    <function name="itemsUnWeld" shortcut=""/><!-- Used -->
     <function name="pageApplyMasterPage" shortcut=""/><!-- Used -->
     <function name="pageCopy" shortcut=""/><!-- Used -->
     <function name="pageCopyToMasterPage" shortcut=""/><!-- Used -->
@@ -241,16 +241,16 @@
     <function name="toolsZoom" shortcut="Z"/>
     <function name="toolsZoomIn" shortcut="Ctrl++"/>
     <function name="toolsZoomOut" shortcut="Ctrl+-"/>
-    <function name="typeEffectAllCaps" shortcut=""/>
-    <function name="typeEffectNormal" shortcut=""/>
-    <function name="typeEffectOutline" shortcut=""/>
-    <function name="typeEffectShadow" shortcut=""/>
-    <function name="typeEffectSmallCaps" shortcut=""/>
-    <function name="typeEffectStrikeThrough" shortcut=""/>
-    <function name="typeEffectSubscript" shortcut=""/>
-    <function name="typeEffectSuperscript" shortcut=""/>
-    <function name="typeEffectUnderline" shortcut=""/>
-    <function name="typeEffectUnderlineWords" shortcut=""/>
+    <function name="typeEffectAllCaps" shortcut=""/><!-- Used -->
+    <function name="typeEffectNormal" shortcut=""/><!-- Used -->
+    <function name="typeEffectOutline" shortcut=""/><!-- Used -->
+    <function name="typeEffectShadow" shortcut=""/><!-- Used -->
+    <function name="typeEffectSmallCaps" shortcut=""/><!-- Used -->
+    <function name="typeEffectStrikeThrough" shortcut=""/><!-- Used -->
+    <function name="typeEffectSubscript" shortcut=""/><!-- Used -->
+    <function name="typeEffectSuperscript" shortcut=""/><!-- Used -->
+    <function name="typeEffectUnderline" shortcut=""/><!-- Used -->
+    <function name="typeEffectUnderlineWords" shortcut=""/><!-- Used -->
     <function name="unicodeBullet" shortcut=""/><!-- Used -->
     <function name="unicodeColumnBreak" shortcut="Ctrl+Shift+Return"/><!-- Used -->
     <function name="unicodeCopyRight" shortcut=""/><!-- Used -->

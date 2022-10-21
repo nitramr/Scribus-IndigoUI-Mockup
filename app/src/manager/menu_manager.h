@@ -131,6 +131,10 @@ private:
     void initItemPDFOptionsMenu();
     void initItemConvertToMenu();
     void initItemTextFrameLinksMenu();
+    void initItemPathToolsMenu();
+    void initItemWeldingMenu();
+    void initItemMarksMenu();
+    void initItemTextFeaturesMenu();
 
     void initInsertMenu();
     void initInsertCharacterMenu();

@@ -29,6 +29,7 @@ public:
     void initRootMenu(QMenuBar *menu);
 
     void initPageContextMenu(QMenu *menu, DockDocumentBase *documentBase, DummyDocument *document);
+    void initImageItemContextMenu(QMenu *menu);
 
 private:
 
@@ -124,61 +125,61 @@ private:
 
     QKeySequence getShortcut(QString key);
 
-    void initFileMenu();
-    void initFileImportMenu();
-    void initFileExportMenu();
-    void initFileOutputPreviewMenu();
-    void initFileRecentFiles();
+    void initFileMenu(QMenu *menu);
+    void initFileImportMenu(QMenu *menu);
+    void initFileExportMenu(QMenu *menu);
+    void initFileOutputPreviewMenu(QMenu *menu);
+    void initFileRecentFiles(QMenu *menu);
 
-    void initEditMenu();
-    void initEditContentsMenu();
+    void initEditMenu(QMenu *menu);
+    void initEditContentsMenu(QMenu *menu);
 
-    void initPageMenu();
+    void initPageMenu(QMenu *menu);
 
-    void initItemMenu();
-    void initItemDuplicateTransformMenu();
-    void initItemGroupingMenu();
-    void initItemLockingMenu();
-    void initItemLevelMenu();
-    void initItemSendToLayerMenu();
-    void initItemSendToMenu();
-    void initItemSendToScrapbookMenu();
-    void initItemAdjustMenu();
-    void initItemImageMenu();
-    void initItemImagePreviewSettingsMenu();
-    void initItemPDFOptionsMenu();
-    void initItemConvertToMenu();
-    void initItemTextFrameLinksMenu();
-    void initItemPathToolsMenu();
-    void initItemWeldingMenu();
-    void initItemMarksMenu();
-    void initItemTextFeaturesMenu();
+    void initItemMenu(QMenu *menu);
+    void initItemDuplicateTransformMenu(QMenu *menu);
+    void initItemGroupingMenu(QMenu *menu);
+    void initItemLockingMenu(QMenu *menu);
+    void initItemLevelMenu(QMenu *menu);
+    void initItemSendToLayerMenu(QMenu *menu);
+    void initItemSendToMenu(QMenu *menu);
+    void initItemSendToScrapbookMenu(QMenu *menu);
+    void initItemAdjustMenu(QMenu *menu);
+    void initItemImageMenu(QMenu *menu);
+    void initItemImagePreviewSettingsMenu(QMenu *menu);
+    void initItemPDFOptionsMenu(QMenu *menu);
+    void initItemConvertToMenu(QMenu *menu);
+    void initItemTextFrameLinksMenu(QMenu *menu);
+    void initItemPathToolsMenu(QMenu *menu);
+    void initItemWeldingMenu(QMenu *menu);
+    void initItemMarksMenu(QMenu *menu);
+    void initItemTextFeaturesMenu(QMenu *menu);
 
-    void initInsertMenu();
-    void initInsertCharacterMenu();
-    void initInsertQuoteMenu();
-    void initInsertSpacesBreaksMenu();
-    void initInsertLigatureMenu();
-    void initInsertMarksMenu();
+    void initInsertMenu(QMenu *menu);
+    void initInsertCharacterMenu(QMenu *menu);
+    void initInsertQuoteMenu(QMenu *menu);
+    void initInsertSpacesBreaksMenu(QMenu *menu);
+    void initInsertLigatureMenu(QMenu *menu);
+    void initInsertMarksMenu(QMenu *menu);
 
-    void initTableMenu();
+    void initTableMenu(QMenu *menu);
 
-    void initExtrasMenu();
+    void initExtrasMenu(QMenu *menu);
 
-    void initViewMenu();
-    void initViewZoomMenu();
-    void initViewPreviewMenu();
-    void initViewMeasurementMenu();
-    void initViewTextFramesMenu();
-    void initViewImageFramesMenu();
-    void initViewDocumentMenu();
-    void initViewGridsGuidesMenu();
+    void initViewMenu(QMenu *menu);
+    void initViewZoomMenu(QMenu *menu);
+    void initViewPreviewMenu(QMenu *menu);
+    void initViewMeasurementMenu(QMenu *menu);
+    void initViewTextFramesMenu(QMenu *menu);
+    void initViewImageFramesMenu(QMenu *menu);
+    void initViewDocumentMenu(QMenu *menu);
+    void initViewGridsGuidesMenu(QMenu *menu);
 
-    void initScriptMenu();
-    void initScriptScribusScripts();
-    void initScriptRecentScripts();
+    void initScriptMenu(QMenu *menu);
+    void initScriptScribusScripts(QMenu *menu);
+    void initScriptRecentScripts(QMenu *menu);
 
-    void initHelpMenu();
+    void initHelpMenu(QMenu *menu);
 
 };
 

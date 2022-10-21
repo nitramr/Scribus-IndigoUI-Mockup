@@ -117,7 +117,7 @@
     <function name="itemAdjustFrameToImage" shortcut=""/><!-- Used -->
     <function name="itemAdjustImageToFrame" shortcut=""/><!-- Used -->
     <function name="itemAttachTextToPath" shortcut=""/><!-- Used -->
-    <function name="itemAttributes" shortcut=""/>
+    <function name="itemAttributes" shortcut=""/><!-- Used -->
     <function name="itemCombinePolygons" shortcut=""/><!-- Used -->
     <function name="itemConvertToBezierCurve" shortcut=""/><!-- Used -->
     <function name="itemConvertToImageFrame" shortcut=""/><!-- Used -->
@@ -193,7 +193,7 @@
     <function name="toolsActionHistory" shortcut=""/>
     <function name="toolsAlignDistribute" shortcut=""/>
     <function name="toolsBookmarks" shortcut=""/>
-    <function name="toolsContent" shortcut="F3"/>
+    <function name="toolsContent" shortcut="F3"/><!-- Used -->
     <function name="toolsCopyProperties" shortcut=""/>
     <function name="toolsDownloads" shortcut=""/>
     <function name="toolsEditContents" shortcut="E"/>
@@ -227,7 +227,7 @@
     <function name="toolsPDFTextField" shortcut=""/>
     <function name="toolsPages" shortcut=""/>
     <function name="toolsPreflightVerifier" shortcut=""/>
-    <function name="toolsProperties" shortcut="F2"/>
+    <function name="toolsProperties" shortcut="F2"/><!-- Used -->
     <function name="toolsResources" shortcut=""/>
     <function name="toolsRotate" shortcut="R"/>
     <function name="toolsScrapbook" shortcut=""/>

@@ -6,6 +6,8 @@
 #include <QPointer>
 #include <QToolBar>
 
+#include "dock_documentbase.h"
+
 class MainWindow;
 
 class MenuManager : public QObject
@@ -26,7 +28,14 @@ public:
 
     void initRootMenu(QMenuBar *menu);
 
+    void initPageContextMenu(QMenu *menu, DockDocumentBase *documentBase, DummyDocument *document);
+
 private:
+
+    enum ActionType {
+        Normal = 0,
+        Checkbox = 1
+    };
 
     const QString MENU_FILE = QStringLiteral("file");
     const QString MENU_FILE_IMPORT = QStringLiteral("file-import");
@@ -92,17 +101,26 @@ private:
     template<class Obj, typename Func1>
     inline typename std::enable_if<!std::is_same<const char*, Func1>::value
     && QtPrivate::IsPointerToTypeDerivedFromQObject<Obj*>::Value, QAction *>::type
-    getAction(const QString &label, QString iconKey, QString shortcutKey, bool checkable, const Obj*receiver, Func1 slot)
-        {
-           QAction * action = getAction(label, iconKey, shortcutKey, checkable);
+    getAction(const QString &label, QString iconKey, QString shortcutKey, ActionType type, const Obj*receiver, Func1 slot)
+    {
+        QAction * action = getAction(label, iconKey, shortcutKey, type);
 
-           if(receiver && slot)
+        if(receiver && slot){
+            switch(type){
+            case ActionType::Normal:
                 QObject::connect(action, &QAction::triggered, receiver, std::move(slot));
+                break;
+            case ActionType::Checkbox:
+                QObject::connect(action, &QAction::toggled, receiver, std::move(slot));
+                break;
+            }
 
-           return action;
+        }
+
+        return action;
 
     }
-    QAction *getAction(const QString &label, QString iconKey, QString shortcutKey, bool checkable = false);
+    QAction *getAction(const QString &label, QString iconKey, QString shortcutKey, ActionType type = ActionType::Normal, bool checked = false);
 
     QKeySequence getShortcut(QString key);
 
@@ -141,7 +159,7 @@ private:
     void initInsertQuoteMenu();
     void initInsertSpacesBreaksMenu();
     void initInsertLigatureMenu();
-    void initInsertMarksMenu();    
+    void initInsertMarksMenu();
 
     void initTableMenu();
 

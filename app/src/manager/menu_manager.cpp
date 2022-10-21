@@ -3,6 +3,7 @@
 #include "mainwindow.h"
 #include "icon_manager.h"
 #include "shortcut_manager.h"
+#include "dock_documentbase.h"
 
 #include <QPainterPath>
 
@@ -20,7 +21,7 @@ MenuManager::MenuManager(QObject *parent)
 
 }
 
-QAction *MenuManager::getAction(const QString &label, QString iconKey, QString shortcutKey, bool checkable)
+QAction *MenuManager::getAction(const QString &label, QString iconKey, QString shortcutKey, ActionType type, bool checked)
 {
     IconManager &iconManager = IconManager::instance();
 
@@ -32,7 +33,8 @@ QAction *MenuManager::getAction(const QString &label, QString iconKey, QString s
     if(!shortcutKey.isEmpty())
         action->setShortcut( getShortcut(shortcutKey) );
 
-    action->setCheckable(checkable);
+    action->setCheckable(type);
+    action->setChecked(checked);
 
     return action;
 }
@@ -67,26 +69,52 @@ QMenu *MenuManager::menuWindow()
     return menuList->value(MENU_WINDOW);
 }
 
-/* ********************************************************************************* *
- *
- * Private Methods
- *
- * ********************************************************************************* */
+
+void MenuManager::initPageContextMenu(QMenu *menu, DockDocumentBase *documentBase, DummyDocument *document)
+{
+    menu->addAction( getAction( tr("Paste File"),               "", "") );
+    menu->addSeparator();
+    menu->addAction( getAction( tr("&Undo"),                    "undo", "editUndoAction") );
+    menu->addAction( getAction( tr("&Redo"),                    "redo", "editRedoAction") );
+    menu->addSeparator();
+    menu->addAction( getAction( tr("Show Margins"),             "",     "viewShowMargins",          ActionType::Checkbox) );
+    menu->addAction( getAction( tr("Show Frames"),              "",     "viewShowFrames",           ActionType::Checkbox) );
+    menu->addAction( getAction( tr("Show Layer Indicators"),    "",     "viewShowLayerMarkers",     ActionType::Checkbox) );
+    menu->addAction( getAction( tr("Show Images"),              "",     "viewShowImages",           ActionType::Checkbox) );
+    menu->addAction( getAction( tr("Show Grid"),                "",     "viewShowGrid",             ActionType::Checkbox, document,         &DummyDocument::toggleGridVisibility) );
+    menu->addAction( getAction( tr("Show Guides"),              "",     "viewShowGuides",           ActionType::Checkbox, document,         &DummyDocument::toggleGuideVisibility) );
+    menu->addAction( getAction( tr("Show Text Frame Columns"),  "",     "viewShowColumnBorders",    ActionType::Checkbox) );
+    menu->addAction( getAction( tr("Show Baseline Grid"),       "",     "viewShowBaseline",         ActionType::Checkbox, document,         &DummyDocument::toggleBaselineVisibility) );
+    menu->addAction( getAction( tr("Show Text Chain"),          "",     "viewShowTextChain",        ActionType::Checkbox) );
+    menu->addAction( getAction( tr("Show Rulers"),              "",     "viewShowRulers",           ActionType::Checkbox) );
+    menu->addAction( getAction( tr("Rulers Relative to Page"),  "",     "",                         ActionType::Checkbox) );
+    menu->addSeparator();
+    menu->addAction( getAction( tr("Snap to Grid"),             "",     "viewSnapToGrid",           ActionType::Checkbox) );
+    menu->addAction( getAction( tr("Snap to Guides"),           "",     "viewSnapToGuides",         ActionType::Checkbox) );
+    menu->addAction( getAction( tr("Snap to Items"),            "",     "viewSnapToElements",       ActionType::Checkbox) );
+    menu->addSeparator();
+    menu->addAction( getAction( tr("Apply Master Page"),        "",     "pageApplyMasterPage") );
+    menu->addAction( getAction( tr("Manage Guides"),            "",     "pageManageGuides") );
+    menu->addAction( getAction( tr("Manage Page Properties"),   "",     "pageManageProperties",     ActionType::Normal,     documentBase,   &DockDocumentBase::showManagePageDialog) );
+    menu->addSeparator();
+    menu->addAction( getAction( tr("Delete Page"),              "",     "pageDelete") );
+
+}
 
 void MenuManager::initRootMenu(QMenuBar *menu)
 {
     // Root Menu
-    QMenu * mFile   = new QMenu( tr("File") );
-    QMenu * mEdit   = new QMenu( tr("Edit") );
-    QMenu * mItem   = new QMenu( tr("Item") );
-    QMenu * mInsert = new QMenu( tr("Insert") );
-    QMenu * mPage   = new QMenu( tr("Page") );
-    QMenu * mTable  = new QMenu( tr("Table") );
-    QMenu * mExtras = new QMenu( tr("Extras") );
-    QMenu * mView   = new QMenu( tr("View") );
-    QMenu * mScript = new QMenu( tr("Script") );
-    QMenu * mWindow = new QMenu( tr("Window") );
-    QMenu * mHelp   = new QMenu( tr("Help") );
+    QMenu * mFile   = new QMenu( tr("&File") );
+    QMenu * mEdit   = new QMenu( tr("&Edit") );
+    QMenu * mItem   = new QMenu( tr("&Item") );
+    QMenu * mInsert = new QMenu( tr("I&nsert") );
+    QMenu * mPage   = new QMenu( tr("&Page") );
+    QMenu * mTable  = new QMenu( tr("&Table") );
+    QMenu * mExtras = new QMenu( tr("E&xtras") );
+    QMenu * mView   = new QMenu( tr("&View") );
+    QMenu * mScript = new QMenu( tr("&Script") );
+    QMenu * mWindow = new QMenu( tr("&Window") );
+    QMenu * mHelp   = new QMenu( tr("&Help") );
 
     menuList->insert(MENU_FILE, mFile);
     menuList->insert(MENU_EDIT, mEdit);
@@ -181,6 +209,12 @@ void MenuManager::initRootMenu(QMenuBar *menu)
 
 /* ********************************************************************************* *
  *
+ * Private Methods
+ *
+ * ********************************************************************************* */
+
+/* ********************************************************************************* *
+ *
  * FILE Menu
  *
  * ********************************************************************************* */
@@ -188,19 +222,19 @@ void MenuManager::initRootMenu(QMenuBar *menu)
 void MenuManager::initFileMenu()
 {
 
-    QMenu * mFileImport = new QMenu(tr("Import"));
-    QMenu * mFileExport = new QMenu(tr("Export"));
-    QMenu * mFileOutputPreview = new QMenu(tr("Output Preview"));
-    QMenu * mFileRecentFiles = new QMenu(tr("Open Recent"));
+    QMenu * mFileImport = new QMenu(tr("&Import"));
+    QMenu * mFileExport = new QMenu(tr("E&xport"));
+    QMenu * mFileOutputPreview = new QMenu(tr("&Output Preview"));
+    QMenu * mFileRecentFiles = new QMenu(tr("Open &Recent"));
 
     menuList->insert(MENU_FILE_IMPORT, mFileImport);
     menuList->insert(MENU_FILE_EXPORT, mFileExport);
     menuList->insert(MENU_FILE_OUTPUTPREVIEW, mFileOutputPreview);
     menuList->insert(MENU_FILE_RECENTFILES, mFileRecentFiles);
 
-    menuList->value(MENU_FILE)->addAction( getAction( tr("&New Document"),          "file-document",    "fileNew",              false, mainWindow, &MainWindow::newDocument) );
+    menuList->value(MENU_FILE)->addAction( getAction( tr("&New Document"),          "file-document",    "fileNew",              ActionType::Normal, mainWindow, &MainWindow::newDocument) );
     menuList->value(MENU_FILE)->addAction( getAction( tr("New from Template"),      "",                 "fileNewFromTemplate") );
-    menuList->value(MENU_FILE)->addAction( getAction( tr("&Open Document"),         "open",             "fileOpen",             false, mainWindow, &MainWindow::openDocument) );
+    menuList->value(MENU_FILE)->addAction( getAction( tr("&Open Document"),         "open",             "fileOpen",             ActionType::Normal, mainWindow, &MainWindow::openDocument) );
     menuList->value(MENU_FILE)->addMenu( mFileRecentFiles );
     menuList->value(MENU_FILE)->addSeparator();
     menuList->value(MENU_FILE)->addAction( getAction( tr("&Close"),                 "",                 "fileClose") );
@@ -213,8 +247,8 @@ void MenuManager::initFileMenu()
     menuList->value(MENU_FILE)->addMenu( mFileImport );
     menuList->value(MENU_FILE)->addMenu( mFileExport );
     menuList->value(MENU_FILE)->addSeparator();
-    menuList->value(MENU_FILE)->addAction( getAction( tr("Document Setup"),         "",                 "fileDocSetup150") );
-    menuList->value(MENU_FILE)->addAction( getAction( tr("Preferences"),            "",                 "filePreferences150") );
+    menuList->value(MENU_FILE)->addAction( getAction( tr("&Document Setup"),        "",                 "fileDocSetup150") );
+    menuList->value(MENU_FILE)->addAction( getAction( tr("Pre&ferences"),           "",                 "filePreferences150") );
     menuList->value(MENU_FILE)->addSeparator();
     menuList->value(MENU_FILE)->addAction( getAction( tr("&Print"),                 "print",            "filePrint") );
     menuList->value(MENU_FILE)->addAction( getAction( tr("Print Previe&w"),         "",                 "PrintPreview") );
@@ -274,7 +308,7 @@ void MenuManager::initEditMenu()
 
     menuList->value(MENU_EDIT)->addAction( getAction( tr("&Undo"),                  "undo",     "editUndoAction") );
     menuList->value(MENU_EDIT)->addAction( getAction( tr("&Redo"),                  "redo",     "editRedoAction") );
-    menuList->value(MENU_EDIT)->addAction( getAction( tr("&Item Action Mode"),      "",         "", true) );
+    menuList->value(MENU_EDIT)->addAction( getAction( tr("&Item Action Mode"),      "",         "", ActionType::Checkbox) );
     menuList->value(MENU_EDIT)->addSeparator();
     menuList->value(MENU_EDIT)->addAction( getAction( tr("Cu&t"),                   "cut",      "editCut") );
     menuList->value(MENU_EDIT)->addAction( getAction( tr("&Copy"),                  "copy",     "editCopy") );
@@ -292,7 +326,7 @@ void MenuManager::initEditMenu()
     menuList->value(MENU_EDIT)->addSeparator();
     menuList->value(MENU_EDIT)->addAction( getAction( tr("Colors && Fills"),        "",         "editColorsAndFills") );
     menuList->value(MENU_EDIT)->addAction( getAction( tr("Replace Colors"),         "",         "editReplaceColors") );
-    menuList->value(MENU_EDIT)->addAction( getAction( tr("Styles"),                 "",         "editStyles", false, mainWindow, &MainWindow::openStyles) );
+    menuList->value(MENU_EDIT)->addAction( getAction( tr("Styles"),                 "",         "editStyles", ActionType::Normal, mainWindow, &MainWindow::openStyles) );
     menuList->value(MENU_EDIT)->addAction( getAction( tr("Marks"),                  "",         "editMarks") );
     menuList->value(MENU_EDIT)->addAction( getAction( tr("Parent Pages"),           "",         "editMasterPages") );
     menuList->value(MENU_EDIT)->addAction( getAction( tr("Javascript"),             "",         "editJavascripts") );
@@ -330,9 +364,9 @@ void MenuManager::initPageMenu()
     menuList->value(MENU_PAGE)->addAction( getAction( tr("Manage &Guides"),             "", "pageManageGuides") );
     menuList->value(MENU_PAGE)->addAction( getAction( tr("Manage Page &Properties"),    "", "pageManageProperties") );
     menuList->value(MENU_PAGE)->addSeparator();
-    menuList->value(MENU_PAGE)->addAction( getAction( tr("Snap to G&rid"),              "", "viewSnapToGrid", true) );
-    menuList->value(MENU_PAGE)->addAction( getAction( tr("Snap to G&uides"),            "", "viewSnapToGuides", true) );
-    menuList->value(MENU_PAGE)->addAction( getAction( tr("Snap to It&ems"),             "", "viewSnapToElements", true) );
+    menuList->value(MENU_PAGE)->addAction( getAction( tr("Snap to G&rid"),              "", "viewSnapToGrid", ActionType::Checkbox) );
+    menuList->value(MENU_PAGE)->addAction( getAction( tr("Snap to G&uides"),            "", "viewSnapToGuides", ActionType::Checkbox) );
+    menuList->value(MENU_PAGE)->addAction( getAction( tr("Snap to It&ems"),             "", "viewSnapToElements", ActionType::Checkbox) );
 
 }
 
@@ -410,8 +444,8 @@ void MenuManager::initItemGroupingMenu()
 
 void MenuManager::initItemLockingMenu()
 {
-    menuList->value(MENU_ITEM_LOCKING)->addAction( getAction( tr("Is &Locked"),      "", "itemLock",     true) );
-    menuList->value(MENU_ITEM_LOCKING)->addAction( getAction( tr("&Size is Locked"), "", "itemLockSize", true) );
+    menuList->value(MENU_ITEM_LOCKING)->addAction( getAction( tr("Is &Locked"),      "", "itemLock",     ActionType::Checkbox) );
+    menuList->value(MENU_ITEM_LOCKING)->addAction( getAction( tr("&Size is Locked"), "", "itemLockSize", ActionType::Checkbox) );
 }
 
 void MenuManager::initItemLevelMenu()
@@ -460,15 +494,15 @@ void MenuManager::initItemImageMenu()
 
     menuList->insert(MENU_ITEM_IMAGE_PREVIEWSETTINGS, mItemImagePreviewSettings);
 
-    menuList->value(MENU_ITEM_IMAGE)->addAction( getAction( tr("&Update Image"),                 "", "itemUpdateImage") );
-    menuList->value(MENU_ITEM_IMAGE)->addAction( getAction( tr("Extended Image &Properties"),    "", "itemExtendedImageProperties") );
-    menuList->value(MENU_ITEM_IMAGE)->addAction( getAction( tr("&Embed Image"),               "", "", true) );
+    menuList->value(MENU_ITEM_IMAGE)->addAction( getAction( tr("&Update Image"),                "", "itemUpdateImage") );
+    menuList->value(MENU_ITEM_IMAGE)->addAction( getAction( tr("Extended Image &Properties"),   "", "itemExtendedImageProperties") );
+    menuList->value(MENU_ITEM_IMAGE)->addAction( getAction( tr("&Embed Image"),                 "", "", ActionType::Checkbox) );
     menuList->value(MENU_ITEM_IMAGE)->addMenu( mItemImagePreviewSettings );
 }
 
 void MenuManager::initItemImagePreviewSettingsMenu()
 {
-    menuList->value(MENU_ITEM_IMAGE_PREVIEWSETTINGS)->addAction( getAction( tr("Image &Visible"),       "", "itemImageIsVisible", true) );
+    menuList->value(MENU_ITEM_IMAGE_PREVIEWSETTINGS)->addAction( getAction( tr("Image &Visible"),       "", "itemImageIsVisible", ActionType::Checkbox) );
     menuList->value(MENU_ITEM_IMAGE_PREVIEWSETTINGS)->addSeparator();
     menuList->value(MENU_ITEM_IMAGE_PREVIEWSETTINGS)->addAction( getAction( tr("&Full Resolution"),     "", "itemPreviewFull") );
     menuList->value(MENU_ITEM_IMAGE_PREVIEWSETTINGS)->addAction( getAction( tr("&Normal Resolution"),   "", "itemPreviewNormal") );
@@ -477,8 +511,8 @@ void MenuManager::initItemImagePreviewSettingsMenu()
 
 void MenuManager::initItemPDFOptionsMenu()
 {
-    menuList->value(MENU_ITEM_PDFOPTIONS)->addAction( getAction( tr("Is PDF &Annotation"),       "", "itemPDFIsAnnotation", true) );
-    menuList->value(MENU_ITEM_PDFOPTIONS)->addAction( getAction( tr("Is PDF &Bookmark"),         "", "itemPDFIsBookmark", true) );
+    menuList->value(MENU_ITEM_PDFOPTIONS)->addAction( getAction( tr("Is PDF &Annotation"),       "", "itemPDFIsAnnotation",     ActionType::Checkbox) );
+    menuList->value(MENU_ITEM_PDFOPTIONS)->addAction( getAction( tr("Is PDF &Bookmark"),         "", "itemPDFIsBookmark",       ActionType::Checkbox) );
     menuList->value(MENU_ITEM_PDFOPTIONS)->addAction( getAction( tr("A&nnotation Properties"),   "", "itemPDFAnnotationProps") );
     menuList->value(MENU_ITEM_PDFOPTIONS)->addAction( getAction( tr("&Field Properties"),        "", "itemPDFFieldProps") );
 }
@@ -589,7 +623,7 @@ void MenuManager::initInsertMenu()
     menuList->value(MENU_INSERT)->addAction( getAction( tr("&Calligraphic Line"),   "tool-calligraphy",     "toolsInsertCalligraphicLine") );
     menuList->value(MENU_INSERT)->addAction( getAction( tr("Barco&de"),             "tool-barcode",         "") );
     menuList->value(MENU_INSERT)->addSeparator();
-    menuList->value(MENU_INSERT)->addAction( getAction( tr("Stic&ky Tools"),        "",                     "", true) );
+    menuList->value(MENU_INSERT)->addAction( getAction( tr("Stic&ky Tools"),        "",                     "", ActionType::Checkbox) );
     menuList->value(MENU_INSERT)->addSeparator();
     menuList->value(MENU_INSERT)->addAction( getAction( tr("Gl&yphs"),              "",                     "") );
     menuList->value(MENU_INSERT)->addMenu(mInsertCharacter);
@@ -793,36 +827,36 @@ void MenuManager::initViewPreviewMenu()
 
 void MenuManager::initViewMeasurementMenu()
 {
-    menuList->value(MENU_VIEW_MEASUREMENT)->addAction( getAction( tr("Show &Ruler"),                     "", "viewShowRulers", true) );
-    menuList->value(MENU_VIEW_MEASUREMENT)->addAction( getAction( tr("Ruler Relative to &Page"),         "", "", true) );
-    menuList->value(MENU_VIEW_MEASUREMENT)->addAction( getAction( tr("Move/Resize Value &Indicator"),    "", "", true) );
+    menuList->value(MENU_VIEW_MEASUREMENT)->addAction( getAction( tr("Show &Ruler"),                     "", "viewShowRulers",  ActionType::Checkbox) );
+    menuList->value(MENU_VIEW_MEASUREMENT)->addAction( getAction( tr("Ruler Relative to &Page"),         "", "",                ActionType::Checkbox) );
+    menuList->value(MENU_VIEW_MEASUREMENT)->addAction( getAction( tr("Move/Resize Value &Indicator"),    "", "",                ActionType::Checkbox) );
 }
 
 void MenuManager::initViewTextFramesMenu()
 {
-    menuList->value(MENU_VIEW_TEXTFRAMES)->addAction( getAction( tr("Show &Baseline Grid"),      "", "viewShowBaseline",         true) );
-    menuList->value(MENU_VIEW_TEXTFRAMES)->addAction( getAction( tr("Show Text &Frame Columns"), "", "viewShowColumnBorders",    true) );
-    menuList->value(MENU_VIEW_TEXTFRAMES)->addAction( getAction( tr("Show &Text Chain"),         "", "viewShowTextChain",        true) );
-    menuList->value(MENU_VIEW_TEXTFRAMES)->addAction( getAction( tr("Show Control &Characters"), "", "viewShowTextControls",     true) );
+    menuList->value(MENU_VIEW_TEXTFRAMES)->addAction( getAction( tr("Show &Baseline Grid"),      "", "viewShowBaseline",         ActionType::Checkbox) );
+    menuList->value(MENU_VIEW_TEXTFRAMES)->addAction( getAction( tr("Show Text &Frame Columns"), "", "viewShowColumnBorders",    ActionType::Checkbox) );
+    menuList->value(MENU_VIEW_TEXTFRAMES)->addAction( getAction( tr("Show &Text Chain"),         "", "viewShowTextChain",        ActionType::Checkbox) );
+    menuList->value(MENU_VIEW_TEXTFRAMES)->addAction( getAction( tr("Show Control &Characters"), "", "viewShowTextControls",     ActionType::Checkbox) );
 }
 
 void MenuManager::initViewImageFramesMenu()
 {
-    menuList->value(MENU_VIEW_IMAGEFRAMES)->addAction( getAction( tr("Show &Images"), "", "viewShowImages", true) );
+    menuList->value(MENU_VIEW_IMAGEFRAMES)->addAction( getAction( tr("Show &Images"), "", "viewShowImages", ActionType::Checkbox) );
 }
 
 void MenuManager::initViewDocumentMenu()
 {
-    menuList->value(MENU_VIEW_DOCUMENT)->addAction( getAction( tr("Show &Margins"),          "", "viewShowMargins",      true) );
-    menuList->value(MENU_VIEW_DOCUMENT)->addAction( getAction( tr("Show &Bleeds"),           "", "viewShowBleeds",       true) );
-    menuList->value(MENU_VIEW_DOCUMENT)->addAction( getAction( tr("Show &Frames"),           "", "viewShowFrames",       true) );
-    menuList->value(MENU_VIEW_DOCUMENT)->addAction( getAction( tr("Show &Layer Indicators"), "", "viewShowLayerMarkers", true) );
+    menuList->value(MENU_VIEW_DOCUMENT)->addAction( getAction( tr("Show &Margins"),          "", "viewShowMargins",      ActionType::Checkbox) );
+    menuList->value(MENU_VIEW_DOCUMENT)->addAction( getAction( tr("Show &Bleeds"),           "", "viewShowBleeds",       ActionType::Checkbox) );
+    menuList->value(MENU_VIEW_DOCUMENT)->addAction( getAction( tr("Show &Frames"),           "", "viewShowFrames",       ActionType::Checkbox) );
+    menuList->value(MENU_VIEW_DOCUMENT)->addAction( getAction( tr("Show &Layer Indicators"), "", "viewShowLayerMarkers", ActionType::Checkbox) );
 }
 
 void MenuManager::initViewGridsGuidesMenu()
 {
-    menuList->value(MENU_VIEW_GRIDSGUIDES)->addAction( getAction( tr("Show &Grid"),     "", "viewShowGrid",     true) );
-    menuList->value(MENU_VIEW_GRIDSGUIDES)->addAction( getAction( tr("Show G&uides"),   "", "viewShowGuides",   true) );
+    menuList->value(MENU_VIEW_GRIDSGUIDES)->addAction( getAction( tr("Show &Grid"),     "", "viewShowGrid",     ActionType::Checkbox) );
+    menuList->value(MENU_VIEW_GRIDSGUIDES)->addAction( getAction( tr("Show G&uides"),   "", "viewShowGuides",   ActionType::Checkbox) );
 }
 
 /* ********************************************************************************* *
@@ -874,7 +908,7 @@ void MenuManager::initHelpMenu()
     menuList->value(MENU_HELP)->addAction( getAction( tr("Chat with the Community"),        "", "helpChat") );
     menuList->value(MENU_HELP)->addSeparator();
     menuList->value(MENU_HELP)->addAction( getAction( tr("Action &Search"),                 "", "helpActionSearch") );
-    menuList->value(MENU_HELP)->addAction( getAction( tr("&Tooltips"),                      "", "helpTooltips", true) );
+    menuList->value(MENU_HELP)->addAction( getAction( tr("&Tooltips"),                      "", "helpTooltips",     ActionType::Checkbox) );
     menuList->value(MENU_HELP)->addSeparator();
     menuList->value(MENU_HELP)->addAction( getAction( tr("Scribus &Homepage"),              "", "helpOnlineWWW") );
     menuList->value(MENU_HELP)->addAction( getAction( tr("Scribus Online Documentation"),   "", "helpOnlineDocs") );

@@ -27,9 +27,11 @@ private:
 
 
 private slots:
-    void showContextMenu(const QPoint &pos);
-    void showManagePageDialog();
+    void showContextMenu(const QPoint &pos);    
     void changeContentMode(int id);
+
+public slots:
+    void showManagePageDialog();
 
 private:
     QMenu * m_contextMenu;

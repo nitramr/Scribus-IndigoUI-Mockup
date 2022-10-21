@@ -23,9 +23,9 @@ public slots:
 private:
     void paintEvent(QPaintEvent*);
 
-    bool m_grid {true};
-    bool m_baseline {true};
-    bool m_guide {true};
+    bool m_grid {false};
+    bool m_baseline {false};
+    bool m_guide {false};
 signals:
 
 };

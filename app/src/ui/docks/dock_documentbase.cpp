@@ -2,26 +2,17 @@
 
 #include "dummydocument.h"
 #include "icon_manager.h"
+#include "menu_manager.h"
 
 #include <QComboBox>
 #include <QGridLayout>
 #include <QLabel>
 #include <QSpinBox>
-#include "color_button/color_button.h"
-#include "anglepicker/anglepicker.h"
-#include "form_widget/form_widget.h"
-#include "basepoint_widget/basepoint_widget.h"
-#include "color_map/color_map.h"
-#include "colorpicker_color.h"
-#include "color_slider/color_slider.h"
-#include "color_wheel/color_wheel.h"
-#include "colorblind.h"
 #include <QButtonGroup>
 #include <QPainterPath>
 #include <QMenu>
 #include <QToolBar>
-#include <QtColorWidgets/HarmonyColorWheel>
-#include <QtColorWidgets/color_wheel.hpp>
+
 
 /* ********************************************************************************* *
  *
@@ -123,27 +114,8 @@ void DockDocumentBase::changeContentMode(int id)
 
 void DockDocumentBase::setupContextMenu()
 {
-    QAction *actionShowGrid = new QAction( tr("Show Grid") );
-    actionShowGrid->setCheckable(true);
-    actionShowGrid->setChecked(true);
-    connect(actionShowGrid, &QAction::triggered, dummyDoc, &DummyDocument::toggleGridVisibility);
-
-    QAction *actionShowBaseline = new QAction( tr("Show Baseline") );
-    actionShowBaseline->setCheckable(true);
-    actionShowBaseline->setChecked(true);
-    connect(actionShowBaseline, &QAction::triggered, dummyDoc, &DummyDocument::toggleBaselineVisibility);
-
-    QAction *actionShowGuides = new QAction( tr("Show Guides") );
-    actionShowGuides->setCheckable(true);
-    actionShowGuides->setChecked(true);
-    connect(actionShowGuides, &QAction::triggered, dummyDoc, &DummyDocument::toggleGuideVisibility);
-
-
-    m_contextMenu->addAction(actionShowGrid);
-    m_contextMenu->addAction(actionShowBaseline);
-    m_contextMenu->addAction(actionShowGuides);
-    m_contextMenu->addSeparator();
-    m_contextMenu->addAction( tr("Manage Page Properties..."), this, &DockDocumentBase::showManagePageDialog );
+    MenuManager &menuManager = MenuManager::instance();
+    menuManager.initPageContextMenu(m_contextMenu, this, dummyDoc);
 }
 
 void DockDocumentBase::dummyContent()

@@ -3,7 +3,7 @@
 #include "mainwindow.h"
 #include "icon_manager.h"
 #include "shortcut_manager.h"
-#include "dock_documentbase.h"
+#include "dummydocument.h"
 
 #include <QPainterPath>
 
@@ -70,7 +70,7 @@ QMenu *MenuManager::menuWindow()
 }
 
 
-void MenuManager::initPageContextMenu(QMenu *menu, DockDocumentBase *documentBase, DummyDocument *document)
+void MenuManager::initPageContextMenu(QMenu *menu, DummyDocument *document)
 {
     menu->addAction( getAction( tr("Paste File"),               "",     "") );
     menu->addSeparator();
@@ -81,10 +81,10 @@ void MenuManager::initPageContextMenu(QMenu *menu, DockDocumentBase *documentBas
     menu->addAction( getAction( tr("Show Frames"),              "",     "viewShowFrames",           ActionType::Checkbox) );
     menu->addAction( getAction( tr("Show Layer Indicators"),    "",     "viewShowLayerMarkers",     ActionType::Checkbox) );
     menu->addAction( getAction( tr("Show Images"),              "",     "viewShowImages",           ActionType::Checkbox) );
-    menu->addAction( getAction( tr("Show Grid"),                "",     "viewShowGrid",             ActionType::Checkbox, document,         &DummyDocument::toggleGridVisibility) );
-    menu->addAction( getAction( tr("Show Guides"),              "",     "viewShowGuides",           ActionType::Checkbox, document,         &DummyDocument::toggleGuideVisibility) );
+    menu->addAction( getAction( tr("Show Grid"),                "",     "viewShowGrid",             ActionType::Checkbox, document,    &DummyDocument::toggleGridVisibility) );
+    menu->addAction( getAction( tr("Show Guides"),              "",     "viewShowGuides",           ActionType::Checkbox, document,    &DummyDocument::toggleGuideVisibility) );
     menu->addAction( getAction( tr("Show Text Frame Columns"),  "",     "viewShowColumnBorders",    ActionType::Checkbox) );
-    menu->addAction( getAction( tr("Show Baseline Grid"),       "",     "viewShowBaseline",         ActionType::Checkbox, document,         &DummyDocument::toggleBaselineVisibility) );
+    menu->addAction( getAction( tr("Show Baseline Grid"),       "",     "viewShowBaseline",         ActionType::Checkbox, document,    &DummyDocument::toggleBaselineVisibility) );
     menu->addAction( getAction( tr("Show Text Chain"),          "",     "viewShowTextChain",        ActionType::Checkbox) );
     menu->addAction( getAction( tr("Show Rulers"),              "",     "viewShowRulers",           ActionType::Checkbox) );
     menu->addAction( getAction( tr("Rulers Relative to Page"),  "",     "",                         ActionType::Checkbox) );
@@ -95,7 +95,7 @@ void MenuManager::initPageContextMenu(QMenu *menu, DockDocumentBase *documentBas
     menu->addSeparator();
     menu->addAction( getAction( tr("Apply Master Page"),        "",     "pageApplyMasterPage") );
     menu->addAction( getAction( tr("Manage Guides"),            "",     "pageManageGuides") );
-    menu->addAction( getAction( tr("Manage Page Properties"),   "",     "pageManageProperties",     ActionType::Normal,     documentBase,   &DockDocumentBase::showManagePageDialog) );
+    menu->addAction( getAction( tr("Manage Page Properties"),   "",     "pageManageProperties",     ActionType::Normal,     document,   &DummyDocument::showManagePageDialog) );
     menu->addSeparator();
     menu->addAction( getAction( tr("Delete Page"),              "",     "pageDelete") );
 

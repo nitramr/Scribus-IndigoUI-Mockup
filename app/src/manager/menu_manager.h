@@ -6,9 +6,8 @@
 #include <QPointer>
 #include <QToolBar>
 
-#include "dock_documentbase.h"
-
 class MainWindow;
+class DummyDocument;
 
 class MenuManager : public QObject
 {
@@ -28,7 +27,7 @@ public:
 
     void initRootMenu(QMenuBar *menu);
 
-    void initPageContextMenu(QMenu *menu, DockDocumentBase *documentBase, DummyDocument *document);
+    void initPageContextMenu(QMenu *menu, DummyDocument *document);
     void initImageItemContextMenu(QMenu *menu);
 
 private:

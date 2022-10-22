@@ -27,10 +27,7 @@ DockDocumentBase::DockDocumentBase(const QString &title, QWidget *parent) : ads:
     setFeature(ads::CDockWidget::DockWidgetDeleteOnClose, true);
 
     setIcon(IconManager::instance().icon("file-document"));
-    setContextMenuPolicy(Qt::CustomContextMenu);
 
-    dialogManagePageProperties = new ManagePagePropertiesDialog(this);
-    m_contextMenu = new QMenu(this);
     dummyDoc = new DummyDocument();
 
     buttonText = new QToolButton();
@@ -57,15 +54,12 @@ DockDocumentBase::DockDocumentBase(const QString &title, QWidget *parent) : ads:
 void DockDocumentBase::setup()
 {
 
-    setupContextMenu();
     dummyContent();
 
 }
 
 void DockDocumentBase::connectSlots()
 {
-
-    connect(this, &DockDocumentBase::customContextMenuRequested, this, &DockDocumentBase::showContextMenu);
 
     // Dummy
     connect(buttonGroupContentToggle, &QButtonGroup::idClicked, this, &DockDocumentBase::changeContentMode);
@@ -77,19 +71,6 @@ void DockDocumentBase::connectSlots()
  * Private Slots
  *
  * ********************************************************************************* */
-
-void DockDocumentBase::showContextMenu(const QPoint &pos)
-{
-    m_contextMenu->exec(mapToGlobal(pos));
-}
-
-void DockDocumentBase::showManagePageDialog()
-{
-    if(dialogManagePageProperties->exec()){
-
-    }
-
-}
 
 void DockDocumentBase::changeContentMode(int id)
 {
@@ -111,12 +92,6 @@ void DockDocumentBase::changeContentMode(int id)
  * Private Methods
  *
  * ********************************************************************************* */
-
-void DockDocumentBase::setupContextMenu()
-{
-    MenuManager &menuManager = MenuManager::instance();
-    menuManager.initPageContextMenu(m_contextMenu, this, dummyDoc);
-}
 
 void DockDocumentBase::dummyContent()
 {       

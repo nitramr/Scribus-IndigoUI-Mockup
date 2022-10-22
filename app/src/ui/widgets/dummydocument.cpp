@@ -1,5 +1,8 @@
 #include "dummydocument.h"
 #include <QPainter>
+#include <QMouseEvent>
+#include "menu_manager.h"
+#include "managepageproperties_dialog.h"
 
 /* ********************************************************************************* *
  *
@@ -12,9 +15,26 @@ DummyDocument::DummyDocument(QWidget *parent)
 {
     setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
     setFixedSize(1400, 1400);
+    setContextMenuPolicy(Qt::CustomContextMenu);
 
+    dialogManagePageProperties = new ManagePagePropertiesDialog(this);
+
+    contextImage = new QMenu();
+    contextPaper = new QMenu();
+
+    MenuManager &menuManager = MenuManager::instance();
+    menuManager.initImageItemContextMenu(contextImage);
+    menuManager.initPageContextMenu(contextPaper, this);
+
+
+    connectSlots();
 }
 
+
+void DummyDocument::connectSlots()
+{
+    connect(this, &DummyDocument::customContextMenuRequested, this, &DummyDocument::showContextMenu);
+}
 
 /* ********************************************************************************* *
  *
@@ -55,6 +75,58 @@ void DummyDocument::toggleGuideVisibility()
     setGuideVisibility(!m_guide);
 }
 
+void DummyDocument::showManagePageDialog()
+{
+    if(dialogManagePageProperties->exec()){
+
+    }
+
+}
+
+/* ********************************************************************************* *
+ *
+ * Private Members
+ *
+ * ********************************************************************************* */
+
+QRect DummyDocument::rectDocument()
+{
+    int w = 800;
+    int h = w*1.414;
+
+    return QRect(rect().center().x()-w/2, rect().center().y()-h/2, w, h);
+}
+
+QRect DummyDocument::rectImage()
+{
+    QPoint tl = rectDocument().topLeft();
+    QPoint offset(50,50);
+
+    return QRect(tl + offset, QSize(489/2, 464/2));
+}
+
+/* ********************************************************************************* *
+ *
+ * Private Slots
+ *
+ * ********************************************************************************* */
+
+void DummyDocument::showContextMenu(const QPoint &pos)
+{
+    switch(m_contextMenuType){
+    case ContextMenuType::Document:
+
+        break;
+    case ContextMenuType::Paper:
+        contextPaper->exec(mapToGlobal(pos));
+        break;
+    case ContextMenuType::Image:
+        contextImage->exec(mapToGlobal(pos));
+        break;
+
+    }
+}
+
 
 /* ********************************************************************************* *
  *
@@ -83,10 +155,7 @@ void DummyDocument::paintEvent(QPaintEvent *)
 
     QPainter painter(this);
 
-    int w = 800;
-    int h = w*1.414;
-
-    QRect paper(rect().center().x()-w/2, rect().center().y()-h/2, w, h);
+    QRect paper = rectDocument();
 
     int left = int(paper.left());
     int top = int(paper.top());
@@ -118,6 +187,15 @@ void DummyDocument::paintEvent(QPaintEvent *)
         painter.drawLines(blines.data(), blines.size());
     }
 
+    // Draw Image
+    QPixmap image(":/images/splashscreen_dark");
+    painter.drawPixmap(rectImage(), image);
+
+    // Draw Shape
+    //painter.fillRect(rectImage(),  QColor(128,200,200));
+
+
+    // Draw Grid
     if(m_grid){
         int sgrid = 20;
         int lgrid = 100;
@@ -163,4 +241,30 @@ void DummyDocument::paintEvent(QPaintEvent *)
 
 
 }
+
+void DummyDocument::mousePressEvent(QMouseEvent *event)
+{
+
+    if(event->button() == Qt::RightButton)
+    {
+
+        if(rect().contains(event->pos())){
+            m_contextMenuType = ContextMenuType::Document;
+        }
+
+        if(rectDocument().contains(event->pos())){
+            m_contextMenuType = ContextMenuType::Paper;
+        }
+
+        if(rectImage().contains(event->pos())){
+            m_contextMenuType = ContextMenuType::Image;
+        }
+
+    }
+
+    QWidget::mousePressEvent(event);
+}
+
+
+
 

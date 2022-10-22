@@ -70,6 +70,7 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="character-scale-height" file="24/character-scale-height.svg" />
 		<icon id="character-scale-width" file="24/character-scale-width.svg" />
 		<icon id="character-scale-space" file="24/character-scale-space.svg" />
+		<icon id="character-style" file="24/format-font.svg" />
 		<icon id="character-tracking" file="24/character-letter-spacing.svg" />	
 		<icon id="chevron-down" file="24/chevron-down.svg" />
 		<icon id="chevron-up" file="24/chevron-up.svg" />
@@ -162,6 +163,7 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="more" file="24/dots-vertical.svg" />
 		<icon id="move-down" file="24/arrow-down-thin.svg" />
 		<icon id="move-up" file="24/arrow-up-thin.svg" />
+		<icon id="new" file="24/file-outline.svg" />
 		<icon id="open" file="24/folder-open.svg" />
 		<icon id="page-add" file="24/file-outline.svg" />
 		<icon id="page-delete-close" file="24/delete.svg" />
@@ -185,6 +187,7 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="paragraph-offset-maxascent" file="24/paragraph-offset-max.svg" />		
 		<icon id="paragraph-space-above" file="24/paragraph-space-above.svg" />
 		<icon id="paragraph-space-below" file="24/paragraph-space-below.svg" />
+		<icon id="paragraph-style" file="24/format-pilcrow.svg" />
 		<icon id="paste" file="24/content-paste.svg" />
 		<icon id="patchmesh-add" file="24/patch-add.svg" />
 		<icon id="patchmesh-remove" file="24/patch-remove.svg" />
@@ -219,7 +222,9 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="stroke-cap-square" file="16/stroke-cap-square.svg" />
 		<icon id="stroke-join-bevel" file="16/stroke-join-bevel.svg" />
 		<icon id="stroke-join-miter" file="16/stroke-join-miter.svg" />
-		<icon id="stroke-join-round" file="16/stroke-join-round.svg" />
+		<icon id="stroke-join-round" file="16/stroke-join-round.svg" />		
+		<icon id="stroke-style" file="24/format-line-style.svg" />
+		<icon id="table-cell-style" file="24/table-row.svg" />
 		<icon id="table-column-width" file="24/table-column-width.svg" />
 		<icon id="table-delete-column" file="24/table-column-remove.svg" />
 		<icon id="table-delete-row" file="24/table-row-remove.svg" />
@@ -228,6 +233,7 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="table-merge-cells" file="24/table-merge-cells.svg" />
 		<icon id="table-row-height" file="24/table-row-height.svg" />
 		<icon id="table-split-cells" file="24/table-split-cell.svg" />
+		<icon id="table-style" file="tools/table.svg" />
 		<icon id="text-align-bottom" file="24/format-vertical-align-bottom.svg" />
 		<icon id="text-align-center" file="24/format-align-center.svg" />
 		<icon id="text-align-forcedjustified" file="24/format-align-justify-forced.svg" />

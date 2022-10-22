@@ -17,6 +17,9 @@ public:
 
 private:
     Ui::StyleManagerDialog *ui;
+
+    void setup();
+
 };
 
 #endif // STYLEMANAGER_DIALOG_H

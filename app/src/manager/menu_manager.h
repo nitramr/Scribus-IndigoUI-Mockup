@@ -27,8 +27,10 @@ public:
 
     void initRootMenu(QMenuBar *menu);
 
+    void initDocumentContextMenu(QMenu *menu, DummyDocument *document);
     void initPageContextMenu(QMenu *menu, DummyDocument *document);
     void initImageItemContextMenu(QMenu *menu);
+
 
 private:
 

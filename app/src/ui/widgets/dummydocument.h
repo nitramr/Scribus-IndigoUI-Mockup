@@ -28,7 +28,7 @@ private:
 
     enum ContextMenuType {
         Document = 0,
-        Paper = 1,
+        Page = 1,
         Image = 2
     };
 
@@ -43,8 +43,9 @@ private:
 
     ManagePagePropertiesDialog * dialogManagePageProperties;
     ContextMenuType m_contextMenuType;
-    QMenu *contextImage;
+    QMenu *contextDocument;
     QMenu *contextPaper;
+    QMenu *contextImage;
 
     QRect rectDocument();
     QRect rectImage();

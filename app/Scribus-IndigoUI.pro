@@ -185,6 +185,7 @@ SOURCES += \
     src/ui/imageeffects/imageeffect_item.cpp \
     src/ui/widgets/autoforms_menu/autoforms_menu.cpp \
     src/ui/widgets/popup_menu/popup_menu.cpp \
+    src/ui/widgets/style_listview/style_listview.cpp \
     src/ui/widgets/trashbin_widget/trashbin_widget.cpp \
     src/ui/widgets/color_listview/color_listview.cpp \
     src/ui/widgets/color_map/color_map.cpp \
@@ -347,6 +348,7 @@ HEADERS += \
     src/ui/imageeffects/imageeffect_item.h \
     src/ui/widgets/autoforms_menu/autoforms_menu.h \
     src/ui/widgets/popup_menu/popup_menu.h \
+    src/ui/widgets/style_listview/style_listview.h \
     src/ui/widgets/trashbin_widget/trashbin_widget.h \
     src/ui/widgets/color_listview/color_listview.h \
     src/ui/widgets/color_map/color_map.h \

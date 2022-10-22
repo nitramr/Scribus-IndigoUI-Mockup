@@ -69,8 +69,7 @@ QMenu *MenuManager::menuWindow()
     return menuList->value(MENU_WINDOW);
 }
 
-
-void MenuManager::initPageContextMenu(QMenu *menu, DummyDocument *document)
+void MenuManager::initDocumentContextMenu(QMenu *menu, DummyDocument *document)
 {
     menu->addAction( getAction( tr("Paste File"),               "",     "") );
     menu->addSeparator();
@@ -92,6 +91,12 @@ void MenuManager::initPageContextMenu(QMenu *menu, DummyDocument *document)
     menu->addAction( getAction( tr("Snap to Grid"),             "",     "viewSnapToGrid",           ActionType::Checkbox) );
     menu->addAction( getAction( tr("Snap to Guides"),           "",     "viewSnapToGuides",         ActionType::Checkbox) );
     menu->addAction( getAction( tr("Snap to Items"),            "",     "viewSnapToElements",       ActionType::Checkbox) );
+}
+
+void MenuManager::initPageContextMenu(QMenu *menu, DummyDocument *document)
+{
+    initDocumentContextMenu(menu, document);
+
     menu->addSeparator();
     menu->addAction( getAction( tr("Apply Master Page"),        "",     "pageApplyMasterPage") );
     menu->addAction( getAction( tr("Manage Guides"),            "",     "pageManageGuides") );
@@ -185,6 +190,7 @@ void MenuManager::initRootMenu(QMenuBar *menu)
     initScriptMenu( mScript );
     initHelpMenu( mHelp );
 }
+
 
 /* ********************************************************************************* *
  *

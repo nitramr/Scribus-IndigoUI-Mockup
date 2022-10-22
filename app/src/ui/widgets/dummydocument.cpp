@@ -19,13 +19,14 @@ DummyDocument::DummyDocument(QWidget *parent)
 
     dialogManagePageProperties = new ManagePagePropertiesDialog(this);
 
-    contextImage = new QMenu();
+    contextDocument = new QMenu();
     contextPaper = new QMenu();
+    contextImage = new QMenu();
 
     MenuManager &menuManager = MenuManager::instance();
-    menuManager.initImageItemContextMenu(contextImage);
     menuManager.initPageContextMenu(contextPaper, this);
-
+    menuManager.initDocumentContextMenu(contextDocument, this);
+    menuManager.initImageItemContextMenu(contextImage);
 
     connectSlots();
 }
@@ -115,9 +116,9 @@ void DummyDocument::showContextMenu(const QPoint &pos)
 {
     switch(m_contextMenuType){
     case ContextMenuType::Document:
-
+        contextDocument->exec(mapToGlobal(pos));
         break;
-    case ContextMenuType::Paper:
+    case ContextMenuType::Page:
         contextPaper->exec(mapToGlobal(pos));
         break;
     case ContextMenuType::Image:
@@ -253,7 +254,7 @@ void DummyDocument::mousePressEvent(QMouseEvent *event)
         }
 
         if(rectDocument().contains(event->pos())){
-            m_contextMenuType = ContextMenuType::Paper;
+            m_contextMenuType = ContextMenuType::Page;
         }
 
         if(rectImage().contains(event->pos())){

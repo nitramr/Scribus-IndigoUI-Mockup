@@ -579,7 +579,7 @@ void MenuManager::initItemTextFeaturesMenu(QMenu *menu)
     menu->addAction( getAction( tr("&Left"),               "text-align-left",              "alignLeft") );
     menu->addAction( getAction( tr("&Center"),             "text-align-center",            "alignCenter") );
     menu->addAction( getAction( tr("&Right"),              "text-align-right",             "alignRight") );
-    menu->addAction( getAction( tr("&Block"),              "text-align-justified",         "alignBlock") );
+    menu->addAction( getAction( tr("&Block"),              "text-align-justified-ltr",     "alignBlock") );
     menu->addAction( getAction( tr("&Forced"),             "text-align-forcedjustified",   "alignForced") );
     menu->addSeparator();
     menu->addAction( getAction( tr("&Normal"),             "",                             "typeEffectNormal") );

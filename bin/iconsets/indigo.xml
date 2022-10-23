@@ -164,6 +164,7 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="move-down" file="24/arrow-down-thin.svg" />
 		<icon id="move-up" file="24/arrow-up-thin.svg" />
 		<icon id="new" file="24/file-outline.svg" />
+		<icon id="note-style" file="24/note-text.svg" />
 		<icon id="open" file="24/folder-open.svg" />
 		<icon id="page-add" file="24/file-outline.svg" />
 		<icon id="page-delete-close" file="24/delete.svg" />
@@ -237,7 +238,8 @@ On Dark:  #e580ff; rgb(229, 128, 255); hsl(288, 100, 75)
 		<icon id="text-align-bottom" file="24/format-vertical-align-bottom.svg" />
 		<icon id="text-align-center" file="24/format-align-center.svg" />
 		<icon id="text-align-forcedjustified" file="24/format-align-justify-forced.svg" />
-		<icon id="text-align-justified" file="24/format-align-justify.svg" />
+		<icon id="text-align-justified-ltr" file="24/format-align-justify-ltr.svg" />
+		<icon id="text-align-justified-rtl" file="24/format-align-justify-rtl.svg" />
 		<icon id="text-align-left" file="24/format-align-left.svg" />
 		<icon id="text-align-middle" file="24/format-vertical-align-center.svg" />
 		<icon id="text-align-right" file="24/format-align-right.svg" />

@@ -161,7 +161,7 @@
        <property name="currentIndex">
         <number>0</number>
        </property>
-       <widget class="QWidget" name="layoutParagraphStyle">
+       <widget class="QWidget" name="pageParagraphStyle">
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <property name="spacing">
           <number>0</number>
@@ -187,6 +187,26 @@
             <attribute name="title">
              <string>Paragraph</string>
             </attribute>
+            <layout class="QVBoxLayout" name="verticalLayout_9">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>8</number>
+             </property>
+             <property name="topMargin">
+              <number>8</number>
+             </property>
+             <property name="rightMargin">
+              <number>8</number>
+             </property>
+             <property name="bottomMargin">
+              <number>8</number>
+             </property>
+             <item>
+              <widget class="StyleManagerParagraph" name="widget" native="true"/>
+             </item>
+            </layout>
            </widget>
            <widget class="QWidget" name="tabCharacter">
             <attribute name="title">
@@ -202,7 +222,7 @@
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="layoutCharacterStyle">
+       <widget class="QWidget" name="pageCharacterStyle">
         <layout class="QVBoxLayout" name="verticalLayout_4">
          <property name="spacing">
           <number>0</number>
@@ -238,7 +258,7 @@
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="layoutTableStyle">
+       <widget class="QWidget" name="pageTableStyle">
         <layout class="QVBoxLayout" name="verticalLayout_5">
          <property name="spacing">
           <number>0</number>
@@ -269,7 +289,7 @@
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="layoutTableCellStyle">
+       <widget class="QWidget" name="pageTableCellStyle">
         <layout class="QVBoxLayout" name="verticalLayout_6">
          <property name="spacing">
           <number>0</number>
@@ -300,7 +320,7 @@
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="layoutStrokeStyle">
+       <widget class="QWidget" name="pageStrokeStyle">
         <layout class="QVBoxLayout" name="verticalLayout_7">
          <property name="spacing">
           <number>0</number>
@@ -325,6 +345,37 @@
            <widget class="QWidget" name="tabStroke">
             <attribute name="title">
              <string>Stroke</string>
+            </attribute>
+           </widget>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="pageNoteStyle">
+        <layout class="QVBoxLayout" name="verticalLayout_8">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QTabWidget" name="tabWidget_3">
+           <property name="currentIndex">
+            <number>0</number>
+           </property>
+           <widget class="QWidget" name="tab">
+            <attribute name="title">
+             <string>Note</string>
             </attribute>
            </widget>
           </widget>
@@ -385,6 +436,12 @@
    <class>StyleListView</class>
    <extends>QTreeWidget</extends>
    <header>style_listview/style_listview.h</header>
+  </customwidget>
+  <customwidget>
+   <class>StyleManagerParagraph</class>
+   <extends>QWidget</extends>
+   <header>stylemanager_paragraph.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

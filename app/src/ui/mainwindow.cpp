@@ -226,8 +226,9 @@ void MainWindow::openStyles()
     qDebug() << "open Style Manager";
 
     StyleManagerDialog * dialogStyles = new StyleManagerDialog(this);
-    if (dialogStyles->exec())
-    {
+    dialogStyles->show();
+//    if (dialogStyles->exec())
+//    {
 
-    }
+//    }
 }

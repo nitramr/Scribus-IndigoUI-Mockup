@@ -13,7 +13,7 @@ const int POINTER_HEIGHT = 24;
 }
 
 StickyPopup::StickyPopup(QWidget *child, QWidget *parent)
-    : QWidget{parent, Qt::Window | Qt::Tool | Qt::FramelessWindowHint}, // Qt::Tool | Qt::FramelessWindowHint
+    : QWidget{parent, Qt::Window | Qt::Tool | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint}, // Qt::Tool | Qt::FramelessWindowHint
       m_child(child)
 {
 

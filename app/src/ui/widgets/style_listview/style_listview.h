@@ -9,6 +9,7 @@ for which a new license (GPL+exception) is in place.
 
 
 #include <QTreeWidget>
+#include "enums.h"
 
 
 class StyleListView : public QTreeWidget
@@ -16,11 +17,8 @@ class StyleListView : public QTreeWidget
     Q_OBJECT
 public:
     StyleListView(QWidget *parent);
-// 	~StyleView();
+
 protected:
-// 	void contentsMousePressEvent(QMouseEvent *e);
-// 	void mousePressEvent(QMouseEvent * event);
-// 	void contentsMouseDoubleClickEvent(QMouseEvent *e);
     void drawRow(QPainter *painter, const QStyleOptionViewItem & option, const QModelIndex & index ) const;
 };
 
@@ -29,14 +27,11 @@ class StyleListViewItem : public QTreeWidgetItem
 {
 public:
     StyleListViewItem(QTreeWidget *parent, const QString &text);
-    StyleListViewItem(QTreeWidgetItem *parent, const QString &text, const QString &rootName);
-// 	~StyleViewItem();
-
-// 	void paintCell(QPainter *p, const QColorGroup &cg, int column, int width, int align);
+    StyleListViewItem(QTreeWidgetItem *parent, const QString &text, const StyleType &rootName);
 
     bool isRoot();
     QString parentName();
-    QString rootName();
+    StyleType rootName();
     void setDirty(bool isDirty);
     bool isDirty();
 
@@ -44,7 +39,7 @@ private:
     bool m_isRoot;
     bool m_isDirty;
     QString m_parentName;
-    QString m_rootName;
+    StyleType m_rootName;
 };
 
 

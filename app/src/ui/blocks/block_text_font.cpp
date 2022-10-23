@@ -1,5 +1,4 @@
 #include "block_text_font.h"
-#include "colorpicker.h"
 #include "icon_manager.h"
 #include "popup_menu/popup_menu.h"
 #include "ui_block_text_font.h"
@@ -28,7 +27,7 @@ BlockTextFont::~BlockTextFont()
 void BlockTextFont::setup()
 {
 
-     IconManager &iconManager = IconManager::instance();
+    IconManager &iconManager = IconManager::instance();
 
     QStringList weight = QStringList();
     weight.append("100 Thin");
@@ -43,55 +42,27 @@ void BlockTextFont::setup()
 
     ui->comboWeight->addItems(weight);
 
-
-    QStringList lineAlignment = QStringList();
-    lineAlignment.append("Fixed");
-    lineAlignment.append("Automatic");
-    lineAlignment.append("Baseline");
-
-    ui->comboAlignment->addItems(lineAlignment);
-
-
-    blockOutline = new BlockTextOutline;
-
-    ui->numberLineHeight->setValue(15.0);
-    ui->numberFontSize->setValue(12.0);    
-
-    ui->buttonLTR->setIcon(iconManager.icon("text-direction-ltr"));
-    ui->buttonRTL->setIcon(iconManager.icon("text-direction-rtl"));
-
+    // Vertical Alignment
     ui->buttonAlignBottom->setIcon(iconManager.icon("text-align-bottom"));
-    ui->buttonAlignCenter->setIcon(iconManager.icon("text-align-center"));
-    ui->buttonAlignForcedJustified->setIcon(iconManager.icon("text-align-forcedjustified"));
-    ui->buttonAlignJustified->setIcon(iconManager.icon("text-align-justified"));
-    ui->buttonAlignLeft->setIcon(iconManager.icon("text-align-left"));
     ui->buttonAlignMiddle->setIcon(iconManager.icon("text-align-middle"));
-    ui->buttonAlignRight->setIcon(iconManager.icon("text-align-right"));
     ui->buttonAlignTop->setIcon(iconManager.icon("text-align-top"));
-
-    ui->buttonOutline->setIcon(iconManager.icon("text-format-outline"));
-    ui->buttonSubscript->setIcon(iconManager.icon("text-format-subscript"));
-    ui->buttonSuperscript->setIcon(iconManager.icon("text-format-superscript"));
-    ui->buttonStrikeout->setIcon(iconManager.icon("text-format-strikeout"));
-    ui->buttonUnderline->setIcon(iconManager.icon("text-format-underline"));
-
-
-    QButtonGroup *direction = new QButtonGroup();
-    direction->addButton(ui->buttonLTR);
-    direction->addButton(ui->buttonRTL);
-
-    QButtonGroup *hAlignment = new QButtonGroup();
-    hAlignment->addButton(ui->buttonAlignLeft);
-    hAlignment->addButton(ui->buttonAlignCenter);
-    hAlignment->addButton(ui->buttonAlignRight);
-    hAlignment->addButton(ui->buttonAlignJustified);
-    hAlignment->addButton(ui->buttonAlignForcedJustified);
 
     QButtonGroup *vAlignment = new QButtonGroup();
     vAlignment->addButton(ui->buttonAlignTop);
     vAlignment->addButton(ui->buttonAlignMiddle);
     vAlignment->addButton(ui->buttonAlignBottom);
 
+
+    blockOutline = new BlockTextOutline;
+
+//    ui->numberLineHeight->setValue(15.0);
+    ui->numberFontSize->setValue(12.0);    
+
+    ui->buttonOutline->setIcon(iconManager.icon("text-format-outline"));
+    ui->buttonSubscript->setIcon(iconManager.icon("text-format-subscript"));
+    ui->buttonSuperscript->setIcon(iconManager.icon("text-format-superscript"));
+    ui->buttonStrikeout->setIcon(iconManager.icon("text-format-strikeout"));
+    ui->buttonUnderline->setIcon(iconManager.icon("text-format-underline"));
 
     // Add menu
     addMenu(ui->buttonOutline, blockOutline);

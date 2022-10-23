@@ -19,10 +19,6 @@ StyleListView::StyleListView(QWidget *parent) : QTreeWidget(parent)
 {
 }
 
-// StyleView::~StyleView()
-// {
-// }
-
 void StyleListView::drawRow(QPainter *painter, const QStyleOptionViewItem & option, const QModelIndex & index ) const
 {
     if (index.column() == 0)
@@ -38,21 +34,6 @@ void StyleListView::drawRow(QPainter *painter, const QStyleOptionViewItem & opti
     QTreeView::drawRow(painter, option, index);
 }
 
-// void StyleView::contentsMousePressEvent(QMouseEvent *e)
-// {
-// 	if (e->button() == t::RightButton)
-// 		emit rightButtonClicked(itemAt(e->pos()), e->globalPos(), 0);
-// 	else
-// 		Q3ListView::contentsMousePressEvent(e);
-// }
-
-// void StyleView::contentsMouseDoubleClickEvent(QMouseEvent *e)
-// {
-// 	if (e->button() == Qt::LeftButton)
-// 		emit doubleClicked(itemAt(e->pos()), e->globalPos(), 0);
-// 	else
-// 		Q3ListView::contentsMouseDoubleClickEvent(e);
-// }
 
 /* ********************************************************************************* *
  *
@@ -68,7 +49,7 @@ StyleListViewItem::StyleListViewItem(QTreeWidget *parent, const QString &text)
     setText(0, text);
 }
 
-StyleListViewItem::StyleListViewItem(QTreeWidgetItem *parent, const QString &text, const QString &rootName)
+StyleListViewItem::StyleListViewItem(QTreeWidgetItem *parent, const QString &text, const StyleType &rootName)
     : QTreeWidgetItem(parent),
     m_isRoot(false), m_isDirty(false),
     m_parentName(parent->text(0)), m_rootName(rootName)
@@ -76,17 +57,6 @@ StyleListViewItem::StyleListViewItem(QTreeWidgetItem *parent, const QString &tex
     setText(0, text);
 }
 
-// void StyleViewItem::paintCell(QPainter *p, const QColorGroup &cg, int column, int width, int align)
-// {
-// 	if (column == 0)
-// 	{
-// 		QFont f(p->font());
-// 		f.setBold(isDirty_);
-// 		p->setFont(f);
-// 	}
-//
-// 	Q3ListViewItem::paintCell(p, cg, column, width, align);
-// }
 
 void StyleListViewItem::setDirty(bool isDirty)
 {
@@ -108,12 +78,8 @@ QString StyleListViewItem::parentName()
     return m_parentName;
 }
 
-QString StyleListViewItem::rootName()
+StyleType StyleListViewItem::rootName()
 {
     return m_rootName;
 }
 
-// StyleViewItem::~StyleViewItem()
-// {
-//
-// }

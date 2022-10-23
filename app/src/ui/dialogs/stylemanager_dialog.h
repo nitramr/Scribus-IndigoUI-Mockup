@@ -3,6 +3,8 @@
 
 #include <QDialog>
 
+class QTreeWidgetItem;
+
 namespace Ui {
 class StyleManagerDialog;
 }
@@ -19,6 +21,11 @@ private:
     Ui::StyleManagerDialog *ui;
 
     void setup();
+    void connectSlots();
+
+private slots:
+
+    void changeStyleSelection(QTreeWidgetItem *item);
 
 };
 

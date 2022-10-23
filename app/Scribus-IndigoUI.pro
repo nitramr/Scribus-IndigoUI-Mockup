@@ -46,6 +46,7 @@ INCLUDEPATH += \
     $$PWD/src/ui/imageeffects \
     $$PWD/src/ui/panels \
     $$PWD/src/ui/quicktools \
+    $$PWD/src/ui/stylemanager \
     $$PWD/src/ui/toolbars \
     $$PWD/src/ui/widgets \
     $$PWD/src/ui/widgets/_combobox \
@@ -111,6 +112,8 @@ SOURCES += \
     src/ui/components/component_parentpageselector.cpp \
     src/ui/components/component_spaceinput.cpp \
     src/ui/components/component_documentselector.cpp \
+    src/ui/components/component_text_alignment_horizontal.cpp \
+    src/ui/components/component_text_lineheight.cpp \
     src/ui/delegate/colorlistitem_delegate.cpp \
     src/ui/delegate/documentlistitem_delegate.cpp \
     src/ui/dialogs/colorswatchimport_dialog.cpp \
@@ -153,6 +156,7 @@ SOURCES += \
     src/ui/quicktools/quicktool_preview.cpp \
     src/ui/quicktools/quicktool_snap.cpp \
     src/ui/splashscreen.cpp \
+    src/ui/stylemanager/stylemanager_paragraph.cpp \
     src/ui/toolbars/toolbar_quicktools.cpp \
     src/ui/toolbars/toolbarproperty.cpp \
     src/ui/toolbars/toolbarproperty_arc.cpp \
@@ -273,6 +277,8 @@ HEADERS += \
     src/ui/blocks/block_xyz_location.h \
     src/ui/colorpicker/colorpicker.h \
     src/ui/components/component_documentselector.h \
+    src/ui/components/component_text_alignment_horizontal.h \
+    src/ui/components/component_text_lineheight.h \
     src/ui/delegate/colorlistitem_delegate.h \
     src/ui/delegate/documentlistitem_delegate.h \
     src/ui/delegate/sclistboxpixmap.h \
@@ -316,6 +322,7 @@ HEADERS += \
     src/ui/quicktools/quicktool_preview.h \
     src/ui/quicktools/quicktool_snap.h \
     src/ui/splashscreen.h \
+    src/ui/stylemanager/stylemanager_paragraph.h \
     src/ui/toolbars/toolbar_quicktools.h \
     src/ui/toolbars/toolbarproperty.h \
     src/ui/toolbars/toolbarproperty_arc.h \
@@ -406,6 +413,8 @@ FORMS += \
     src/ui/components/component_parentpageselector.ui \
     src/ui/components/component_spaceinput.ui \
     src/ui/components/component_documentselector.ui \
+    src/ui/components/component_text_alignment_horizontal.ui \
+    src/ui/components/component_text_lineheight.ui \
     src/ui/dialogs/colorswatchimport_dialog.ui \
     src/ui/dialogs/duplicatepage_dialog.ui \
     src/ui/dialogs/importpage_dialog.ui \
@@ -440,7 +449,8 @@ FORMS += \
     src/ui/quicktools/quicktool_level.ui \
     src/ui/quicktools/quicktool_pdftools.ui \
     src/ui/quicktools/quicktool_preview.ui \
-    src/ui/quicktools/quicktool_snap.ui
+    src/ui/quicktools/quicktool_snap.ui \
+    src/ui/stylemanager/stylemanager_paragraph.ui
 
 TRANSLATIONS += \
     Scribus-IndigoUI_en_US.ts

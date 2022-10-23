@@ -161,15 +161,42 @@ enum class PageUnits {
 
 /************************
  *
+ * Styles
+ *
+ * **********************/
+
+enum class StyleType {
+    None = 0,
+    Paragraph = 1,
+    Character = 2,
+    Table = 3,
+    TableCell = 4,
+    Stroke = 5,
+    Note = 6
+
+};
+
+/************************
+ *
  * Text
  *
  * **********************/
+
+enum class TextDirection {
+    LTR = 0,
+    RTL = 1
+};
+
+enum class TextLineSpacing {
+    Fixed = 0,
+    Automatic = 1,
+    AlignToBaseline = 2
+};
 
 enum class TextOnPathType {
     Default = 0,
     StairStep = 1,
     Skew = 2
-
 };
 
 enum class ListType {
